@@ -1,0 +1,23 @@
+{
+  "name": "denethor-ah-frontend",
+  "version": "1.0.0",
+  "description": "## Vision",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/denethor-ah-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela/denethor-ah-frontend/issues"
+  },
+  "homepage": "https://github.com/andela/denethor-ah-frontend#readme",
+  "dependencies": {
+    "enzyme": "^3.9.0",
+    "jest": "^24.1.0"
+  }
+}
