@@ -6,3 +6,59 @@ html, body, body > div, #app > div {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+input {
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  border: 1px solid whitesmoke;
+  border-radius: 0.25rem;
+  font-weight: 300;
+  outline: none;
+  width: $input-size;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 0.5rem auto;
+  width: 13rem;
+  color: white;
+  font-weight: 300;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.button--google {
+  background-color: #fd2c27;
+}
+
+.button--facebook {
+  background-color: #4267b2;
+}
+
+.button--twitter {
+  background-color: #1da1f2;
+}
+
+.button--primary {
+  background-color: #0084cb;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.font-gold {
+  color: $gold;
+}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { BrowserRouter, Switch} from 'react-router-dom';
-import Home from '../src/components/home';
-import Header from '../src/components/header'
+import Home from './components/home';
+import Header from './components/header'
 import Footer from './components/footer'
 
 class Main extends Component {
@@ -24,7 +24,7 @@ class Main extends Component {
         <div>
           <Header handleLogin={this.handleLogin} handleSignup={this.handleSignup} />
           <Switch>
-            <Route exact path="/" render={(props) => <Home {...props} handleSignup={this.handleSignup} side={this.state.bannerScreen} />} />
+            <Route exact path="/" render={(props) => <Home {...props} side={this.state.bannerScreen} handleSignup={this.handleSignup} />} />
           </Switch>
           <Footer />
         </div>

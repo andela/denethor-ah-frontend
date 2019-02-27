@@ -1,0 +1,25 @@
+@import '../../../../../src/styles/base/settings';
+
+.register-block {
+  display: flex;
+  justify-content: center;
+  padding: $m-size 0;
+  font-family: Montserrat-Light
+}
+
+.register-block__form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 $m-size;
+  border-left: 1px solid whitesmoke;
+}
+
+@media (max-width: 60rem) {
+  .register-block__form {
+    border: none;
+  }
+
+  .register-block {
+    flex-direction: column;
+  }
+}
