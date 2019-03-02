@@ -4,7 +4,8 @@
   "description": "## Vision",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest -u --coverage",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "dependencies": {
     "enzyme": "^3.9.0",
     "jest": "^24.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0"
   }
 }
