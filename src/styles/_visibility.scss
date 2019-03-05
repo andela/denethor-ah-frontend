@@ -1,0 +1,17 @@
+// Visibility Medium
+.show-for-medium {
+  display: none;
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 40em) {
+  .hide-for-medium {
+    display: none;
+    visibility: hidden;
+  }
+  .show-for-medium {
+    display: block;
+  }
+}
+
+
