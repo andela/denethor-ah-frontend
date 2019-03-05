@@ -1,0 +1,71 @@
+//colors
+$white: #ffffff;
+$black: #000000;
+$gray: #818181;
+
+.header{
+  background: $white;
+  border-bottom: 0.1em solid $gray;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.logo-container {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+
+  .logo-text {
+    h3 {
+      font-family: SairaCondensed-Regular;
+      margin-left: 0.5em;
+      font-size: 2em;
+    }
+  }
+}
+
+.nav-container {
+  margin-right: 5%;
+  display: flex;
+  align-items: center;
+
+  ul {
+    display: flex;
+    align-items: center;
+
+    li {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 1em;
+      }
+  }
+}
+
+  a.signup-link, a.login-link {
+    text-decoration: none;
+    color: $gray;
+    font-size: 1.5em;
+  }
+
+  .mobile-header {
+    display: none
+  }
+
+  @media all and (max-width:550px) and (min-width:0px) {
+    .logo-container, .nav-container {
+      display: none;
+    }
+    
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .mobile-header-text {
+        font-family: SairaCondensed-Regular;
+        font-size: 2em;
+      }
+    }
+  }

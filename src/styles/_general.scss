@@ -1,0 +1,65 @@
+.banner-section {
+  height: 30em;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+  .banner-image {
+    height: 100%;
+    position: absolute;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.banner-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  padding-top: 3em;
+  line-height: 2em;
+}
+
+.banner-content-title {
+  color: white;
+  font-family: Montserrat-Bold;
+  font-size: 1.5em;
+  margin-bottom: 2.5em;
+}
+
+.transparent-overlay {
+  position: absolute;
+  background-color: $dark-transparency-level-2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rounded-image {
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid white;
+}
+
+.article-header-username {
+  font-family: Montserrat-Bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+.avatar-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
