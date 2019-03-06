@@ -2,7 +2,10 @@
 @import '../../../styles/base/settings';
 
 .banner {
-  @include overlay-background(0.5, '/assets/images/banner.png');
+  * {
+    color: white;
+  }
+  @include overlay-background(0.5, '/assets/img/banner.png');
   background-size: cover;
   background-repeat: no-repeat;
   display: grid;
@@ -31,7 +34,7 @@
   }
 
   > div h1:last-of-type {
-    font-family: 'Century-Gothic-Bold';
+    font-family: 'Century-Gothic-Bold' !important;
   }
   
   > div {
@@ -106,7 +109,7 @@
   }
 
   .banner__slogan {
-    @include overlay-background(0.5, '/assets/images/banner-mobile.jpg');
+    @include overlay-background(0.5, '/assets/img/banner-mobile.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;

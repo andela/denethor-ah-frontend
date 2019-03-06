@@ -5,6 +5,7 @@ html, body, body > div, #app > div {
 #app > div {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  font-family: Montserrat-Light, Helvetica, Arial, sans-serif;
 }
 
 button {

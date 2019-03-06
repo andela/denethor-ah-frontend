@@ -5,3 +5,4 @@ dist/
 public/bundle*
 public/style*
 .DS_Store
+src/.DS_Store

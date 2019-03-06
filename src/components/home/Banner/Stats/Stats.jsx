@@ -1,18 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './styles.scss';
 
+const defaultProps = {
+  writers: 100000,
+  readers: 344555,
+  topAuthors: [{
+    imageUrl: '/assets/img/author1.png',
+    firstName: 'Omoefe',
+    articles: 674,
+    followers: 783
+  }, {
+    imageUrl: '/assets/img/author2.png',
+    firstName: 'Ibidapo',
+    articles: 60,
+    followers: 45
+  }]
+};
 
-export const Stats = (props) => {
+const Stats = (props) => {
+  if(!props.writers) {
+    props = defaultProps;
+  }
 
   const { writers, readers, topAuthors: [author1, author2] } = props;
 
-  const topAuthor = ({imageUrl, firstname, articlesWritten, followers }) => (
+  const topAuthor = ({imageUrl, firstName, articles, followers }) => (
     <div className="author">
-      <img src={imageUrl} alt={firstname} />
+      <img src={imageUrl} alt={firstName} />
       <div>
-        <h3>{firstname}</h3>
-        <p><span className="banner__yellow-text">{`${articlesWritten}+`}</span> articles</p>
+        <h3>{firstName}</h3>
+        <p><span className="banner__yellow-text">{`${articles}+`}</span> articles</p>
         <p><span className="banner__yellow-text">{`${followers}+`}</span> followers</p>
       </div>
     </div>
@@ -21,13 +38,11 @@ export const Stats = (props) => {
   return (
       <div className="stats">
         <div className="stats__numbers stats__numbers--writers">
-          <div>
-            <h2 className="banner__off-white-text">Connect with</h2>
-            <h2>
-              <span className="banner__yellow-text">{`${writers}+ `}</span>
-              <span className="banner__off-white-text">writers</span>
-            </h2>
-          </div>
+          <h2 className="banner__off-white-text">Connect with</h2>
+          <h2>
+            <span className="banner__yellow-text">{`${writers}+ `}</span>
+            <span className="banner__off-white-text">writers</span>
+          </h2>
         </div>
         <div className="stats__top-authors">
           <div>
@@ -39,22 +54,14 @@ export const Stats = (props) => {
           </div>
         </div>
         <div className="stats__numbers stats__numbers--readers">
-          <div>
-            <h2 className="banner__off-white-text">Publish to</h2>
-            <h2>
-              <span className="banner__yellow-text">{`${readers}+ `} </span>
-              <span className="banner__off-white-text">readers</span>
-            </h2>
-          </div>
+          <h2 className="banner__off-white-text">Publish to</h2>
+          <h2>
+            <span className="banner__yellow-text">{`${readers}+ `} </span>
+            <span className="banner__off-white-text">readers</span>
+          </h2>
         </div>
       </div>
   );
 };
 
-const mapStateToProps = ({ users }) => ({
-  writers: 12545,
-  readers: 63843456,
-  topAuthors: users.filter(({ id }) => (id === 'top1' || id === 'top2'))
-});
-
-export default connect(mapStateToProps)(Stats);
+export default Stats;

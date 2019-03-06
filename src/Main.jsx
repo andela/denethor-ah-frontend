@@ -23,12 +23,12 @@ class Main extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Header handleLogin={this.handleLogin} handleSignup={this.handleSignup}/>
+          <Route render={(props) => <Header {...props} handleLogin={this.handleLogin} handleSignup={this.handleSignup}/>} />
           <Switch>
             <Route exact path="/" render={() => <Home handleSignup={this.handleSignup} side={this.state.bannerScreen} />} />
             <Route path="/articles/1" component={ArticlePage} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
     );
