@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+
 import logo from '../../images/ah-logo.svg';
 import searchIcon from '../../images/search-icon.svg';
 import './styles.scss';
@@ -50,6 +52,10 @@ export const Header = ({ history }) => {
       </div>
     </div>
   )
+};
+
+Header.propTypes={
+  history: PropTypes.object
 }
 
 export default withRouter(Header);

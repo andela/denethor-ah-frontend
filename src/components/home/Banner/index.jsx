@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import Stats from './Stats/Stats';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import './styles.scss';
-import "react-toastify/dist/ReactToastify.css";
 
 const sides = {
-  Stats, Signup, Login
+  Stats,
+  Signup,
+  Login
 };
 
 export const Banner = ({ bannerScreen: side, history }) => {
@@ -35,6 +38,11 @@ export const Banner = ({ bannerScreen: side, history }) => {
       </div>
     </div>
   );
-};
+}
+
+Banner.propTypes={
+  bannerScreen: PropTypes.string,
+  history: PropTypes.object
+}
 
 export default withRouter(Banner);

@@ -42,7 +42,8 @@ InputSection.propTypes = {
     ]),
     onKeyUp: PropTypes.func,
     onBlur: PropTypes.func,
-    onFocus: PropTypes.func
+    onFocus: PropTypes.func,
+    onKeyPress: PropTypes.func
 };
 
 export default InputSection;

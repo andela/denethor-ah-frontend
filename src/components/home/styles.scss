@@ -1,0 +1,18 @@
+.banner__screen__slide {
+  opacity: 0.01;
+  transform: scale(0.5) translateX(50%);
+}
+.banner__screen__slide-active {
+  opacity: 1;
+  transform: scale(1) translateX(0%);
+  transition: all 400ms ease-in-out;
+}
+.banner__screen__slide-exit {
+  opacity: 1;
+  transform: scale(1) translateX(0%);
+}
+.banner__screen__slide-exit-active {
+  opacity: 0.01;
+  transform: scale(0.5) translateX(50%);
+  transition: all 400ms ease-in-out;
+}

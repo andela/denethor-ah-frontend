@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import NavTab from '../navTabs';
 import InputSection from '../inputSection';
 import logo from '../../images/ah-logo.svg';
@@ -30,5 +32,10 @@ const Footer = ({ onChange, onKeyPress }) => (
     </div>
   </footer>
 );
+
+Footer.propTypes={
+  onChange: PropTypes.func,
+  onKeyPress: PropTypes.func
+}
 
 export default Footer;

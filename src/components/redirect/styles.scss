@@ -1,7 +1,9 @@
 .redirect-page {
   height: 100rem;
   .spinner-container-redirect-page {
-    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/banner.png');
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/img/banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     height: 100%;
@@ -10,7 +12,7 @@
     position: fixed;
     z-index: 9999;
     .spinner--redirect-page {
-      background: url('/assets/images/ah-logo.svg');
+      background: url('/assets/img/ah-logo.svg');
       background-size: cover;
       background-repeat: no-repeat;
       display: block;
