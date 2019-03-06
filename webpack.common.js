@@ -1,7 +1,8 @@
-const path = require('path');
+import path from 'path';
+import ExtractTextPlugin from 'mini-css-extract-plugin';
 
-module.exports = {
-  entry: './src/index.js',
+export default {
+  entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -28,7 +29,19 @@ module.exports = {
       }, 
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader',
+          ExtractTextPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+        }, {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -44,11 +57,9 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    historyApiFallback: true
-  },
+  plugins: [
+    new ExtractTextPlugin({ filename: 'styles.css' })
+  ],
   resolve: {
     extensions: ['.jsx', '.js', '.png', '.svg', '.ico', '.jpg']
   }

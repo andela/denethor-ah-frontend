@@ -1,5 +1,8 @@
 // spacing
-
+$s-size: 1rem;
+$m-size: 2rem;
+$l-size: 3rem;
+$xl-size: 4rem;
 
 @mixin overlay-background($overlay, $image: false) {
   @if ($image) {

@@ -38,11 +38,13 @@ const Stats = (props) => {
   return (
       <div className="stats">
         <div className="stats__numbers stats__numbers--writers">
-          <h2 className="banner__off-white-text">Connect with</h2>
-          <h2>
-            <span className="banner__yellow-text">{`${writers}+ `}</span>
-            <span className="banner__off-white-text">writers</span>
-          </h2>
+          <div>
+            <h2 className="banner__off-white-text">Connect with</h2>
+            <h2>
+              <span className="banner__yellow-text">{`${writers}+ `}</span>
+              <span className="banner__off-white-text">writers</span>
+            </h2>
+          </div>
         </div>
         <div className="stats__top-authors">
           <div>
@@ -54,11 +56,13 @@ const Stats = (props) => {
           </div>
         </div>
         <div className="stats__numbers stats__numbers--readers">
-          <h2 className="banner__off-white-text">Publish to</h2>
-          <h2>
-            <span className="banner__yellow-text">{`${readers}+ `} </span>
-            <span className="banner__off-white-text">readers</span>
-          </h2>
+          <div>
+            <h2 className="banner__off-white-text">Publish to</h2>
+            <h2>
+              <span className="banner__yellow-text">{`${readers}+ `} </span>
+              <span className="banner__off-white-text">readers</span>
+            </h2>
+          </div>
         </div>
       </div>
   );
