@@ -1,11 +1,12 @@
 import React from 'react';
+import Banner from './Banner';
 import './styles.scss';
 
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="home">
-      <h3>Welcome to Author&apos;s Haven</h3>
+      <Banner side={props.side} handleSignup={props.handleSignup} />
     </div>
   )
 }

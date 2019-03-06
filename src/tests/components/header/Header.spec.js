@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Header  from "../../../components/header/Header";
 import { BrowserRouter, Switch} from 'react-router-dom';
-// import { shallow } from 'enzyme'
 
 describe("Header component", () => {
  

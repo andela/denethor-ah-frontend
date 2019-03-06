@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render banner with stats correctly 1`] = `
+<div
+  className="banner"
+>
+  <div
+    className="banner__slogan"
+  >
+    <div>
+      <h1
+        className="banner__yellow-text hidden-on-mobile"
+      >
+        The place 
+        <br />
+         writers love...
+      </h1>
+      <h1>
+        <span
+          className="banner__yellow-text-mobile"
+        >
+          Great writers,
+        </span>
+        <br />
+        Quality Content
+      </h1>
+      <button>
+        Get Started
+      </button>
+    </div>
+  </div>
+  <div
+    className="banner__screen"
+  >
+    <Stats />
+  </div>
+</div>
+`;

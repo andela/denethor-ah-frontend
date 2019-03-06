@@ -8,7 +8,7 @@ $gray: #818181;
   border-bottom: 0.1em solid $gray;
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+  padding: 0.8em;
 }
 
 .logo-container {
@@ -18,9 +18,10 @@ $gray: #818181;
 
   .logo-text {
     h3 {
-      font-family: SairaCondensed-Regular;
-      margin-left: 0.5em;
-      font-size: 2em;
+      font-family: 'SairaCondensed-Regular';
+      margin-left: 0.4em;
+      font-size: 1.6em;
+      letter-spacing: 0.16rem;
     }
   }
 }
@@ -37,16 +38,19 @@ $gray: #818181;
     li {
         display: flex;
         justify-content: space-around;
-        margin-left: 1em;
+        margin-left: 0.8em;
       }
   }
-}
 
-  a.signup-link, a.login-link {
+  button.signup-link, button.login-link {
+    background: inherit;
+    border: none;
     text-decoration: none;
     color: $gray;
-    font-size: 1.5em;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 1.2em;
   }
+}
 
   .mobile-header {
     display: none
@@ -64,8 +68,11 @@ $gray: #818181;
       width: 100%;
 
       .mobile-header-text {
-        font-family: SairaCondensed-Regular;
-        font-size: 2em;
+        font-family: 'SairaCondensed-Regular';
+        font-size: 1.6em;
+        h3 {
+          margin: 0.5rem 0;
+        }
       }
     }
   }

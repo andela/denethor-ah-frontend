@@ -14,7 +14,7 @@ module.exports = {
         use: ['babel-loader']
       }, 
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -48,5 +48,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true
+  },
+  resolve: {
+    extensions: ['.jsx', '.js', '.png', '.svg', '.ico', '.jpg']
   }
 };

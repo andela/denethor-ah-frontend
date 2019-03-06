@@ -1,0 +1,29 @@
+.nav-tabs {
+  font-family: Montserrat-Bold;
+  font-weight: 800;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  }
+  .nav-tabs a {
+    margin-right:3%;
+    text-decoration: none;
+  }
+  .nav-tabs a:not(.nav-tabs__signup):not(.nav-tabs__login) {
+    color: #FFFFFF;
+  }
+  .nav-tabs__signup,.nav-tabs__login {
+    color: #FBE15D;
+  }
+
+  @media all and (max-width: 480px) {
+    .nav-tabs { display: none; }
+  }
+  @media all and (min-width: 480px) and ( max-width: 1024px) {
+    .nav-tabs {
+      font-weight: 800;
+      font-size: 100%;
+    }
+  }
+  

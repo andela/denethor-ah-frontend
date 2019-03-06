@@ -1,8 +1,9 @@
-* {
-  font-family: Montserrat-Light, Helvetica, Arial, sans-serif;
-  font-size: $s-size;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
