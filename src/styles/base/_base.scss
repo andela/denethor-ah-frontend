@@ -53,6 +53,13 @@ input {
   background-color: #0084cb;
 }
 
+.button--search {
+  background: $gold;
+  height: 3rem;
+  width: 5rem;
+  margin: 0;
+}
+
 .red-bg {
   border: 1px solid red;
   background: #fed;
@@ -60,9 +67,12 @@ input {
 
 .flex {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100%; 
+
+  
 }
 
 .font-gold {
@@ -77,4 +87,12 @@ input {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+
+@media (max-width: 60rem) {
+  .w-30 {
+    width: 80%
+  }
 }

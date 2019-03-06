@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Stats from '../../../../../components/home/Banner/Stats/Stats';
+import Stats from '../../../../../components/home/banner/stats/Stats';
 import users from '../../../../mock-data/users'
 
 it('Should render stats component correctly', () => {

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render search form 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Search for articles..."
+    type="text"
+    value=""
+  />
+  <div
+    className="flex filter-section"
+  >
+    <span>
+      Filter
+    </span>
+    <StateManager
+      defaultInputValue=""
+      defaultMenuIsOpen={false}
+      defaultValue={null}
+      isClearable={true}
+      onChange={[Function]}
+      options={Array []}
+      placeholder="Authors"
+      value=""
+    />
+    <StateManager
+      defaultInputValue=""
+      defaultMenuIsOpen={false}
+      defaultValue={null}
+      isClearable={true}
+      onChange={[Function]}
+      options={Array []}
+      placeholder="Tags"
+      value=""
+    />
+    <button
+      className="button button--search"
+    >
+      Search
+    </button>
+  </div>
+</form>
+`;

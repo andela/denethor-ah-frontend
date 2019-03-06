@@ -45,7 +45,7 @@ export const Header = ({ history }) => {
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
-        <div className="mobile-header-search-icon"><img src='assets/img/search-icon.svg' alt="Mobile view search icon"/></div>
+        <div className="mobile-header-search-icon"><img src='/assets/img/search-icon.svg' alt="Mobile view search icon"/></div>
       </div>
     </div>
   )

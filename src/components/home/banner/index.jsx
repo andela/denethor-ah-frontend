@@ -3,9 +3,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Stats from './Stats/Stats';
-import Signup from './Signup/Signup';
-import Login from './Login/Login';
+import Stats from './stats/Stats';
+import Signup from './signup/Signup';
+import Login from './login/Login';
 import './styles.scss';
 
 const sides = {

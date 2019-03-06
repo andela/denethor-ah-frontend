@@ -99,7 +99,7 @@ exports[`it renders correctly as a static component 1`] = `
     >
       <img
         alt="Mobile view search icon"
-        src="assets/img/search-icon.svg"
+        src="/assets/img/search-icon.svg"
       />
     </div>
   </div>
