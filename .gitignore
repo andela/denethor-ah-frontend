@@ -1,10 +1,7 @@
 node_modules
 coverage
-<<<<<<< HEAD
 dist/
 **/.DS_Store
 public/bundle*
 public/style*
-=======
 .DS_Store
->>>>>>> feat(Footer)Create Footer Component

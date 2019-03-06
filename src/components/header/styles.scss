@@ -52,27 +52,27 @@ $gray: #818181;
   }
 }
 
-  .mobile-header {
-    display: none
+.mobile-header {
+  display: none
+}
+
+@media all and (max-width:550px) and (min-width:0px) {
+  .logo-container, .nav-container {
+    display: none;
   }
+  
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-  @media all and (max-width:550px) and (min-width:0px) {
-    .logo-container, .nav-container {
-      display: none;
-    }
-    
-    .mobile-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-
-      .mobile-header-text {
-        font-family: 'SairaCondensed-Regular';
-        font-size: 1.6em;
-        h3 {
-          margin: 0.5rem 0;
-        }
+    .mobile-header-text {
+      font-family: 'SairaCondensed-Regular';
+      font-size: 1.6em;
+      h3 {
+        margin: 0.5rem 0;
       }
     }
   }
+}

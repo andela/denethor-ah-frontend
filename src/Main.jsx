@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { BrowserRouter, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
-import Header from './components/header'
-import Footer from './components/footer'
+import ArticlePage from './components/ArticlePage';
+import Header from './components/header';
+import Footer from './components/footer';
+
 
 class Main extends Component {
   state = {
@@ -22,9 +23,10 @@ class Main extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Header handleLogin={this.handleLogin} handleSignup={this.handleSignup} />
+          <Header handleLogin={this.handleLogin} handleSignup={this.handleSignup}/>
           <Switch>
-            <Route exact path="/" render={(props) => <Home {...props} side={this.state.bannerScreen} handleSignup={this.handleSignup} />} />
+            <Route exact path="/" render={() => <Home handleSignup={this.handleSignup} side={this.state.bannerScreen} />} />
+            <Route path="/articles/1" component={ArticlePage} />
           </Switch>
           <Footer />
         </div>
