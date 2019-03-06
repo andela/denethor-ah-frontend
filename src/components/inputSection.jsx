@@ -5,6 +5,7 @@ const InputSection = ({
     id,
     placeHolder,
     onChange,
+    onKeyPress,
     type,
     className,
     Ref,
@@ -19,6 +20,7 @@ const InputSection = ({
       id={id}
       required
       onChange={onChange}
+      onKeyPress={onKeyPress}
       placeholder={placeHolder}
       ref={Ref}
       name={name}
