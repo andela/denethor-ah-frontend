@@ -1,0 +1,23 @@
+// spacing
+
+
+@mixin overlay-background($overlay, $image: false) {
+  @if ($image) {
+    background-image: linear-gradient(0deg, rgba(0,0,0,$overlay), rgba(0,0,0,$overlay)), url($image);
+  } @else {
+    background-image: linear-gradient(0deg, rgba(0,0,0,$overlay), rgba(0,0,0,$overlay));
+  }
+}
+
+@mixin reset() {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
