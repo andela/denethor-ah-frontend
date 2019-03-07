@@ -10,12 +10,14 @@
   display: flex;
   height: 100%;
   justify-content: center;
-  left: 6rem;
   position: absolute;
   top: 0;
+  width: 50%;
   > div {
     display: grid;
     grid-template-rows: 1fr 2fr;
+    position: relative;
+    left: 7.25%;
     > div {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -29,11 +31,21 @@
 }
 
 .stats__numbers {
+  align-items: center;
+  display: flex;
   font-size: 1.28rem;
-  margin-right: 10rem;
+  height: 50%;
+  justify-content: center;
   position: absolute;
   right: 0;
   text-align: center;
+  width: 50%;
+
+  > div {
+    position: relative;
+    right: 7.25%;
+  }
+
   h2 {
     margin: 0;
     padding: 0;
@@ -53,13 +65,20 @@
 }
 
 .stats__numbers--writers {
-  top: 7.2rem;
-  border-bottom: 0.1rem solid white;
-  padding-bottom: 1.28rem;
+  align-items: flex-end;
+  top: 0;
+  div {
+    border-bottom: 0.1rem solid white;
+    padding-bottom: 1.28rem;
+  }
 }
 
 .stats__numbers--readers {
-  bottom: 5.12rem;
+  align-items: baseline;
+  bottom: 0;
+    div {
+      padding-top: 1.28rem;
+    }
 }
 
 .author {
@@ -86,53 +105,47 @@
   }
 }
 
-@media (max-width: 1300px) {
-  .stats__top-authors {
-    left: 0rem;
-  }
-
-  .stats__numbers {
-    margin-right: 4rem;
-  }
-}
-
 @media (max-width: 1150px) {
-  .stats__top-authors {
-    position: static;
-  
-    .author {
-      padding-top: 0;
-    }
-
-    > div h1 {
-      font-size: 2rem;
-      margin-bottom: 0;
+  .stats {
+    * {
+      width: auto;
     }
   }
-
+  
   .stats__numbers {
     font-size: 1.2rem;
-    margin-right: 4rem;
-  }
-
-  .stats__numbers {
     position: static;
     margin: 0;
     padding: 1rem 0;
+    > div {
+      border: none;
+      padding: 0;
+      position: static;
+    }
   }
-
+  
   .stats__numbers--writers {
     border-bottom: 0.1rem solid darken(white, 50%);
   }
-
+  
   .stats__numbers--readers {
     border-top: 0.1rem solid darken(white, 50%);
   }
-}
 
-@media (max-width: 1080px) {
-  .stats__top-authors > div h1 {
-    font-size: 1.6rem;
+  .stats__top-authors {
+    position: static;
+
+    .author {
+      padding-top: 0;
+    }
+    > div {
+      position: static;
+    }
+
+    > div h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -141,19 +154,24 @@
     * {
       @include reset();
     }
+    margin: 0 auto;
+    width: 60%;
   }
   .stats__top-authors {
     display: block;
     height: auto;
-    margin: 1.6rem 0 1.6rem 0;
     position: static;
     div {
       display: block;
+      position: static;
     }
     .stats__top-authors__authors {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
+      p {
+        font-size: 1rem;
+      }
     }
   }
   
@@ -163,7 +181,11 @@
     padding: 0;
     position: static;
     text-align: center;
-    padding: 2.4rem 0 2.4rem 0
+    margin: 2.4rem 0 2.4rem 0;
+    > div {
+      margin: 0 auto;
+      position: static;
+    }
   }
 
   .stats__numbers--writers {

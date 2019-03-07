@@ -74,19 +74,6 @@
 
 @media (max-width: 1150px) {
   .banner {
-    grid-template-columns: 3fr 4fr;
-    padding: 1.6rem;
-  }
-  .banner__slogan {
-    > div h1 {
-      font-size: 2.4rem;
-      padding-right: 0.8rem;
-    }
-  }
-}
-
-@media (max-width: 1080px) {
-  .banner {
     grid-template-columns: 5fr 5fr;
     padding: 1.6rem;
   }
@@ -133,7 +120,6 @@
   .banner__screen {
     background-image: none;
     border-radius: 0;
-    padding: 0 3.2rem 0 3.2rem;
     position: static;
   }
 

@@ -1,9 +1,8 @@
-html {
+html, body, body > div, #app > div {
   height: 100%;
 }
 
-body {
-  height: 100%;
+#app > div {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }

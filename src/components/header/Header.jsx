@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import logo from '../../../public/assets/img/ah-logo.svg';
 import searchIcon from '../../../public/assets/img/search-icon.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -48,4 +48,4 @@ const Header = ({ handleLogin, handleSignup, history }) => {
   )
 }
 
-export default Header;
+export default withRouter(Header);
