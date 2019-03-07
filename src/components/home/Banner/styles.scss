@@ -72,7 +72,7 @@
   border-radius: 0.5rem;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 60rem) {
   .banner {
     grid-template-columns: 5fr 5fr;
     padding: 1.6rem;
@@ -86,7 +86,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 40rem) {
   .banner {
     background: inherit;
     display: block;

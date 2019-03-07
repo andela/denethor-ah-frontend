@@ -1,35 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './styles.scss';
 
-const defaultProps = {
-  writers: 100000,
-  readers: 344555,
-  topAuthors: [{
-    imageUrl: '/assets/images/author1.png',
-    firstName: 'Omoefe',
-    articles: 674,
-    followers: 783
-  }, {
-    imageUrl: '/assets/images/author2.png',
-    firstName: 'Ibidapo',
-    articles: 60,
-    followers: 45
-  }]
-};
 
-const Stats = (props) => {
-  if(!props.writers) {
-    props = defaultProps;
-  }
+export const Stats = (props) => {
 
   const { writers, readers, topAuthors: [author1, author2] } = props;
 
-  const topAuthor = ({imageUrl, firstName, articles, followers }) => (
+  const topAuthor = ({imageUrl, firstname, articlesWritten, followers }) => (
     <div className="author">
-      <img src={imageUrl} alt={firstName} />
+      <img src={imageUrl} alt={firstname} />
       <div>
-        <h3>{firstName}</h3>
-        <p><span className="banner__yellow-text">{`${articles}+`}</span> articles</p>
+        <h3>{firstname}</h3>
+        <p><span className="banner__yellow-text">{`${articlesWritten}+`}</span> articles</p>
         <p><span className="banner__yellow-text">{`${followers}+`}</span> followers</p>
       </div>
     </div>
@@ -68,4 +51,10 @@ const Stats = (props) => {
   );
 };
 
-export default Stats;
+const mapStateToProps = ({ users }) => ({
+  writers: 12545,
+  readers: 63843456,
+  topAuthors: users.filter(({ id }) => (id === 'top1' || id === 'top2'))
+});
+
+export default connect(mapStateToProps)(Stats);

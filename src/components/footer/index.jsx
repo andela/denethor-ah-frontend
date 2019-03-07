@@ -1,7 +1,8 @@
 import React from 'react';
 import NavTab from '../navTabs';
 import InputSection from '../inputSection';
-import logo from '../../../public/assets/img/ah-logo.svg'
+import logo from '../../images/ah-logo.svg';
+import './index.scss';
 
 const Footer = () => (
   <footer>
