@@ -1,0 +1,206 @@
+$white: #ffffff;
+$black: #000000;
+$gray: #818181;
+$dark_white: darken(white, 30%);
+$light_white: #FFFDFD;
+
+.feed-bottom-large-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+}
+
+.feed-bottom-container-small {
+  display: flex;
+  padding-bottom: .9rem;
+  padding-right: 1rem;
+}
+
+.feed-bottom-large-card-container-image {
+  width: 100%;
+  min-width: 15rem;
+  height: 20rem;
+  border-radius: 1em;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 80%), url('/assets/img/blur-charge-close-up-256302.jpg');
+  background-size: cover;
+  position: relative;
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.feed-bottom-container__small_image {
+  width: 12rem;
+  height: 6rem;
+  border-radius: 1em;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 80%), url('/assets/img/hands-join.jpg');
+  background-size: cover;
+}
+
+
+.feed-bottom-container__large_image_info-container {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  color: $white;
+  padding: 10%;
+}
+
+.feed-bottom-container__small_image_info-container {
+  height: 7rem;
+  padding-left: 1rem;
+  font-family: 'Montserrat-Light';
+  margin: 0.4rem 0 0.7rem;
+  font-size: 0.8rem;
+
+  h3 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  p {
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+}
+
+.feed-bottom-container__large_image__info-published-date, .feed-bottom-container__small_image__info-published-date {
+  color: $dark_white;
+  font-size: 0.9em;
+  margin-bottom: 0.7em;
+}
+
+.feed-bottom-container__article-description {
+  font-size: 0.9em;
+  font-family: 'Montserrat-ExtraLight';
+  font-style: normal;
+  line-height: 1.6rem;
+}
+
+.feed-bottom-container__large_image__info-minutes-read, .feed-bottom-container__small_image__info-minutes-read {
+  color: $dark_white;
+  font-size: 0.9em;
+}
+
+.feed-bottom-container__large_image__info-header {
+  margin: 0;
+  font-family: 'Montserrat-Medium'
+}
+
+.feed-bottom-container__small_image__info-header {
+  margin: 0;
+  font-family: 'Montserrat-Medium';
+  font-weight: bold
+}
+
+.feed-container-article-block {
+  margin-right: 5%;
+}
+
+.feed-bottom{
+  display: flex;
+  padding-top: 3%;
+}
+
+.feed-bottom-section {
+  max-width: 70rem;
+  margin: auto;
+  padding: 3rem 5rem 0 5rem; 
+}
+.feed-bottom-side {
+  display: flex;
+  flex: 2;
+  padding-left: 4rem;
+  width: 100%;
+}
+
+.feed-bottom-container-small-card {
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.top-categories-header {
+  display: flex;
+  font-family: 'Montserrat-Bold';
+}
+
+.nav-container-feed-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0px -1px 0px 0px lighten($gray, 30) inset;
+
+  ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid darken(yellow, 5);
+        padding: 1rem 0.8rem 1rem 0;
+
+        a{
+          text-decoration: none;
+          font-family: 'Montserrat-SemiBold';
+          color: $gray;
+        }
+
+        &.active {
+          border-bottom: 1px solid $white;
+          padding: 1rem;
+        }
+      }
+  }
+}
+
+@media all and (max-width:720px) and (min-width:0px) {
+  .feed-container-article-block-second, .feed-bottom-container__article-description {
+    display: none;
+  }
+
+  .feed-bottom-large-card-container{
+    width: 100%;
+  }
+
+  .feed-bottom {
+    display:flex;
+    flex-direction: column;
+    height: 60rem;
+  }
+  .nav-container-feed-bottom {
+    display: flex;
+    flex-direction: column;
+    ul {
+      padding: 0;
+      li {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 0;
+      }
+    }
+   
+  }
+  .top-categories-header {
+    display: flex;
+    border-bottom: 1px solid darken(yellow, 5);
+    align-self: flex-start;
+  }
+  .feed-bottom-large-card-container-image {
+    height: 20rem;
+  }
+
+  .feed-bottom-section {
+    padding: 3rem 5rem 0 5rem;
+  }
+  .feed-bottom-side {
+    padding-left: 0;
+  }
+
+  .nav-items {
+    border-bottom: 2px solid $gray;
+  }
+}
