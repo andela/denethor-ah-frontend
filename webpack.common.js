@@ -55,6 +55,11 @@ export default {
   plugins: [
     new ExtractTextPlugin({ filename: 'styles.css' })
   ],
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true
+  },
   resolve: {
     extensions: ['.jsx', '.js', '.png', '.svg', '.ico', '.jpg']
   }
