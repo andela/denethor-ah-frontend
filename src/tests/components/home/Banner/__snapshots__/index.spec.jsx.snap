@@ -34,7 +34,18 @@ exports[`Should render banner with login correctly 1`] = `
   <div
     className="banner__screen"
   >
-    <_default />
+    <CSSTransitionGroup
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={500}
+      transitionLeave={true}
+      transitionLeaveTimeout={400}
+      transitionName="background"
+    >
+      <_default
+        key="Login"
+      />
+    </CSSTransitionGroup>
   </div>
 </div>
 `;
@@ -73,7 +84,18 @@ exports[`Should render banner with signup correctly 1`] = `
   <div
     className="banner__screen"
   >
-    <_default />
+    <CSSTransitionGroup
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={500}
+      transitionLeave={true}
+      transitionLeaveTimeout={400}
+      transitionName="background"
+    >
+      <_default
+        key="Signup"
+      />
+    </CSSTransitionGroup>
   </div>
 </div>
 `;
@@ -112,7 +134,18 @@ exports[`Should render banner with stats correctly 1`] = `
   <div
     className="banner__screen"
   >
-    <Connect(Stats) />
+    <CSSTransitionGroup
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={500}
+      transitionLeave={true}
+      transitionLeaveTimeout={400}
+      transitionName="background"
+    >
+      <Connect(Stats)
+        key="Stats"
+      />
+    </CSSTransitionGroup>
   </div>
 </div>
 `;

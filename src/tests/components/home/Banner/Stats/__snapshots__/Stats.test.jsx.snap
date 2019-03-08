@@ -17,7 +17,7 @@ exports[`Should render stats component correctly 1`] = `
         <span
           className="banner__yellow-text"
         >
-          undefined+ 
+          1000+ 
         </span>
         <span
           className="banner__off-white-text"
@@ -115,7 +115,7 @@ exports[`Should render stats component correctly 1`] = `
         <span
           className="banner__yellow-text"
         >
-          undefined+ 
+          566+ 
            
         </span>
         <span

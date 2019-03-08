@@ -2,7 +2,9 @@
 
 .stats {
   height: 100%;
+  width: 100%;
   position: relative;
+  z-index: 1;
 }
 
 .stats__top-authors {
@@ -13,6 +15,8 @@
   position: absolute;
   top: 0;
   width: 50%;
+  color: white;
+  
   > div {
     display: grid;
     grid-template-rows: 1fr 2fr;

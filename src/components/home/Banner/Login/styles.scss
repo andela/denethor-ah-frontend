@@ -1,0 +1,81 @@
+@import '../../../../../src/styles/style.scss';
+
+.social-login-block {
+  display: flex;
+  flex-direction: column;
+  padding: 0 $m-size;
+}
+
+.social-login-block > p {
+  margin: $s-size 0;
+  color: white;
+}
+
+.login-block {
+  display: flex;
+  justify-content: center;
+  padding: $m-size 0;
+  font-family: Montserrat-Light;
+}
+
+.login-block__form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 $m-size;
+  border-left: 1px solid whitesmoke;
+}
+
+.login-block__form {
+  justify-content: flex-end;
+}
+
+.social-login-block-mobile {
+  display: none
+}
+
+@media (max-width: 60rem) {
+  .login-block__form {
+    border: none;
+  }
+
+  .social-login-block-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.5rem;
+  }
+
+  .social-login-block-mobile__caption {
+    font-size: $s-size;
+    color: white;
+  }
+
+  .social-login-block-mobile__buttons {
+    display: flex;
+    align-items: center;
+
+    > button {
+    height: 45px;
+    width: 45px;
+    margin: auto $s-size;
+    border-radius: 50%;
+    background-color: white;
+
+      > svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .social-login-block {
+    display: none;
+  }
+
+  .login-block {
+    flex-direction: column;
+  }
+
+  .login-block__form {
+    border: none;
+  }
+}
