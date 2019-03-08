@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import logo from '../../../public/assets/img/ah-logo.svg';
 import searchIcon from '../../../public/assets/img/search-icon.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../images/ah-logo.svg';
 import './styles.scss';
 
 library.add(faBars);
 
-const Header = ({ handleLogin, handleSignup, history }) => {
+export const Header = ({ handleLogin, handleSignup, history }) => {
   const handleNavSignup = () => {
     if(history.location.pathname === '/') {
       handleSignup();
