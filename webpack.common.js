@@ -1,5 +1,9 @@
+import dotenv from 'dotenv';
 import path from 'path';
+import webpack from 'webpack';
 import ExtractTextPlugin from 'mini-css-extract-plugin';
+
+dotenv.config();
 
 export default {
   entry: './src/index.jsx',
@@ -53,7 +57,10 @@ export default {
     ]
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'styles.css' })
+    new ExtractTextPlugin({ filename: 'styles.css' }),
+    new webpack.EnvironmentPlugin([
+      'API_ROOT_URL'
+    ])
   ],
   devtool: 'cheap-module-eval-source-map',
   devServer: {

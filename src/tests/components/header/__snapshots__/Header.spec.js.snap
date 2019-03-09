@@ -4,25 +4,29 @@ exports[`it renders correctly as a static component 1`] = `
 <div
   className="header"
 >
-  <div
-    className="logo-container"
+  <button
+    onClick={[Function]}
   >
     <div
-      className="logo-image"
+      className="logo-container"
     >
-      <img
-        alt="Author's haven logo"
-        src="ah-logo.svg"
-      />
+      <div
+        className="logo-image"
+      >
+        <img
+          alt="Author's haven logo"
+          src="ah-logo.svg"
+        />
+      </div>
+      <div
+        className="logo-text"
+      >
+        <h3>
+          AUTHOR'S HAVEN
+        </h3>
+      </div>
     </div>
-    <div
-      className="logo-text"
-    >
-      <h3>
-        AUTHOR'S HAVEN
-      </h3>
-    </div>
-  </div>
+  </button>
   <div
     className="nav-container"
   >
@@ -78,13 +82,18 @@ exports[`it renders correctly as a static component 1`] = `
       title=""
       transform={null}
     />
-    <div
-      className="mobile-header-text"
+    <Link
+      replace={false}
+      to="/"
     >
-      <h3>
-        AUTHOR'S HAVEN
-      </h3>
-    </div>
+      <div
+        className="mobile-header-text"
+      >
+        <h3>
+          AUTHOR'S HAVEN
+        </h3>
+      </div>
+    </Link>
     <div
       className="mobile-header-search-icon"
     >

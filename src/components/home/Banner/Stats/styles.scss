@@ -4,7 +4,6 @@
   height: 100%;
   width: 100%;
   position: relative;
-  z-index: 1;
 }
 
 .stats__top-authors {
@@ -115,6 +114,7 @@
     * {
       width: auto;
     }
+    height: auto;
   }
   
   .stats__numbers {
@@ -159,8 +159,9 @@
     * {
       @include reset();
     }
+    animation: none;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
   }
   .stats__top-authors {
     display: block;
@@ -174,41 +175,49 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      p {
-        font-size: 1rem;
-      }
     }
   }
   
   .stats__numbers {
+    border: none;
     font-size: 1.2rem;
     margin: 0;
     padding: 0;
     position: static;
     text-align: center;
-    margin: 2.4rem 0 2.4rem 0;
+    margin: 1.2rem 0 1.2rem 0;
     > div {
       margin: 0 auto;
       position: static;
+      width: 80%;
+    }
+    h2 {
+      font-size: 1.2rem;
     }
   }
 
   .stats__numbers--writers {
-    border-bottom: 0.1rem solid darken(white, 25%);
+    > div {
+      border-bottom: 0.1rem solid darken(white, 25%);
+      padding-bottom: 1rem;
+    }
   }
   
   .stats__numbers--readers {
-    border-top: 0.1rem solid darken(white, 25%);
+    > div {
+      border-top: 0.1rem solid darken(white, 25%);
+      padding-top: 1.2rem;
+    }
   }
 
   .author {
     h3 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: black;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       color: black;
     }
   }

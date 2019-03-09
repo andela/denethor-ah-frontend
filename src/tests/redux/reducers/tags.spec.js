@@ -1,6 +1,6 @@
 import tagsReducer from '../../../redux/reducers/tags';
 import tags from '../../mock-data/tags';
-import actions from '../../../redux/actions/types';
+import { ADD_TAG, REMOVE_TAG} from '../../../redux/actions/types';
 
 
 it('Should return default state when initialized', () => {
@@ -12,7 +12,7 @@ it('Should return default state when initialized', () => {
 
 it('Should add tags to store', () => {
   const state = tagsReducer(tags, {
-    type: actions.ADD_TAG,
+    type: ADD_TAG,
     tag: tags[0]
   });
   expect(state).toEqual([...tags, tags[0]]);
@@ -21,7 +21,7 @@ it('Should add tags to store', () => {
 it('Should remove tags from store', () => {
   const initialLength = tags.length;
   const state = tagsReducer(tags, {
-    type: actions.REMOVE_TAG,
+    type: REMOVE_TAG,
     tag: tags[0]
   });
   expect(state.length).toEqual(initialLength - 1);

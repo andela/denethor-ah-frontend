@@ -1,10 +1,9 @@
 node_modules
 coverage
-<<<<<<< HEAD
 dist/
+.env
 **/.DS_Store
-public/bundle*
-public/style*
-=======
-.DS_Store
->>>>>>> feat(Footer)Create Footer Component
+public/*
+!public/index.html
+!public/assets
+!public/favicon.ico

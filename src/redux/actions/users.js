@@ -1,16 +1,16 @@
-import actions from './types';
+import { ADD_USER, REMOVE_USER } from './types';
 
 
 export const addUser = user => (dispatch) => {
   dispatch({
-    type: actions.ADD_USER,
+    type: ADD_USER,
     user
   });
 };
 
 export const removeUser = id => (dispatch) => {
   dispatch({
-    type: actions.REMOVE_USER,
+    type: REMOVE_USER,
     id
   });
 };

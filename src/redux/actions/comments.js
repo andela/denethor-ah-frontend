@@ -1,16 +1,16 @@
-import actions from './types';
+import { ADD_COMMENT, REMOVE_COMMENT } from './types';
 
 
 export const addComment = comment => (dispatch) => {
   dispatch({
-    type: actions.ADD_COMMENT,
+    type: ADD_COMMENT,
     comment
   });
 };
 
 export const removeComment = id => (dispatch) => {
   dispatch({
-    type: actions.REMOVE_COMMENT,
+    type: REMOVE_COMMENT,
     id
   });
 };

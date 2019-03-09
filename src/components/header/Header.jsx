@@ -9,7 +9,7 @@ import './styles.scss';
 
 library.add(faBars);
 
-export const Header = ({ handleLogin, handleSignup, history }) => {
+export const Header = ({ handleLogin, handleSignup, loadStats, history }) => {
   const handleNavSignup = () => {
     if(history.location.pathname === '/') {
       handleSignup();
@@ -22,16 +22,25 @@ export const Header = ({ handleLogin, handleSignup, history }) => {
     }
   };
 
+  const handleLogoClick = () => {
+    if(history.location.pathname === '/') {
+      return loadStats();
+    }
+    history.push('/');
+  }
+
   return (
     <div className="header">
-      <div className="logo-container">
-        <div className="logo-image"> 
-          <img src={logo} alt="Author's haven logo"/>
+      <button onClick={handleLogoClick}>
+        <div className="logo-container">
+          <div className="logo-image"> 
+            <img src={logo} alt="Author's haven logo"/>
+          </div>
+          <div className="logo-text">
+            <h3>AUTHOR&apos;S HAVEN</h3>
+          </div>
         </div>
-        <div className="logo-text">
-          <h3>AUTHOR&apos;S HAVEN</h3>
-        </div>
-      </div>
+      </button>
       <div className="nav-container">
         <ul>
           <li><Link to='/'><img src={searchIcon} alt="search icon"/></Link></li>
@@ -40,8 +49,10 @@ export const Header = ({ handleLogin, handleSignup, history }) => {
         </ul>
       </div>
       <div className="mobile-header"> 
-        <FontAwesomeIcon icon="bars" color="#818181" size="2x"/>
-        <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
+      <FontAwesomeIcon icon="bars" color="#818181" size="2x"/>
+        <Link to='/'>
+          <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
+        </Link>
         <div className="mobile-header-search-icon"><img src={searchIcon} alt="Mobile view search icon"/></div>
       </div>
     </div>
