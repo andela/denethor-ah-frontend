@@ -1,6 +1,6 @@
 import commentsReducer from '../../../redux/reducers/comments';
 import comments from '../../mock-data/comments';
-import { ADD_COMMENT, REMOVE_COMMENT } from '../../../redux/actions/types';
+import {ADD_COMMENT, REMOVE_COMMENT} from '../../../redux/actions/types';
 
 
 

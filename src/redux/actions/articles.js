@@ -1,4 +1,5 @@
-import { ADD_ARTICLE, REMOVE_ARTICLE } from './types';
+import { GET_ARTICLES_SUCCESS, ADD_ARTICLE , REMOVE_ARTICLE} from '../actions/types'
+import axios from 'axios';
 
 
 export const addArticle = article => (dispatch) => {
@@ -14,3 +15,18 @@ export const removeArticle = id => (dispatch) => {
     id
   });
 };
+
+export const getArticles = (category) => (dispatch) => {
+  const query = category && category !== undefined ? `category=${category}` : ''
+  return axios
+  .get(`${process.env.API_ROOT_URL}/articles/?${query}`)
+  .then((response) => {
+    return dispatch({
+      type: GET_ARTICLES_SUCCESS,
+      payload: response.data.data
+    });
+  })
+  .catch(error => {
+    throw error;
+  })
+}

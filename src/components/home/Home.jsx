@@ -1,7 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
-import FeedBottom from '../feed/FeedBottom';
-import './styles.scss';
+import FeedBottom from '../feed';
 
 
 const Home = (props) => {
