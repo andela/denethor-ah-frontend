@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render postcard 1`] = `
+<div
+  className="post-card small"
+>
+  <div
+    className="post-card__container"
+    style={
+      Object {
+        "backgroundImage": "url(undefined)",
+      }
+    }
+  >
+    <div
+      className="post-card__overlay"
+    />
+    <div
+      className="post-card__content"
+    >
+      <button
+        className="post-card__category-name"
+      >
+        tech
+      </button>
+      <div
+        className="post-card__article-title"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="articles/8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+        >
+          this is the title
+        </NavLink>
+      </div>
+      <div
+        className="post-card__meta-data"
+      >
+        <div
+          className="post-card__author-name"
+        >
+          samcotech
+          , 
+        </div>
+        <div
+          className="post-card__date-published"
+        />
+        <div
+          className=""
+        >
+          <span
+            className="post-card__read-time"
+          >
+            1 minute
+             read
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+.rating-stars {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  
+  span {
+    outline: none;
+    -webkit-appearance: span-bevel;
+    cursor: pointer;
+  }
+}
+.rating-stars > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating-stars > span:hover,
+.rating-stars > span:hover ~ span {
+  color: transparent;
+}
+.rating-stars > span:hover:before,
+.rating-stars > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}

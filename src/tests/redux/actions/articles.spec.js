@@ -1,8 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import mockAxios from 'axios'
-import { addArticle, removeArticle, getArticles } from '../../../redux/actions/articles';
+import { addArticle, removeArticle, getArticles, getOneArticle } from '../../../redux/actions/articles';
 import articles from '../../mock-data/articles';
+import {
+  GET_ONE_ARTICLE_SUCCESS
+} from '../../../redux/actions/types';
 
 const createMockStore = configureMockStore([thunk]);
 describe('Article actions', () => {
@@ -30,7 +33,7 @@ describe('Article actions', () => {
   });
 
   it('Should get articles from store', async() => {
-    const mockData = [{id: 1}, {id: 2}]
+    const mockData = articles;
     mockAxios.get.mockImplementationOnce(() =>
       Promise.resolve({ data: { data: mockData } }),
     )
@@ -43,9 +46,24 @@ describe('Article actions', () => {
     await store.dispatch(getArticles());
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  it('should handle GET_ONE_ARTICLE_SUCCESS when fetching articles is completed', async () => {
+    const store = createMockStore({ articles: [] });
+    const response = {
+      data: {
+        data: articles[0]
+      }
+    };
+
+    mockAxios.get.mockImplementationOnce(() =>
+      Promise.resolve(response),
+    )
+  
+    await store.dispatch(getOneArticle(articles[0].id));
+    const expectedActions = store.getActions();
+    
+    expect(expectedActions).toContainEqual(
+      { type: GET_ONE_ARTICLE_SUCCESS, payload: articles[0] },
+    )
+  });
 })
-
-
-
-
-

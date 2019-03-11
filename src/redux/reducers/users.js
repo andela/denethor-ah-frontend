@@ -12,14 +12,14 @@ const userReducerDefaultState = [{
   "createdAt": "2019-03-07T21:05:08.071Z",
   "followers": 432485,
   "userArticles": [{
-          "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          "slug": "they-said-the-titile-length-must-be-at-least-5",
-          "description": "description is not allowed to be empty so I added this"
-      },  {
-        "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-        "slug": "they-said-the-titile-length-must-be-at-least-5",
-        "description": "description is not allowed to be empty so I added this"
-    }],
+    "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+    "slug": "they-said-the-titile-length-must-be-at-least-5",
+    "description": "description is not allowed to be empty so I added this"
+  }, {
+    "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+    "slug": "they-said-the-titile-length-must-be-at-least-5",
+    "description": "description is not allowed to be empty so I added this"
+  }],
   "articlesWritten": 193
 }, {
   "id": "top2",
@@ -32,13 +32,11 @@ const userReducerDefaultState = [{
   "imageUrl": "https://i.imgur.com/ws9TUUN.jpg",
   "createdAt": "2019-03-07T21:05:08.071Z",
   "followers": 232848,
-  "userArticles": [
-      {
-          "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          "slug": "they-said-the-titile-length-must-be-at-least-5",
-          "description": "description is not allowed to be empty so I added this"
-      }
-  ],
+  "userArticles": [{
+    "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+    "slug": "they-said-the-titile-length-must-be-at-least-5",
+    "description": "description is not allowed to be empty so I added this"
+  }],
   "articlesWritten": 126
 }];
 

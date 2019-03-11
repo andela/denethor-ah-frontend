@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import FeedBottomLargeCard from '../../../components/feed/FeedBottomLargeCard';
 import FeedBottomSmallCard from '../../../components/feed/FeedBottomSmallCard';
 
@@ -8,14 +8,14 @@ describe('Test for the feed bottom component', () => {
   const author = { username: 'Princess'}  
   const createdAt = '2018-03-10';
   it('should contain FeedBottomLargeCard ', () => {
-        const wrapper = mount( < FeedBottomLargeCard  body={ body} author ={author } createdAt= {createdAt} /> );
+        const wrapper = shallow( < FeedBottomLargeCard  body={ body} author ={author } createdAt= {createdAt} /> );
         expect(wrapper.length).toBe(1);
         expect(wrapper.find('div').length).toBe(5);
         expect(wrapper.find('h3').length).toBe(1);
         expect(wrapper.find('p').length).toBe(2);
     });
     it('should contain FeedBottomSmallCard correctly', () => {
-      const wrapper = mount( < FeedBottomSmallCard body = { body } author ={author } createdAt= {createdAt} /> );
+      const wrapper = shallow( < FeedBottomSmallCard body = { body } author ={author } createdAt= {createdAt} /> );
       expect(wrapper.length).toBe(1);
       expect(wrapper.find('div').length).toBe(2);
       expect(wrapper.find('h3').length).toBe(1);

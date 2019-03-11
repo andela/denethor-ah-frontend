@@ -1,6 +1,14 @@
-import { GET_ARTICLES_SUCCESS, ADD_ARTICLE , REMOVE_ARTICLE} from '../actions/types'
+import {
+  ADD_ARTICLE,
+  REMOVE_ARTICLE,
+  GET_ONE_ARTICLE_SUCCESS,
+  GET_ARTICLES_SUCCESS,
+} from './types';
 import axios from 'axios';
+import { extractImageFromBody } from '../../utils/imageExtractor';
+import { toTimeFromNow } from '../../utils/dateTime';
 
+const { API_ROOT_URL } = process.env;
 
 export const addArticle = article => (dispatch) => {
   dispatch({
@@ -19,14 +27,36 @@ export const removeArticle = id => (dispatch) => {
 export const getArticles = (category) => (dispatch) => {
   const query = category && category !== undefined ? `category=${category}` : ''
   return axios
-  .get(`${process.env.API_ROOT_URL}/articles/?${query}`)
+  .get(`${API_ROOT_URL}/articles/?${query}`)
   .then((response) => {
+    const articles = response.data.data.map(article => {
+      article.featuredImage = extractImageFromBody(article.body);
+      article.dateCreated =  toTimeFromNow(article.createdAt);
+      return article;
+    });
     return dispatch({
       type: GET_ARTICLES_SUCCESS,
-      payload: response.data.data
+      payload: articles
     });
   })
   .catch(error => {
     throw error;
   })
 }
+
+export const getOneArticle = id => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/articles/${id}`)
+  .then(response => {
+    const article = { ...response.data.data };
+    article.featuredImage = extractImageFromBody(article.body);
+    article.dateCreated =  toTimeFromNow(article.createdAt);
+    dispatch({
+      type: GET_ONE_ARTICLE_SUCCESS,
+      payload: article
+    });
+  })
+  .catch(error => {
+    throw error;
+  });
+};

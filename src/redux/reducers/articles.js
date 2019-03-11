@@ -1,17 +1,26 @@
-import { GET_ARTICLES_SUCCESS , ADD_ARTICLE , REMOVE_ARTICLE} from '../actions/types'
+import { 
+  ADD_ARTICLE, REMOVE_ARTICLE, GET_ARTICLES_SUCCESS, GET_ONE_ARTICLE_SUCCESS 
+} from '../actions/types'
+import uniqueBy from 'unique-by';
 
 const articleReducerDefaultState = [];
 
 export default (state = articleReducerDefaultState, action) => {
+  let newState;
   switch (action.type) {
     case ADD_ARTICLE:
       return [...state, action.article];
 
     case REMOVE_ARTICLE:
       return state.filter(({ id }) => id !== action.id );
-
+    
     case GET_ARTICLES_SUCCESS:
-      return [...action.payload];
+      newState = [...state, ...action.payload];
+      return uniqueBy(newState, 'id');
+    
+    case GET_ONE_ARTICLE_SUCCESS:
+      newState = [...state, action.payload];
+      return uniqueBy(newState, 'id');
 
     default:
       return state;
