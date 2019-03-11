@@ -1,6 +1,6 @@
 import articlesReducer from '../../../redux/reducers/articles';
 import articles from '../../mock-data/articles';
-import { ADD_ARTICLE, REMOVE_ARTICLE } from '../../../redux/actions/types';
+import { ADD_ARTICLE, REMOVE_ARTICLE , GET_ARTICLES_SUCCESS} from '../../../redux/actions/types';
 
 it('Should return default state when initialized', () => {
   const state = articlesReducer(undefined, {
@@ -24,4 +24,12 @@ it('Should remove articles from store', () => {
     id: articles[0].id
   });
   expect(state.length).toEqual(initialLength - 1);
+});
+
+it('Should get articles from store', () => {
+  const state = articlesReducer(articles, {
+    type: GET_ARTICLES_SUCCESS,
+    payload: [{id: 234},{id: 654}]
+  });
+  expect(state.length).toEqual(2);
 });

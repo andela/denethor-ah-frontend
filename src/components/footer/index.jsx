@@ -1,7 +1,7 @@
 import React from 'react';
 import NavTab from '../navTabs';
 import InputSection from '../inputSection';
-import logo from '../../images/ah-logo.svg';
+import logo from '../../../public/assets/images/ah-logo.svg';
 import './style.scss';
 
 const Footer = ({ onChange, onKeyPress }) => (

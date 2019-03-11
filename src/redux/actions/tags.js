@@ -1,4 +1,4 @@
-import { ADD_TAG, REMOVE_TAG } from './types';
+import { ADD_TAG, REMOVE_TAG} from './types';
 
 
 export const addTag = tag => (dispatch) => {

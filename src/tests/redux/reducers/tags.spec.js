@@ -1,6 +1,6 @@
 import tagsReducer from '../../../redux/reducers/tags';
 import tags from '../../mock-data/tags';
-import { ADD_TAG, REMOVE_TAG} from '../../../redux/actions/types';
+import { ADD_TAG, REMOVE_TAG } from '../../../redux/actions/types';
 
 
 it('Should return default state when initialized', () => {

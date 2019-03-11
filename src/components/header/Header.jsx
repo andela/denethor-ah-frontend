@@ -4,7 +4,7 @@ import searchIcon from '../../../public/assets/img/search-icon.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../images/ah-logo.svg';
+import logo from '../../../public/assets/images/ah-logo.svg';
 import './styles.scss';
 
 library.add(faBars);

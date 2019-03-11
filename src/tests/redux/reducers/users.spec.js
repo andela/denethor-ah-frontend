@@ -1,6 +1,6 @@
 import usersReducer from '../../../redux/reducers/users';
 import users from '../../mock-data/users';
-import { ADD_USER, REMOVE_USER } from '../../../redux/actions/types';
+import {ADD_USER, REMOVE_USER} from '../../../redux/actions/types';
 
 it('Should return default state when initialized', () => {
   const state = usersReducer(undefined, {
