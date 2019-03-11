@@ -1,6 +1,4 @@
-import actions from '../actions/types';
-
-const { ADD_COMMENT, REMOVE_COMMENT } = actions;
+import { ADD_COMMENT, REMOVE_COMMENT } from '../actions/types';
 
 const commentReducerDefaultState = [];
 

@@ -1,6 +1,4 @@
-import actions from '../actions/types'
-
-const { ADD_ARTICLE, REMOVE_ARTICLE } = actions;
+import { ADD_ARTICLE, REMOVE_ARTICLE } from '../actions/types'
 
 const articleReducerDefaultState = [];
 

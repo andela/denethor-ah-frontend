@@ -1,6 +1,4 @@
-import actions from '../actions/types';
-
-const { ADD_TAG, REMOVE_TAG } = actions;
+import { ADD_TAG, REMOVE_TAG } from '../actions/types';
 
 const tagReducerDefaultState = [];
 

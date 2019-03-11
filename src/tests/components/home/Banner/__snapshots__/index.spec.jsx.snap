@@ -32,17 +32,42 @@ exports[`Should render banner with login correctly 1`] = `
     </div>
   </div>
   <div
-    className="banner__screen"
+    className="banner__screen banner__screen--login"
   >
+    <ToastContainer
+      autoClose={5000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    />
     <CSSTransitionGroup
-      transitionAppear={false}
+      transitionAppear={true}
+      transitionAppearTimeout={800}
       transitionEnter={true}
-      transitionEnterTimeout={500}
+      transitionEnterTimeout={800}
       transitionLeave={true}
       transitionLeaveTimeout={400}
       transitionName="background"
     >
-      <_default
+      <Connect(Login)
         key="Login"
       />
     </CSSTransitionGroup>
@@ -82,12 +107,37 @@ exports[`Should render banner with signup correctly 1`] = `
     </div>
   </div>
   <div
-    className="banner__screen"
+    className="banner__screen banner__screen--signup"
   >
+    <ToastContainer
+      autoClose={5000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    />
     <CSSTransitionGroup
-      transitionAppear={false}
+      transitionAppear={true}
+      transitionAppearTimeout={800}
       transitionEnter={true}
-      transitionEnterTimeout={500}
+      transitionEnterTimeout={800}
       transitionLeave={true}
       transitionLeaveTimeout={400}
       transitionName="background"
@@ -132,12 +182,37 @@ exports[`Should render banner with stats correctly 1`] = `
     </div>
   </div>
   <div
-    className="banner__screen"
+    className="banner__screen banner__screen--stats"
   >
+    <ToastContainer
+      autoClose={5000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    />
     <CSSTransitionGroup
-      transitionAppear={false}
+      transitionAppear={true}
+      transitionAppearTimeout={800}
       transitionEnter={true}
-      transitionEnterTimeout={500}
+      transitionEnterTimeout={800}
       transitionLeave={true}
       transitionLeaveTimeout={400}
       transitionName="background"

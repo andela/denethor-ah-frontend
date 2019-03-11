@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { addArticle, removeArticle} from '../../../redux/actions/articles';
+import { addArticle, removeArticle } from '../../../redux/actions/articles';
 import articles from '../../mock-data/articles';
 
 const createMockStore = configureMockStore([thunk]);

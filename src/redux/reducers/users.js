@@ -1,8 +1,4 @@
-import actions from '../actions/types';
-
-
-const { ADD_USER, REMOVE_USER } = actions;
-
+import { ADD_USER, REMOVE_USER } from '../actions/types';
 
 const userReducerDefaultState = [{
   "id": "top1",

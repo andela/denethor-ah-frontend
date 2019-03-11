@@ -1,6 +1,6 @@
 import usersReducer from '../../../redux/reducers/users';
 import users from '../../mock-data/users';
-import actions from '../../../redux/actions/types';
+import { ADD_USER, REMOVE_USER } from '../../../redux/actions/types';
 
 it('Should return default state when initialized', () => {
   const state = usersReducer(undefined, {
@@ -12,7 +12,7 @@ it('Should return default state when initialized', () => {
 
 it('Should add users to store', () => {
   const state = usersReducer(users, {
-    type: actions.ADD_USER,
+    type: ADD_USER,
     user: users[0]
   });
   expect(state).toEqual([...users, users[0]]);
@@ -21,7 +21,7 @@ it('Should add users to store', () => {
 it('Should remove users from store', () => {
   const initialLength = users.length;
   const state = usersReducer(users, {
-    type: actions.REMOVE_USER,
+    type: REMOVE_USER,
     id: users[0].id
   });
   expect(state.length).toEqual(initialLength - 1);
