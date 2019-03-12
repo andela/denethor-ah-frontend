@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { ToastContainer } from 'react-toastify';
+import { withRouter } from 'react-router-dom';
 import Stats from './Stats/Stats';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
@@ -11,7 +11,7 @@ const sides = {
   Stats, Signup, Login
 };
 
-const Banner = ({ side, handleSignup }) => {
+export const Banner = ({ bannerScreen: side, history }) => {
   const Side = sides[side];
   return (
     <div className="banner">
@@ -19,11 +19,10 @@ const Banner = ({ side, handleSignup }) => {
         <div>
           <h1 className="banner__yellow-text hidden-on-mobile">The place <br /> writers love...</h1>
           <h1><span className="banner__yellow-text-mobile">Great writers,</span><br />Quality Content</h1>
-          <button onClick={handleSignup}>Get Started</button>
+          <button onClick={() => history.push('/signup')}>Get Started</button>
         </div>
       </div>
       <div className={`banner__screen banner__screen--${side.toLowerCase()}`}>
-        <ToastContainer />
         <ReactCSSTransitionGroup
           transitionName="background"
           transitionAppear={true}
@@ -38,4 +37,4 @@ const Banner = ({ side, handleSignup }) => {
   );
 };
 
-export default Banner;
+export default withRouter(Banner);

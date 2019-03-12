@@ -25,7 +25,7 @@ exports[`Should render banner with login correctly 1`] = `
         Quality Content
       </h1>
       <button
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Get Started
       </button>
@@ -34,30 +34,6 @@ exports[`Should render banner with login correctly 1`] = `
   <div
     className="banner__screen banner__screen--login"
   >
-    <ToastContainer
-      autoClose={5000}
-      bodyClassName={null}
-      className={null}
-      closeButton={
-        <CloseButton
-          ariaLabel="close"
-        />
-      }
-      closeOnClick={true}
-      draggable={true}
-      draggablePercent={80}
-      hideProgressBar={false}
-      newestOnTop={false}
-      pauseOnFocusLoss={true}
-      pauseOnHover={true}
-      position="top-right"
-      progressClassName={null}
-      progressStyle={null}
-      rtl={false}
-      style={null}
-      toastClassName={null}
-      transition={[Function]}
-    />
     <CSSTransitionGroup
       transitionAppear={true}
       transitionAppearTimeout={800}
@@ -100,7 +76,7 @@ exports[`Should render banner with signup correctly 1`] = `
         Quality Content
       </h1>
       <button
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Get Started
       </button>
@@ -109,30 +85,6 @@ exports[`Should render banner with signup correctly 1`] = `
   <div
     className="banner__screen banner__screen--signup"
   >
-    <ToastContainer
-      autoClose={5000}
-      bodyClassName={null}
-      className={null}
-      closeButton={
-        <CloseButton
-          ariaLabel="close"
-        />
-      }
-      closeOnClick={true}
-      draggable={true}
-      draggablePercent={80}
-      hideProgressBar={false}
-      newestOnTop={false}
-      pauseOnFocusLoss={true}
-      pauseOnHover={true}
-      position="top-right"
-      progressClassName={null}
-      progressStyle={null}
-      rtl={false}
-      style={null}
-      toastClassName={null}
-      transition={[Function]}
-    />
     <CSSTransitionGroup
       transitionAppear={true}
       transitionAppearTimeout={800}
@@ -175,7 +127,7 @@ exports[`Should render banner with stats correctly 1`] = `
         Quality Content
       </h1>
       <button
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Get Started
       </button>
@@ -184,30 +136,6 @@ exports[`Should render banner with stats correctly 1`] = `
   <div
     className="banner__screen banner__screen--stats"
   >
-    <ToastContainer
-      autoClose={5000}
-      bodyClassName={null}
-      className={null}
-      closeButton={
-        <CloseButton
-          ariaLabel="close"
-        />
-      }
-      closeOnClick={true}
-      draggable={true}
-      draggablePercent={80}
-      hideProgressBar={false}
-      newestOnTop={false}
-      pauseOnFocusLoss={true}
-      pauseOnHover={true}
-      position="top-right"
-      progressClassName={null}
-      progressStyle={null}
-      rtl={false}
-      style={null}
-      toastClassName={null}
-      transition={[Function]}
-    />
     <CSSTransitionGroup
       transitionAppear={true}
       transitionAppearTimeout={800}

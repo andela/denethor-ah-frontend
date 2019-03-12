@@ -15,15 +15,14 @@ it('Should return default state when initialized with no user in localstorage', 
 });
 
 it('Should return default state when initialized with user in localstorage', () => {
-  const user = { id: 6789 };
-  localStorage.setItem('user', JSON.stringify(user));
+  const token = 'kjvbljhghvg';
+  localStorage.setItem('token', token);
 
   const state = authReducer(undefined, {
     type: '@@INIT'
   });
 
   expect(state).toEqual({
-    user,
     isLoggedIn: true
   });
 });

@@ -1,62 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Home from './components/home';
 import Header from './components/header'
 import Footer from './components/footer'
 import ArticlePage from './components/ArticlePage';
-import Redirect from './components/Redirect';
+import Redirect from './components/redirect/Redirect';
 
-class Main extends Component {
-  state = {
-    bannerScreen: 'Stats'
-  };
-
-  /**
-   * Tag: Route change
-   * This ensure that when routes change,
-   * the window is forced to load to the top
-   * Without this, when routes changes, the new page or view
-   * retains the scroll position from the previous page
-   * @returns {null}
-   */
-  scrollToTop = () => {
+const Main = () => {
+  const scrollToTop = () => {
     window.scrollTo(0, 0);
     return null;
-  }
-
-  handleLogin = () => {
-    this.setState(() => ({ bannerScreen: 'Login' }))
   };
 
-  handleSignup = () => {
-    this.setState(() => ({ bannerScreen: 'Signup' }))
-  };
-
-  loadStats = () => {
-    if(!(this.state.bannerScreen === 'Stats')) {
-      this.setState(() => ({ bannerScreen: 'Stats' }));
-    }
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Route component={this.scrollToTop} /> 
-          <Header handleLogin={this.handleLogin} handleSignup={this.handleSignup} />
-          <Switch>
-            <Route exact path="/" render={(props) => <Home {...props} side={this.state.bannerScreen} handleSignup={this.handleSignup} />} />
-            <Route path="/articles/:articleId" component={ArticlePage} />
-            <Route path="/dashboard" component={() => <p>This is the dashboard page placeholder</p>} />
-            <Route path="/api/users/:id/verify" component={Redirect} />
-
-          </Switch>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <BrowserRouter>
+      <div>
+        <ToastContainer />
+        <Route component={scrollToTop} /> 
+        <Header />
+        <Switch>
+          <Route exact path="/" render={(props) => <Home {...props} bannerScreen={'Stats'} />} />
+          <Route path="/articles/:articleId" component={ArticlePage} />
+          <Route exact path="/login" render={(props) => <Home {...props} bannerScreen={'Login'} />} />
+          <Route exact path="/signup" render={(props) => <Home {...props} bannerScreen={'Signup'} />} />
+          <Route path="/dashboard" component={() => <p>This is the dashboard page placeholder</p>} />
+          <Route path="/api/users/:id/verify" component={Redirect} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default Main;

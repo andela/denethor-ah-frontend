@@ -9,25 +9,18 @@ import './styles.scss';
 
 library.add(faBars);
 
-export const Header = ({ handleLogin, handleSignup, loadStats, history }) => {
+export const Header = ({ history }) => {
   const handleNavSignup = () => {
-    if(history.location.pathname === '/') {
-      handleSignup();
-    }
+      history.push('/signup');
   };
 
   const handleNavLogin = () => {
-    if(history.location.pathname === '/') {
-      handleLogin();
-    }
+      history.push('/login');
   };
 
   const handleLogoClick = () => {
-    if(history.location.pathname === '/') {
-      return loadStats();
-    }
     history.push('/');
-  }
+  };
 
   return (
     <div className="header">
@@ -49,9 +42,11 @@ export const Header = ({ handleLogin, handleSignup, loadStats, history }) => {
         </ul>
       </div>
       <div className="mobile-header"> 
-        <FontAwesomeIcon icon="bars" color="#818181" size="2x"/>
-        <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
-        <div className="mobile-header-search-icon"><img src='/assets/img/search-icon.svg' alt="Mobile view search icon"/></div>
+      <FontAwesomeIcon icon="bars" color="#818181" size="2x"/>
+        <Link to='/'>
+          <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
+        </Link>
+        <div className="mobile-header-search-icon"><img src={`/${searchIcon}`} alt="Mobile view search icon"/></div>
       </div>
     </div>
   )

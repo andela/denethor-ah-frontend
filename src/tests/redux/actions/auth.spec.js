@@ -20,11 +20,13 @@ test('Should log in user with correct details', async () => {
     password: 'ldsdjkgjgldkjd'
   };
   
-  const user = { id: '1123' }
+  const token = ';lkjhlhghjvkkbl';
 
   const response = {
     data: {
-      data: user
+      data: {
+        token
+      }
     }
   };
 
@@ -38,7 +40,7 @@ test('Should log in user with correct details', async () => {
     type: LOGIN_REQUEST_SUCCESS,
   });
 
-  expect(localStorage.setItem).toHaveBeenLastCalledWith('user', JSON.stringify(user));
+  expect(localStorage.setItem).toHaveBeenLastCalledWith('token', token);
 });
 
 

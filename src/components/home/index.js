@@ -6,7 +6,7 @@ import FeedBottom from '../feed';
 const Home = (props) => {
   return (
     <div className="home">
-      <Banner side={props.side} handleSignup={props.handleSignup} />
+      <Banner bannerScreen={props.bannerScreen} />
       <PostFeedTopSection />
       <FeedBottom />
     </div>

@@ -81,13 +81,13 @@
 }
 
 .Toastify__toast--error.toast-custom-style {
-  background: #fd2c27;
   border-radius: 0.2rem;
   font-family: Montserrat-Light;
   min-height: inherit;
   padding-right: 2rem;
-  position: absolute;
-  right: -2rem;
+  position: relative;
+  top: 6rem;
+  right: 1.5rem;
   > .Toastify__toast-body {
     font-size: 0.8rem;
   }
