@@ -5,9 +5,9 @@ const api = process.env.API_ROOT_URL;
 
 export const login = loginDetails => async (dispatch) => {
   try {
-    const { data: { data } } = await axios.post(`${api}/users/login`, loginDetails);
+    const { data: { data: { token } } } = await axios.post(`${api}/users/login`, loginDetails);
 
-    localStorage.setItem('user', JSON.stringify(data));
+    localStorage.setItem('token', token);
 
     dispatch({
       type: LOGIN_REQUEST_SUCCESS,

@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../images/ah-logo.svg';
+import searchIcon from '../../images/search-icon.svg';
 import './styles.scss';
 
 library.add(faBars);
@@ -32,7 +34,7 @@ export const Header = ({ handleLogin, handleSignup, loadStats, history }) => {
       <button onClick={handleLogoClick}>
         <div className="logo-container">
           <div className="logo-image"> 
-            <img src={'/assets/img/ah-logo.svg'} alt="Author's haven logo"/>
+            <img src={`/${logo}`} alt="Author's haven logo"/>
           </div>
           <div className="logo-text">
             <h3>AUTHOR&apos;S HAVEN</h3>
@@ -41,7 +43,7 @@ export const Header = ({ handleLogin, handleSignup, loadStats, history }) => {
       </button>
       <div className="nav-container">
         <ul>
-          <li><Link to='/'><img src={'/assets/img/search-icon.svg'} alt="search icon"/></Link></li>
+          <li><Link to='/'><img src={`/${searchIcon}`} alt="search icon"/></Link></li>
           <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
           <li><button onClick={handleNavLogin} className="login-link">Login</button></li>
         </ul>

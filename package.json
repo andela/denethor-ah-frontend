@@ -48,7 +48,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
-    "babel-jest": "^24.1.0",
+    "@babel/polyfill": "^7.2.5",
     "chalk": "^2.4.2",
     "coveralls": "^3.0.3",
     "dotenv": "^6.2.0",
@@ -87,8 +87,8 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "babel-jest": "^24.1.0",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
-    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",

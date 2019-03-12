@@ -5,6 +5,7 @@ import Home from './components/home';
 import Header from './components/header'
 import Footer from './components/footer'
 import ArticlePage from './components/ArticlePage';
+import Redirect from './components/Redirect';
 
 class Main extends Component {
   state = {
@@ -47,6 +48,9 @@ class Main extends Component {
           <Switch>
             <Route exact path="/" render={(props) => <Home {...props} side={this.state.bannerScreen} handleSignup={this.handleSignup} />} />
             <Route path="/articles/:articleId" component={ArticlePage} />
+            <Route path="/dashboard" component={() => <p>This is the dashboard page placeholder</p>} />
+            <Route path="/api/users/:id/verify" component={Redirect} />
+
           </Switch>
           <Footer />
         </div>
