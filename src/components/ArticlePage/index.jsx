@@ -9,7 +9,8 @@ import RatingStarsBox from '../../components/RatingStarsBox';
 import HorizontalLine from '../../components/HorizontalLine';
 import TextAreaInput from '../../components/TextAreaInput';
 import CommentEntries from '../../components/CommentEntries';
-import { getOneArticle } from '../../redux/actions/articles';
+import { getOneArticle, rateArticle } from '../../redux/actions/articles';
+import { toast } from 'react-toastify';
 import './style.scss';
 
 
@@ -19,6 +20,15 @@ export class SingleArticleView extends Component {
     const { fetchArticle, match } = this.props;
     let articleId = match.params.articleId;
     fetchArticle(articleId);
+  }
+
+  starClickHandle(item) {
+    let articleId = this.props.match.params.articleId;
+    this.props.rateArticle(item, articleId )
+    .then()
+    .catch(function errorHandler() { 
+      toast.error('Error while rating article');
+    })
   }
 
   render() {
@@ -68,7 +78,7 @@ export class SingleArticleView extends Component {
             </div>
             <HorizontalLine />
             <div className='section-article-info'>  
-              <div>Rate this Article <RatingStarsBox rateNumber={4} /></div>
+              <div>Rate this Article <RatingStarsBox starClickHandle= {this.starClickHandle.bind(this)} rateNumber={2}/></div>
               <VerticalMargin className='show-for-medium' size={10} />
               <div>
                 <div className='section-comment-create'>
@@ -91,7 +101,8 @@ export class SingleArticleView extends Component {
 SingleArticleView.propTypes = {
   articles: PropTypes.array.isRequired,
   match: PropTypes.object.isRequired,
-  fetchArticle: PropTypes.func.isRequired
+  fetchArticle: PropTypes.func.isRequired,
+  rateArticle: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -99,7 +110,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchArticle: (id) => dispatch(getOneArticle(id))
+  fetchArticle: (id) => dispatch(getOneArticle(id)),
+  rateArticle: (rating, articleId) => dispatch(rateArticle(rating, articleId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 axios.interceptors.request.use((config) => {
-  const user = () => window.localStorage.getItem('user');
+  const token = () => window.localStorage.getItem('user_token');
 
-  if ( user ) {
-    config.headers.Authorization = `Bearer ${user.token}`;
+  if ( token ) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
 
 }, (error) => {

@@ -1,5 +1,5 @@
 import { 
-  ADD_ARTICLE, REMOVE_ARTICLE, GET_ARTICLES_SUCCESS, GET_ONE_ARTICLE_SUCCESS 
+  ADD_ARTICLE, REMOVE_ARTICLE, GET_ARTICLES_SUCCESS, GET_ONE_ARTICLE_SUCCESS, RATE_ARTICLE_SUCCESS 
 } from '../actions/types'
 import uniqueBy from 'unique-by';
 
@@ -21,6 +21,10 @@ export default (state = articleReducerDefaultState, action) => {
     case GET_ONE_ARTICLE_SUCCESS:
       newState = [...state, action.payload];
       return uniqueBy(newState, 'id');
+
+    case RATE_ARTICLE_SUCCESS: 
+      newState = [...state, action.payload];
+      return newState;
 
     default:
       return state;
