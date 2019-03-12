@@ -1,6 +1,12 @@
+import '@babel/polyfill';
 import articlesReducer from '../../../redux/reducers/articles';
 import articles from '../../mock-data/articles';
-import { ADD_ARTICLE, REMOVE_ARTICLE , GET_ARTICLES_SUCCESS} from '../../../redux/actions/types';
+import {
+  ADD_ARTICLE,
+  REMOVE_ARTICLE,
+  GET_ARTICLES_SUCCESS,
+  GET_ONE_ARTICLE_SUCCESS,
+} from '../../../redux/actions/types';
 
 it('Should return default state when initialized', () => {
   const state = articlesReducer(undefined, {
@@ -29,7 +35,23 @@ it('Should remove articles from store', () => {
 it('Should get articles from store', () => {
   const state = articlesReducer(articles, {
     type: GET_ARTICLES_SUCCESS,
-    payload: [{id: 234},{id: 654}]
+    payload: articles
   });
-  expect(state.length).toEqual(2);
+  expect(state.length).toEqual(articles.length);
+});
+
+it('Should handle GET_ARTICLES_SUCCESS ', () => {
+  const state = articlesReducer([], {
+    type: GET_ARTICLES_SUCCESS,
+    payload: articles
+  });
+  expect(state.length).toEqual(articles.length);
+});
+
+it('Should handle GET_ONE_ARTICLE_SUCCESS', () => {
+  const state = articlesReducer([], {
+    type: GET_ONE_ARTICLE_SUCCESS,
+    payload: articles[0]
+  });
+  expect(state.length).toEqual(articles.length);
 });
