@@ -6,6 +6,7 @@ import articles from '../../mock-data/articles';
 describe('Test for the single article component', () => {
 	const props = {
 		fetchArticle: jest.fn(),
+		addComment: jest.fn(),
 		match: {
 			params: {
 				articleId: articles[0].id
@@ -13,7 +14,10 @@ describe('Test for the single article component', () => {
 		},
 		getArticleAvgRating: jest.fn(),
 		rateArticle: jest.fn(),
-		articles
+		articles,
+		comments: {
+			comments: []
+		}
 	};
 
 	it('should render single article view page', () => {
@@ -30,6 +34,7 @@ describe('Test for the single article component', () => {
 		const rateArticle = jest.fn(() => Promise.resolve({}));
 		const props = {
 			fetchArticle: jest.fn(),
+			addcommment: jest.fn(),
 			match: {
 				params: {
 					articleId: articles[0].id
@@ -37,7 +42,10 @@ describe('Test for the single article component', () => {
 			},
 			getArticleAvgRating: jest.fn(),
 			rateArticle,
-			articles
+			articles,
+			comments: {
+				comments: []
+			}
 		};
 		const wrapper = mount( <SingleArticleView {...props} /> );
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
@@ -49,6 +57,7 @@ describe('Test for the single article component', () => {
 		const rateArticle = jest.fn(() => Promise.reject({}));
 		const props = {
 			fetchArticle: jest.fn(),
+			addComment: jest.fn(),
 			match: {
 				params: {
 					articleId: articles[0].id
@@ -56,7 +65,10 @@ describe('Test for the single article component', () => {
 			},
 			getArticleAvgRating: jest.fn(),
 			rateArticle,
-			articles
+			articles,
+			comments: {
+				comments: []
+			}
 		};
 		const wrapper = mount( <SingleArticleView {...props} /> );
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);

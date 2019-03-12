@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import InputSection from '../components/inputSection';
+import InputSection from '../components/InputSection';
 
 describe('Test for the input section in the footer component', () => {
     const prop = {

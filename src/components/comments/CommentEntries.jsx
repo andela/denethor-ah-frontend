@@ -1,16 +1,28 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import './style.scss';
+import { format } from 'date-fns';
+import './styles.scss';
 import { LikeNumberGroup } from '../../components/like-button';
 import { HorizontalLine } from '../../components/horizontal-line';
 
 
 const CommentEntries = ({ comments = [] }) => {
   const entries = comments.map((item, index) => {
+    const { user: { firstname, lastname } } = item;
+    const username = `${firstname} ${lastname}`
+    const date = format(
+      new Date(item.updatedAt),
+      'MMM D YYYY, hh:mm a'
+    );
+
     return (
       <div key={index} className='comment-entry'>
         <div className='comment-text'>
-          <span>{item.commentBody}</span>
+            <p>{item.commentBody}</p>
+          <div className='comment-text__info'>
+            <p className='comment-text__user-name'>{username}</p>
+            <p className='comment-text__date'>{date}</p>
+          </div>
         </div>
         <div className='actions'>
           <div className='likes-count'>
@@ -23,7 +35,7 @@ const CommentEntries = ({ comments = [] }) => {
 
   return (
     <div>
-      {!!entries.length && <div><HorizontalLine />Reader Comments</div>}
+      {!!entries.length && <div><HorizontalLine />Comments</div>}
       {entries}
     </div>
   );

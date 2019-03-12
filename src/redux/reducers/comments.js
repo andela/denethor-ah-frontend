@@ -1,14 +1,29 @@
-import { ADD_COMMENT, REMOVE_COMMENT } from '../actions/types';
+import {
+  ADD_COMMENT,
+  REMOVE_COMMENT,
+  GET_COMMENT_SUCCESS
+} from '../actions/types';
 
-const commentReducerDefaultState = [];
+export const commentReducerDefaultState = {
+  comments: []
+};
 
 export default (state = commentReducerDefaultState, action) => {
   switch (action.type) {
     case ADD_COMMENT:
-      return [...state, action.comment];
+      return {
+        ...state
+      }
+    case GET_COMMENT_SUCCESS:
+      return {
+        ...state,
+        comments: [...action.comments]
+      };
 
     case REMOVE_COMMENT:
-      return state.filter(({ id }) => id !== action.id );
+      return state.filter(({
+        id
+      }) => id !== action.id);
 
     default:
       return state;

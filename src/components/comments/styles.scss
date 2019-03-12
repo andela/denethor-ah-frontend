@@ -1,0 +1,36 @@
+.comment-entry {
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-radius: 0.2em;
+}
+
+.comment-text {
+  background-color: #F6F6F6;
+  padding-left: 1em;
+  border: 1px solid #E5E5E5;
+  margin-bottom: 0.5em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-radius: 0.2em;
+
+  >.comment-text__info {
+    line-height: 1.25;
+    font-size: 0.9rem;
+    display: block;
+    width: fit-content;
+    margin-right: 0px;
+    margin-left: auto;
+
+    >.comment-text__date {
+      width: fit-content;
+      margin-right: 0;
+      margin-left: auto;
+    }
+    >.comment-text__user-name {
+      color: #07c;
+    }
+  }
+
+}

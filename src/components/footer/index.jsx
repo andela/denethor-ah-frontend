@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import NavTab from '../navTabs';
-import InputSection from '../inputSection';
+import InputSection from '../InputSection';
 import './style.scss';
 
 const Footer = ({ onChange, onKeyPress }) => (

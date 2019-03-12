@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const TextAreaInput = ({ text, className, placeholder }) => {
+const TextAreaInput = ({ className, placeHolder, onChange, value }) => {
   return (
     <textarea 
-      className={`textarea-input ${className}`} 
-      defaultValue={text}
-      placeholder={placeholder}
+    className={`textarea-input ${className}`}  
+    placeholder={placeHolder}
+    onChange={onChange}
+    value={value} 
     />
   );
 }
@@ -17,9 +18,10 @@ TextAreaInput.defaultProps = {
 };
 
 TextAreaInput.propTypes = {
-  text: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  placeholder: PropTypes.string
+  className: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string
 }
 
 export default TextAreaInput;
