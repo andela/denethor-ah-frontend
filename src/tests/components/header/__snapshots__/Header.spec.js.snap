@@ -15,7 +15,7 @@ exports[`it renders correctly as a static component 1`] = `
       >
         <img
           alt="Author's haven logo"
-          src="/assets/img/ah-logo.svg"
+          src="/ah-logo.svg"
         />
       </div>
       <div
@@ -38,7 +38,7 @@ exports[`it renders correctly as a static component 1`] = `
         >
           <img
             alt="search icon"
-            src="/assets/img/search-icon.svg"
+            src="/search-icon.svg"
           />
         </Link>
       </li>
@@ -82,19 +82,24 @@ exports[`it renders correctly as a static component 1`] = `
       title=""
       transform={null}
     />
-    <div
-      className="mobile-header-text"
+    <Link
+      replace={false}
+      to="/"
     >
-      <h3>
-        AUTHOR'S HAVEN
-      </h3>
-    </div>
+      <div
+        className="mobile-header-text"
+      >
+        <h3>
+          AUTHOR'S HAVEN
+        </h3>
+      </div>
+    </Link>
     <div
       className="mobile-header-search-icon"
     >
       <img
         alt="Mobile view search icon"
-        src="/assets/img/search-icon.svg"
+        src="/search-icon.svg"
       />
     </div>
   </div>

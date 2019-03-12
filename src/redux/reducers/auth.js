@@ -1,12 +1,9 @@
 import { LOGIN_REQUEST_SUCCESS } from '../actions/types';
 
 export default (state, action) => {
-  const user = localStorage.getItem('user');
+  const isLoggedIn = !!localStorage.getItem('token');
 
-  const authDefaultState = user ? {
-    isLoggedIn: true,
-    user: JSON.parse(user)
-  } : {};
+  const authDefaultState = isLoggedIn ? { isLoggedIn } : {};
 
   state = state || authDefaultState;
 

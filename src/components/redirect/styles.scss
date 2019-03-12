@@ -1,0 +1,22 @@
+.redirect-page {
+  height: 100rem;
+  .spinner-container-redirect-page {
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/banner.png');
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    .spinner--redirect-page {
+      background: url('/assets/images/ah-logo.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: block;
+      margin: auto;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}

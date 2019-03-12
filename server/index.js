@@ -1,4 +1,6 @@
 import path from 'path';
+import dotenv from 'dotenv';
+import '@babel/polyfill';
 import express from 'express';
 import chalk from 'chalk';
 import { createLogger, format, transports } from 'winston';
@@ -9,6 +11,7 @@ const logger = createLogger({
   transports: [new transports.Console()]
 });
 
+dotenv.config();
 const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 const { PORT: port = 8080 } = process.env;
