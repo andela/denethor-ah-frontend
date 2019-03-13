@@ -40,7 +40,6 @@ it('Should save user and set isLogged in to true on successful login', () => {
   });
 
   expect(state).toEqual({
-    isLoggedIn: true,
-    user
+    isLoggedIn: true
   });
 });

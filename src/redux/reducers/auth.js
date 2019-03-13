@@ -11,7 +11,6 @@ export default (state, action) => {
     case LOGIN_REQUEST_SUCCESS:
       return {
         isLoggedIn: true,
-        user: action.user
       };
     default:
       return state;

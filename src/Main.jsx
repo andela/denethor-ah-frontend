@@ -8,6 +8,8 @@ import Header from './components/header'
 import Footer from './components/footer'
 import ArticlePage from './components/ArticlePage';
 import Redirect from './components/redirect/Redirect';
+import Dashboard from './components/dashboard/Dashboard';
+import ResetPassword from './components/resetPassword/ResetPassword';
 
 const Main = () => {
   const scrollToTop = () => {
@@ -26,8 +28,9 @@ const Main = () => {
           <Route path="/articles/:articleId" component={ArticlePage} />
           <Route exact path="/login" render={(props) => <Home {...props} bannerScreen={'Login'} />} />
           <Route exact path="/signup" render={(props) => <Home {...props} bannerScreen={'Signup'} />} />
-          <Route path="/dashboard" component={() => <p>This is the dashboard page placeholder</p>} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/api/users/:id/verify" component={Redirect} />
+          <Route path="/passwordreset" component={ResetPassword} />
         </Switch>
         <Footer />
       </div>
