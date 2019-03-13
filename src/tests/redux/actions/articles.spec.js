@@ -1,11 +1,13 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import mockAxios from 'axios'
-import { addArticle, removeArticle, getArticles, getOneArticle } from '../../../redux/actions/articles';
+import axios from '../../../utils/axiosConfig';
+import { addArticle, removeArticle, getArticles, getOneArticle, rateArticle, getArticleAvgRating } from '../../../redux/actions/articles';
 import articles from '../../mock-data/articles';
 import {
   GET_ONE_ARTICLE_SUCCESS
 } from '../../../redux/actions/types';
+
+jest.mock('../../../utils/axiosConfig');
 
 const createMockStore = configureMockStore([thunk]);
 describe('Article actions', () => {
@@ -34,7 +36,7 @@ describe('Article actions', () => {
 
   it('Should get articles from store', async() => {
     const mockData = articles;
-    mockAxios.get.mockImplementationOnce(() =>
+    axios.get.mockImplementationOnce(() =>
       Promise.resolve({ data: { data: mockData } }),
     )
     const expectedActions = [
@@ -55,7 +57,7 @@ describe('Article actions', () => {
       }
     };
 
-    mockAxios.get.mockImplementationOnce(() =>
+    axios.get.mockImplementationOnce(() =>
       Promise.resolve(response),
     )
   
@@ -66,4 +68,42 @@ describe('Article actions', () => {
       { type: GET_ONE_ARTICLE_SUCCESS, payload: articles[0] },
     )
   });
+
+  it('Should rate an article when rating stars are clicked', async() => {
+    const mockData = articles;
+    axios.post.mockImplementationOnce(() =>
+      Promise.resolve({ data: { article: mockData } }),
+    )
+    const expectedActions = [
+      {
+        payload: mockData,
+        type: 'RATE_ARTICLE_SUCCESS',
+      },
+    ];
+    await store.dispatch(rateArticle(5,'8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a'));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('Should get an articles ratings and average ratings when it is rated', async() => {
+    let mockData = {
+      data: {
+        count: 0,
+        rows: [],
+        articleId: '8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a'
+      }
+    };
+    
+    axios.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: mockData }),
+    )
+    const expectedActions = [
+      {
+        payload: mockData.data,
+        type: 'GET_ARTICLE_AVERAGE_RATING_SUCCESS',
+      },
+    ];
+    await store.dispatch(getArticleAvgRating('8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a'));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
 })

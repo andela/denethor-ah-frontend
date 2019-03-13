@@ -1,5 +1,6 @@
 import React from 'react';
-import './style.scss'
+import './style.scss';
+// import heart from '../../../public/assets/img/'
 
 const InactiveLikeButton = () => {
   const color = '#ADAAAA';

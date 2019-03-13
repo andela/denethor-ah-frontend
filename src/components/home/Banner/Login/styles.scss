@@ -74,6 +74,12 @@
 
   .login-block {
     flex-direction: column;
+    width: 90%;
+
+    .login-block__form input,
+    .login-block__form button {
+      width: 100%;
+    }
   }
 
   .login-block__form {

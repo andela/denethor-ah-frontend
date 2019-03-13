@@ -1,5 +1,5 @@
 import React from 'react';
-import { InactiveLikeButton } from '../LikeButton';
+import { InactiveLikeButton} from '../LikeButton';
 import PropTypes from 'prop-types';
 import './style.scss';
 

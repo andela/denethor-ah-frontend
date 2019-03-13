@@ -1,0 +1,655 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the single article component should call toast error when starclickhandle is called 1`] = `
+<SingleArticleView
+  articles={
+    Array [
+      Object {
+        "author": Object {
+          "imageUrl": "http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg",
+          "username": "samcotech",
+        },
+        "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "categoryId": 1,
+        "comments": Array [
+          Object {
+            "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+            "commentBody": "Article comme",
+            "createdAt": "2019-03-11T15:51:56.685Z",
+            "id": "59df4232-0603-44a1-a560-7beffe5569fa",
+            "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
+          },
+        ],
+        "createdAt": "2019-03-07T21:05:17.071Z",
+        "description": "this is the description",
+        "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        "likesCount": 20,
+        "readTime": "1 minute",
+        "references": null,
+        "slug": "this-is-the-title",
+        "title": "this is the title",
+        "updatedAt": "2019-03-07T21:05:17.071Z",
+      },
+    ]
+  }
+  fetchArticle={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  getArticleAvgRating={[MockFunction]}
+  match={
+    Object {
+      "params": Object {
+        "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+      },
+    }
+  }
+  rateArticle={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          5,
+          "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+>
+  <div>
+    <div
+      className="banner-section"
+    >
+      <div
+        className="banner-image"
+      >
+        <img
+          alt="banner background"
+          src="/assets/img/map-typing.jpg"
+        />
+      </div>
+      <div
+        className="transparent-overlay"
+      />
+      <div
+        className="banner-content"
+      >
+        <div
+          className="auto-container"
+        >
+          <div
+            className="banner-content-title"
+          >
+            this is the title
+          </div>
+          <div
+            className="avatar-text-group"
+          >
+            <div
+              className="user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg"
+              >
+                <div
+                  className="rounded-image"
+                >
+                  <img
+                    alt="profile picture"
+                    src="http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg"
+                  />
+                </div>
+              </RoundedImage>
+              <VerticalMargin
+                className="hide-for-medium"
+                size={50}
+              >
+                <div
+                  className="vertical-margin hide-for-medium"
+                  style={
+                    Object {
+                      "height": 50,
+                    }
+                  }
+                />
+              </VerticalMargin>
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            >
+              <div
+                className="horizontal-margin show-for-medium"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+              />
+            </HorizontalMargin>
+            <div
+              className="article-username-rate-group"
+            >
+              <div
+                className="article-header-username"
+              >
+                samcotech
+              </div>
+              <div
+                className="article-rating-container"
+              >
+                <div
+                  className="article-header-rating"
+                >
+                  <RatingStars>
+                    <span />
+                  </RatingStars>
+                </div>
+                <div
+                  className="article-header-rated-times"
+                >
+                  No ratings yet
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="body-section"
+    >
+      <div
+        className="auto-container wide-padding"
+      >
+        <div
+          className="article-body"
+        >
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+              }
+            }
+          />
+        </div>
+        <HorizontalLine>
+          <div
+            className="horizontal-line"
+          />
+        </HorizontalLine>
+        <div
+          className="section-article-info"
+        >
+          <div>
+            Rate this Article 
+            <RatingStarsBox
+              starClickHandle={[Function]}
+            >
+              <span
+                className="rating-stars"
+              >
+                <span
+                  key="5"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="4"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="3"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="2"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="1"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+              </span>
+            </RatingStarsBox>
+          </div>
+          <VerticalMargin
+            className="show-for-medium"
+            size={10}
+          >
+            <div
+              className="vertical-margin show-for-medium"
+              style={
+                Object {
+                  "height": 10,
+                }
+              }
+            />
+          </VerticalMargin>
+          <div>
+            <div
+              className="section-comment-create"
+            >
+              <div>
+                Leave comments
+              </div>
+              <TextAreaInput
+                className="article-comment-field"
+                placeholder="Your message"
+                text="Your message"
+              >
+                <textarea
+                  className="textarea-input article-comment-field"
+                  defaultValue="Your message"
+                  placeholder="Your message"
+                />
+              </TextAreaInput>
+              <button />
+            </div>
+            <div
+              className="section-user-comments"
+            >
+              <CommentEntries
+                comments={
+                  Array [
+                    Object {
+                      "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+                      "commentBody": "Article comme",
+                      "createdAt": "2019-03-11T15:51:56.685Z",
+                      "id": "59df4232-0603-44a1-a560-7beffe5569fa",
+                      "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
+                    },
+                  ]
+                }
+              >
+                <div>
+                  <div>
+                    <HorizontalLine>
+                      <div
+                        className="horizontal-line"
+                      />
+                    </HorizontalLine>
+                    Reader Comments
+                  </div>
+                  <div
+                    className="comment-entry"
+                    key="0"
+                  >
+                    <div
+                      className="comment-text"
+                    >
+                      <span>
+                        Article comme
+                      </span>
+                    </div>
+                    <div
+                      className="actions"
+                    >
+                      <div
+                        className="likes-count"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </CommentEntries>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</SingleArticleView>
+`;
+
+exports[`Test for the single article component should call toast success when starclickhandle is called 1`] = `
+<SingleArticleView
+  articles={
+    Array [
+      Object {
+        "author": Object {
+          "imageUrl": "http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg",
+          "username": "samcotech",
+        },
+        "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "categoryId": 1,
+        "comments": Array [
+          Object {
+            "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+            "commentBody": "Article comme",
+            "createdAt": "2019-03-11T15:51:56.685Z",
+            "id": "59df4232-0603-44a1-a560-7beffe5569fa",
+            "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
+          },
+        ],
+        "createdAt": "2019-03-07T21:05:17.071Z",
+        "description": "this is the description",
+        "id": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        "likesCount": 20,
+        "readTime": "1 minute",
+        "references": null,
+        "slug": "this-is-the-title",
+        "title": "this is the title",
+        "updatedAt": "2019-03-07T21:05:17.071Z",
+      },
+    ]
+  }
+  fetchArticle={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  getArticleAvgRating={[MockFunction]}
+  match={
+    Object {
+      "params": Object {
+        "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+      },
+    }
+  }
+  rateArticle={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          5,
+          "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+>
+  <div>
+    <div
+      className="banner-section"
+    >
+      <div
+        className="banner-image"
+      >
+        <img
+          alt="banner background"
+          src="/assets/img/map-typing.jpg"
+        />
+      </div>
+      <div
+        className="transparent-overlay"
+      />
+      <div
+        className="banner-content"
+      >
+        <div
+          className="auto-container"
+        >
+          <div
+            className="banner-content-title"
+          >
+            this is the title
+          </div>
+          <div
+            className="avatar-text-group"
+          >
+            <div
+              className="user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg"
+              >
+                <div
+                  className="rounded-image"
+                >
+                  <img
+                    alt="profile picture"
+                    src="http://res.cloudinary.com/jsamcloud12/image/upload/v1552059783/profiles/2019-03-08T15:43:03.282Z.jpg"
+                  />
+                </div>
+              </RoundedImage>
+              <VerticalMargin
+                className="hide-for-medium"
+                size={50}
+              >
+                <div
+                  className="vertical-margin hide-for-medium"
+                  style={
+                    Object {
+                      "height": 50,
+                    }
+                  }
+                />
+              </VerticalMargin>
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            >
+              <div
+                className="horizontal-margin show-for-medium"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+              />
+            </HorizontalMargin>
+            <div
+              className="article-username-rate-group"
+            >
+              <div
+                className="article-header-username"
+              >
+                samcotech
+              </div>
+              <div
+                className="article-rating-container"
+              >
+                <div
+                  className="article-header-rating"
+                >
+                  <RatingStars>
+                    <span />
+                  </RatingStars>
+                </div>
+                <div
+                  className="article-header-rated-times"
+                >
+                  No ratings yet
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="body-section"
+    >
+      <div
+        className="auto-container wide-padding"
+      >
+        <div
+          className="article-body"
+        >
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+              }
+            }
+          />
+        </div>
+        <HorizontalLine>
+          <div
+            className="horizontal-line"
+          />
+        </HorizontalLine>
+        <div
+          className="section-article-info"
+        >
+          <div>
+            Rate this Article 
+            <RatingStarsBox
+              starClickHandle={[Function]}
+            >
+              <span
+                className="rating-stars"
+              >
+                <span
+                  key="5"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="4"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="3"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="2"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+                <span
+                  key="1"
+                  onClick={[Function]}
+                >
+                  ☆
+                </span>
+              </span>
+            </RatingStarsBox>
+          </div>
+          <VerticalMargin
+            className="show-for-medium"
+            size={10}
+          >
+            <div
+              className="vertical-margin show-for-medium"
+              style={
+                Object {
+                  "height": 10,
+                }
+              }
+            />
+          </VerticalMargin>
+          <div>
+            <div
+              className="section-comment-create"
+            >
+              <div>
+                Leave comments
+              </div>
+              <TextAreaInput
+                className="article-comment-field"
+                placeholder="Your message"
+                text="Your message"
+              >
+                <textarea
+                  className="textarea-input article-comment-field"
+                  defaultValue="Your message"
+                  placeholder="Your message"
+                />
+              </TextAreaInput>
+              <button />
+            </div>
+            <div
+              className="section-user-comments"
+            >
+              <CommentEntries
+                comments={
+                  Array [
+                    Object {
+                      "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+                      "commentBody": "Article comme",
+                      "createdAt": "2019-03-11T15:51:56.685Z",
+                      "id": "59df4232-0603-44a1-a560-7beffe5569fa",
+                      "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
+                    },
+                  ]
+                }
+              >
+                <div>
+                  <div>
+                    <HorizontalLine>
+                      <div
+                        className="horizontal-line"
+                      />
+                    </HorizontalLine>
+                    Reader Comments
+                  </div>
+                  <div
+                    className="comment-entry"
+                    key="0"
+                  >
+                    <div
+                      className="comment-text"
+                    >
+                      <span>
+                        Article comme
+                      </span>
+                    </div>
+                    <div
+                      className="actions"
+                    >
+                      <div
+                        className="likes-count"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </CommentEntries>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</SingleArticleView>
+`;

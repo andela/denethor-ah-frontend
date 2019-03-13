@@ -21,5 +21,11 @@
 
   .register-block {
     flex-direction: column;
+    width: 90%;
+
+    .register-block__form input, 
+    .register-block__form button {
+      width: 100%;
+    }
   }
 }
