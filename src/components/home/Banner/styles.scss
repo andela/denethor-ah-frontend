@@ -1,5 +1,5 @@
-@import './settings';
-@import '../../../styles/base/settings';
+@import "./settings";
+@import "../../../styles/base/settings";
 
 .banner {
   @include overlay-background(0.5, '/assets/img/banner.png');
@@ -11,7 +11,7 @@
 }
 
 .banner__yellow-text {
-  color: darken(#E3B154, 10%);
+  color: darken(#e3b154, 10%);
 }
 
 .banner__off-white-text {
@@ -25,15 +25,15 @@
   text-shadow: 0.1rem 0.1rem 0.1rem #000;
 
   > div h1:first-of-type {
-    color: #EBB03D;
-    font-family: 'Montserrat-Bold';
+    color: #ebb03d;
+    font-family: "Montserrat-Bold";
     margin: 0;
   }
 
   > div h1:last-of-type {
-    font-family: 'Century-Gothic-Bold';
+    font-family: "Century-Gothic-Bold";
   }
-  
+
   > div {
     padding: 3.2rem 0;
   }
@@ -43,7 +43,7 @@
     border: none;
     border-radius: 2rem;
     font-size: 1.28rem;
-    font-family: 'Montserrat-SemiBold';
+    font-family: "Montserrat-SemiBold";
     height: 2.56rem;
     margin: 0.64rem;
     transition: 0.5s;
@@ -63,7 +63,6 @@
 .py-2 {
   padding: $m-size 0;
 }
-
 
 .banner__screen {
   @include overlay-background(0.5);
@@ -99,6 +98,35 @@
   transition: transform 400ms cubic-bezier(.74,-0.25,.13,.26);
 }
 
+.modal {
+  .logo-container {
+    display: none;
+  }
+
+  .modal__close {
+    display: none;
+  }
+}
+
+.background-enter, .background-appear {
+  position: absolute;
+  transform: translate(100%);
+  opacity: 0.8;
+}
+.background-enter.background-enter-active, .background-appear.background-appear-active {
+  transform: translate(0%);
+  transition: transform 800ms cubic-bezier(.63,.47,.71,1.16);
+}
+.background-leave {
+  position: absolute;
+  transform: translate(0%);
+}
+.background-leave.background-leave-active {
+  opacity: 0.5;
+  transform: translate(-100%);
+  transition: transform 400ms cubic-bezier(.74,-0.25,.13,.26);
+}
+
 
 @media (max-width: 60rem) {
   .background-enter.background-enter-active, .background-appear.background-appear-active {
@@ -107,7 +135,7 @@
 
   .banner {
     grid-template-columns: 1fr 1fr;
-    padding: 1.6rem;
+    padding: 1.6em;
   }
 
   .banner__slogan {
@@ -138,6 +166,40 @@
     padding: 0;
   }
 
+  .modal {
+    @include overlay-background(0.5, '/assets/img/banner-mobile.jpg');
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    min-height: 100vh;
+    width: 100%;
+    border-radius: 0;
+    z-index: 1;
+
+    .logo-container {
+      display: flex;
+      position: absolute;
+      top: 2rem;
+      margin-left: 0;
+    }
+
+    .logo-container__text h3 {
+      font-family: 'SairaCondensed-Regular';
+      letter-spacing: 0.16rem;
+      margin: 0.5rem;
+      color: white;
+    }
+
+    .modal__close {
+      display: block;
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      top: $m-size;
+      left: $m-size;
+    }
+  }
+
   .banner__slogan {
     @include overlay-background(0.5, '/assets/img/banner-mobile.jpg');
     background-size: cover;
@@ -161,12 +223,14 @@
     }
   }
 
-  .banner__screen {
-    background: none;
+  .background-enter,
+  .background-leave.background-leave-active {
+    opacity: 1;
   }
 
   .banner__screen.banner__screen--stats {
     height: auto;
+    background: transparent;
   }
 
   .hidden-on-mobile {
@@ -174,7 +238,7 @@
   }
 
   .banner__yellow-text-mobile {
-    color: darken(#E3B154, 10%);
+    color: darken(#e3b154, 10%);
   }
 
   .banner__off-white-text {

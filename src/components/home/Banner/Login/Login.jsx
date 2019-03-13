@@ -4,7 +4,13 @@ import { Redirect } from 'react-router-dom';
 import { isEmail, isAlphanumeric } from 'validator';
 import '@babel/polyfill';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { login } from '../../../../redux/actions/auth';
+import logo from '../../../../images/ah-logo.svg';
 import SocialLoginBtn from './SocialLoginBtn';
 import SocialLoginIcons from './SocialLoginIcons';
 import './styles.scss';
@@ -23,7 +29,7 @@ export class Login extends Component {
     toast.dismiss(this.state.toastId);
   }
 
-  onEmailChange = ({ target: { value: email }}) => {
+  onEmailChange = ({ target: { value: email } }) => {
     this.setState({
       email,
       emailErrorMessage: '',
@@ -33,15 +39,15 @@ export class Login extends Component {
 
   onEmailBlur = () => {
     const { email } = this.state;
-    if(!email) {
+    if (!email) {
       return this.setState({ emailErrorMessage: 'Please enter your email address.' });
     }
-    if(!isEmail(this.state.email)) {
+    if (!isEmail(this.state.email)) {
       return this.setState({ emailErrorMessage: 'Invalid email address, please crosscheck.' });
     }
   }
 
-  onPasswordChange = ({ target: { value: password }}) => {
+  onPasswordChange = ({ target: { value: password } }) => {
     this.setState({
       password,
       passwordErrorMessage: '',
@@ -51,15 +57,15 @@ export class Login extends Component {
 
   onPasswordBlur = () => {
     const { password } = this.state
-    if(!password) {
+    if (!password) {
       return this.setState({ passwordErrorMessage: 'Please enter your password.' })
     }
 
-    if(!isAlphanumeric(password)) {
+    if (!isAlphanumeric(password)) {
       return this.setState({ passwordErrorMessage: 'Use numbers and letters for password.' })
     }
 
-    if(password.length < 8) {
+    if (password.length < 8) {
       return this.setState({ passwordErrorMessage: 'Password must be 8 or more characters.' })
     }
   }
@@ -67,10 +73,10 @@ export class Login extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = this.state;
-    if(!email) {
+    if (!email) {
       return this.setState({ emailErrorMessage: 'Please enter your email address.' });
     }
-    if(!password) {
+    if (!password) {
       return this.setState({ passwordErrorMessage: 'Please enter your password.' })
     }
     this.setState({ buttonDisabled: true });
@@ -108,13 +114,12 @@ export class Login extends Component {
 
     const message = emailErrorMessage || passwordErrorMessage || serverErrorMessage || false;
 
-    if(message) {
+    if (message) {
       errorNotFromServer = !serverErrorMessage;
-      if(!isActive(toastId)) {
-        toast.error(message,  {
-          autoClose: false,
+      if (!isActive(toastId)) {
+        toast.error(message, {
           closeButton: false,
-          closeOnClick: false,
+          hideProgressBar: true,
           toastId: toastId,
           className: 'toast-custom-style'
         });
@@ -123,14 +128,32 @@ export class Login extends Component {
           render: message,
         });
       }
-    } else if(isActive(toastId)) {
+    } else if (isActive(toastId)) {
       toast.dismiss(toastId);
     }
 
     const disableButton = buttonDisabled || errorNotFromServer; // We don't want to disable the button if the toast is a message from the server
 
     return (
-      <div className='flex'>
+      <div className='flex modal'>
+        <div className="logo-container">
+          <div className="logo-container__image">
+            <img src={`/${logo}`} alt="Author's haven logo" />
+          </div>
+          <div className="logo-container__text">
+            <h3>AUTHOR&apos;S HAVEN</h3>
+          </div>
+        </div>
+        <Link
+          className='modal__close'
+          to='/'
+        >
+          <FontAwesomeIcon
+            icon={faTimes}
+            color='#ffffff'
+            size='2x'
+          />
+        </Link>
         <div className='login-block'>
           <SocialLoginBtn />
           <form className='login-block__form'>
@@ -172,10 +195,15 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = ({ auth: { isLoggedIn }}) => ({ isLoggedIn });
+const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
 
 const mapDispatchToProps = (dispatch) => ({
   handleLogin: (payload) => dispatch(login(payload))
 });
+
+Login.propTypes = {
+  handleLogin: PropTypes.func,
+  isLoggedIn: PropTypes.bool
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

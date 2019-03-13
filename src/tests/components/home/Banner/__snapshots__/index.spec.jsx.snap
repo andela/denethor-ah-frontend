@@ -94,7 +94,7 @@ exports[`Should render banner with signup correctly 1`] = `
       transitionLeaveTimeout={400}
       transitionName="background"
     >
-      <_default
+      <Connect(Signup)
         key="Signup"
       />
     </CSSTransitionGroup>

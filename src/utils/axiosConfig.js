@@ -1,11 +1,8 @@
 import axios from 'axios';
 
 axios.interceptors.request.use((config) => {
-  const token = () => window.localStorage.getItem('token');
-
-  if ( token ) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  const token = (() => window.localStorage.getItem('token'))();
+  return Object.assign({}, config, { headers: { Authorization: token } });
 
 }, (error) => {
   return Promise.reject(error);

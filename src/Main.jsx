@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 import Home from './components/home';
 import Header from './components/header'
 import Footer from './components/footer'
@@ -18,7 +19,7 @@ const Main = () => {
     <BrowserRouter>
       <div>
         <ToastContainer />
-        <Route component={scrollToTop} /> 
+        <Route component={scrollToTop} />
         <Header />
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} bannerScreen={'Stats'} />} />

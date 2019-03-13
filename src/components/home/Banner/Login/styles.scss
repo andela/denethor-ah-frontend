@@ -42,7 +42,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 0.5rem;
+    padding-top: $s-size;
   }
 
   .social-login-block-mobile__caption {
@@ -53,6 +53,7 @@
   .social-login-block-mobile__buttons {
     display: flex;
     align-items: center;
+    margin-top: 0.5rem;
 
     > button {
     height: 45px;
@@ -80,7 +81,8 @@
   }
 }
 
-.Toastify__toast--error.toast-custom-style {
+.Toastify__toast--error.toast-custom-style,
+.Toastify__toast--success.toast-custom-style {
   border-radius: 0.2rem;
   font-family: Montserrat-Light;
   min-height: inherit;
@@ -88,10 +90,16 @@
   position: relative;
   top: 6rem;
   right: 1.5rem;
+
   > .Toastify__toast-body {
     font-size: 0.8rem;
   }
 }
+
+.Toastify__toast--error.toast-custom-style {
+  background: #fd2c27;
+}
+
 
 .spinner--button {
   border: 1px solid #f3f3f3; /* Light grey */
