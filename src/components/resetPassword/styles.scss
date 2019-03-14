@@ -1,0 +1,43 @@
+.modal-wrapper {
+  background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/img/banner.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+  .modal-form-container {
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    .logo-container {
+      margin: 1rem auto;
+      h3 {
+        color: white;
+        margin: auto;
+      }
+    }
+  }
+  .reset-password-form__form {
+    display: flex;
+    flex-direction: column;
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+    .password-error-message {
+      color: #FBE15D;
+    }
+    button {
+      margin-top: 1rem;
+    }
+  }
+}
+
+
+.Toastify__toast--error.toast-custom-style.toast-reset-password,
+.Toastify__toast--success.toast-custom-style.toast-reset-password {
+  top: 15rem;
+  right: 50%;
+}

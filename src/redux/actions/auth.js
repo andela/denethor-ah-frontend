@@ -1,5 +1,5 @@
 import { LOGIN_REQUEST_SUCCESS } from './types';
-import axios from 'axios';
+import axios from '../../utils/axiosConfig';
 
 const api = process.env.API_ROOT_URL;
 
@@ -14,6 +14,7 @@ export const login = loginDetails => async (dispatch) => {
     localStorage.setItem('token', token);
 
     dispatch(setLoggedInState);
+    return;
   } catch ({ response: { status } }) {
     switch (status) {
       case 401:

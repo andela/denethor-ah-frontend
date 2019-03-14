@@ -41,6 +41,14 @@ export class Signup extends Component {
     toast.dismiss(this.state.toastOptions.toastId);
   }
 
+  componentDidMount() {
+    const shouldAlert = (new URL(document.location).searchParams).get('mailalert') === 'true';
+    if (shouldAlert) {
+      toast.success('Sign up successful. Please verify your email and set password to access your account');
+      history.pushState('', document.title, window.location.pathname);
+    }
+  }
+
   createToastError = (msg, options) => {
     const { state: { toastOptions: { toastId } } } = this;
 
@@ -49,6 +57,7 @@ export class Signup extends Component {
     }
     return toast.error(msg, options);
   }
+
 
   onFirstNameChange = ({ target: { value } }) => {
     this.setState(() => ({

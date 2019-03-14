@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { toast} from 'react-toastify';
+import PropTypes from 'prop-types';
 import { setLoggedInState } from '../../redux/actions/auth';
 import './styles.scss';
 
@@ -42,6 +43,13 @@ export class Loading extends Component {
       </div>
     );
   }
+}
+
+
+Loading.propTypes = { 
+  history: PropTypes.object,
+  match: PropTypes.object,
+  dispatch: PropTypes.function
 }
 
 export default connect()(Loading);

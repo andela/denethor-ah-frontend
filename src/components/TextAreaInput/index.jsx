@@ -17,7 +17,9 @@ TextAreaInput.defaultProps = {
 };
 
 TextAreaInput.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  placeholder: PropTypes.string
 }
 
 export default TextAreaInput;
