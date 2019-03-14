@@ -11,6 +11,8 @@ describe('Test for the single article component', () => {
 				articleId: articles[0].id
 			}
 		},
+		getArticleAvgRating: jest.fn(),
+		rateArticle: jest.fn(),
 		articles
 	};
 
@@ -23,4 +25,43 @@ describe('Test for the single article component', () => {
 		expect(wrapper.find('.article-header-username').length).toBe(1);
 		expect(wrapper.find('.article-body').length).toBe(1);
 	});
+
+	it('should call toast success when starclickhandle is called', () => {
+		const rateArticle = jest.fn(() => Promise.resolve({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			rateArticle,
+			articles
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
+		expect(wrapper).toMatchSnapshot();
+		expect(rateArticle).toHaveBeenCalled();
+	});
+
+	it('should call toast error when starclickhandle is called', () => {
+		const rateArticle = jest.fn(() => Promise.reject({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			rateArticle,
+			articles
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
+		expect(wrapper).toMatchSnapshot();
+		expect(rateArticle).toHaveBeenCalled();
+	});
+
 });

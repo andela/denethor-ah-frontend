@@ -102,11 +102,28 @@
   margin-bottom: 4em;
 }
 
+.impressions-section {
+  display: flex;
+}
+
 .section-user-comments {
   margin-top: 3em;
 }
 
+.article-header-rated-times {
+  color: rgb(189, 184, 184);
+}
+
 @media only screen and (min-width: 40em) {
+
+  .article-header-rated-times {
+    color: rgb(189, 184, 184);
+  }
+
+  .article-rating-container {
+    display: flex;
+  }
+
   .banner-section {
     height: 20em;
     text-align: left;
@@ -173,9 +190,9 @@
 
 @media only screen and (min-width: 60em) {
   .auto-container {
-    padding-left: 2em;
-    padding-right: 2em;
-    max-width: 73em;
+    padding-left: 4em;
+    padding-right: 4em;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 

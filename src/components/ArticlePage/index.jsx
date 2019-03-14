@@ -9,32 +9,48 @@ import RatingStarsBox from '../../components/RatingStarsBox';
 import HorizontalLine from '../../components/HorizontalLine';
 import TextAreaInput from '../../components/TextAreaInput';
 import CommentEntries from '../../components/CommentEntries';
-import { getOneArticle } from '../../redux/actions/articles';
+import { getOneArticle, rateArticle, getArticleAvgRating } from '../../redux/actions/articles';
+import { toast } from 'react-toastify';
 import './style.scss';
 
 
 export class SingleArticleView extends Component {
 
-  componentDidMount() {
-    const { fetchArticle, match } = this.props;
+  async componentDidMount() {
+    const { fetchArticle, getArticleAvgRating, match } = this.props;
     let articleId = match.params.articleId;
-    fetchArticle(articleId);
+    await fetchArticle(articleId);
+    getArticleAvgRating(articleId)
+  }
+
+  starClickHandle = (item) => {
+    let articleId = this.props.match.params.articleId;
+    this.props.rateArticle(item, articleId )
+    .then(() => toast.success('Thank you for rating this article'))
+    .catch(error => {
+      if (error.response.data.message === 'You already rated this article'){
+        return toast.error('You have already rated this article');
+      } else if(error.response.data === 'Unauthorized'){
+         toast.error('You need to login to rate an article');
+        return  this.props.history.push('/login')
+      }
+      toast.error('Error while rating article');
+    })
   }
 
   render() {
-    const { match, articles = [] } = this.props;
-    const { articleId } = match.params;
+    const { match: { params: { articleId } }, articles = [] } = this.props;
     const article = articles.find(item => item.id === articleId) || {};
-
     const { 
       title, 
       featuredImage = '/assets/img/map-typing.jpg', 
       author: { username = '', imageUrl: userAvatarImage = '' } = {}, 
       body,
-      comments = []
+      averageRating,
+      ratingsCount,
+      comments = [],
     } = article;
 
-  
     return (
       <div>
         <div className='banner-section'>
@@ -53,8 +69,13 @@ export class SingleArticleView extends Component {
                 <HorizontalMargin className='show-for-medium' size={10} />
                 <div className='article-username-rate-group'>
                   <div className='article-header-username'>{username}</div>
-                  <div className='article-header-rating'>
-                    <RatingStars rateNumber={4} />
+                  <div className ='article-rating-container'>
+                    <div className='article-header-rating'>
+                      <RatingStars rateNumber={(averageRating)} />
+                    </div>
+                    <div className='article-header-rated-times'>
+                      {!ratingsCount ? 'No ratings yet' : `rated by ${ratingsCount} user${ratingsCount > 1 ? 's' : ''}`}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -68,7 +89,7 @@ export class SingleArticleView extends Component {
             </div>
             <HorizontalLine />
             <div className='section-article-info'>  
-              <div>Rate this Article <RatingStarsBox rateNumber={4} /></div>
+              <div>Rate this Article <RatingStarsBox starClickHandle= {this.starClickHandle.bind(this)} /></div>  
               <VerticalMargin className='show-for-medium' size={10} />
               <div>
                 <div className='section-comment-create'>
@@ -91,7 +112,10 @@ export class SingleArticleView extends Component {
 SingleArticleView.propTypes = {
   articles: PropTypes.array.isRequired,
   match: PropTypes.object.isRequired,
-  fetchArticle: PropTypes.func.isRequired
+  fetchArticle: PropTypes.func.isRequired,
+  rateArticle: PropTypes.func.isRequired,
+  getArticleAvgRating: PropTypes.func.isRequired,
+  history: PropTypes.object
 }
 
 const mapStateToProps = (state) => ({
@@ -99,7 +123,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchArticle: (id) => dispatch(getOneArticle(id))
+  fetchArticle: (id) => dispatch(getOneArticle(id)),
+  rateArticle: (rating, articleId) => dispatch(rateArticle(rating, articleId)),
+  getArticleAvgRating: (articleId) => dispatch(getArticleAvgRating(articleId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

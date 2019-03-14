@@ -110,7 +110,7 @@ $light_white: #FFFDFD;
 .feed-bottom-section {
   max-width: 100%;
   margin: auto;
-  padding: 2em; 
+  padding: 2em 3em;
 }
 
 .feed-bottom-container-small-card {
@@ -120,12 +120,13 @@ $light_white: #FFFDFD;
 
 .top-categories-header {
   display: flex;
-  font-family: 'Montserrat-Bold';
   margin-bottom: 1em;
 
   h3{
     border-bottom: 1px solid darken(yellow, 5);
     border-bottom: 2%;
+    font-size: 1.2em;
+    font-family: 'Montserrat-Bold';
     // padding-bottom: 1rem;
   }
 }
@@ -207,7 +208,6 @@ $light_white: #FFFDFD;
   }
   .top-categories-header {
     display: flex;
-    font-family: 'Montserrat-Bold';
     flex:1;
     border-bottom: 1px solid $gray;
     align-content: center;
@@ -217,7 +217,8 @@ $light_white: #FFFDFD;
     h3 {
       border-bottom: 0;
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 1.2em;
+      font-family: 'Montserrat-Bold';
     }
   }
   .feed-bottom-large-card-container-image {
@@ -225,7 +226,7 @@ $light_white: #FFFDFD;
   }
 
   .feed-bottom-section {
-    padding: 3rem 5rem 0 5rem;
+    padding: 3rem 3rem 0 3rem;
   }
 
   .nav-items {
@@ -264,5 +265,8 @@ $light_white: #FFFDFD;
 
   .feed-bottom-container__large_image_info-container {
     bottom: 40%;
+  }
+  .feed-bottom-section {
+    padding: 2em 5em;
   }
 }

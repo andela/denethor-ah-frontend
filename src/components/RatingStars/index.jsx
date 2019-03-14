@@ -30,7 +30,7 @@ const addStars = (number, theme) => {
 }
 
 RatingStars.propTypes = {
-  rateNumber: PropTypes.number.isRequired,
+  rateNumber: PropTypes.number,
 };
 
 

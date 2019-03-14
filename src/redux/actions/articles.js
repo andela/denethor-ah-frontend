@@ -3,8 +3,10 @@ import {
   REMOVE_ARTICLE,
   GET_ONE_ARTICLE_SUCCESS,
   GET_ARTICLES_SUCCESS,
+  RATE_ARTICLE_SUCCESS,
+  GET_ARTICLE_AVERAGE_RATING_SUCCESS
 } from './types';
-import axios from 'axios';
+import axios from '../../utils/axiosConfig';
 import { extractImageFromBody } from '../../utils/imageExtractor';
 import { toTimeFromNow } from '../../utils/dateTime';
 
@@ -45,8 +47,7 @@ export const getArticles = (category) => (dispatch) => {
 }
 
 export const getOneArticle = id => (dispatch) => {
-  return axios
-  .get(`${API_ROOT_URL}/articles/${id}`)
+  return axios.get(`${API_ROOT_URL}/articles/${id}`)
   .then(response => {
     const article = { ...response.data.data };
     article.featuredImage = extractImageFromBody(article.body);
@@ -60,3 +61,34 @@ export const getOneArticle = id => (dispatch) => {
     throw error;
   });
 };
+
+export const rateArticle = (rating, articleId) => (dispatch) => {
+  return axios
+  .post(`${API_ROOT_URL}/articles/${articleId}/ratings`, {rating})
+  .then(response => {
+    dispatch({
+      type: RATE_ARTICLE_SUCCESS,
+      payload: response.data.article
+    })
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const getArticleAvgRating = (articleId) => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/articles/${articleId}/ratings`)
+  .then(response => {
+    const { count, rows }= response.data.data
+    dispatch({
+      type: GET_ARTICLE_AVERAGE_RATING_SUCCESS,
+      payload: {
+        count, rows, articleId
+      }
+    })
+  })
+  .catch((error) => {
+    throw error
+  })
+}
