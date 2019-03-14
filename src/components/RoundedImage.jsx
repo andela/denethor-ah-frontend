@@ -11,7 +11,7 @@ const RoundedImage = ({ imageSource, alt }) => {
 }
 
 RoundedImage.propTypes = {
-  // imageSource: PropTypes.string.isRequired,
+  imageSource: PropTypes.string.isRequired,
   alt: PropTypes.string,
 };
 

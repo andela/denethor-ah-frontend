@@ -2,7 +2,7 @@
 
 exports[`it renders correctly as a static component 1`] = `
 <div
-  className="header"
+  className="header theme__black"
 >
   <button
     onClick={[Function]}
@@ -15,7 +15,7 @@ exports[`it renders correctly as a static component 1`] = `
       >
         <img
           alt="Author's haven logo"
-          src="/ah-logo.svg"
+          src="/assets/img/ah-logo.svg"
         />
       </div>
       <div
@@ -38,7 +38,7 @@ exports[`it renders correctly as a static component 1`] = `
         >
           <img
             alt="search icon"
-            src="/search-icon.svg"
+            src="/assets/img/search-icon.svg"
           />
         </Link>
       </li>
@@ -99,7 +99,7 @@ exports[`it renders correctly as a static component 1`] = `
     >
       <img
         alt="Mobile view search icon"
-        src="/search-icon.svg"
+        src="assets/img/search-icon.svg"
       />
     </div>
   </div>

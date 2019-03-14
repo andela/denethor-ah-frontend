@@ -2,14 +2,15 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
 import Home from './components/home';
-import Header from './components/header'
-import Footer from './components/footer'
-import ArticlePage from './components/ArticlePage';
+import Header from './components/header';
+import Footer from './components/footer';
+import { ArticlePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';
-import Dashboard from './components/dashboard/Dashboard';
 import ResetPassword from './components/resetPassword/ResetPassword';
+import { Dashboard } from './components/dashboard';
+
 
 const Main = () => {
   const scrollToTop = () => {

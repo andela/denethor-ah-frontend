@@ -15,6 +15,18 @@ $gray: #818181;
     width: 40%;
     border: none;
   }
+
+  &.theme__black {
+    background: #3F3D3D;
+    
+    button {
+      color: white !important;
+    }
+    .logo-text h3 {
+      color: white !important;      
+    }
+  }
+
 }
 
 .logo-container {
@@ -59,33 +71,33 @@ $gray: #818181;
   }
 }
 
+.mobile-header {
+  display: none
+}
+
+@media all and (max-width:550px) and (min-width:0px) {
+  .header > button, .nav-container {
+    display: none;
+  }
+  
   .mobile-header {
-    display: none
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-  @media all and (max-width:550px) and (min-width:0px) {
-    .header > button, .nav-container {
-      display: none;
+    > a {
+      color: black;
+      text-decoration: none;
     }
-    
-    .mobile-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
 
-      > a {
-        color: black;
-        text-decoration: none;
-      }
-
-      .mobile-header-text {
-        font-family: 'SairaCondensed-Regular';
-        
-        h3 {
-          margin: 0.5rem 0;
-          font-size: 1.3em;
-        }
+    .mobile-header-text {
+      font-family: 'SairaCondensed-Regular';
+      
+      h3 {
+        margin: 0.5rem 0;
+        font-size: 1.3em;
       }
     }
   }
+}

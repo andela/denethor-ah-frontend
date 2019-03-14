@@ -1,0 +1,18 @@
+.like-icon {
+  width: 1.5em;
+  fill: red;
+}
+
+.likes-number-group {
+  display: flex;
+  flex-direction: row;
+  width: 5em;
+  height: 2em;
+  align-items: center;
+
+  .like-count {
+    margin-left: 0.5em;
+    font-size: 1em;
+    margin-top: 0.3em;
+  }
+}
