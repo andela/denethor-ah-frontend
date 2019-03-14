@@ -12,7 +12,7 @@ exports[`Should render login form 1`] = `
     >
       <img
         alt="Author's haven logo"
-        src="/ah-logo.svg"
+        src="/assets/img/ah-logo.svg"
       />
     </div>
     <div

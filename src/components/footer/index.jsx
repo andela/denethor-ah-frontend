@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import NavTab from '../navTabs';
 import InputSection from '../inputSection';
-import logo from '../../images/ah-logo.svg';
 import './style.scss';
 
 const Footer = ({ onChange, onKeyPress }) => (
@@ -24,7 +23,7 @@ const Footer = ({ onChange, onKeyPress }) => (
       </div>
       <NavTab />
       <div className="footer__logo-button">
-        <button className="footer__logo-button__button"><div className="footer__logo-button__logo"><img src={`/${logo}`} alt="logo" /></div><div><p>AUTHOR&apos;S HAVEN</p></div></button>
+        <button className="footer__logo-button__button"><div className="footer__logo-button__logo"><img src='/assets/img/ah-logo.svg' alt="logo" /></div><div><p>AUTHOR&apos;S HAVEN</p></div></button>
       </div>
     </div>
     <div className="mini-footer">

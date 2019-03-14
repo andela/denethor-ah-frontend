@@ -4,9 +4,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
-
-import logo from '../../images/ah-logo.svg';
-import searchIcon from '../../images/search-icon.svg';
 import './styles.scss';
 
 library.add(faBars);
@@ -25,11 +22,11 @@ export const Header = ({ history }) => {
   };
 
   return (
-    <div className="header">
+    <div className="header theme__black">
       <button onClick={handleLogoClick}>
         <div className="logo-container">
           <div className="logo-image"> 
-            <img src={`/${logo}`} alt="Author's haven logo"/>
+            <img src='/assets/img/ah-logo.svg' alt="Author's haven logo"/>
           </div>
           <div className="logo-text">
             <h3>AUTHOR&apos;S HAVEN</h3>
@@ -38,7 +35,7 @@ export const Header = ({ history }) => {
       </button>
       <div className="nav-container">
         <ul>
-          <li><Link to='/'><img src={`/${searchIcon}`} alt="search icon"/></Link></li>
+          <li><Link to='/'><img src='/assets/img/search-icon.svg' alt="search icon"/></Link></li>
           <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
           <li><button onClick={handleNavLogin} className="login-link">Login</button></li>
         </ul>
@@ -48,7 +45,7 @@ export const Header = ({ history }) => {
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
-        <div className="mobile-header-search-icon"><img src={`/${searchIcon}`} alt="Mobile view search icon"/></div>
+        <div className="mobile-header-search-icon"><img src='assets/img/search-icon.svg' alt="Mobile view search icon"/></div>
       </div>
     </div>
   )
