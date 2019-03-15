@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RoundedImage from '../../components/RoundedImage';
 import HorizontalMargin from '../../components/HorizontalMargin';
-import { RatingStars } from '../../components/rating-stars';
+import { RatingStars } from '../../components/ratingStars';
 import ArticleListItem from './ArticleListItem';
 import './styles.scss';
 

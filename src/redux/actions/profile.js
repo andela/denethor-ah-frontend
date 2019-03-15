@@ -1,4 +1,4 @@
-import { SET_OWN_PROFILE, UPDATE_PROFILE } from './types';
+import { REMOVE_OWN_PROFILE, SET_OWN_PROFILE, UPDATE_PROFILE, GET_USER_BOOKMARKS_SUCCESS } from './types';
 import axios from '../../utils/axiosConfig';
 
 const api = process.env.API_ROOT_URL;
@@ -14,16 +14,19 @@ export const getOwnProfile = id => async (dispatch) => {
 
     const userAverageRatingPromise = data.publishedArticles.reduce(async (accumulatorObject, article, index, { length }) => {
       const { totalArticlesWithRating, totalRating, ratingCount } = await accumulatorObject;
-      const {
-        data: { data: { count, rows: [{ averageRating } = { averageRating: 0 }] } }
-      } = await axios.get(`${api}/articles/${article.id}/ratings`);
+
+      const { data: { data, data: { length: count } } } = await axios.get(`${api}/articles/${article.id}/ratings`);
+
+      const averageRating = data.reduce((average, { rating }) => average + rating/(count > 0 ? count : 1), 0);
+
       const articleHasRating = count > 0 ? 1 : 0;
       const articlesWithRating = totalArticlesWithRating + articleHasRating;
       const currentCount = ratingCount + count;
-      const currentRating = Number(averageRating)  + totalRating;
+      const currentRating = Number(averageRating) + totalRating;
 
       return {
-        ...(index === length - 1 && { averageRating: currentRating/articlesWithRating }),
+        ...((index === length - 1 && articlesWithRating > 0)
+          && { averageRating: currentRating/articlesWithRating }),
         totalArticlesWithRating: articlesWithRating,
         totalRating: currentRating,
         ratingCount: currentCount
@@ -110,3 +113,22 @@ export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) 
     }
   }
 };
+
+
+export const userBookmarks = (id) => async (dispatch) => {
+  await axios()
+  .get(`${api}/bookmarks?${id}`)
+  .then((response) =>{
+    dispatch({
+      type: GET_USER_BOOKMARKS_SUCCESS,
+      payload: response.data.data
+    })
+  })
+  .catch((error)=>{
+    throw error
+  })
+};
+
+export const removeOwnProfile = () => ({
+  type: REMOVE_OWN_PROFILE
+});

@@ -76,4 +76,108 @@ describe('Test for the single article component', () => {
 		expect(rateArticle).toHaveBeenCalled();
 	});
 
+	it('should like an article', () => {
+		const likeArticle = jest.fn(() => Promise.resolve({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			addcommment: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			likeArticle,
+			dislikeArticle: jest.fn(),
+			bookmarkArticle: jest.fn(),
+			rateArticle: jest.fn(),
+			articles,
+			comments: {
+				comments: []
+			}
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.like-icon').at(0).simulate('click');
+		expect(wrapper).toMatchSnapshot();
+		expect(likeArticle).toHaveBeenCalled();
+	});
+
+	it('should fail to like an article', () => {
+		const likeArticle = jest.fn(() => Promise.reject({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			addcommment: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			likeArticle,
+			dislikeArticle: jest.fn(),
+			bookmarkArticle: jest.fn(),
+			rateArticle: jest.fn(),
+			articles,
+			comments: {
+				comments: []
+			}
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.like-icon').at(0).simulate('click');
+		expect(wrapper).toMatchSnapshot();
+		expect(likeArticle).toHaveBeenCalled();
+	});
+
+	it('should dislike an article', () => {
+		const dislikeArticle = jest.fn(() => Promise.resolve({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			addcommment: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			likeArticle: jest.fn(),
+			dislikeArticle,
+			bookmarkArticle: jest.fn(),
+			rateArticle: jest.fn(),
+			articles,
+			comments: {
+				comments: []
+			}
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.dislike-icon').at(0).simulate('click');
+		expect(wrapper).toMatchSnapshot();
+		expect(dislikeArticle).toHaveBeenCalled();
+	});
+
+	it('should fail to dislike an article', () => {
+		const dislikeArticle = jest.fn(() => Promise.reject({}));
+		const props = {
+			fetchArticle: jest.fn(),
+			addcommment: jest.fn(),
+			match: {
+				params: {
+					articleId: articles[0].id
+				}
+			},
+			getArticleAvgRating: jest.fn(),
+			likeArticle: jest.fn(),
+			dislikeArticle,
+			bookmarkArticle: jest.fn(),
+			rateArticle: jest.fn(),
+			articles,
+			comments: {
+				comments: []
+			}
+		};
+		const wrapper = mount( <SingleArticleView {...props} /> );
+		wrapper.find('.dislike-icon').at(0).simulate('click');
+		expect(wrapper).toMatchSnapshot();
+		expect(dislikeArticle).toHaveBeenCalled();
+	});
+
 });

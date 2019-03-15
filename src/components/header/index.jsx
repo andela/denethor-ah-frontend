@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import axios from '../../utils/axiosConfig';
 import './styles.scss';
 import { logout } from '../../redux/actions/auth';
+import { removeOwnProfile } from '../../redux/actions/profile';
 
 library.add(faBars);
 
@@ -24,6 +25,7 @@ export let Header = ({ history, dispatch, isLoggedIn }) => {
     await axios.get(`${process.env.API_ROOT_URL}/users/logout`);
     localStorage.clear();
     dispatch(logout());
+    dispatch(removeOwnProfile());
     history.push('/');
 };
 

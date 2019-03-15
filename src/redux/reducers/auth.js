@@ -1,20 +1,20 @@
-import { LOGIN_REQUEST_SUCCESS, LOGOUT } from '../actions/types';
+import { LOGOUT, SET_LOGIN_STATUS } from '../actions/types';
 
-export default (state, action) => {
-  const isLoggedIn = !!localStorage.getItem('token');
+const authDefaultState = {
+  isLoggedIn: false
+}
 
-  const authDefaultState = isLoggedIn ? { isLoggedIn } : {};
-
-  state = state || authDefaultState;
-
+export default (state = authDefaultState, action) => {
   switch (action.type) {
-    case LOGIN_REQUEST_SUCCESS:
+    case SET_LOGIN_STATUS:
       return {
-        isLoggedIn: true,
+        isLoggedIn: action.payload,
       };
 
     case LOGOUT:
-      return {};
+      return {
+        isLoggedIn: false
+      };
 
     default:
       return state;

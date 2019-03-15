@@ -20,6 +20,7 @@ export const getArticleComments = (articleId) => async (dispatch) => {
     const { data: { articleComments } } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
     dispatch(getCommentSuccess(articleComments));
 };
+
 export const addComment = ({ articleId, commentBody }) => async (dispatch) => {
   try {
     dispatch(addCommentRequest());

@@ -4,7 +4,14 @@ import {
   GET_ONE_ARTICLE_SUCCESS,
   GET_ARTICLES_SUCCESS,
   RATE_ARTICLE_SUCCESS,
-  GET_ARTICLE_AVERAGE_RATING_SUCCESS
+  GET_ARTICLE_RATINGS_SUCCESS,
+  LIKE_ARTICLE_SUCCESS,
+  DISLIKE_ARTICLE_SUCCESS,
+  BOOKMARK_ARTICLE_SUCCESS,
+  GET_ARTICLE_LIKES_SUCCESS,
+  GET_ARTICLE_DISLIKES_SUCCESS,
+  REMOVE_ARTICLE_BOOKMARK_SUCCESS,
+  GET_USER_BOOKMARKS_SUCCESS,
 } from './types';
 import axios from '../../utils/axiosConfig';
 import { extractImageFromBody } from '../../utils/imageExtractor';
@@ -46,7 +53,7 @@ export const getArticles = (category) => (dispatch) => {
   })
 }
 
-export const getOneArticle = id => (dispatch) => {
+export const getOneArticle = (id) => (dispatch) => {
   return axios.get(`${API_ROOT_URL}/articles/${id}`)
   .then(response => {
     const article = { ...response.data.data };
@@ -62,6 +69,20 @@ export const getOneArticle = id => (dispatch) => {
   });
 };
 
+export const getArticleAvgRating = (articleId) => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/articles/${articleId}/ratings`)
+  .then(response => {
+    dispatch({
+      type: GET_ARTICLE_RATINGS_SUCCESS,
+      payload: response.data.data
+    })
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
 export const rateArticle = (rating, articleId) => (dispatch) => {
   return axios
   .post(`${API_ROOT_URL}/articles/${articleId}/ratings`, {rating})
@@ -76,17 +97,105 @@ export const rateArticle = (rating, articleId) => (dispatch) => {
   })
 }
 
-export const getArticleAvgRating = (articleId) => (dispatch) => {
+export const likeArticle = (articleId) => (dispatch) => {
   return axios
-  .get(`${API_ROOT_URL}/articles/${articleId}/ratings`)
+  .patch(`${API_ROOT_URL}/articles/${articleId}/likes`, {})
   .then(response => {
-    const { count, rows }= response.data.data
     dispatch({
-      type: GET_ARTICLE_AVERAGE_RATING_SUCCESS,
-      payload: {
-        count, rows, articleId
-      }
+      type: LIKE_ARTICLE_SUCCESS,
+      payload: response.data.data
+    });
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const dislikeArticle = (articleId) => (dispatch) => {
+  return axios
+  .patch(`${API_ROOT_URL}/articles/${articleId}/dislikes`, {})
+  .then(response => {
+    dispatch({
+      type: DISLIKE_ARTICLE_SUCCESS,
+      payload: response.data.data
+    });
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const bookmarkArticle = (articleId) => (dispatch) => {
+  return axios
+  .post(`${API_ROOT_URL}/bookmarks?articleId=${articleId}`)
+  .then(response => {
+    dispatch({
+      type: BOOKMARK_ARTICLE_SUCCESS,
+      payload: response.data
     })
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const removeArticleBookmark = (articleId) => (dispatch) => {
+  return axios
+  .delete(`${API_ROOT_URL}/bookmarks?articleId=${articleId}`)
+  .then(response => {
+    dispatch({
+      type: REMOVE_ARTICLE_BOOKMARK_SUCCESS,
+      payload: response.data
+    })
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const getUserBookmarks = (userId) => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/bookmarks?userId=${userId}`)
+  .then(response => {
+    dispatch({
+      type: GET_USER_BOOKMARKS_SUCCESS,
+      payload: response.data.userBookmarks
+    })
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const getArticleLikes = (articleId) => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/articles/${articleId}/likes`)
+  .then(response => {
+    dispatch({
+      type: GET_ARTICLE_LIKES_SUCCESS,
+      payload: response.data.data
+    });
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const getArticleDislikes = (articleId) => (dispatch) => {
+  return axios
+  .get(`${API_ROOT_URL}/articles/${articleId}/dislikes`)
+  .then(response => {
+    dispatch({
+      type: GET_ARTICLE_DISLIKES_SUCCESS,
+      payload: response.data.data
+    });
+    return response
   })
   .catch((error) => {
     throw error
