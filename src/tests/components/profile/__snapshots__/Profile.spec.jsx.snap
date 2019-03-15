@@ -39,41 +39,77 @@ exports[`Should indicate if user has not been rated 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  >
+                    Omoefe94460
+                  </div>
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={0}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      No ratings yet
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              >
-                Omoefe94460
-              </div>
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={0}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  No ratings yet
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div
@@ -221,43 +257,79 @@ exports[`Should render component correctly with published articles 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  >
+                    Omoefe94460
+                  </div>
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={0}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      <span
+                        className="spinner spinner--ratings"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              >
-                Omoefe94460
-              </div>
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={0}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  <span
-                    className="spinner spinner--ratings"
-                  />
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div
@@ -405,43 +477,79 @@ exports[`Should render component correctly without published articles 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  >
+                    Omoefe94460
+                  </div>
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={0}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      <span
+                        className="spinner spinner--ratings"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              >
-                Omoefe94460
-              </div>
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={0}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  <span
-                    className="spinner spinner--ratings"
-                  />
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div
@@ -533,41 +641,77 @@ exports[`Should render nothing if information has not loaded 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  >
+                    Omoefe94460
+                  </div>
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={4}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      rated by 50 users
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              >
-                Omoefe94460
-              </div>
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={4}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  rated by 50 users
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div
@@ -655,41 +799,77 @@ exports[`Should use empty spaces for non-existent fields 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  />
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={0}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      <span
+                        className="spinner spinner--ratings"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              />
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={0}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  <span
-                    className="spinner spinner--ratings"
-                  />
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div
@@ -837,41 +1017,77 @@ exports[`Should use singular if one rater 1`] = `
             <div
               className="profile__user-profile-picture"
             >
+              <div>
+                <e
+                  backgroundColor="grey"
+                  borderStyle={
+                    Object {
+                      "border": "none",
+                    }
+                  }
+                  closeIconColor="white"
+                  cropColor="white"
+                  height={280}
+                  label=""
+                  labelStyle={
+                    Object {
+                      "background": "url(/assets/img/camera-icon.png)",
+                      "bottom": "45%",
+                      "cursor": "pointer",
+                      "display": "block",
+                      "height": "48px",
+                      "left": "55%",
+                      "position": "absolute",
+                      "width": "48px",
+                      "zIndex": "45",
+                    }
+                  }
+                  lineWidth={4}
+                  mimeTypes="image/jpeg,image/png"
+                  minCropRadius={30}
+                  mobileScaleSpeed={0.5}
+                  onBeforeFileLoad={[Function]}
+                  onClose={[Function]}
+                  onCrop={[Function]}
+                  onFileLoad={[Function]}
+                  onImageLoad={[Function]}
+                  shadingColor="grey"
+                  shadingOpacity={0.6}
+                  src={null}
+                  width={360}
+                />
+                <div
+                  className="profile-username-rate-group"
+                >
+                  <div
+                    className="profile-header-username"
+                  >
+                    Omoefe94460
+                  </div>
+                  <div
+                    className="profile-rating-container"
+                  >
+                    <div
+                      className="profile-header-rating"
+                    >
+                      <RatingStars
+                        rateNumber={4}
+                      />
+                    </div>
+                    <div
+                      className="profile-header-rated-times"
+                    >
+                      rated by 1 user
+                    </div>
+                  </div>
+                </div>
+                <div />
+              </div>
               <RoundedImage
                 alt="profile picture"
                 imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
               />
             </div>
-            <HorizontalMargin
-              className="show-for-medium"
-              size={10}
-            />
-            <div
-              className="profile-username-rate-group"
-            >
-              <div
-                className="profile-header-username"
-              >
-                Omoefe94460
-              </div>
-              <div
-                className="profile-rating-container"
-              >
-                <div
-                  className="profile-header-rating"
-                >
-                  <RatingStars
-                    rateNumber={4}
-                  />
-                </div>
-                <div
-                  className="profile-header-rated-times"
-                >
-                  rated by 1 user
-                </div>
-              </div>
-            </div>
-            <div />
           </div>
         </div>
         <div

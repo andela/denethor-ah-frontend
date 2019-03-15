@@ -7,6 +7,7 @@ import { SET_LOGIN_STATUS } from '../../../redux/actions/types';
 
 const createMockStore = configureMockStore([thunk]);
 jest.mock('axios');
+jest.mock('../../../utils/socket.js');
 
 beforeEach(() => {
   localStorage.clear();

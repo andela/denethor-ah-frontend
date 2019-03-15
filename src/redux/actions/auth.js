@@ -1,6 +1,6 @@
 import { SET_LOGIN_STATUS, LOGOUT } from './types';
 import axios from '../../utils/axiosConfig';
-import { escapeInputs } from '../../utils/escapeInputs';
+import { removeOwnProfile } from './profile';
 
 const api = process.env.API_ROOT_URL;
 
@@ -10,10 +10,8 @@ export const setLoggedInState = (loggedInState) => ({
 });
 
 export const login = loginDetails => async (dispatch) => {
-  const escapedLoginDetails = escapeInputs(loginDetails);
-
   try {
-    const { data: { data: { token } } } = await axios.post(`${api}/users/login`, escapedLoginDetails);
+    const { data: { data: { token } } } = await axios.post(`${api}/users/login`, loginDetails);
 
     localStorage.setItem('token', token);
 
@@ -34,4 +32,9 @@ export const login = loginDetails => async (dispatch) => {
   }
 };
 
-export const logout = () => ({ type: LOGOUT });
+export const logout = () => async (dispatch) => {
+  await axios.get(`${api}/users/logout`);
+  localStorage.clear();
+  dispatch({ type: LOGOUT });
+  dispatch(removeOwnProfile());
+};

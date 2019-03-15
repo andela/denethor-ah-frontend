@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { getOwnProfile, updateProfile, uploadProfilePicture } from '../../../redux/actions/profile';
 import MockAdapter from 'axios-mock-adapter';
+import { getOwnProfile, updateProfile, uploadProfilePicture } from '../../../redux/actions/profile';
 import { UPDATE_PROFILE } from '../../../redux/actions/types';
 import profile from '../../mock-data/profile';
 import axios from '../../../utils/axiosConfig';
@@ -10,6 +10,7 @@ const createMockStore = configureMockStore([thunk]);
 const api = process.env.API_ROOT_URL;
 const mock = new MockAdapter(axios);
 jest.mock('../../../utils/socket.js');
+jest.mock('../../../utils/dataURLtoFile.js');
 
 test('Should get profile and rating', async () => {
   const store = createMockStore({});

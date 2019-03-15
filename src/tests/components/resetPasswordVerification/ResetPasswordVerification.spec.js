@@ -6,6 +6,7 @@ import {
 import axios from '../../../utils/axiosConfig';
 
 jest.mock('../../../utils/axiosConfig');
+jest.mock('../../../utils/socket.js');
 
 let wrapper;
 let value;

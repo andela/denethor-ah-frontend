@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
-import { NotificationsPreviewItem, mapDispatchToProps } from '../../../components/notificationWidget/NotificationsPreviewItem';
+import { Notification, mapDispatchToProps } from '../../../components/header/widgets/notificationWidget/Notification';
 import notifications from './mock-notifications';
 import { removeNotifications } from '../../../redux/actions/notifications';
 
@@ -13,7 +13,7 @@ test('Should render static component', () => {
     notification: { ...notifications[0], time: 12345 },
     removeNotifications: () => {}
   }
-  const wrapper = shallow(<NotificationsPreviewItem { ...props } />);
+  const wrapper = shallow(<Notification { ...props } />);
 
   expect(wrapper).toMatchSnapshot();
 });
@@ -36,7 +36,7 @@ test('Should remvove article on click', () => {
     notification: { ...notifications[0], time: 12345 },
     removeNotifications,
   }
-  const wrapper = mount(<BrowserRouter><NotificationsPreviewItem { ...props } /></BrowserRouter>);
+  const wrapper = mount(<BrowserRouter><Notification { ...props } /></BrowserRouter>);
 
   wrapper.find('a').simulate('click');
 

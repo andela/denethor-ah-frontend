@@ -1,4 +1,4 @@
-.profile.body-section {
+.edit-profile.body-section {
   align-items: center;
   background: url('/assets/img/banner.png') center center;
   background-size: cover;
@@ -8,24 +8,19 @@
   margin: 0;
 }
 
-.section-profile-info {
-  background:rgba(0,0,0,0.5);
+.section-edit-profile-info {
+  background:rgba(0,0,0,0.75);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  width: 40%;
   .update-profile-error-message {
-    color: red;
+    color: #F1D230;
   }
   > div {
-    display: grid;
     color: white;
-    grid-template-columns: 1fr 3fr;
-    > span {
-      padding-top: 0.5rem;
-      text-align: right;
-    }
     input, textarea {
       border-color: #999;
       margin: 0 1rem;
@@ -39,6 +34,21 @@
         padding: 0.5rem;
         width: 13rem;
       }
+      &:last-child {
+        text-align: center;
+      }
     }
+  }
+}
+
+@media(max-width: 40rem) {
+  .section-edit-profile-info {
+    width: 90%;
+  }
+}
+
+@media(max-width: 64rem) {
+  .section-edit-profile-info {
+    width: 60%;
   }
 }

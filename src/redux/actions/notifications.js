@@ -11,3 +11,5 @@ export const removeNotifications = (articleId) => async (dispatch, getState) => 
 
   socket.emit('setRemainingNotifications', notifications);
 }
+
+export default removeNotifications;

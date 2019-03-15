@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter, Link } from 'react-router-dom';
 import { isEmail, isAlphanumeric } from 'validator';
 import '@babel/polyfill';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { login } from '../../../../redux/actions/auth';
@@ -91,7 +90,7 @@ export class Login extends Component {
   }
 
   render() {
-    if (this.props.isLoggedIn) {
+    if (this.props.isLoggedIn && this.props.history.location.pathname === '/login') {
       return <Redirect to="/dashboard" />;
     }
 
@@ -201,12 +200,13 @@ export class Login extends Component {
 const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (payload) => dispatch(login(payload))
+  handleLogin: (payload) => dispatch(login(payload)),
 });
 
 Login.propTypes = {
   handleLogin: PropTypes.func,
+  history: PropTypes.object,
   isLoggedIn: PropTypes.bool
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

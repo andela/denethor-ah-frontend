@@ -9,10 +9,10 @@ import storeConfig from './redux/configureStore';
 
 const store = storeConfig();
 
-const Application = (
+const app = (
   <Provider store={store}>
     <Main />
   </Provider>
-)
+);
 
-ReactDOM.render(Application, document.getElementById("app"));
+ReactDOM.render(app, document.getElementById("app"));

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { removeNotifications } from '../../redux/actions/notifications';
+import { removeNotifications } from '../../../../redux/actions/notifications';
 
 moment.updateLocale('en', {
   relativeTime : {
@@ -25,19 +25,20 @@ moment.updateLocale('en', {
 });
 
 
-export const NotificationsPreviewItem = props => {
-  const { message, articleId, time } = props.notification;
+export const Notification = props => {
+  const { message, articleId, time, read } = props.notification;
   
   return (
     <li>
       <Link to={`/articles/${articleId}`} onClick={() => props.removeNotifications(articleId)}>
-        <p>{message}</p>
+        <p className={read ? '' : 'unread'}>{message}</p>
         <span><small>{moment(time).fromNow()}</small></span>
       </Link>
     </li>
   );
 }
-NotificationsPreviewItem.propTypes = {
+
+Notification.propTypes = {
   notification: PropTypes.object,
   removeNotifications: PropTypes.func
 }
@@ -46,4 +47,4 @@ export const mapDispatchToProps = (dispatch) => ({
   removeNotifications: (articleId) => dispatch(removeNotifications(articleId))
 });
 
-export default connect(undefined, mapDispatchToProps)(NotificationsPreviewItem);
+export default connect(undefined, mapDispatchToProps)(Notification);

@@ -1,5 +1,24 @@
 @import '../../styles/style';
 
+.Toastify__toast--error.toast-custom-style,
+.Toastify__toast--success.toast-custom-style {
+  border-radius: 0.2rem;
+  font-family: Montserrat-Light;
+  min-height: inherit;
+  padding-right: 2rem;
+  position: relative;
+  top: 3rem;
+  right: 1.5rem;
+
+  > .Toastify__toast-body {
+    font-size: 0.8rem;
+  }
+}
+
+.Toastify__toast--error.toast-custom-style {
+  background: #fd2c27;
+}
+
 .banner-section {
   min-height: 30em;
   overflow: hidden;
@@ -135,6 +154,43 @@ button.article-comment-field__button{
   display: block;
   -webkit-appearance: unset;
 }
+
+.impressions-container{
+  display: none;
+}
+
+.impressions-container-mobile { 
+  display: flex;
+  width: 55%;
+  border-radius: 0.4em;
+}
+
+.auto-container-body{
+  display: flex;
+}
+
+.rate-impression {
+  display: flex;
+  
+  p {
+    margin-right: 1em;
+  }
+}
+
+.impression {
+  width: 31%;
+   p{
+     font-size: 0.9em;
+     font-family: Montserrat-Medium;
+   }
+}
+
+.bookmark-button {
+  left: 85%;
+  position: absolute;
+  top: 75%;
+  cursor: pointer;
+}
 @media only screen and (min-width: 40em) {
 
   .article-header-rated-times {
@@ -190,6 +246,18 @@ button.article-comment-field__button{
       display: inline-block;
       margin-top: -3.5em;
     }
+    .impressions-container {
+      display: none;
+    }
+  
+    .body-section {
+      margin-top: 6em;
+    }
+  
+    .article-body {
+      font-size: 1.2em;
+      text-align: justify;
+    }
   }
 
   .auto-container {
@@ -207,6 +275,15 @@ button.article-comment-field__button{
     font-size: 1.2em;
     text-align: justify;
   }
+
+  .impressions-container-mobile{
+    width: 36%;
+  }
+
+  .bookmark-button {
+    left: 92%;
+    top: 85%;
+  }
 }
 
 @media only screen and (min-width: 60em) {
@@ -218,8 +295,8 @@ button.article-comment-field__button{
     margin-right: auto;
 
     &.wide-padding {
-      padding-left: 16em;
-      padding-right: 16em;
+      padding-left: 7em;
+      padding-right: 10em;
     }
   }
 
@@ -227,6 +304,42 @@ button.article-comment-field__button{
     font-size: 3em;
     margin-bottom: 3.5em;
     line-height: 1.2em;
+  }
+
+  .impressions-container {
+    display: none;
+    position: sticky;
+    background: #f7f7f7;
+    left: 3em;
+    top: 17em;
+    width: 7em;
+    display: flex;
+    flex-direction: column;
+    height: 1%;
+    padding: 1%;
+    margin-right: 4%;
+    border-radius: 1em;
+    justify-content: space-between;
+    border: 1px solid #e8e5e5;
+    
+      p {
+        display: none;
+      }
+      .impression {
+        margin-left: 1em;
+        margin-bottom: 1em;
+      }
+      svg {
+        cursor: pointer;
+      }
+  }
+
+  .impressions-container-mobile { 
+    display: none;
+  }
+
+  .body-section-info-section {
+    padding-left: 17%;
   }
 
 }

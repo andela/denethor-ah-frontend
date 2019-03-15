@@ -1,7 +1,7 @@
 import { LOGOUT, SET_LOGIN_STATUS } from '../actions/types';
 
 const authDefaultState = {
-  isLoggedIn: false
+  isLoggedIn: undefined
 }
 
 export default (state = authDefaultState, action) => {

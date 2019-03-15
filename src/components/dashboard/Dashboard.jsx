@@ -4,7 +4,6 @@ import { SideBar } from './sideBar';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { ContentArea } from './contentArea';
-import DashboardHome from './DashboardHome';
 import { Switch, Route } from 'react-router-dom';
 import { setLoggedInState } from '../../redux/actions/auth';
 import { getOwnProfile } from '../../redux/actions/profile';
@@ -12,6 +11,7 @@ import { getArticles } from '../../redux/actions/articles';
 import { TopReads } from '../articles/topReads';
 import Profile from '../profile/Profile';
 import EditProfile from '../profile/editProfile/EditProfile';
+import UserBookmarks  from '../userBookmarks/userBookmarks';
 import ResetPasswordVerification  from '../resetPasswordVerification/ResetPasswordVerification';
 import './style.scss';
 
@@ -20,8 +20,8 @@ export class Dashboard extends Component {
     this.props.getArticles();
 
     const isSocialLogin = document.location.hash.includes('token');
-    if ( isSocialLogin || localStorage.token) {
-      const token = isSocialLogin ? document.location.hash.slice(7) : localStorage.token;
+    if ( isSocialLogin ) {
+      const token = document.location.hash.slice(7);
       history.pushState('', document.title, window.location.pathname + window.location.search);
 
       let userId;
@@ -36,14 +36,12 @@ export class Dashboard extends Component {
         const error = await this.props.getOwnProfile(userId);
         if(!error) {
           localStorage.setItem('token', token);
-          return this.props.setLoggedInState();
+          return this.props.setLoggedInState(true);
         }
         toast.error('User not found');
         localStorage.clear();
         this.props.history.push('/login');
       }
-    } else if (!this.props.isLoggedIn) {
-      this.props.history.push('/login')
     }
   }
 
@@ -53,18 +51,19 @@ export class Dashboard extends Component {
         <SideBar />
         <ContentArea>
           <Switch>
-            <Route exact path='/dashboard' render={() => <DashboardHome /> }/>
+            <Route exact path='/dashboard' render={() => <Profile /> }/>
             <Route path='/dashboard/topReads' component={TopReads} />
             <Route path='/dashboard/my-profile' component={Profile} />
             <Route path='/dashboard/edit-profile' component={EditProfile} />
+            <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
             <Route path='/dashboard/reset-password' component={ResetPasswordVerification} />
+            <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
           </Switch>
         </ContentArea>
       </div>
     );
   }
 }
-
 Dashboard.propTypes = {
   dispatch: PropTypes.func,
   getOwnProfile: PropTypes.func,
@@ -73,7 +72,6 @@ Dashboard.propTypes = {
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool
 }
-
 const mapStateToProps = ({ auth: { isLoggedIn }, profile }) => ({ 
   isLoggedIn,
   profile
@@ -83,5 +81,4 @@ const mapDispatchToProps = (dispatch) => ({
   getArticles: () => dispatch(getArticles()),
   setLoggedInState: () => dispatch(setLoggedInState)
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

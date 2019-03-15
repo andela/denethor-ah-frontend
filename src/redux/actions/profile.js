@@ -1,6 +1,7 @@
 import { REMOVE_OWN_PROFILE, SET_OWN_PROFILE, UPDATE_PROFILE, SET_NOTIFICATIONS } from './types';
 import axios from '../../utils/axiosConfig';
 import socket from '../../utils/socket';
+import dataURLtoFile from '../../utils/dataURLtoFile';
 
 const api = process.env.API_ROOT_URL;
 
@@ -96,14 +97,13 @@ export const updateProfile = (id, updates) => async (dispatch) => {
 
 export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) => {
   try {
-    const formData = new FormData();
-    formData.append('profile-picture', newProfilePicture);
+    const data = dataURLtoFile(newProfilePicture);
 
     const { data: { data: { imageUrl } } } = await axios({
       url: `${api}/users/${id}/profile/upload`,
       method: 'post',
-      data: formData
-    })
+      data
+    });
 
   dispatch({
     type: UPDATE_PROFILE,

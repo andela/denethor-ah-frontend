@@ -4,8 +4,6 @@ import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 
-// This component shows the rating stars that
-// can be clicked to make actions
 const RatingStarsBox = ({starClickHandle, ratingNumber}) => {
   const getStars = () => {
     let starNumbers = [5, 4, 3, 2, 1];
