@@ -1,5 +1,13 @@
 import { 
-  ADD_ARTICLE, REMOVE_ARTICLE, GET_ARTICLES_SUCCESS, GET_ONE_ARTICLE_SUCCESS, RATE_ARTICLE_SUCCESS, GET_ARTICLE_AVERAGE_RATING_SUCCESS
+  ADD_ARTICLE, 
+  REMOVE_ARTICLE, 
+  GET_ARTICLES_SUCCESS, 
+  GET_ONE_ARTICLE_SUCCESS, 
+  RATE_ARTICLE_SUCCESS, 
+  GET_ARTICLE_AVERAGE_RATING_SUCCESS,
+  LIKE_ARTICLE_SUCCESS,
+  DISLIKE_ARTICLE_SUCCESS,
+  BOOKMARK_ARTICLE_SUCCESS
 } from '../actions/types'
 import uniqueBy from 'unique-by';
 
@@ -61,7 +69,19 @@ export default (state = articleReducerDefaultState, action) => {
 
       allArticles[articleIndex] = foundArticle;
       return allArticles;
-    
+
+      case LIKE_ARTICLE_SUCCESS:
+        newState = [...state, action.payload];
+        return newState;
+
+      case DISLIKE_ARTICLE_SUCCESS:
+        newState = [...state, action.payload];
+        return newState;
+
+      case BOOKMARK_ARTICLE_SUCCESS:
+        newState = [...state, action.payload];
+        return newState;
+
     default:
       return state;
   }

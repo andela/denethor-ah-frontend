@@ -4,7 +4,10 @@ import {
   GET_ONE_ARTICLE_SUCCESS,
   GET_ARTICLES_SUCCESS,
   RATE_ARTICLE_SUCCESS,
-  GET_ARTICLE_AVERAGE_RATING_SUCCESS
+  GET_ARTICLE_AVERAGE_RATING_SUCCESS,
+  LIKE_ARTICLE_SUCCESS,
+  DISLIKE_ARTICLE_SUCCESS,
+  BOOKMARK_ARTICLE_SUCCESS,
 } from './types';
 import axios from '../../utils/axiosConfig';
 import { extractImageFromBody } from '../../utils/imageExtractor';
@@ -87,6 +90,52 @@ export const getArticleAvgRating = (articleId) => (dispatch) => {
         count, rows, articleId
       }
     })
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const likeArticle = (articleId) => (dispatch) => {
+  return axios
+  .patch(`${API_ROOT_URL}/articles/${articleId}/likes`, {})
+  .then(response => {
+    dispatch({
+      type: LIKE_ARTICLE_SUCCESS,
+      payload: response.data.data.message
+    });
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const dislikeArticle = (articleId) => (dispatch) => {
+  return axios
+  .patch(`${API_ROOT_URL}/articles/${articleId}/dislikes`, {})
+  .then(response => {
+    dispatch({
+      type: DISLIKE_ARTICLE_SUCCESS,
+      payload: response.data.data.message
+    });
+    return response
+  })
+  .catch((error) => {
+    throw error
+  })
+}
+
+export const bookmarkArticle = (articleId) => (dispatch) => {
+  return axios
+  .post(`${API_ROOT_URL}/articles/${articleId}/bookmark`)
+  .then(response => {
+    console.log(response)
+    dispatch({
+      type: BOOKMARK_ARTICLE_SUCCESS,
+      payload: response.data
+    })
+    return response
   })
   .catch((error) => {
     throw error

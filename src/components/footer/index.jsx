@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NavTab from '../navTabs';
+import NavTab from '../nav-tabs';
 import InputSection from '../inputSection';
 import logo from '../../images/ah-logo.svg';
 import './style.scss';

@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css"
 import Home from './components/home';
 import Header from './components/header'
 import Footer from './components/footer'
-import ArticlePage from './components/ArticlePage';
+import ArticlePage from './components/article-page';
 import Redirect from './components/redirect/Redirect';
 
 const Main = () => {

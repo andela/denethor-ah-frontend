@@ -6,12 +6,15 @@ import VerticalMargin from '../../components/VerticalMargin';
 import HorizontalMargin from '../../components/HorizontalMargin';
 import RatingStars from '../../components/RatingStars';
 import RatingStarsBox from '../../components/RatingStarsBox';
-import HorizontalLine from '../../components/HorizontalLine';
+import HorizontalLine from '../../components/horizontal-line';
 import TextAreaInput from '../../components/TextAreaInput';
 import CommentEntries from '../../components/CommentEntries';
-import { getOneArticle, rateArticle, getArticleAvgRating } from '../../redux/actions/articles';
+import { getOneArticle, rateArticle, getArticleAvgRating, likeArticle, dislikeArticle, bookmarkArticle } from '../../redux/actions/articles';
 import { toast } from 'react-toastify';
 import './style.scss';
+import { LikeNumberGroup , BookMarkNumberGroup, DisLikeNumberGroup } from '../like-number-group';
+// import impressionsControl from '../../utils/impressionScroll';
+
 
 
 export class SingleArticleView extends Component {
@@ -35,6 +38,50 @@ export class SingleArticleView extends Component {
         return  this.props.history.push('/login')
       }
       toast.error('Error while rating article');
+    })
+  }
+
+  likeHandle = () => {
+    let articleId = this.props.match.params.articleId;
+    this.props.likeArticle(articleId)
+    .then((response) => {
+      const message = response.data.data.message;
+      toast.success(`${message}`)
+    })
+    .catch(error => {
+      if(error.response === 'Unauthorized'){
+        return  toast.error('You need to login to like an article');
+     }
+       toast.error(`${error}`);
+    })
+  }
+
+  dislikeHandle = () => {
+    let articleId = this.props.match.params.articleId;
+    this.props.dislikeArticle(articleId)
+    .then((response) => {
+      const message = response.data.data.message;
+      toast.success(`${message}`)
+    })
+    .catch(error => {
+      if(error.response === 'Unauthorized'){
+        return toast.error('You need to login to dislike an article');
+     }
+      return toast.error('An error occurred while trying to dislike the article');
+    })
+  }
+
+  bookmarkHandle = () => {
+    let articleId = this.props.match.params.articleId;
+    this.props.bookmarkArticle(articleId)
+    .then(() => toast.success('Thank you for bookmarking this article'))
+    .catch(error => {
+      if(error.response === 'Unauthorized'){
+        return toast.error('You need to login to bookmark an article');      
+     } else if(error.response.status === 409){
+       return toast.error('You have already bookmarked this article')
+     }
+      return toast.error('An error occurred while trying to bookmark this article');
     })
   }
 
@@ -89,7 +136,20 @@ export class SingleArticleView extends Component {
             </div>
             <HorizontalLine />
             <div className='section-article-info'>  
-              <div>Rate this Article <RatingStarsBox starClickHandle= {this.starClickHandle.bind(this)} /></div>  
+              <div className='rate-impression'>
+                <p>Rate this Article</p> <RatingStarsBox starClickHandle= {this.starClickHandle.bind(this)} /> 
+              </div>  
+              <div className='impressions-container'>
+                <div className='impression'>
+                 <LikeNumberGroup likeCount = {0} onClick={this.likeHandle.bind(this)}/>
+                </div>
+                <div className='impression'>
+                <BookMarkNumberGroup bookMarkCount = {16} onClick ={this.bookmarkHandle.bind(this)}/>
+                </div>
+                <div className='impression'>
+                <DisLikeNumberGroup dislikeCount = {0} onClick ={this.dislikeHandle.bind(this)} />
+                </div>
+              </div>
               <VerticalMargin className='show-for-medium' size={10} />
               <div>
                 <div className='section-comment-create'>
@@ -115,7 +175,10 @@ SingleArticleView.propTypes = {
   fetchArticle: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
   getArticleAvgRating: PropTypes.func.isRequired,
-  history: PropTypes.object
+  history: PropTypes.object,
+  likeArticle: PropTypes.func,
+  dislikeArticle: PropTypes.func,
+  bookmarkArticle: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({
@@ -126,6 +189,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchArticle: (id) => dispatch(getOneArticle(id)),
   rateArticle: (rating, articleId) => dispatch(rateArticle(rating, articleId)),
   getArticleAvgRating: (articleId) => dispatch(getArticleAvgRating(articleId)),
+  likeArticle: (articleId) => dispatch(likeArticle(articleId)),
+  dislikeArticle: (articleId) => dispatch(dislikeArticle(articleId)),
+  bookmarkArticle: (articleId) => dispatch(bookmarkArticle(articleId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

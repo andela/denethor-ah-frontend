@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import './style.scss';
-import LikeNumberGroup from '../../components/LikeNumberGroup';
-import HorizontalLine from '../../components/HorizontalLine';
+import HorizontalLine from '../../components/horizontal-line';
+import { LikeNumberGroup } from "../like-number-group";
 
 
 const CommentEntries = ({ comments = [] }) => {

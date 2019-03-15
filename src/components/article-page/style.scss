@@ -100,6 +100,12 @@
 .section-article-info {
   padding-top: 1em;
   margin-bottom: 4em;
+    p {
+      font-family: Montserrat-Medium;
+    }
+    .impression {
+      padding: 0.3em 0;
+    }
 }
 
 .impressions-section {
@@ -112,6 +118,29 @@
 
 .article-header-rated-times {
   color: rgb(189, 184, 184);
+}
+
+.impressions-container {
+  display: flex;
+  width: 31%;
+  border-radius: 0.4em;
+
+}
+
+.rate-impression {
+  display: flex;
+  
+  p {
+    margin-right: 1em;
+  }
+}
+
+.impression {
+  width: 31%;
+   p{
+     font-size: 0.9em;
+     font-family: Montserrat-Medium;
+   }
 }
 
 @media only screen and (min-width: 40em) {
@@ -206,6 +235,26 @@
     font-size: 3em;
     margin-bottom: 3.5em;
     line-height: 1.2em;
+  }
+
+  .impressions-container {
+    position: fixed;
+    background: #e6e4e4;
+    left: 3em;
+    top: 17em;
+    width: 7em;
+    display: flex;
+    flex-direction: column;
+    
+      p {
+        display: none;
+      }
+      .impression {
+        margin-left: 1em;
+      }
+      svg {
+        cursor: pointer;
+      }
   }
 
 }
