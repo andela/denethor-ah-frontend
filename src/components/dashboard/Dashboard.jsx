@@ -14,6 +14,7 @@ import Profile from '../profile/Profile';
 import EditProfile from '../profile/editProfile/EditProfile';
 import UserBookmarks  from '../userBookmarks/userBookmarks';
 import ResetPasswordVerification  from '../resetPasswordVerification/ResetPasswordVerification';
+import UserBookmarks  from '../userBookmarks/userBookmarks';
 import './style.scss';
 
 export class Dashboard extends Component {
@@ -60,6 +61,7 @@ export class Dashboard extends Component {
             <Route path='/dashboard/edit-profile' component={EditProfile} />
             <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
             <Route path='/dashboard/reset-password' component={ResetPasswordVerification} />
+            <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
           </Switch>
         </ContentArea>
       </div>
