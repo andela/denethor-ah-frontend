@@ -1,23 +1,38 @@
 import commentsReducer from '../../../redux/reducers/comments';
-import comments from '../../mock-data/comments';
-import {ADD_COMMENT, REMOVE_COMMENT} from '../../../redux/actions/types';
-
+import { comments } from '../../mock-data/comments';
+import {ADD_COMMENT, REMOVE_COMMENT, GET_COMMENT_SUCCESS} from '../../../redux/actions/types';
+import { commentReducerDefaultState } from '../../../redux/reducers/comments'
 
 
 it('Should return default state when initialized', () => {
-  const state = commentsReducer(undefined, {
+  const state = commentsReducer(commentReducerDefaultState, {
     type: '@@INIT'
   });
-  expect(state).toEqual([]);
+  expect(state).toEqual(commentReducerDefaultState);
 });
 
 it('Should add comments to store', () => {
-  const state = commentsReducer(comments, {
+  const initialState = {
+    comments: []
+  };
+  const state = commentsReducer(initialState, {
     type: ADD_COMMENT,
-    comment: comments[0]
+    comments
   });
-  expect(state).toEqual([...comments, comments[0]]);
+  expect(state).toEqual({...initialState } );
 });
+
+it('Should get comments from store', () => {
+  const initialState = {
+    comments: []
+  };
+  const state = commentsReducer(initialState, {
+    type: GET_COMMENT_SUCCESS,
+    comments
+  });
+  expect(state.comments.length).toEqual(comments.length );
+});
+
 
 it('Should remove comments from store', () => {
   const initialLength = comments.length;

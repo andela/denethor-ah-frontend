@@ -2,6 +2,7 @@
 
 exports[`Test for the single article component should call toast error when starclickhandle is called 1`] = `
 <SingleArticleView
+  addComment={[MockFunction]}
   articles={
     Array [
       Object {
@@ -31,6 +32,11 @@ exports[`Test for the single article component should call toast error when star
         "updatedAt": "2019-03-07T21:05:17.071Z",
       },
     ]
+  }
+  comments={
+    Object {
+      "comments": Array [],
+    }
   }
   fetchArticle={
     [MockFunction] {
@@ -259,64 +265,53 @@ exports[`Test for the single article component should call toast error when star
               <div>
                 Leave comments
               </div>
-              <TextAreaInput
-                className="article-comment-field"
-                placeholder="Your message"
-                text="Your message"
+              <Comment
+                addComment={[MockFunction]}
+                articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
               >
-                <textarea
-                  className="textarea-input article-comment-field"
-                  defaultValue="Your message"
-                  placeholder="Your message"
-                />
-              </TextAreaInput>
-              <button />
+                <div
+                  className="comment-create-field"
+                >
+                  <TextAreaInput
+                    className="article-comment-field"
+                    onChange={[Function]}
+                    placeHolder="Your message"
+                    placeholder="Your message"
+                    value=""
+                  >
+                    <textarea
+                      className="textarea-input article-comment-field"
+                      onChange={[Function]}
+                      placeholder="Your message"
+                      value=""
+                    />
+                  </TextAreaInput>
+                  <Button
+                    className="article-comment-field__button"
+                    isRequestSent={false}
+                    onClick={[Function]}
+                    type="submit"
+                    value="submit"
+                  >
+                    <button
+                      className="article-comment-field__button"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      submit
+                    </button>
+                  </Button>
+                </div>
+              </Comment>
             </div>
             <div
               className="section-user-comments"
             >
               <CommentEntries
-                comments={
-                  Array [
-                    Object {
-                      "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-                      "commentBody": "Article comme",
-                      "createdAt": "2019-03-11T15:51:56.685Z",
-                      "id": "59df4232-0603-44a1-a560-7beffe5569fa",
-                      "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
-                    },
-                  ]
-                }
+                comments={Array []}
               >
-                <div>
-                  <div>
-                    <HorizontalLine>
-                      <div
-                        className="horizontal-line"
-                      />
-                    </HorizontalLine>
-                    Reader Comments
-                  </div>
-                  <div
-                    className="comment-entry"
-                    key="0"
-                  >
-                    <div
-                      className="comment-text"
-                    >
-                      <span>
-                        Article comme
-                      </span>
-                    </div>
-                    <div
-                      className="actions"
-                    >
-                      <div
-                        className="likes-count"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <div />
               </CommentEntries>
             </div>
           </div>
@@ -329,6 +324,7 @@ exports[`Test for the single article component should call toast error when star
 
 exports[`Test for the single article component should call toast success when starclickhandle is called 1`] = `
 <SingleArticleView
+  addcommment={[MockFunction]}
   articles={
     Array [
       Object {
@@ -358,6 +354,11 @@ exports[`Test for the single article component should call toast success when st
         "updatedAt": "2019-03-07T21:05:17.071Z",
       },
     ]
+  }
+  comments={
+    Object {
+      "comments": Array [],
+    }
   }
   fetchArticle={
     [MockFunction] {
@@ -586,64 +587,52 @@ exports[`Test for the single article component should call toast success when st
               <div>
                 Leave comments
               </div>
-              <TextAreaInput
-                className="article-comment-field"
-                placeholder="Your message"
-                text="Your message"
+              <Comment
+                articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
               >
-                <textarea
-                  className="textarea-input article-comment-field"
-                  defaultValue="Your message"
-                  placeholder="Your message"
-                />
-              </TextAreaInput>
-              <button />
+                <div
+                  className="comment-create-field"
+                >
+                  <TextAreaInput
+                    className="article-comment-field"
+                    onChange={[Function]}
+                    placeHolder="Your message"
+                    placeholder="Your message"
+                    value=""
+                  >
+                    <textarea
+                      className="textarea-input article-comment-field"
+                      onChange={[Function]}
+                      placeholder="Your message"
+                      value=""
+                    />
+                  </TextAreaInput>
+                  <Button
+                    className="article-comment-field__button"
+                    isRequestSent={false}
+                    onClick={[Function]}
+                    type="submit"
+                    value="submit"
+                  >
+                    <button
+                      className="article-comment-field__button"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      submit
+                    </button>
+                  </Button>
+                </div>
+              </Comment>
             </div>
             <div
               className="section-user-comments"
             >
               <CommentEntries
-                comments={
-                  Array [
-                    Object {
-                      "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-                      "commentBody": "Article comme",
-                      "createdAt": "2019-03-11T15:51:56.685Z",
-                      "id": "59df4232-0603-44a1-a560-7beffe5569fa",
-                      "userId": "b590e871-3df2-4cd2-b97f-569c3490b0fa",
-                    },
-                  ]
-                }
+                comments={Array []}
               >
-                <div>
-                  <div>
-                    <HorizontalLine>
-                      <div
-                        className="horizontal-line"
-                      />
-                    </HorizontalLine>
-                    Reader Comments
-                  </div>
-                  <div
-                    className="comment-entry"
-                    key="0"
-                  >
-                    <div
-                      className="comment-text"
-                    >
-                      <span>
-                        Article comme
-                      </span>
-                    </div>
-                    <div
-                      className="actions"
-                    >
-                      <div
-                        className="likes-count"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <div />
               </CommentEntries>
             </div>
           </div>

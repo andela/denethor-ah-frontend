@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the single comment component should call toast error when server error occurs 1`] = `
+<Comment
+  addComment={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+            "commentBody": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+  articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+>
+  <div
+    className="comment-create-field"
+  >
+    <TextAreaInput
+      className="article-comment-field"
+      onChange={[Function]}
+      placeHolder="Your message"
+      placeholder="Your message"
+      value=""
+    >
+      <textarea
+        className="textarea-input article-comment-field"
+        onChange={[Function]}
+        placeholder="Your message"
+        value=""
+      />
+    </TextAreaInput>
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="submit"
+      value="submit"
+    >
+      <button
+        className="article-comment-field__button"
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        submit
+      </button>
+    </Button>
+  </div>
+</Comment>
+`;
+
+exports[`Test for the single comment component should render the comment section 1`] = `
+<Comment
+  addComment={[MockFunction]}
+  articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+>
+  <div
+    className="comment-create-field"
+  >
+    <TextAreaInput
+      className="article-comment-field"
+      onChange={[Function]}
+      placeHolder="Your message"
+      placeholder="Your message"
+      value=""
+    >
+      <textarea
+        className="textarea-input article-comment-field"
+        onChange={[Function]}
+        placeholder="Your message"
+        value=""
+      />
+    </TextAreaInput>
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="submit"
+      value="submit"
+    >
+      <button
+        className="article-comment-field__button"
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        submit
+      </button>
+    </Button>
+  </div>
+</Comment>
+`;
+
+exports[`Test for the single comment component should show a toast when a validation error occurs 1`] = `
+<Comment
+  addComment={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+            "commentBody": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+  articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+>
+  <div
+    className="comment-create-field"
+  >
+    <TextAreaInput
+      className="article-comment-field"
+      onChange={[Function]}
+      placeHolder="Your message"
+      placeholder="Your message"
+      value=""
+    >
+      <textarea
+        className="textarea-input article-comment-field"
+        onChange={[Function]}
+        placeholder="Your message"
+        value=""
+      />
+    </TextAreaInput>
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="submit"
+      value="submit"
+    >
+      <button
+        className="article-comment-field__button"
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        submit
+      </button>
+    </Button>
+  </div>
+</Comment>
+`;
+
+exports[`Test for the single comment component should show a toast when user is not logged in 1`] = `
+<Comment
+  addComment={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
+            "commentBody": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+  articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+>
+  <div
+    className="comment-create-field"
+  >
+    <TextAreaInput
+      className="article-comment-field"
+      onChange={[Function]}
+      placeHolder="Your message"
+      placeholder="Your message"
+      value=""
+    >
+      <textarea
+        className="textarea-input article-comment-field"
+        onChange={[Function]}
+        placeholder="Your message"
+        value=""
+      />
+    </TextAreaInput>
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="submit"
+      value="submit"
+    >
+      <button
+        className="article-comment-field__button"
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        submit
+      </button>
+    </Button>
+  </div>
+</Comment>
+`;

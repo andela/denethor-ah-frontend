@@ -6,9 +6,11 @@ import VerticalMargin from '../../components/VerticalMargin';
 import HorizontalMargin from '../../components/HorizontalMargin';
 import { RatingStars, RatingStarsBox } from '../../components/rating-stars';
 import { HorizontalLine } from '../../components/horizontal-line';
-import { TextAreaInput } from '../../components/textarea';
-import { CommentEntries } from '../../components/comments';
+import { CreateComment } from '../comments';
+import { CommentEntries } from '../comments';
+import { addComment } from '../../redux/actions/comments';
 import { getOneArticle, rateArticle, getArticleAvgRating } from '../../redux/actions/articles';
+import { getArticleComments } from '../../redux/actions/comments'
 import { toast } from 'react-toastify';
 import './style.scss';
 
@@ -16,10 +18,11 @@ import './style.scss';
 export class SingleArticleView extends Component {
 
   async componentDidMount() {
-    const { fetchArticle, getArticleAvgRating, match } = this.props;
+    const { fetchArticle, getArticleAvgRating, getArticleComments, match } = this.props;
     let articleId = match.params.articleId;
     await fetchArticle(articleId);
-    getArticleAvgRating(articleId)
+    getArticleAvgRating(articleId);
+    getArticleComments(articleId);
   }
 
   starClickHandle = (item) => {
@@ -38,7 +41,7 @@ export class SingleArticleView extends Component {
   }
 
   render() {
-    const { match: { params: { articleId } }, articles = [] } = this.props;
+    const { match: { params: { articleId } }, articles = [], comments, addComment } = this.props;
     const article = articles.find(item => item.id === articleId) || {};
     const { 
       title, 
@@ -47,7 +50,6 @@ export class SingleArticleView extends Component {
       body,
       averageRating,
       ratingsCount,
-      comments = [],
     } = article;
 
     return (
@@ -93,11 +95,13 @@ export class SingleArticleView extends Component {
               <div>
                 <div className='section-comment-create'>
                   <div>Leave comments</div>
-                  <TextAreaInput className='article-comment-field' text='Your message' />
-                  <button></button>
+                  <CreateComment
+                    articleId={articleId}
+                    addComment={addComment}
+                  />
                 </div>
                 <div className='section-user-comments'>
-                  <CommentEntries comments={comments} />
+                  <CommentEntries comments={comments.comments} />
                 </div>
               </div>
             </div>
@@ -114,17 +118,23 @@ SingleArticleView.propTypes = {
   fetchArticle: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
   getArticleAvgRating: PropTypes.func.isRequired,
-  history: PropTypes.object
+  history: PropTypes.object,
+  comments: PropTypes.object,
+  addComment: PropTypes.func,
+  getArticleComments: PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
-  articles: state.articles
+  articles: state.articles,
+  comments: state.comments
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchArticle: (id) => dispatch(getOneArticle(id)),
   rateArticle: (rating, articleId) => dispatch(rateArticle(rating, articleId)),
   getArticleAvgRating: (articleId) => dispatch(getArticleAvgRating(articleId)),
+  addComment: ({articleId, commentBody}) => dispatch(addComment({articleId, commentBody})),
+  getArticleComments: (articleId) => dispatch(getArticleComments(articleId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

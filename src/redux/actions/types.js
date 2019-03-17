@@ -1,5 +1,7 @@
 export const ADD_ARTICLE = 'ADD_ARTICLE';
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_COMMENT_FAILURE = 'ADD_COMMENT_FAILURE';
+export const GET_COMMENT_SUCCESS = 'GET_COMMENT_SUCCESS';
 export const ADD_USER = 'ADD_USER';
 export const ADD_TAG = 'ADD_TAG';
 export const CLEAR_LOGIN_ERROR = 'CLEAR_LOGIN_ERROR';

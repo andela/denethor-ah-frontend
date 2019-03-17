@@ -88,6 +88,7 @@
 }
 
 .section-comment-create {
+  position: relative;
   margin-bottom: 2em;
   margin-top: 1em;
 }
@@ -109,11 +110,31 @@
 .section-user-comments {
   margin-top: 3em;
 }
+.article-comment-field{
+  border: none !important;
+}
+.comment-create-field {
+  background-color: #f6f6f6;
+  border-radius: 0.2em;
+  border: 1px solid #E5E5E5;
+}
 
 .article-header-rated-times {
   color: rgb(189, 184, 184);
 }
 
+button.article-comment-field__button{
+  border-radius: 6px;
+  padding: 0.25rem 0.625rem;
+  margin-left: auto;
+  font-weight: 300;
+  background: white;
+  color: black;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  display: block;
+  -webkit-appearance: unset;
+}
 @media only screen and (min-width: 40em) {
 
   .article-header-rated-times {
