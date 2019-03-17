@@ -1,0 +1,23 @@
+.page-content-area {
+  flex: 1;
+  background-color: white;
+}
+
+
+@media only screen and (min-width: 40em) {
+  .page-content-area {
+    flex: 1;
+    background-color: white;
+  
+    .auto-container {
+      width: 100%;
+      padding: 0;
+    }
+
+    .feed-bottom-section {
+      padding: 0;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+}

@@ -21,7 +21,7 @@ const FeedBottomSmallCard = ({
     <div className="feed-bottom-container-small">   
       <img src = {featuredImage} alt="feed" className="feed-bottom-container__small_image"/> 
       <div className="feed-bottom-container__small_image_info-container">
-        <h3 className="feed-bottom-container__small_image__info-header"><NavLink to={`articles/${id}`}>{title}</NavLink></h3>
+        <h3 className="feed-bottom-container__small_image__info-header"><NavLink to={`/articles/${id}`}>{title}</NavLink></h3>
         <p className="feed-bottom-container__small_image__info-published-date">{author.username}</p>
         <p className="feed-bottom-container__small_image__info-minutes-read">
           {dateCreated} &nbsp;&nbsp;&nbsp;

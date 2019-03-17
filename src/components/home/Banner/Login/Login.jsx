@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { login } from '../../../../redux/actions/auth';
-import logo from '../../../../images/ah-logo.svg';
 import SocialLoginBtn from './SocialLoginBtn';
 import SocialLoginIcons from './SocialLoginIcons';
 import './styles.scss';
@@ -138,7 +137,7 @@ export class Login extends Component {
       <div className='flex modal'>
         <div className="logo-container">
           <div className="logo-container__image">
-            <img src={`/${logo}`} alt="Author's haven logo" />
+            <img src='/assets/img/ah-logo.svg' alt="Author's haven logo" />
           </div>
           <div className="logo-container__text">
             <h3>AUTHOR&apos;S HAVEN</h3>

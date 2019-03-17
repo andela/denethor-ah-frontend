@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import { setLoggedInState } from '../../redux/actions/auth';
 import { connect } from 'react-redux';
+import { SideBar } from './side-bar';
 import PropTypes from 'prop-types';
-import { getOwnProfile } from '../../redux/actions/profile';
 import { toast } from 'react-toastify';
+import { ContentArea } from './content-area';
+import { Switch, Route } from 'react-router-dom';
+import { setLoggedInState } from '../../redux/actions/auth';
+import { getOwnProfile } from '../../redux/actions/profile';
+import { TopReads } from '../articles/top-reads';
+import Profile from '../profile/Profile';
+import './style.scss';
 
 export class Dashboard extends Component {
   async componentDidMount() {
-    if (document.location.hash.includes('token')) {
-      const token = document.location.hash.slice(7);
+    const isSocialLogin = document.location.hash.includes('token');
+    if ( isSocialLogin || localStorage.token) {
+      const token = isSocialLogin ? document.location.hash.slice(7) : localStorage.token;
       history.pushState('', document.title, window.location.pathname + window.location.search);
 
       let userId;
@@ -34,7 +41,17 @@ export class Dashboard extends Component {
   }
 
   render() {
-    return <p>This is the dashboard page placeholder</p>
+    return (
+      <div className={`dashboard-page-wrapper`}>
+        <SideBar />
+        <ContentArea>
+          <Switch>
+            <Route path='/dashboard/top-reads' component={TopReads} />
+            <Route path='/dashboard/my-profile' component={Profile} />
+          </Switch>
+        </ContentArea>
+      </div>
+    );
   }
 }
 

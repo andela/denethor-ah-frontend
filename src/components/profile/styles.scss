@@ -1,0 +1,271 @@
+@import '../../styles/style';
+
+.banner-section {
+  height: 30em;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  .transparent-overlay {
+    background-color: rgba(0,0,0,0.8);
+  }
+  .banner-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.banner-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  padding-top: 3em;
+  line-height: 2em;
+}
+
+.banner-content-title {
+  color: white;
+  font-family: Montserrat-Bold;
+  font-size: 1.5em;
+  margin-bottom: 2.5em;
+  line-height: 1.3em;
+  padding: 3rem;
+  .profile--bio {
+    font-size: 1rem;
+  }
+}
+
+.transparent-overlay {
+  position: absolute;
+  background-color: $dark-transparency-level-2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rounded-image {
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid white;
+}
+
+.profile-header-username {
+  font-family: Montserrat-Bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+.avatar-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-section {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1.3em;
+
+  img {
+    width: 100%;
+  }
+
+  .profile-body {
+    white-space: pre-line;
+    line-height: 2em;
+    margin-bottom: 2em;
+  }
+
+  white-space: pre-line;
+  line-height: 2em;
+}
+
+.section-comment-create {
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+.hr {
+  border: 0.02em solid #E0DFDF;
+  height: 0.02em;
+}
+
+.section-profile-info {
+  padding-top: 1em;
+  margin-bottom: 4em;
+  text-align: center;
+  .update-profile-error-message {
+    color: red;
+  }
+  div {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    text-align: center;
+    > span {
+      padding-top: 0.5rem;
+      text-align: right;
+    }
+    input, textarea {
+      border-color: #999;
+      margin: 0 1rem;
+    }
+    textarea {
+      border-radius: 0.2rem;
+      height: 5rem;
+      margin-bottom: 2rem;
+      padding: 0.5rem;
+    }
+
+    button {
+      background-color: #747474;
+      border-radius: 0.2rem;
+      color: white;
+      font-family: inherit;
+      margin: 2rem 1rem;
+      width: 50%;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.profile__profiles-written {
+  h1 {
+    text-align: center;
+    span {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 3rem;
+    }
+  }
+}
+
+.impressions-section {
+  display: flex;
+}
+
+.section-user-comments {
+  margin-top: 3em;
+}
+
+.profile-header-rated-times {
+  color: rgb(189, 184, 184);
+}
+
+@media only screen and (min-width: 40em) {
+
+  .profile-header-rated-times {
+    color: rgb(189, 184, 184);
+  }
+
+  .profile-rating-container {
+    display: flex;
+  }
+
+  .banner-section {
+    height: 20em;
+    text-align: left;
+    overflow: unset;
+  }
+  
+  .banner-content {
+    display: block;
+    flex-direction: row;
+    justify-content: unset;
+    padding: 0;
+    padding-top: 3em;
+    height: 100%;
+  }
+  
+  .banner-content-title {
+    font-size: 2.4em;
+    margin-bottom: 3.5em;
+    line-height: 1.2em;
+  }
+  
+  .profile-header-username {
+    font-family: Montserrat-Bold;
+    font-size: 1.2em;
+    color: white;
+  }
+  
+  .avatar-text-group {
+    display: flex;
+    flex-direction: unset;
+    justify-content: unset;
+    align-items: center;
+    position: absolute;
+    bottom: -3em;
+
+    .user-profile-picture {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-username-rate-group {
+      position: relative;
+      display: inline-block;
+      margin-top: -3.5em;
+    }
+  }
+
+  .auto-container {
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .body-section {
+    margin-top: 6em;
+  }
+
+  .profile-body {
+    font-size: 1.2em;
+    text-align: justify;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .auto-container {
+    padding-left: 4em;
+    padding-right: 4em;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.wide-padding {
+      padding-left: 16em;
+      padding-right: 16em;
+    }
+  }
+
+  .banner-content-title {
+    font-size: 3em;
+    margin-bottom: 3.5em;
+    line-height: 1.2em;
+  }
+
+}
+
+.spinner--ratings {
+  border: 1px solid #f3f3f3; /* Light grey */
+  border-top: 1px solid #3498db;
+  display: block;
+  margin: auto;
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  top: 0.5rem;
+}

@@ -29,7 +29,7 @@ exports[`Should render postcard 1`] = `
         <NavLink
           activeClassName="active"
           aria-current="page"
-          to="articles/8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
+          to="/articles/8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
         >
           this is the title
         </NavLink>

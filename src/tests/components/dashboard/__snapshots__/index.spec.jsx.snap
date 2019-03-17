@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the Dashboard should render dashboard page 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

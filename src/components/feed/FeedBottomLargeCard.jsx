@@ -24,7 +24,7 @@ const FeedBottomLargeCard = ({
         </div>
         <div>
           <div className="feed-bottom-container__large_image_info-container">
-            <h3 className="feed-bottom-container__large_image__info-header"><NavLink to={`articles/${id}`}>{title}</NavLink></h3>
+            <h3 className="feed-bottom-container__large_image__info-header"><NavLink to={`/articles/${id}`}>{title}</NavLink></h3>
             <p className="feed-bottom-container__large_image__info-published-date">{author.username}</p>
             <p className="feed-bottom-container__large_image__info-minutes-read">
               {dateCreated} &nbsp;&nbsp;&nbsp;
