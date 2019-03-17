@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Profile } from '../../../components/profile/Profile';
+import { EditProfile } from '../../../components/profile/editProfile/EditProfile';
 import profile from '../../mock-data/profile';
 
 
@@ -12,7 +12,7 @@ const props = {
   uploadProfilePicture,
   history: {}
 }
-const wrapper = shallow(<Profile {...props} profile={profile.data} />);
+const wrapper = shallow(<EditProfile {...props} profile={profile.data} />);
 
 test('Should render component correctly', () => {
   wrapper.update();

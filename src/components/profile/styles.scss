@@ -1,14 +1,14 @@
 @import '../../styles/style';
 
-.banner-section {
-  height: 30em;
+.profile__banner-section {
+  height: 41rem;
   overflow: hidden;
   position: relative;
   text-align: center;
   .transparent-overlay {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.5);
   }
-  .banner-image {
+  .profile__banner-image {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -21,7 +21,7 @@
   }
 }
 
-.banner-content {
+.profile__banner-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -32,19 +32,24 @@
   line-height: 2em;
 }
 
-.banner-content-title {
+.profile__banner-content-title {
+  text-shadow: 0.1rem 0.1rem 0.1rem #000;
   color: white;
   font-family: Montserrat-Bold;
   font-size: 1.5em;
-  margin-bottom: 2.5em;
   line-height: 1.3em;
-  padding: 3rem;
+  margin-bottom: 0.5rem;
   .profile--bio {
     font-size: 1rem;
+    text-shadow: none;
   }
 }
 
-.transparent-overlay {
+.profile-username-rate-group {
+  margin: 1rem;
+}
+
+.profile__transparent-overlay {
   position: absolute;
   background-color: $dark-transparency-level-2;
   top: 0;
@@ -53,9 +58,9 @@
   right: 0;
 }
 
-.rounded-image {
-  width: 7em;
-  height: 7em;
+.profile__user-profile-picture .rounded-image {
+  width: 10em;
+  height: 10em;
   border-radius: 50%;
   overflow: hidden;
   border: 6px solid white;
@@ -67,14 +72,14 @@
   color: white;
 }
 
-.avatar-text-group {
+.profile__avatar-text-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.body-section {
+.profile__body-section {
   padding-left: 1em;
   padding-right: 1em;
   margin-top: 1.3em;
@@ -93,61 +98,67 @@
   line-height: 2em;
 }
 
-.section-comment-create {
-  margin-bottom: 2em;
-  margin-top: 1em;
-}
-
 .hr {
   border: 0.02em solid #E0DFDF;
   height: 0.02em;
 }
 
-.section-profile-info {
-  padding-top: 1em;
-  margin-bottom: 4em;
-  text-align: center;
-  .update-profile-error-message {
-    color: red;
-  }
-  div {
+.profile__stats {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  margin: auto 0;
+  h1 {
+    border-bottom: 1px solid grey;
+    color: white;
     display: grid;
-    grid-template-columns: 2fr 3fr;
-    text-align: center;
-    > span {
-      padding-top: 0.5rem;
+    grid-template-columns: 1fr 2fr;
+    margin: 0;
+    padding: 5.5% 0;
+    span:first-child {
+      color: #F1D230;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2rem;
+      margin: 0;
+      padding: 0;
+      padding-right: 1rem;
       text-align: right;
     }
-    input, textarea {
-      border-color: #999;
-      margin: 0 1rem;
+    span:last-child {
+      font-size: 1.5rem;
+      text-align: left;
     }
-    textarea {
-      border-radius: 0.2rem;
-      height: 5rem;
-      margin-bottom: 2rem;
-      padding: 0.5rem;
-    }
+  }
+  h1:last-child {
+    border: none;
+  }
+}
 
-    button {
-      background-color: #747474;
-      border-radius: 0.2rem;
-      color: white;
-      font-family: inherit;
-      margin: 2rem 1rem;
-      width: 50%;
-      padding: 0.5rem;
+.profile__article-section {
+  margin: 1rem;
+  min-height: 40rem;
+  ul {
+    list-style-type: none;
+    li:first-child {
+      border-top: 1px solid #ddd;
+    }
+    li {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      small {
+        color: #666;
+      }
     }
   }
 }
 
-.profile__profiles-written {
-  h1 {
-    text-align: center;
-    span {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 3rem;
-    }
+.profile-header-rating {
+  i {
+    font-size: 1.5rem;
   }
 }
 
@@ -160,38 +171,39 @@
 }
 
 .profile-header-rated-times {
-  color: rgb(189, 184, 184);
+  color: #ddd;
 }
 
 @media only screen and (min-width: 40em) {
 
   .profile-header-rated-times {
-    color: rgb(189, 184, 184);
+    color: #ddd;
   }
 
   .profile-rating-container {
     display: flex;
   }
 
-  .banner-section {
-    height: 20em;
+  .profile__banner-section {
+    height: 25em;
     text-align: left;
     overflow: unset;
   }
   
-  .banner-content {
+  .profile__banner-content {
     display: block;
     flex-direction: row;
     justify-content: unset;
     padding: 0;
-    padding-top: 3em;
     height: 100%;
   }
   
-  .banner-content-title {
+  .profile__banner-content-title {
     font-size: 2.4em;
     margin-bottom: 3.5em;
     line-height: 1.2em;
+    top: 4rem;
+    position: relative;
   }
   
   .profile-header-username {
@@ -200,7 +212,7 @@
     color: white;
   }
   
-  .avatar-text-group {
+  .profile__avatar-text-group {
     display: flex;
     flex-direction: unset;
     justify-content: unset;
@@ -220,14 +232,16 @@
     }
   }
 
-  .auto-container {
+  .profile__auto-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-left: 2em;
     padding-right: 2em;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .body-section {
+  .profile__body-section {
     margin-top: 6em;
   }
 
@@ -235,10 +249,39 @@
     font-size: 1.2em;
     text-align: justify;
   }
+
+  .profile__stats {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin: auto 2rem;
+    position: relative;
+    top: 4rem;
+    h1 {
+      border-bottom: 1px solid grey;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      margin: 0;
+      padding: 5.5% 0;
+      span:first-child {
+        color: #F1D230;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 3rem;
+        margin: 0;
+        padding: 0;
+        padding-right: 2rem;
+        text-align: right;
+      }
+    }
+    h1:last-child {
+      border: none;
+    }
+  }
 }
 
 @media only screen and (min-width: 60em) {
-  .auto-container {
+  .profile__auto-container {
     padding-left: 4em;
     padding-right: 4em;
     max-width: 100%;
@@ -251,12 +294,16 @@
     }
   }
 
-  .banner-content-title {
-    font-size: 3em;
-    margin-bottom: 3.5em;
-    line-height: 1.2em;
+  .profile__article-section {
+    margin: 7rem;
   }
 
+  .profile__banner-content-title {
+    font-size: 3em;
+    margin-bottom: 2.5em;
+    line-height: 1.2em;
+    padding-top: 2rem;
+  }
 }
 
 .spinner--ratings {

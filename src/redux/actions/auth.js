@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST_SUCCESS } from './types';
+import { LOGIN_REQUEST_SUCCESS, LOGOUT } from './types';
 import axios from '../../utils/axiosConfig';
 
 const api = process.env.API_ROOT_URL;
@@ -29,3 +29,5 @@ export const login = loginDetails => async (dispatch) => {
     }
   }
 };
+
+export const logout = () => ({ type: LOGOUT });

@@ -9,6 +9,7 @@ import { setLoggedInState } from '../../redux/actions/auth';
 import { getOwnProfile } from '../../redux/actions/profile';
 import { TopReads } from '../articles/top-reads';
 import Profile from '../profile/Profile';
+import EditProfile from '../profile/editProfile/EditProfile';
 import './style.scss';
 
 export class Dashboard extends Component {
@@ -33,6 +34,7 @@ export class Dashboard extends Component {
           return this.props.setLoggedInState();
         }
         toast.error('User not found');
+        localStorage.clear();
         this.props.history.push('/login');
       }
     } else if (!this.props.isLoggedIn) {
@@ -48,6 +50,7 @@ export class Dashboard extends Component {
           <Switch>
             <Route path='/dashboard/top-reads' component={TopReads} />
             <Route path='/dashboard/my-profile' component={Profile} />
+            <Route path='/dashboard/edit-profile' component={EditProfile} />
           </Switch>
         </ContentArea>
       </div>
