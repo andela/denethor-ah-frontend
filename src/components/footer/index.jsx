@@ -1,29 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
+import { withRouter } from 'react-router-dom';
 import NavTab from '../navTabs';
-import InputSection from '../InputSection';
+import SearchForm from '../searchForm/SearchForm';
 import './style.scss';
 
-const Footer = ({ onChange, onKeyPress }) => (
+export const Footer = (props) => (
   <footer>
     <div className="footer">
       <div className="footer__search-section">
         <div className="footer__search-section__search-text">
           <span>Search Articles</span>
         </div>
-        <InputSection
-          type="text"
-          placeHolder="Author's name, title or tag"
-          className="footer__search-section__search-input"
-          onChange={onChange}
-          onKeyPress={onKeyPress}
-          id="searchInput"
-        />
+        <SearchForm {...props} className='footer__search-section__search-input' isSearchOnly={true} />
       </div>
       <NavTab />
       <div className="footer__logo-button">
-        <button className="footer__logo-button__button"><div className="footer__logo-button__logo"><img src='/assets/img/ah-logo.svg' alt="logo" /></div><div><p>AUTHOR&apos;S HAVEN</p></div></button>
+        <button className="footer__logo-button__button">
+          <div className="footer__logo-button__logo">
+            <img src='/assets/img/ah-logo.svg' alt="logo" />
+          </div>
+          <div><p>AUTHOR&apos;S HAVEN</p></div>
+        </button>
       </div>
     </div>
     <div className="mini-footer">
@@ -32,9 +29,4 @@ const Footer = ({ onChange, onKeyPress }) => (
   </footer>
 );
 
-Footer.propTypes={
-  onChange: PropTypes.func,
-  onKeyPress: PropTypes.func
-}
-
-export default Footer;
+export default withRouter(Footer);

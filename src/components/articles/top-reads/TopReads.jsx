@@ -4,12 +4,15 @@ import FeedBottom from '../../feed';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import SearchForm from '../../searchForm/SearchForm';
+
 class TopReads extends React.Component {
   render() {
     const { articles, categories } = this.props;
 
     return (
       <div className="top-reads">
+        <SearchForm {...this.props} isSearchonly={false} className='top-reads__search' />
         <PostFeedTopSection articles={articles} categories={categories} />
         <FeedBottom articles={articles} />
       </div>

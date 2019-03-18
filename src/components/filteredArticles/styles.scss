@@ -1,0 +1,38 @@
+.filter-form {
+    width: 95%;
+    margin-left: 5%;
+    padding: 2rem 0;
+    justify-content: flex-start;
+
+  >h2 {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .feed-bottom-container-small {
+    width: 30%;
+    padding: 0;
+    margin: 1rem 3% 1rem 0;
+  }
+
+  .feed-bottom-container__small_image_info-container {
+    height: auto;
+  }
+}
+
+@media (max-width: 60rem) {
+  .filter-form { 
+    .feed-bottom-container-small {
+      width: 45%;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .filter-form { 
+    .feed-bottom-container-small {
+      width: 90%;
+    }
+  }
+}

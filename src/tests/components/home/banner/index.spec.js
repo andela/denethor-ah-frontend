@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Banner } from '../../../../components/home/Banner';
+import { Banner } from '../../../../components/home/banner';
 
 test('Should render banner with stats correctly', () => {
   const wrapper = shallow(<Banner bannerScreen={'Stats'} />);

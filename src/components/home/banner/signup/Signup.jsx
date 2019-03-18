@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-import SocialLoginBtn from '../Login/SocialLoginBtn';
-import SocialLoginIcons from '../Login/SocialLoginIcons';
+import SocialLoginBtn from '../login/SocialLoginBtn';
+import SocialLoginIcons from '../login/SocialLoginIcons';
 import signUp from '../../../../utils/signUp';
 import './styles.scss';
 
@@ -56,7 +56,6 @@ export class Signup extends Component {
     }
     return toast.error(msg, options);
   }
-
 
   onFirstNameChange = ({ target: { value } }) => {
     this.setState(() => ({

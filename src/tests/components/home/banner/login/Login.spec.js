@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Login } from '../../../../../components/home/Banner/Login/Login';
+import { Login } from '../../../../../components/home/banner/login/Login';
 
 test('Should render login form', () => {
   const wrapper = shallow(<Login />);

@@ -6,6 +6,8 @@ import commentReducer from './comments';
 import categoryReducer from './categories';
 import profileReducer from './profile';
 import authReducer from './auth';
+import filterReducer from './filters';
+import authorReducer from './authors';
 
 export default combineReducers({
 	articles: articleReducer,
@@ -14,5 +16,7 @@ export default combineReducers({
 	comments: commentReducer,
 	categories: categoryReducer,
 	auth: authReducer,
-	profile: profileReducer
+	profile: profileReducer,
+	filters: filterReducer,
+	authors: authorReducer
 });
