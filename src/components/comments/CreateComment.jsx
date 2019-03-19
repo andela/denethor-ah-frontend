@@ -27,6 +27,9 @@ export default class Comment extends Component {
           if (response && response.status === 422){
             return toast.error(error.response.data.message.details[0].message);
           }
+          if (response && response.status === 404){
+            return toast.error(error.response.data.message.details[0].message);
+          }
           if(response && response.status === 401){
             toast.error('You need to login to comment on this article');
           }
