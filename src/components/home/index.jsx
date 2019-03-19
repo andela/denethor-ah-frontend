@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from './Banner';
+import Banner from './banner';
 import { PostFeedTopSection } from '../feed/post-feed-top-section';
 import FeedBottom from '../feed';
 import PropTypes from 'prop-types';
