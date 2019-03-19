@@ -16,12 +16,18 @@ describe('Test for the single article component', () => {
 		rateArticle: jest.fn(),
 		articles,
 		comments: {
-			comments: []
+			comments: [{
+				user: {
+					firstname: 'Peace',
+					lastname: 'Oyedeji'
+				}
+
+			}]
 		}
 	};
 
 	it('should render single article view page', () => {
-		const wrapper = mount( <SingleArticleView {...props} /> );
+		const wrapper = mount(<SingleArticleView {...props} />);
 		expect(wrapper.length).toBe(1);
 		expect(wrapper.find('.article-body').length).toBe(1);
 		expect(wrapper.find('.banner-content-title').length).toBe(1);
@@ -44,10 +50,16 @@ describe('Test for the single article component', () => {
 			rateArticle,
 			articles,
 			comments: {
-				comments: []
+				comments: [{
+					user: {
+						firstname: 'Peace',
+						lastname: 'Oyedeji'
+					}
+	
+				}]
 			}
 		};
-		const wrapper = mount( <SingleArticleView {...props} /> );
+		const wrapper = mount(<SingleArticleView {...props} />);
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
 		expect(wrapper).toMatchSnapshot();
 		expect(rateArticle).toHaveBeenCalled();
@@ -67,10 +79,16 @@ describe('Test for the single article component', () => {
 			rateArticle,
 			articles,
 			comments: {
-				comments: []
+				comments: [{
+					user: {
+						firstname: 'Peace',
+						lastname: 'Oyedeji'
+					}
+	
+				}]
 			}
 		};
-		const wrapper = mount( <SingleArticleView {...props} /> );
+		const wrapper = mount(<SingleArticleView {...props} />);
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
 		expect(wrapper).toMatchSnapshot();
 		expect(rateArticle).toHaveBeenCalled();

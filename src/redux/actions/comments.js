@@ -2,6 +2,7 @@ import axios from '../../utils/axiosConfig';
 import {
   ADD_COMMENT,
   REMOVE_COMMENT,
+  ADD_COMMENT_FAILURE,
   GET_COMMENT_SUCCESS
 } from './types';
 
@@ -16,6 +17,10 @@ export const getCommentSuccess = comments => ({
   comments
 });
 
+export const addCommentFailure = () => ({
+  type: ADD_COMMENT_FAILURE
+});
+
 export const getArticleComments = (articleId) => async (dispatch) => {
     const { data: { articleComments } } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
     dispatch(getCommentSuccess(articleComments));
@@ -27,6 +32,7 @@ export const addComment = ({ articleId, commentBody }) => async (dispatch) => {
     await axios.post(`${BASE_URL}/articles/${articleId}/comments`, { commentBody });
     dispatch(getArticleComments(articleId));
   } catch (error) {
+    dispatch(addCommentFailure())
     throw error;
   }
 };
