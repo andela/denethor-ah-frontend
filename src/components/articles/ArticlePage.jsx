@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+
 import RoundedImage from '../../components/RoundedImage';
 import VerticalMargin from '../../components/VerticalMargin';
 import HorizontalMargin from '../../components/HorizontalMargin';
@@ -11,18 +13,17 @@ import { CommentEntries } from '../comments';
 import { addComment } from '../../redux/actions/comments';
 import { getOneArticle, rateArticle, getArticleAvgRating } from '../../redux/actions/articles';
 import { getArticleComments } from '../../redux/actions/comments'
-import { toast } from 'react-toastify';
 import './style.scss';
+import Spinner from '../spinner/Spinner';
 
 
 export class SingleArticleView extends Component {
 
   async componentDidMount() {
-    const { fetchArticle, getArticleAvgRating, getArticleComments, match } = this.props;
+    const { fetchArticle, getArticleAvgRating, match } = this.props;
     let articleId = match.params.articleId;
     await fetchArticle(articleId);
     getArticleAvgRating(articleId);
-    getArticleComments(articleId);
   }
 
   starClickHandle = (item) => {
@@ -41,7 +42,13 @@ export class SingleArticleView extends Component {
   }
 
   render() {
-    const { match: { params: { articleId } }, articles = [], comments, addComment } = this.props;
+    const {
+      match: { params: { articleId } },
+      articles = [],
+      addComment,
+      comments,
+    } = this.props;
+    const { loading } = comments;
     const article = articles.find(item => item.id === articleId) || {};
     const { 
       title, 
@@ -50,6 +57,7 @@ export class SingleArticleView extends Component {
       body,
       averageRating,
       ratingsCount,
+      comments: articleComments = [],
     } = article;
 
     return (
@@ -100,8 +108,9 @@ export class SingleArticleView extends Component {
                     addComment={addComment}
                   />
                 </div>
+                <Spinner loading={loading} />
                 <div className='section-user-comments'>
-                  <CommentEntries comments={comments.comments} />
+                  <CommentEntries comments={ comments.comments.length ? comments.comments : articleComments } />
                 </div>
               </div>
             </div>
