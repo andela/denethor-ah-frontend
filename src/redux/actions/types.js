@@ -7,6 +7,7 @@ export const ADD_TAG = 'ADD_TAG';
 export const CLEAR_LOGIN_ERROR = 'CLEAR_LOGIN_ERROR';
 export const SET_OWN_PROFILE = 'SET_OWN_PROFILE';
 export const LOGIN_REQUEST_SUCCESS = 'LOGIN_REQUEST_SUCCESS';
+export const LOGOUT = 'LOGOUT';
 export const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const REMOVE_TAG = 'REMOVE_TAG';

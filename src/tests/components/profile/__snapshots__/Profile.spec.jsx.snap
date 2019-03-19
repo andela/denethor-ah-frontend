@@ -1,209 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render component correctly 1`] = `
-<div>
+<div
+  className="profile body-section"
+>
   <div
-    className="banner-section"
+    className="wide-padding"
   >
     <div
-      className="banner-image"
+      className="section-profile-info"
     >
-      <img
-        alt="banner background"
-        src="/assets/img/map-typing.jpg"
-      />
-    </div>
-    <div
-      className="transparent-overlay"
-    />
-    <div
-      className="banner-content"
-    >
-      <div
-        className="auto-container"
+      <small
+        className="update-profile-error-message"
       >
-        <div
-          className="banner-content-title"
-        >
-          Omoefe Dukuye
-          <div
-            className="profile--bio"
-          >
-            <p />
-          </div>
-        </div>
-        <div
-          className="avatar-text-group"
-        >
-          <div
-            className="user-profile-picture"
-          >
-            <RoundedImage
-              alt="profile picture"
-              imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
-            />
-            <VerticalMargin
-              className="hide-for-medium"
-              size={50}
-            />
-          </div>
-          <HorizontalMargin
-            className="show-for-medium"
-            size={10}
-          />
-          <div
-            className="profile-username-rate-group"
-          >
-            <div
-              className="profile-header-username"
-            >
-              Omoefe94460
-            </div>
-            <div
-              className="profile-rating-container"
-            >
-              <div
-                className="profile-header-rating"
-              >
-                <RatingStars
-                  rateNumber={0}
-                />
-              </div>
-              <div
-                className="profile-header-rated-times"
-              >
-                <span
-                  className="spinner spinner--ratings"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="body-section"
-  >
-    <div
-      className="auto-container wide-padding"
-    >
-      <div
-        className="profile-body"
-      >
-        <div
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined,
-            }
-          }
+         
+      </small>
+      <div>
+        <span>
+          First Name: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Omoefe"
         />
       </div>
-      <div
-        className="profile__profiles-written"
+      <small
+        className="update-profile-error-message"
       >
-        <h1>
-          Articles Written: 
-          <span>
-            3
-          </span>
-        </h1>
+         
+      </small>
+      <div>
+        <span>
+          Last Name: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Dukuye"
+        />
       </div>
-      <HorizontalLine />
-      <div
-        className="section-profile-info"
+      <small
+        className="update-profile-error-message"
       >
-        <small
-          className="update-profile-error-message"
-        >
-           
-        </small>
+         
+      </small>
+      <div>
+        <span>
+          Username: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Omoefe94460"
+        />
+      </div>
+      <small
+        className="update-profile-error-message"
+      >
+         
+      </small>
+      <div
+        className="profile__bio"
+      >
+        <span>
+          Bio: 
+        </span>
         <div>
-          <span>
-            First Name: 
-          </span>
-          <input
-            className=""
-            onBlur={[Function]}
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-        <small
-          className="update-profile-error-message"
-        >
-           
-        </small>
-        <div>
-          <span>
-            Last Name: 
-          </span>
-          <input
-            className=""
-            onBlur={[Function]}
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-        <small
-          className="update-profile-error-message"
-        >
-           
-        </small>
-        <div>
-          <span>
-            Username: 
-          </span>
-          <input
-            className=""
-            onBlur={[Function]}
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-        <small
-          className="update-profile-error-message"
-        >
-           
-        </small>
-        <div>
-          <span>
-            Bio: 
-          </span>
           <textarea
             onBlur={[Function]}
             onChange={[Function]}
             value=""
           />
         </div>
-        <div>
-          <span>
-            Change profile picture: 
-          </span>
-          <input
-            onChange={[Function]}
-            type="file"
-          />
-        </div>
-        <div>
-          <span />
-          <button
-            disabled={false}
-            onClick={[Function]}
-          >
-            <span
-              className="button__text--login undefined"
-            >
-              Update
-            </span>
-            <span />
-          </button>
-        </div>
-        <VerticalMargin
-          className="show-for-medium"
-          size={10}
+      </div>
+      <div>
+        <span>
+          Profile Picture: 
+        </span>
+        <input
+          onChange={[Function]}
+          type="file"
         />
       </div>
+      <div>
+        <span />
+        <button
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button__text--login undefined"
+          >
+            Update
+          </span>
+          <span />
+        </button>
+      </div>
+      <VerticalMargin
+        className="show-for-medium"
+        size={10}
+      />
     </div>
   </div>
 </div>

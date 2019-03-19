@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import axios from '../../utils/axiosConfig';
 import './styles.scss';
+import { logout } from '../../redux/actions/auth';
 
 library.add(faBars);
 
-export const Header = ({ history }) => {
+export let Header = ({ history, dispatch, isLoggedIn }) => {
   const handleNavSignup = () => {
       history.push('/signup');
   };
@@ -16,6 +19,13 @@ export const Header = ({ history }) => {
   const handleNavLogin = () => {
       history.push('/login');
   };
+
+  const handleNavLogout = async () => {
+    await axios.get(`${process.env.API_ROOT_URL}/users/logout`);
+    localStorage.clear();
+    dispatch(logout());
+    history.push('/');
+};
 
   const handleLogoClick = () => {
     history.push('/');
@@ -36,8 +46,14 @@ export const Header = ({ history }) => {
       <div className="nav-container">
         <ul>
           <li><Link to='/'><img src='/assets/img/search-icon.svg' alt="search icon"/></Link></li>
-          <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
-          <li><button onClick={handleNavLogin} className="login-link">Login</button></li>
+          {
+            isLoggedIn
+            ? <li><button onClick={handleNavLogout} className="login-link">Logout</button></li>
+            : <React.Fragment>
+              <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
+              <li><button onClick={handleNavLogin} className="login-link">Login</button></li>
+            </React.Fragment>
+          }
         </ul>
       </div>
       <div className="mobile-header"> 
@@ -52,7 +68,13 @@ export const Header = ({ history }) => {
 };
 
 Header.propTypes={
-  history: PropTypes.object
+  dispatch: PropTypes.func,
+  history: PropTypes.object,
+  isLoggedIn: PropTypes.bool
 }
 
-export default withRouter(Header);
+Header = withRouter(Header);
+
+const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
+
+export default connect(mapStateToProps)(Header);

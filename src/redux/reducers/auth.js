@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST_SUCCESS } from '../actions/types';
+import { LOGIN_REQUEST_SUCCESS, LOGOUT } from '../actions/types';
 
 export default (state, action) => {
   const isLoggedIn = !!localStorage.getItem('token');
@@ -12,6 +12,10 @@ export default (state, action) => {
       return {
         isLoggedIn: true,
       };
+
+    case LOGOUT:
+      return {};
+
     default:
       return state;
   }

@@ -1,0 +1,49 @@
+.profile.body-section {
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('/assets/img/banner.png') center center;
+  background-size: cover;
+  display: flex;
+  height: 50rem;
+  justify-content: center;
+  margin: 0;
+}
+
+.section-profile-info {
+  text-align: center;
+  .update-profile-error-message {
+    color: red;
+  }
+  > div {
+    display: grid;
+    color: white;
+    grid-template-columns: 1fr 3fr;
+    > span {
+      padding-top: 0.5rem;
+      text-align: right;
+    }
+    input, textarea {
+      border-color: #999;
+      margin: 0 1rem;
+    }
+    div {
+      text-align: left;
+      textarea {
+        border-radius: 0.2rem;
+        height: 5rem;
+        margin-bottom: 2rem;
+        padding: 0.5rem;
+        width: 13rem;
+      }
+    }
+
+    button {
+      background-color: #555;
+      border-radius: 0.2rem;
+      color: white;
+      font-family: inherit;
+      margin: 2rem 1rem;
+      width: 7rem;
+      padding: 0.5rem;
+    }
+  }
+}
