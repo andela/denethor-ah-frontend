@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+
 import './styles.scss';
 import { LikeNumberGroup } from '../../components/likeButton';
 import { HorizontalLine } from '../../components/horizontalLine';

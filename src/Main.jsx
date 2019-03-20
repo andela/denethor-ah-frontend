@@ -13,6 +13,7 @@ import ResetPassword from './components/resetPassword/ResetPassword';
 import { Dashboard } from './components/dashboard';
 import FilteredArticles from './components/filteredArticles/FilteredArticles';
 import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
+import ResetPasswordVerification from './components/resetPasswordVerification/ResetPasswordVerification';
 
 const Main = () => {
   const scrollToTop = () => {
@@ -34,8 +35,9 @@ const Main = () => {
           <Route path="/dashboard" component={Dashboard} />
           <Route path='/filter' component={FilteredArticles} />
           <Route path="/api/users/:id/verify" component={Redirect} />
-          <Route path="/passwordreset" component={ResetPassword} />
+          <Route exact path="/passwordreset" component={ResetPassword} />
           <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
+          <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
         </Switch>
         <Footer />
       </div>

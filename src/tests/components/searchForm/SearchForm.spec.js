@@ -2,8 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Select from 'react-select';
 
-import { SearchForm 
-} from '../../../components/searchForm/SearchForm';
+import { SearchForm } from '../../../components/searchForm/SearchForm';
+import axios from '../../../utils/axiosConfig';
+
+jest.mock('../../../utils/axiosConfig');
 
 test('Should render search form', () => {
   const wrapper = shallow(<SearchForm />);
@@ -32,7 +34,24 @@ it('Should set tag state on input change', () => {
   expect(wrapper.state('selectedTag')).toEqual({ value });
 });
 
-it('Should call onSubmit for valid form submission', () => {
+it('Should call onSubmit for invalid form submission', () => {
   const wrapper = shallow(<SearchForm />);
-  wrapper.find('form').simulate('submit');
+  const preventDefault = jest.fn();
+
+  wrapper.find('form').simulate('submit', { preventDefault });
+  expect(preventDefault).toHaveBeenCalled();
+});
+
+it('Should call onSubmit for valid form submission', () => {
+  const value = 'Search string';
+  axios.post.mockImplementationOnce();
+  const push = jest.fn();
+  const props = { history: { push } }
+  const preventDefault = jest.fn();
+  const wrapper = shallow(<SearchForm {...props} />);
+
+  wrapper.find('input').at(0).simulate('change', { target: { value } });
+  expect(wrapper.state('searchString')).toBe(value);
+  wrapper.find('form').simulate('submit', { preventDefault });
+  expect(preventDefault).toHaveBeenCalled();
 });

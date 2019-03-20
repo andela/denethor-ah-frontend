@@ -22,10 +22,12 @@ export const addCommentFailure = () => ({
 });
 
 export const getArticleComments = (articleId) => async (dispatch) => {
-    const { data: { articleComments } } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
-    dispatch(getCommentSuccess(articleComments));
+  const { data: { articleComments } } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
+  dispatch(getCommentSuccess(articleComments));
 };
+
 export const addComment = ({ articleId, commentBody }) => async (dispatch) => {
+
   try {
     dispatch(addCommentRequest());
     await axios.post(`${BASE_URL}/articles/${articleId}/comments`, { commentBody });
@@ -35,7 +37,6 @@ export const addComment = ({ articleId, commentBody }) => async (dispatch) => {
     throw error;
   }
 };
-
 
 export const removeComment = id => (dispatch) => {
   dispatch({

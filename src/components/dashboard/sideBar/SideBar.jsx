@@ -39,6 +39,10 @@ const SideBar = ({ authUserEmail = '' }) => {
             <NavLink to='/dashboard/edit-profile'>Edit Profile</NavLink>
             <div className='button_background' />
           </li>
+          <li className='sidebar-links__item'>
+            <NavLink to='/dashboard/reset-password'>Reset Password</NavLink>
+            <div className='button_background' />
+          </li>
         </ul>
       </div>
     </div>
