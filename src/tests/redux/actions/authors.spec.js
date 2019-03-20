@@ -1,9 +1,9 @@
-import axios from '../../../utils/axiosConfig';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
-import { getAuthors } from '../../../redux/actions/authors';
-import users from '../../mock-data/users';
+
+import axios from '../../../utils/axiosConfig';
+import getAuthors from '../../../redux/actions/authors';
 import { GET_AUTHORS } from '../../../redux/actions/types';
 
 const createMockStore = configureMockStore([thunk]);

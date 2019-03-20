@@ -4,7 +4,8 @@ form {
   }
 }
 
-.css-10nd86i {
+.css-10nd86i,
+.css-1sontr1  {
   width: 10rem;
 }
 
@@ -14,58 +15,7 @@ form {
   color: black !important;
 }
 
-.top-reads {
-  > form {
-    width: 70%;
-    margin: 3rem auto 0;
-
-    .top-reads__search {
-      width: 100%;
-      margin-bottom: 1rem;
-      height: 3rem;
-      box-shadow: 0 0.2rem 0.25rem rgba(128, 128, 128, 0.5);
-    }
-    
-    .css-10nd86i,
-    button {
-      margin: 0.5rem 1rem;
-    }
-
-    span {
-      font-size: 1.25rem;
-      margin: 1rem;
-    }
-
-    .css-10nd86i {
-      border-radius: 4px
-    }
-
-    .css-vj8t7z, 
-    button {
-      border: none;
-      box-shadow: 0 0.2rem 0.25rem rgba(128, 128, 128, 0.5);
-    }
-  }
-
-  .flex {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 40rem) {
-  .top-reads > form {
-    width: 90%;
-    margin: 1rem auto;
-
-    span {
-      font-size: 1rem;
-      margin: 0.5rem 0.25rem;
-    }
-
-    .css-10nd86i,
-    button {
-      margin: 0.5rem 0.25rem;
-      width: 8rem;
-    }
-  }
+.css-162g8z5,
+input:disabled {
+  cursor: not-allowed;
 }

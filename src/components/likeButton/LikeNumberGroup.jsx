@@ -1,6 +1,7 @@
 import React from 'react';
-import InactiveLikeButton from './InactiveLikeButton';
 import PropTypes from 'prop-types';
+
+import InactiveLikeButton from './InactiveLikeButton';
 import './style.scss';
 
 const LikeNumberGroup = ({ likeCount }) => {

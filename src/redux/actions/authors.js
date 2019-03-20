@@ -4,7 +4,7 @@ import { GET_AUTHORS } from './types';
 
 const { API_ROOT_URL } = process.env;
 
-export const getAuthors = () => (dispatch) => {
+const getAuthors = () => (dispatch) => {
   return axios
     .get(`${API_ROOT_URL}/users`)
     .then((response) => {
@@ -17,3 +17,5 @@ export const getAuthors = () => (dispatch) => {
     })
     .catch(() => {  });
 }
+
+export default getAuthors

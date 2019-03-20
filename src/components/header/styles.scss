@@ -9,6 +9,7 @@ $gray: #818181;
   height: 5rem;
   position: relative;
   justify-content: space-between;
+  align-items: center;
   padding: 0.8em;
 
   > button {
@@ -28,6 +29,10 @@ $gray: #818181;
     }
   }
 
+}
+
+.theme__black.fix {
+  position: fixed;
 }
 
 .logo-container {
@@ -56,6 +61,7 @@ $gray: #818181;
   ul {
     display: flex;
     align-items: center;
+    height: 52px;
 
     li {
         display: flex;

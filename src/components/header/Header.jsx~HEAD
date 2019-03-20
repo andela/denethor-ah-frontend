@@ -13,7 +13,6 @@ import { logout } from '../../redux/actions/auth';
 import { removeOwnProfile } from '../../redux/actions/profile';
 import { toggleMobileSideBar } from '../../redux/actions/elements';
 import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
-import SearchWidget from './widgets/searchWidget/SearchWidget';
 
 library.add(faBars);
 
@@ -53,7 +52,7 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
     <div className={`header ${theme}`}>
       <button onClick={handleLogoClick} className='logo-container show-for-large'>
         <div className="logo-image">
-          <img src='/assets/img/ah-logo.svg' alt="Author's haven logo" />
+          <img src='/assets/img/ah-logo.svg' alt="Author's haven logo"/>
         </div>
         <div className="logo-text">
           <h3>AUTHOR&apos;S HAVEN</h3>
@@ -61,7 +60,6 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
       </button>
       <div className="nav-container show-for-large">
         <ul>
-          <li><SearchWidget /></li>
           {
             isLoggedIn
             ?
@@ -79,13 +77,12 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
-        <SearchWidget />
       </div>
 
-      <MobileSideBar
-        isLoggedIn={isLoggedIn}
+      <MobileSideBar 
+        isLoggedIn={isLoggedIn} 
         handleNavLogout={handleNavLogout}
-        handleNavSignup={handleNavSignup}
+        handleNavSignup={handleNavSignup} 
         handleNavLogin={handleNavLogin}
         sideBarActive={sideBarActive}
         toggleMobileSideBar={toggleMobileSideBar}
@@ -94,7 +91,7 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
   )
 };
 
-Header.propTypes = {
+Header.propTypes={
   dispatch: PropTypes.func,
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool,

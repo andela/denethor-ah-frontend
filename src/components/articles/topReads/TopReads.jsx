@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import { PostFeedTopSection } from '../../feed/postFeedTopSection';
 import FeedBottom from '../../feed';
-import SearchForm from '../../searchForm/SearchForm';
 
 class TopReads extends React.Component {
   render() {
@@ -11,7 +11,6 @@ class TopReads extends React.Component {
 
     return (
       <div className="top-reads">
-        <SearchForm {...this.props} isSearchonly={false} className='top-reads__search' />
         <PostFeedTopSection articles={articles} categories={categories} />
         <FeedBottom articles={articles} />
       </div>

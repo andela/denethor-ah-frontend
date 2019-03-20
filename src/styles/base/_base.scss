@@ -3,6 +3,8 @@ html, body, body > div, #app > div {
 }
 
 #app > div {
+  position: relative;
+  height: auto;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
 }
@@ -71,8 +73,6 @@ input {
   justify-content: center;
   align-items: center;
   height: 100%; 
-
-  
 }
 
 .font-gold {
@@ -89,7 +89,12 @@ input {
   100% { transform: rotate(360deg); }
 }
 
-
+.break {
+  flex-basis: 100%;
+  width: 0px; 
+  height: 0px; 
+  overflow: hidden;
+}
 
 @media (max-width: 60rem) {
   .w-30 {
