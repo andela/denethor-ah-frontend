@@ -1,34 +1,60 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { userBookmarks } from '../../redux/actions/profile';
 import FeedBottomSmallCard from '../feed/FeedBottomSmallCard';
+import { extractImageFromBody } from '../../utils/imageExtractor';
+import { toTimeFromNow } from '../../utils/dateTime';
+import './styles.scss';
 
 
 export class UserBookmarks extends Component {
 
-  componentDidMount() {
-    userBookmarks(this.props.id)
+  state = {};
+
+  async componentDidMount () {
+    const { bookmarks } = this.props
+    if (bookmarks) {
+      this.setState({ bookmarks })
+    }
+  }
+
+  async componentDidUpdate () {
+    const { bookmarks } = this.props;
+    if (bookmarks && !this.state.bookmarks) {
+      this.setState({ bookmarks })
+    }
   }
 
   render() {
-    return(
-      <div>
-        <p>you have not bookmarked</p>
-        <FeedBottomSmallCard/>
+    const { bookmarks } = this.state;
+    return (
+      <div className='flex filter-form bookmarks'>
+        {!bookmarks
+          ? ''
+          : !bookmarks[0]
+              ? <p>you have not bookmarked</p>
+              : <React.Fragment>
+                  <h2>Your Bookmarks</h2>
+                  {
+                    bookmarks.map(bookmark => <FeedBottomSmallCard
+                    key={bookmark.id}
+                    featuredImage={extractImageFromBody(bookmark.body)}
+                    dateCreated={toTimeFromNow(bookmark.createdAt)}
+                    {...bookmark} />)
+                  }
+              </React.Fragment>
+        }
       </div>
     )
   }
 }
 
 UserBookmarks.propTypes = {
+  getUserBookmarks: PropTypes.func,
+  bookmarks: PropTypes.array,
   id: PropTypes.string
 }
 
-const mapStateToProps = ({ profile }) => ({ profile });
+const mapStateToProps = ({ profile: { bookmarks } }) => ({ bookmarks });
 
-const mapDispatchToProps = (dispatch) => ({
-  userBookmarks: (userId) => dispatch(userBookmarks(userId)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserBookmarks);
+export default connect(mapStateToProps)(UserBookmarks);

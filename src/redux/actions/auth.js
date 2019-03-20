@@ -1,6 +1,5 @@
 import { SET_LOGIN_STATUS, LOGOUT } from './types';
 import axios from '../../utils/axiosConfig';
-import { escapeInputs } from '../../utils/escapeInputs';
 
 const api = process.env.API_ROOT_URL;
 

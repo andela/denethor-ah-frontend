@@ -12,7 +12,6 @@ import { logout } from '../../redux/actions/auth';
 import { removeOwnProfile } from '../../redux/actions/profile';
 import { toggleMobileSideBar } from '../../redux/actions/elements';
 import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
-import { removeOwnProfile } from '../../redux/actions/profile';
 
 library.add(faBars);
 
@@ -105,8 +104,9 @@ Header = withRouter(Header);
 const mapStateToProps = ({ auth: { isLoggedIn = false }, elementStatuses: { sideBarActive = false } }) => 
   ({ isLoggedIn, sideBarActive });
 
-const mapDispatchToProps = dispatch => ({
-  toggleMobileSideBar: () => dispatch(toggleMobileSideBar())
+const mapDispatchToProps = (dispatch) => ({
+  toggleMobileSideBar: () => dispatch(toggleMobileSideBar()),
+  dispatch
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

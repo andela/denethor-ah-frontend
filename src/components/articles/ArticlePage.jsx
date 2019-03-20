@@ -120,7 +120,7 @@ export class SingleArticleView extends Component {
       if(error.response.status === 401){
         return toast.error('You need to login to bookmark an article',{className: 'toast-custom-style'});      
      } else if(error.response.status === 409){
-        return this.props.removeArticleBookmark(articleId).then(() => { this.setState({BookMarkBtnColor: '#ffff00'}) })
+        return this.props.removeArticleBookmark(articleId).then(() => { this.setState({BookMarkBtnColor: '#fff'}) })
      }
       return toast.error('An error occurred while trying to bookmark this article', {
         className: 'toast-custom-style'
@@ -129,8 +129,6 @@ export class SingleArticleView extends Component {
   }
 
   render() {
-    const userBookMarked = !!this.props.impressions.userBookmarks.find(bookmark => bookmark.articleUrl == `${process.env.API_ROOT_URL}${this.props.match.url}`);
-    console.log({userBookMarked})
     const {
       userLiked, 
       userDisliked,

@@ -16,7 +16,7 @@ export default (state = profileDefaultState, action) => {
       return {};
 
     case GET_USER_BOOKMARKS_SUCCESS:
-      return action.payload
+      return { ...state, bookmarks: action.payload }
 
     default:
       return state;

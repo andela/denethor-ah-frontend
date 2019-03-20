@@ -20,6 +20,8 @@ import { getOwnProfile, userBookmarks } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
 
 class Main extends Component {
+  state = {}
+  
   async componentDidMount() {
     if (localStorage.token) {
       const { token } = localStorage;
@@ -46,6 +48,18 @@ class Main extends Component {
     }
   }
 
+  async componentDidUpdate() {
+    const { isLoggedIn } = this.props;
+    if(!this.state.isLoggedIn && isLoggedIn === true) {
+      const { token } = localStorage;
+      const userId = JSON.parse(window.atob(token.split('.')[1])).id;
+      const error = await this.props.getOwnProfile(userId);
+      if(!error) {
+        this.props.getBookmarks(userId);
+      }
+    }
+  }
+
   scrollToTop = () => {
     window.scrollTo(0, 0);
     return null;
@@ -66,7 +80,7 @@ class Main extends Component {
             <Route path="/dashboard" component={AuthHOC(Dashboard)} />
             <Route path='/filter' component={FilteredArticles} />
             <Route path="/api/users/:id/verify" component={Redirect} />
-            <Route path="/passwordreset" component={ResetPassword} />
+            <Route exact path="/passwordreset" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
           </Switch>
@@ -79,6 +93,7 @@ class Main extends Component {
 
 Main.propTypes = {
   getOwnProfile: PropTypes.func,
+  isLoggedIn: PropTypes.bool,
   setLoggedInState: PropTypes.func,
   getBookmarks: PropTypes.func
 }
@@ -89,4 +104,6 @@ const mapDispatchToProps = (dispatch) => ({
   getBookmarks: id => dispatch(userBookmarks(id))
 });
 
-export default connect(undefined, mapDispatchToProps)(Main);
+const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
