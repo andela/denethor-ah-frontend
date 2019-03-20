@@ -48,13 +48,13 @@ export class EditProfile extends Component {
     const { firstname } = this.state;
     if (firstname.trim().includes(' ')) {
       return this.setState(() => ({
-        firstnameError: 'Names cannot contain spaces'
+        firstnameError: 'cannot contain spaces'
       }));
     }
 
     if (firstname.length < 3) {
       return this.setState(() => ({
-        firstnameError: 'First name must be at least 3 characters'
+        firstnameError: 'must be at least 3 characters'
       }));
     }
   }
@@ -65,13 +65,13 @@ export class EditProfile extends Component {
     const { lastname } = this.state;
     if (lastname.trim().includes(' ')) {
       return this.setState(() => ({
-        lastnameError: 'Names cannot contain spaces'
+        lastnameError: 'cannot contain spaces'
       }));
     }
 
     if (lastname.length < 3) {
       return this.setState(() => ({
-        lastnameError: 'Last name must be at least 3 characters'
+        lastnameError: 'must be at least 3 characters'
       }));
     }
   }
@@ -82,13 +82,13 @@ export class EditProfile extends Component {
     const { username } = this.state;
     if (username.trim().includes(' ')) {
       return this.setState(() => ({
-        usernameError: 'Username cannot contain spaces'
+        usernameError: 'cannot contain spaces'
       }));
     }
 
     if (this.state.username.length < 3) {
       return this.setState(() => ({
-        usernameError: 'Username must be at least 3 characters'
+        usernameError: 'must be at least 3 characters'
       }));
     }
   }
@@ -103,12 +103,12 @@ export class EditProfile extends Component {
     const { bio } = this.state;
     if (bio.length > 0 && bio.length < 10) {
       return this.setState(() => ({
-        bioError: 'Bio must be at least 10 characters if present'
+        bioError: 'must be at least 10 characters if present'
       }));
     }
     if (bio.length > 100) {
       this.setState(() => ({
-        bioError: 'Bio must be under 100 characters'
+        bioError: 'must be under 100 characters'
       }));
     }
   }
@@ -138,6 +138,7 @@ export class EditProfile extends Component {
     if (error) {
       return toast.error(error);
     }
+    this.props.history.push('/dashboard/my-profile');
     toast.success('Profile updated');
   }
 
@@ -147,14 +148,16 @@ export class EditProfile extends Component {
     const disableButton = !!(firstnameError || lastnameError || usernameError || bioError || processing);
 
     return (
-      <div className='profile body-section'>
-        <div className='wide-padding'>
-          <div className='section-profile-info'>  
-            <small className='update-profile-error-message'>
-              &nbsp;{firstnameError}
-            </small>
+      <div className='edit-profile body-section'>
+        <div className='section-edit-profile-info'>  
+          <div className='edit-profile__firstname'>
             <div>
-              <span>First Name: </span>
+              <span>First Name:</span>
+              <small className='update-profile-error-message'>
+                &nbsp;{firstnameError}
+              </small>
+            </div>
+            <div>
               <input
                 onBlur={this.onFirstnameBlur}
                 onChange={this.onFirstnameChange}
@@ -162,11 +165,16 @@ export class EditProfile extends Component {
                 className={this.state.firstnameError && 'red-bg'}
               />
             </div>
-            <small className='update-profile-error-message'>
-              &nbsp;{lastnameError}
-            </small>
+          </div>
+
+          <div className='edit-profile__lastname'>
             <div>
               <span>Last Name: </span>
+              <span className='update-profile-error-message'>
+                &nbsp;{lastnameError}
+              </span>
+            </div>
+            <div>
               <input
                 className={this.state.lastnameError && 'red-bg'}
                 onBlur={this.onLastnameBlur}
@@ -174,11 +182,16 @@ export class EditProfile extends Component {
                 value={this.state.lastname}
               />
             </div>
-            <small className='update-profile-error-message'>
-              &nbsp;{usernameError}
-            </small>
+          </div>
+
+          <div className='edit-profile__username'>
             <div>
               <span>Username: </span>
+              <span className='update-profile-error-message'>
+                &nbsp;{usernameError}
+              </span>
+            </div>
+            <div>
               <input
                 className={this.state.usernameError && 'red-bg'}
                 onBlur={this.onUsernameBlur}
@@ -186,11 +199,15 @@ export class EditProfile extends Component {
                 value={this.state.username}
               />
             </div>
-            <small className='update-profile-error-message'>
-              &nbsp;{bioError}
-            </small>
+          </div>
+
             <div className="profile__bio">
-              <span>Bio: </span>
+              <div>
+                <span>Bio: </span>
+                <span className='update-profile-error-message'>
+                  &nbsp;{bioError}
+                </span>
+              </div>
               <div>
                 <textarea
                   className={this.state.bioError && 'red-bg'}
@@ -200,24 +217,13 @@ export class EditProfile extends Component {
                 />
               </div>
             </div>
-            <div>
-              <span>Profile Picture: </span>
-              <input
-                type='file'
-                onChange={this.onUpload}
-              />
-            </div>
-            <div>
-              <span></span>
-              <button disabled={disableButton} onClick={this.handleSubmit}>
-                <span className={`button__text--login ${processing ? 'hidden' : undefined}`}>
-                  Update
-                </span>
-                <span className={processing ? 'spinner spinner--button' : undefined}></span>
-              </button>
-            </div>
+            <button className='button button--primary' disabled={disableButton} onClick={this.handleSubmit}>
+              <span className={`button__text--login ${processing ? 'hidden' : undefined}`}>
+                Update
+              </span>
+              <span className={processing ? 'spinner spinner--button' : undefined}></span>
+            </button>
           <VerticalMargin className='show-for-medium' size={10} />
-        </div>
       </div>
     </div>
     );

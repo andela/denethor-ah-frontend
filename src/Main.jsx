@@ -13,11 +13,11 @@ import Redirect from './components/redirect/Redirect';
 import ResetPassword from './components/resetPassword/ResetPassword';
 import { Dashboard } from './components/dashboard';
 import FilteredArticles from './components/filteredArticles/FilteredArticles';
-import { setLoggedInState } from './redux/actions/auth';
-import { getOwnProfile } from './redux/actions/profile';
-import AuthHOC from './components/AuthHOC';
 import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
 import ResetPasswordVerification from './components/resetPasswordVerification/ResetPasswordVerification';
+import { setLoggedInState } from './redux/actions/auth';
+import { getOwnProfile, userBookmarks } from './redux/actions/profile';
+import AuthHOC from './components/AuthHOC';
 
 class Main extends Component {
   async componentDidMount() {
@@ -35,11 +35,14 @@ class Main extends Component {
       if (userId) {
         const error = await this.props.getOwnProfile(userId);
         if(!error) {
+          this.props.getBookmarks(userId);
           return this.props.setLoggedInState(true);
         }
         toast.error('User not found');
         localStorage.clear();
       }
+    } else {
+      this.props.setLoggedInState(false);
     }
   }
 
@@ -52,7 +55,7 @@ class Main extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ToastContainer />
+        <ToastContainer />
           <Route component={this.scrollToTop} />
           <Header />
           <Switch>
@@ -76,12 +79,14 @@ class Main extends Component {
 
 Main.propTypes = {
   getOwnProfile: PropTypes.func,
-  setLoggedInState: PropTypes.func
+  setLoggedInState: PropTypes.func,
+  getBookmarks: PropTypes.func
 }
 
 const mapDispatchToProps = (dispatch) => ({
   getOwnProfile: id => dispatch(getOwnProfile(id)),
-  setLoggedInState: loggedInState => dispatch(setLoggedInState(loggedInState))
+  setLoggedInState: loggedInState => dispatch(setLoggedInState(loggedInState)),
+  getBookmarks: id => dispatch(userBookmarks(id))
 });
 
 export default connect(undefined, mapDispatchToProps)(Main);

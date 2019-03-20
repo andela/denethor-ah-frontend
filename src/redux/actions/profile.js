@@ -1,5 +1,6 @@
-import { REMOVE_OWN_PROFILE, SET_OWN_PROFILE, UPDATE_PROFILE, GET_USER_BOOKMARKS_SUCCESS } from './types';
+import { REMOVE_OWN_PROFILE, SET_OWN_PROFILE, UPDATE_PROFILE, SET_NOTIFICATIONS } from './types';
 import axios from '../../utils/axiosConfig';
+import socket from '../../utils/socket';
 
 const api = process.env.API_ROOT_URL;
 
@@ -10,6 +11,15 @@ export const getOwnProfile = id => async (dispatch) => {
     dispatch({
       type: SET_OWN_PROFILE,
       payload: data
+    });
+
+    socket.emit('addUserListener', data.id);
+
+    socket.on('setNotifications', (notifications) => {
+      dispatch({
+        type: SET_NOTIFICATIONS,
+        payload: notifications
+      })
     });
 
     const userAverageRatingPromise = data.publishedArticles.reduce(async (accumulatorObject, article, index, { length }) => {
@@ -86,14 +96,30 @@ export const updateProfile = (id, updates) => async (dispatch) => {
 
 export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) => {
   try {
-    const formData = new FormData();
-    formData.append('profile-picture', newProfilePicture);
+    const dataURLtoFile = (dataurl, filename) => {
+      const arr = dataurl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n) {
+        u8arr[n - 1] = bstr.charCodeAt(n - 1);
+        n -= 1;
+      }
+      return new File([u8arr], filename, { type: mime });
+    }
+    
+
+    const file = dataURLtoFile(newProfilePicture, 'profile-picture');
+
+    const data = new FormData();
+    data.append('profile-picture', file, file.name);
 
     const { data: { data: { imageUrl } } } = await axios({
       url: `${api}/users/${id}/profile/upload`,
       method: 'post',
-      data: formData
-    })
+      data
+    });
 
   dispatch({
     type: UPDATE_PROFILE,
@@ -114,19 +140,25 @@ export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) 
   }
 };
 
-
 export const userBookmarks = (id) => async (dispatch) => {
-  await axios()
-  .get(`${api}/bookmarks?${id}`)
-  .then((response) =>{
+  try {
+    const { data: { userBookmarks } } = await axios.get(`${api}/bookmarks?userId=${id}`);
+
+    const bookmarkedArticlesPromises = userBookmarks.map(async ({ articleUrl }) => {
+      const { data: { data } } = await axios.get(articleUrl);
+      return data;
+    });
+
+    const bookmarks = await Promise.all(bookmarkedArticlesPromises);
+
     dispatch({
-      type: GET_USER_BOOKMARKS_SUCCESS,
-      payload: response.data.data
-    })
-  })
-  .catch((error)=>{
-    throw error
-  })
+      type: UPDATE_PROFILE,
+      payload: { bookmarks }
+    });
+
+  } catch (err) {
+    return err;
+  }
 };
 
 export const removeOwnProfile = () => ({

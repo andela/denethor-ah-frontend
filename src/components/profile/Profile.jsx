@@ -1,93 +1,167 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import RoundedImage from '../../components/RoundedImage';
-import HorizontalMargin from '../../components/HorizontalMargin';
+import Avatar from 'react-avatar-edit';
 import { RatingStars } from '../../components/ratingStars';
 import ArticleListItem from './ArticleListItem';
 import './styles.scss';
+import RoundedImage from '../RoundedImage';
+import { toast } from 'react-toastify';
+import { uploadProfilePicture } from '../../redux/actions/profile';
 
 
-export const Profile = (props) => {
-  const { 
-    firstname = '',
-    followers,
-    following,
-    lastname = '',
-    username = '',
-    bio = '', 
-    imageUrl,
-    publishedArticles,
-    userAverageRating
-  } = props.profile;
 
-  return (
-    <div>
-      <div className='profile__banner-section'>
-        <div className='profile__banner-image'>
-          <img src={'/assets/img/banner.png'} alt='banner background' />
-        </div>
-        <div className='profile__transparent-overlay' />
-        <div className='profile__banner-content'>
-          <div className='profile__auto-container'>
-            <div>
-              <div className='profile__banner-content-title'>
-                {`${firstname} ${lastname}`}
-                <div className='profile--bio'>
-                  <p>{bio}</p>
-                </div>
-              </div>
-              <div className='profile__avatar-text-group'>
-                <div className='profile__user-profile-picture'>
-                  <RoundedImage imageSource={imageUrl || '/assets/img/placeholder-profile-picture.png'} alt='profile picture'/>
-                </div>
-                <HorizontalMargin className='show-for-medium' size={10} />
-                <div className='profile-username-rate-group'>
-                  <div className='profile-header-username'>{username}</div>
-                  <div className ='profile-rating-container'>
-                    <div className='profile-header-rating'>
-                      <RatingStars rateNumber={userAverageRating ? userAverageRating.averageRating : 0} />
-                    </div>
-                    <div className='profile-header-rated-times'>
-                      {
-                        !userAverageRating
-                          ? <span className='spinner spinner--ratings'></span>
-                          : userAverageRating.ratingCount < 1
-                            ? 'No ratings yet'
-                            : `rated by ${userAverageRating.ratingCount} user${userAverageRating.ratingCount > 1
-                              ? 's'
-                              : ''}`
-                      }
-                    </div>
+
+export class Profile extends Component {
+  state = {
+    preview: null,
+    src: null
+  }
+
+  componentDidMount () {
+    const { imageUrl } = this.props.profile;
+    if (this.props.profile.imageUrl && !this.state.preview) {
+      this.setState({ preview: imageUrl })
+    }
+  }
+
+  componentDidUpdate () {
+    const { imageUrl } = this.props.profile;
+    if (this.props.profile.imageUrl && !this.state.preview) {
+      this.setState({ preview: imageUrl })
+    }
+  }
+
+  onClose = async () => {
+    const error = await this.props.uploadProfilePicture(this.props.profile.id, this.state.preview);
+    if (error) {
+      return toast.error(error);
+    }
+    toast.success('Profile updated');
+  }
+  
+  onCrop = (preview) => {
+    this.setState({preview})
+  }
+
+  render () {
+    const { 
+      firstname = '',
+      followers,
+      following,
+      lastname = '',
+      username = '',
+      bio = '',
+      publishedArticles = [],
+      userAverageRating
+    } = this.props.profile;
+  
+    return (
+      <div>
+        <div className='profile__banner-section'>
+          <div className='profile__banner-image'>
+            <img src={'/assets/img/banner.png'} alt='banner background' />
+          </div>
+          <div className='profile__transparent-overlay' />
+          <div className='profile__banner-content'>
+            <div className='profile__auto-container'>
+              <div>
+                <div className='profile__banner-content-title'>
+                  {`${firstname} ${lastname}`}
+                  <div className='profile--bio'>
+                    <p>{bio}</p>
                   </div>
                 </div>
-                <div>
-                </div>
-                </div>
-                </div>
-                <div className="profile__stats">
-                  <h1><span>{publishedArticles ? publishedArticles.length : ''}</span><span> Articles</span></h1>
-                  <h1><span>{followers ? followers.length : ''}</span><span> Followers</span></h1>
-                  <h1><span>{following ? following.length : ''}</span><span> Following</span></h1>
-                </div>
+                <div className='profile__avatar-text-group'>
+                  <div className='profile__user-profile-picture'>
+                    <div>
+                      <Avatar
+                        width={360}
+                        height={280}
+                        onCrop={this.onCrop}
+                        onClose={this.onClose}
+                        onBeforeFileLoad={this.onBeforeFileLoad}
+                        src={this.state.src}
+                        borderStyle={{
+                          border: 'none'
+                        }}
+                        label=''
+                        labelStyle={{
+                          background: 'url(/assets/img/camera-icon.png)',
+                          bottom: '45%',
+                          display: 'block',
+                          height: '48px',
+                          left: '55%',
+                          cursor: 'pointer',
+                          position: 'absolute',
+                          width: '48px',
+                          zIndex: '45'
+                        }}
+                      />
+                      <div className='profile-username-rate-group'>
+                        <div className='profile-header-username'>{username}</div>
+                        <div className ='profile-rating-container'>
+                          <div className='profile-header-rating'>
+                            <RatingStars rateNumber={userAverageRating ? Math.round(userAverageRating.averageRating) : 0} />
+                          </div>
+                          <div className='profile-header-rated-times'>
+                            {
+                              !userAverageRating
+                                ? <span className='spinner spinner--ratings'></span>
+                                : userAverageRating.ratingCount < 1 || userAverageRating.totalArticlesWithRating < 1
+                                  ? 'No ratings yet'
+                                  : `rated by ${userAverageRating.ratingCount} user${userAverageRating.ratingCount > 1
+                                    ? 's'
+                                    : ''}`
+                            }
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                      </div>
+                      </div>
+                      <RoundedImage imageSource={this.state.preview || '/assets/img/placeholder-profile-picture.png'} alt='profile picture'/>
+                    </div>
+                  </div>
+
+                  </div>
+                  <div className='profile__stats'>
+                    <h1><span>{publishedArticles.length}</span><span> Articles</span></h1>
+                    <h1><span>{followers ? followers.length : ''}</span><span> Followers</span></h1>
+                    <h1><span>{following ? following.length : ''}</span><span> Following</span></h1>
+                  </div>
+            </div>
           </div>
         </div>
+        <div className='profile__article-section'>
+          <h1>Your Articles</h1>
+          <ul>
+            {
+              publishedArticles[0]
+                ? publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))
+                : <div className='profile__article-section__no-articles'>
+                    <p>
+                      No articles yet.
+                    </p>
+                  </div>
+            }
+          </ul>
+        </div>
       </div>
-      <div className="profile__article-section">
-        <h1>Your Articles</h1>
-        <ul>
-          {publishedArticles && publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))}
-        </ul>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Profile.propTypes = {
   profile: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  uploadProfilePicture: PropTypes.func
 };
 
 const mapStateToProps = ({ profile }) => ({ profile });
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = (dispatch) => ({
+  uploadProfilePicture: (id, newProfilePicture) => dispatch(uploadProfilePicture(id, newProfilePicture))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
