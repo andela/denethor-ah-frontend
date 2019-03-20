@@ -9,17 +9,17 @@ import axios from '../../../utils/axiosConfig';
 const createMockStore = configureMockStore([thunk]);
 const api = process.env.API_ROOT_URL;
 const mock = new MockAdapter(axios);
+jest.mock('../../../utils/socket.js');
 
 test('Should get profile and rating', async () => {
   const store = createMockStore({});
   const rate = {
     "status": "success",
-    "data": {
-      "count": 3,
-      "rows": [{
-        "averageRating": "4.0000000000000000"
-      }]
-    }
+    "data": [{
+      rating: 4,
+    }, {
+      rating: 4
+    }]
   };
 
 
@@ -36,7 +36,7 @@ test('Should get profile and rating', async () => {
     payload: {
       userAverageRating: {
         averageRating: 4,
-        ratingCount: 9,
+        ratingCount: 6,
         totalArticlesWithRating: 3,
         totalRating: 12,
       }

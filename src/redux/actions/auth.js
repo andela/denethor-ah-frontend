@@ -1,12 +1,13 @@
-import { LOGIN_REQUEST_SUCCESS, LOGOUT } from './types';
+import { SET_LOGIN_STATUS, LOGOUT } from './types';
 import axios from '../../utils/axiosConfig';
 import { escapeInputs } from '../../utils/escapeInputs';
 
 const api = process.env.API_ROOT_URL;
 
-export const setLoggedInState = {
-  type: LOGIN_REQUEST_SUCCESS,
-}
+export const setLoggedInState = (loggedInState) => ({
+  type: SET_LOGIN_STATUS,
+  payload: loggedInState
+});
 
 export const login = loginDetails => async (dispatch) => {
   const escapedLoginDetails = escapeInputs(loginDetails);
@@ -16,7 +17,7 @@ export const login = loginDetails => async (dispatch) => {
 
     localStorage.setItem('token', token);
 
-    dispatch(setLoggedInState);
+    dispatch(setLoggedInState(true));
     return;
   } catch ({ response: { status } }) {
     switch (status) {

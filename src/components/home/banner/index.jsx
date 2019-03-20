@@ -2,6 +2,7 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Stats from './stats/Stats';
 import Signup from './signup/Signup';
@@ -14,7 +15,7 @@ const sides = {
   Login
 };
 
-export const Banner = ({ bannerScreen: side, history }) => {
+export const Banner = ({ bannerScreen: side, history, isLoggedIn }) => {
   const Side = sides[side];
   return (
     <div className="banner">
@@ -22,7 +23,11 @@ export const Banner = ({ bannerScreen: side, history }) => {
         <div>
           <h1 className="banner__yellow-text hidden-on-mobile">The place <br /> writers love...</h1>
           <h1><span className="banner__yellow-text-mobile">Great writers,</span><br />Quality Content</h1>
-          <button onClick={() => history.push('/signup')}>Get Started</button>
+          {
+            !isLoggedIn
+              ? <button onClick={() => history.push('/signup')}>Get Started</button>
+              : <button onClick={() => history.push('/dashboard')}>Dashboard</button>
+          }
         </div>
       </div>
       <div className={`banner__screen banner__screen--${side.toLowerCase()}`}>
@@ -42,7 +47,12 @@ export const Banner = ({ bannerScreen: side, history }) => {
 
 Banner.propTypes={
   bannerScreen: PropTypes.string,
-  history: PropTypes.object
+  history: PropTypes.object,
+  isLoggedIn: PropTypes.bool
 }
 
-export default withRouter(Banner);
+const BannerWithRouter = withRouter(Banner);
+
+const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
+
+export default connect(mapStateToProps)(BannerWithRouter);

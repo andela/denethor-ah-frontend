@@ -138,6 +138,7 @@ export class EditProfile extends Component {
     if (error) {
       return toast.error(error);
     }
+    this.props.history.push('/dashboard/my-profile');
     toast.success('Profile updated');
   }
 
@@ -207,15 +208,12 @@ export class EditProfile extends Component {
                 onChange={this.onUpload}
               />
             </div>
-            <div>
-              <span></span>
-              <button disabled={disableButton} onClick={this.handleSubmit}>
-                <span className={`button__text--login ${processing ? 'hidden' : undefined}`}>
-                  Update
-                </span>
-                <span className={processing ? 'spinner spinner--button' : undefined}></span>
-              </button>
-            </div>
+            <button className='button button--primary' disabled={disableButton} onClick={this.handleSubmit}>
+              <span className={`button__text--login ${processing ? 'hidden' : undefined}`}>
+                Update
+              </span>
+              <span className={processing ? 'spinner spinner--button' : undefined}></span>
+            </button>
           <VerticalMargin className='show-for-medium' size={10} />
         </div>
       </div>

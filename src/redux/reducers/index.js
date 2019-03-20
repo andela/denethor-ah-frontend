@@ -9,6 +9,7 @@ import authReducer from './auth';
 import filterReducer from './filters';
 import authorReducer from './authors';
 import elementStatusesReducer from './elementStatuses';
+import notificationsReducer from './notifications';
 
 export default combineReducers({
 	articles: articleReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
 	filters: filterReducer,
 	authors: authorReducer,
 	elementStatuses: elementStatusesReducer,
+	notifications: notificationsReducer
 });

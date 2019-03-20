@@ -1,110 +1,981 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render component correctly 1`] = `
-<div
-  className="profile body-section"
->
+exports[`Should indicate if user has not been rated 1`] = `
+<div>
   <div
-    className="wide-padding"
+    className="profile__banner-section"
   >
     <div
-      className="section-profile-info"
+      className="profile__banner-image"
     >
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
-      <div>
-        <span>
-          First Name: 
-        </span>
-        <input
-          className=""
-          onBlur={[Function]}
-          onChange={[Function]}
-          value="Omoefe"
-        />
-      </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
-      <div>
-        <span>
-          Last Name: 
-        </span>
-        <input
-          className=""
-          onBlur={[Function]}
-          onChange={[Function]}
-          value="Dukuye"
-        />
-      </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
-      <div>
-        <span>
-          Username: 
-        </span>
-        <input
-          className=""
-          onBlur={[Function]}
-          onChange={[Function]}
-          value="Omoefe94460"
-        />
-      </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
-      <div
-        className="profile__bio"
-      >
-        <span>
-          Bio: 
-        </span>
-        <div>
-          <textarea
-            onBlur={[Function]}
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-      </div>
-      <div>
-        <span>
-          Profile Picture: 
-        </span>
-        <input
-          onChange={[Function]}
-          type="file"
-        />
-      </div>
-      <div>
-        <span />
-        <button
-          disabled={false}
-          onClick={[Function]}
-        >
-          <span
-            className="button__text--login undefined"
-          >
-            Update
-          </span>
-          <span />
-        </button>
-      </div>
-      <VerticalMargin
-        className="show-for-medium"
-        size={10}
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
       />
     </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+            Omoefe Dukuye
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              >
+                Omoefe94460
+              </div>
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={0}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  No ratings yet
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              3
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:43:19.726Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:43:19.726Z",
+          }
+        }
+        key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.118Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:46:24.118Z",
+          }
+        }
+        key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.615Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "10-taboos-about-you-should-never-share-on-twitter",
+            "title": "10 Taboos About You Should Never Share On Twitter",
+            "updatedAt": "2019-03-15T08:46:24.615Z",
+          }
+        }
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Should render component correctly with published articles 1`] = `
+<div>
+  <div
+    className="profile__banner-section"
+  >
+    <div
+      className="profile__banner-image"
+    >
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
+      />
+    </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+            Omoefe Dukuye
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              >
+                Omoefe94460
+              </div>
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={0}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  <span
+                    className="spinner spinner--ratings"
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              3
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:43:19.726Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:43:19.726Z",
+          }
+        }
+        key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.118Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:46:24.118Z",
+          }
+        }
+        key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.615Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "10-taboos-about-you-should-never-share-on-twitter",
+            "title": "10 Taboos About You Should Never Share On Twitter",
+            "updatedAt": "2019-03-15T08:46:24.615Z",
+          }
+        }
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Should render component correctly without published articles 1`] = `
+<div>
+  <div
+    className="profile__banner-section"
+  >
+    <div
+      className="profile__banner-image"
+    >
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
+      />
+    </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+            Omoefe Dukuye
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              >
+                Omoefe94460
+              </div>
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={0}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  <span
+                    className="spinner spinner--ratings"
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <div
+        className="profile__article-section__no-articles"
+      >
+        <p>
+          No articles yet.
+        </p>
+      </div>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Should render nothing if information has not loaded 1`] = `
+<div>
+  <div
+    className="profile__banner-section"
+  >
+    <div
+      className="profile__banner-image"
+    >
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
+      />
+    </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+            Omoefe Dukuye
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              >
+                Omoefe94460
+              </div>
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={4}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  rated by 50 users
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span />
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span />
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <div
+        className="profile__article-section__no-articles"
+      >
+        <p>
+          No articles yet.
+        </p>
+      </div>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Should use empty spaces for non-existent fields 1`] = `
+<div>
+  <div
+    className="profile__banner-section"
+  >
+    <div
+      className="profile__banner-image"
+    >
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
+      />
+    </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+             
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              />
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={0}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  <span
+                    className="spinner spinner--ratings"
+                  />
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              3
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:43:19.726Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:43:19.726Z",
+          }
+        }
+        key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.118Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:46:24.118Z",
+          }
+        }
+        key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.615Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "10-taboos-about-you-should-never-share-on-twitter",
+            "title": "10 Taboos About You Should Never Share On Twitter",
+            "updatedAt": "2019-03-15T08:46:24.615Z",
+          }
+        }
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Should use singular if one rater 1`] = `
+<div>
+  <div
+    className="profile__banner-section"
+  >
+    <div
+      className="profile__banner-image"
+    >
+      <img
+        alt="banner background"
+        src="/assets/img/banner.png"
+      />
+    </div>
+    <div
+      className="profile__transparent-overlay"
+    />
+    <div
+      className="profile__banner-content"
+    >
+      <div
+        className="profile__auto-container"
+      >
+        <div>
+          <div
+            className="profile__banner-content-title"
+          >
+            Omoefe Dukuye
+            <div
+              className="profile--bio"
+            >
+              <p />
+            </div>
+          </div>
+          <div
+            className="profile__avatar-text-group"
+          >
+            <div
+              className="profile__user-profile-picture"
+            >
+              <RoundedImage
+                alt="profile picture"
+                imageSource="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=111815579944608&height=50&width=50&ext=1555181201&hash=AeTexMaSviYYeH6G"
+              />
+            </div>
+            <HorizontalMargin
+              className="show-for-medium"
+              size={10}
+            />
+            <div
+              className="profile-username-rate-group"
+            >
+              <div
+                className="profile-header-username"
+              >
+                Omoefe94460
+              </div>
+              <div
+                className="profile-rating-container"
+              >
+                <div
+                  className="profile-header-rating"
+                >
+                  <RatingStars
+                    rateNumber={4}
+                  />
+                </div>
+                <div
+                  className="profile-header-rated-times"
+                >
+                  rated by 1 user
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          className="profile__stats"
+        >
+          <h1>
+            <span>
+              3
+            </span>
+            <span>
+               Articles
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Followers
+            </span>
+          </h1>
+          <h1>
+            <span>
+              0
+            </span>
+            <span>
+               Following
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="profile__article-section"
+  >
+    <h1>
+      Your Articles
+    </h1>
+    <ul>
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:43:19.726Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:43:19.726Z",
+          }
+        }
+        key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.118Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
+            "title": "How to speak so that people want to listen everytime",
+            "updatedAt": "2019-03-15T08:46:24.118Z",
+          }
+        }
+        key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
+      />
+      <ArticleListItem
+        article={
+          Object {
+            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
+            "body": "body",
+            "categoryId": 1,
+            "createdAt": "2019-03-15T08:46:24.615Z",
+            "description": "How to speak so that people want to listen everytime",
+            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
+            "references": Array [
+              "reference1.site",
+              "reference2.site",
+              "reference3.site",
+            ],
+            "slug": "10-taboos-about-you-should-never-share-on-twitter",
+            "title": "10 Taboos About You Should Never Share On Twitter",
+            "updatedAt": "2019-03-15T08:46:24.615Z",
+          }
+        }
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+      />
+    </ul>
   </div>
 </div>
 `;
