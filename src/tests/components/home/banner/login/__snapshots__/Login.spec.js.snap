@@ -100,6 +100,20 @@ exports[`Should render login form 1`] = `
       </button>
     </form>
     <SocialLoginIcons />
+    <div
+      className="break"
+    />
+    <div
+      className="reset-password"
+    >
+      Forgot Password? 
+      <Link
+        replace={false}
+        to="/passwordreset/verify"
+      >
+        Click here
+      </Link>
+    </div>
   </div>
 </div>
 `;

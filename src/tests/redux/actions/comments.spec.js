@@ -40,7 +40,10 @@ it('Should throw an error commment body is emoty', async() => {
     Promise.reject('an error occurred'),
   )
   try {
-    await store.dispatch(addComment('8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a', ''));
+    await store.dispatch(addComment({ 
+      articleId: '8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a',
+      commentBody: '' 
+    }));
   } catch (error) {
     expect(error).toEqual('an error occurred');
   }

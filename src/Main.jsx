@@ -16,6 +16,8 @@ import FilteredArticles from './components/filteredArticles/FilteredArticles';
 import { setLoggedInState } from './redux/actions/auth';
 import { getOwnProfile } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
+import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
+import ResetPasswordVerification from './components/resetPasswordVerification/ResetPasswordVerification';
 
 class Main extends Component {
   async componentDidMount() {
@@ -62,6 +64,8 @@ class Main extends Component {
             <Route path='/filter' component={FilteredArticles} />
             <Route path="/api/users/:id/verify" component={Redirect} />
             <Route path="/passwordreset" component={ResetPassword} />
+            <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
+            <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
           </Switch>
           <Footer />
         </div>
