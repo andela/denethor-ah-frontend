@@ -1,12 +1,15 @@
 import axios from "axios";
 
+import escapeInputs from './escapeInputs';
+
 const api = process.env.API_ROOT_URL;
 
 const signUp = async (signUpDetails) => {
   const error = 'error';
-
+  const escapedSignUpDetails = escapeInputs(signUpDetails);
+  
   try {
-    const { data: { data: { message } } } = await axios.post(`${api}/users`, signUpDetails);
+    const { data: { data: { message } } } = await axios.post(`${api}/users`, escapedSignUpDetails);
     return ({ status: 'success', message });
   } catch ({ response: { status } }) {
     switch (status) {

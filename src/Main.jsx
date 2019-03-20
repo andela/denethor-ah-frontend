@@ -5,13 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import Home from './components/home';
-import Header from './components/header';
+import Header from './components/header/Header';
 import Footer from './components/footer';
 import { ArticlePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';
 import ResetPassword from './components/resetPassword/ResetPassword';
 import { Dashboard } from './components/dashboard';
 import FilteredArticles from './components/filteredArticles/FilteredArticles';
+import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
 
 const Main = () => {
   const scrollToTop = () => {
@@ -34,6 +35,7 @@ const Main = () => {
           <Route path='/filter' component={FilteredArticles} />
           <Route path="/api/users/:id/verify" component={Redirect} />
           <Route path="/passwordreset" component={ResetPassword} />
+          <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
         </Switch>
         <Footer />
       </div>

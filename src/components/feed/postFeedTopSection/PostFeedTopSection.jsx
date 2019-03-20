@@ -1,5 +1,5 @@
 import React from "react";
-import { PostCard } from '../post-card';
+import { PostCard } from '../postCard';
 import PropTypes from 'prop-types';
 import './style.scss';
 

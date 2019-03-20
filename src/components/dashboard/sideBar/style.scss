@@ -1,0 +1,138 @@
+.sidebar {
+  background-color: #A9A9A9;
+  height: 100%;
+  width: 19em;
+  display: none;
+}
+
+.sidebar-header__light-text {
+  font-size: 1em;
+}
+
+.sidebar-header__bold-text {
+  font-size: 1em;
+  font-family: Montserrat-SemiBold;
+
+  a {
+    text-decoration: none;
+    font-family: Montserrat-SemiBold;
+    color: black;
+  }
+
+  &.large-text {
+    font-size: 1.3em;
+  }
+  &.small-text {
+    font-size: 0.85em;
+  }
+}
+
+.sidebar-header {
+  padding: 2em 1em;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.sidebar-links__item {
+  border-bottom: 1px solid #747474;
+  position: relative;
+  background-color: #4C4B4B;
+  font-weight: bold;
+
+  .button_background {
+    transition: all 300ms ease-in-out;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    background-color: transparent;
+  }
+
+  a, button {
+    display: block;
+    transition: all 300ms ease-in-out;
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-decoration: none;
+    font-family: Montserrat-SemiBold;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left
+  }
+  
+  &:hover {
+  
+    .button_background {
+      width: 100%;
+      background-color: #C4C4C4;
+    }
+    a, button {
+      color: #150101;
+    }
+  }
+}
+
+.mobile-sidebar {
+  position: fixed;
+  left: 0;
+  width: 20em;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  background: #e8e7e7;
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  transition: all 300ms ease-in-out;
+
+  &.sidebar__inactive {
+    left: -100%;
+  }
+}
+
+.close-button {
+  background-color: #960101;
+  padding: 0.3em;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+}
+
+.mobile-sidebar svg {
+  color: white;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  background: #5d0606;
+  padding: 0.3em 0.1em;
+  display: inline-block;
+}
+
+.page-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  background-color: rgba(0,0,0,0.68);
+  transition: background-color 300ms ease-in-out, opacity 300ms ease-in-out, right 300ms ease-out;
+  opacity: 0;
+  right: -100%;
+  cursor: pointer;
+  z-index: 1;
+
+  &.sidebar__active {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .sidebar {
+    display: block;
+  }
+}
+

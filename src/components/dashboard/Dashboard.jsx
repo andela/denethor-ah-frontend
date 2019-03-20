@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SideBar } from './side-bar';
+import { SideBar } from './sideBar';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { ContentArea } from './content-area';
+import { ContentArea } from './contentArea';
+import DashboardHome from './DashboardHome';
 import { Switch, Route } from 'react-router-dom';
 import { setLoggedInState } from '../../redux/actions/auth';
 import { getOwnProfile } from '../../redux/actions/profile';
-import { TopReads } from '../articles/top-reads';
+import { getArticles } from '../../redux/actions/articles';
+import { TopReads } from '../articles/topReads';
 import Profile from '../profile/Profile';
 import EditProfile from '../profile/editProfile/EditProfile';
 import './style.scss';
 
 export class Dashboard extends Component {
   async componentDidMount() {
+    this.props.getArticles();
+
     const isSocialLogin = document.location.hash.includes('token');
     if ( isSocialLogin || localStorage.token) {
       const token = isSocialLogin ? document.location.hash.slice(7) : localStorage.token;
@@ -48,7 +52,8 @@ export class Dashboard extends Component {
         <SideBar />
         <ContentArea>
           <Switch>
-            <Route path='/dashboard/top-reads' component={TopReads} />
+            <Route exact path='/dashboard' render={() => <DashboardHome /> }/>
+            <Route path='/dashboard/topReads' component={TopReads} />
             <Route path='/dashboard/my-profile' component={Profile} />
             <Route path='/dashboard/edit-profile' component={EditProfile} />
           </Switch>
@@ -61,14 +66,19 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {
   dispatch: PropTypes.func,
   getOwnProfile: PropTypes.func,
+  getArticles: PropTypes.func,
   setLoggedInState: PropTypes.func,
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool
 }
 
-const mapStateToProps = ({ auth: { isLoggedIn }}) => ({ isLoggedIn });
+const mapStateToProps = ({ auth: { isLoggedIn }, profile }) => ({ 
+  isLoggedIn,
+  profile
+});
 const mapDispatchToProps = (dispatch) => ({
   getOwnProfile: id => dispatch(getOwnProfile(id)),
+  getArticles: () => dispatch(getArticles()),
   setLoggedInState: () => dispatch(setLoggedInState)
 });
 

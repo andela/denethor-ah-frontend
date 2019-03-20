@@ -1,4 +1,5 @@
 import axios from '../../utils/axiosConfig';
+import { escape } from 'validator';
 import { toast } from 'react-toastify';
 
 import { GET_FILTERED_ARTICLES } from './types';
@@ -11,7 +12,7 @@ const { API_ROOT_URL } = process.env;
 export const getFilteredArticles = (search = '', tag = '', author = '') => (dispatch) => {
   let filterEndpoint = `${API_ROOT_URL}/articles/filter?`
 
-  search ? filterEndpoint += `searchStr=${search}` : '';
+  search ? filterEndpoint += `searchStr=${escape(search)}` : '';
   tag ? filterEndpoint += `&tag=${tag}` : ''
   author ? filterEndpoint += `&author=${author}` : '';
 

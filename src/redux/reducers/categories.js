@@ -1,29 +1,41 @@
 import { GET_CATEGORIES_SUCCESS } from '../actions/types';
 
-const categoryReducerDefaultState = [
+const categoryReducerDefaultState = [	
 	{
 		id: 1,
-		name: 'tech'
+		name:	'tech',
 	},
 	{
 		id: 2,
-		name: 'fashion'
+		name:	'fashion',
 	},
 	{
 		id: 3,
-		name: 'lifestyle'
+		name:	'health',
 	},
 	{
 		id: 4,
-		name: 'health'
+		name:	'education',
 	},
 	{
 		id: 5,
-		name: 'science'
+		name:	'lifestyle',
 	},
 	{
 		id: 6,
-		name: 'politics'
+		name:	'wellness',
+	},
+	{
+		id: 7,
+		name:	'politics',
+	},
+	{
+		id: 8,
+		name:	'design',
+	},
+	{
+		id: 9,
+		name:	'science',
 	},
 ];    
 

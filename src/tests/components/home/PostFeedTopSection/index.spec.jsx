@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import articles from '../../../mock-data/articles';
 import categories from '../../../mock-data/categories';
-import { PostFeedTopSection } from '../../../../components/feed/post-feed-top-section';
+import { PostFeedTopSection } from '../../../../components/feed/postFeedTopSection';
 
 test('Should render post-feed-top-section with stats correctly', () => {
   const props = {
