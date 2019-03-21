@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render static component 1`] = `
+<li>
+  <Link
+    onClick={[Function]}
+    replace={false}
+    to="/articles/1"
+  >
+    <p>
+      this is the first notification
+    </p>
+    <span>
+      <small>
+        49 years
+      </small>
+    </span>
+  </Link>
+</li>
+`;

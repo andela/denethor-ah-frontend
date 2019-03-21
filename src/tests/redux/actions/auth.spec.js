@@ -3,7 +3,7 @@ import axios from 'axios';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { login } from '../../../redux/actions/auth';
-import { LOGIN_REQUEST_SUCCESS } from '../../../redux/actions/types';
+import { SET_LOGIN_STATUS } from '../../../redux/actions/types';
 
 const createMockStore = configureMockStore([thunk]);
 jest.mock('axios');
@@ -37,7 +37,8 @@ test('Should log in user with correct details', async () => {
   const [action] = store.getActions();
 
   expect(action).toEqual({
-    type: LOGIN_REQUEST_SUCCESS,
+    payload: true,
+    type: SET_LOGIN_STATUS
   });
 
   expect(localStorage.setItem).toHaveBeenLastCalledWith('token', token);

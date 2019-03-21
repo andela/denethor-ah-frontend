@@ -1,5 +1,6 @@
-import { SET_OWN_PROFILE, UPDATE_PROFILE } from './types';
+import { REMOVE_OWN_PROFILE, SET_OWN_PROFILE, UPDATE_PROFILE, SET_NOTIFICATIONS } from './types';
 import axios from '../../utils/axiosConfig';
+import socket from '../../utils/socket';
 
 const api = process.env.API_ROOT_URL;
 
@@ -12,18 +13,30 @@ export const getOwnProfile = id => async (dispatch) => {
       payload: data
     });
 
+    socket.emit('addUserListener', data.id);
+
+    socket.on('setNotifications', (notifications) => {
+      dispatch({
+        type: SET_NOTIFICATIONS,
+        payload: notifications
+      })
+    });
+
     const userAverageRatingPromise = data.publishedArticles.reduce(async (accumulatorObject, article, index, { length }) => {
       const { totalArticlesWithRating, totalRating, ratingCount } = await accumulatorObject;
-      const {
-        data: { data: { count, rows: [{ averageRating } = { averageRating: 0 }] } }
-      } = await axios.get(`${api}/articles/${article.id}/ratings`);
+
+      const { data: { data, data: { length: count } } } = await axios.get(`${api}/articles/${article.id}/ratings`);
+
+      const averageRating = data.reduce((average, { rating }) => average + rating/(count > 0 ? count : 1), 0);
+
       const articleHasRating = count > 0 ? 1 : 0;
       const articlesWithRating = totalArticlesWithRating + articleHasRating;
       const currentCount = ratingCount + count;
-      const currentRating = Number(averageRating)  + totalRating;
+      const currentRating = Number(averageRating) + totalRating;
 
       return {
-        ...(index === length - 1 && { averageRating: currentRating/articlesWithRating }),
+        ...((index === length - 1 && articlesWithRating > 0)
+          && { averageRating: currentRating/articlesWithRating }),
         totalArticlesWithRating: articlesWithRating,
         totalRating: currentRating,
         ratingCount: currentCount
@@ -110,3 +123,28 @@ export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) 
     }
   }
 };
+
+export const userBookmarks = (id) => async (dispatch) => {
+  try {
+    const { data: { userBookmarks } } = await axios.get(`${api}/bookmarks?userId=${id}`);
+
+    const bookmarkedArticlesPromises = userBookmarks.map(async ({ articleUrl }) => {
+      const { data: { data } } = await axios.get(articleUrl);
+      return data;
+    });
+
+    const bookmarks = await Promise.all(bookmarkedArticlesPromises);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: { bookmarks }
+    });
+
+  } catch (err) {
+    return err;
+  }
+};
+
+export const removeOwnProfile = () => ({
+  type: REMOVE_OWN_PROFILE
+});

@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render component correctly 1`] = `
+<div
+  className="profile body-section"
+>
+  <div
+    className="wide-padding"
+  >
+    <div
+      className="section-profile-info"
+    >
+      <small
+        className="update-profile-error-message"
+      >
+         
+      </small>
+      <div>
+        <span>
+          First Name: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Omoefe"
+        />
+      </div>
+      <small
+        className="update-profile-error-message"
+      >
+         
+      </small>
+      <div>
+        <span>
+          Last Name: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Dukuye"
+        />
+      </div>
+      <small
+        className="update-profile-error-message"
+      >
+         
+      </small>
+      <div>
+        <span>
+          Username: 
+        </span>
+        <input
+          className=""
+          onBlur={[Function]}
+          onChange={[Function]}
+          value="Omoefe94460"
+        />
+      </div>
+      <small
+        className="update-profile-error-message"
+      >
+         
+      </small>
+      <div
+        className="profile__bio"
+      >
+        <span>
+          Bio: 
+        </span>
+        <div>
+          <textarea
+            onBlur={[Function]}
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+      </div>
+      <div>
+        <span>
+          Profile Picture: 
+        </span>
+        <input
+          onChange={[Function]}
+          type="file"
+        />
+      </div>
+      <button
+        className="button button--primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button__text--login undefined"
+        >
+          Update
+        </span>
+        <span />
+      </button>
+      <VerticalMargin
+        className="show-for-medium"
+        size={10}
+      />
+    </div>
+  </div>
+</div>
+`;

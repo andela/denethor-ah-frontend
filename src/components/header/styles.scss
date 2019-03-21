@@ -7,6 +7,8 @@ $gray: #818181;
   background: $white;
   border-bottom: 0.1em solid $gray;
   display: flex;
+  height: 5rem;
+  position: relative;
   justify-content: space-between;
   padding: 0.8em;
   align-items: center;
@@ -15,6 +17,17 @@ $gray: #818181;
     background: transparent;
     width: 40%;
     border: none;
+  }
+
+  &.theme__black {
+    background: #3F3D3D;
+    
+    button.signup-link, button.login-link {
+      color: white;
+    }
+    .logo-text h3 {
+      color: white !important;      
+    }
   }
 
 }

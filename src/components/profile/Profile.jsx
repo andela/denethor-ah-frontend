@@ -17,7 +17,7 @@ export const Profile = (props) => {
     username = '',
     bio = '', 
     imageUrl,
-    publishedArticles,
+    publishedArticles = [],
     userAverageRating
   } = props.profile;
 
@@ -46,13 +46,13 @@ export const Profile = (props) => {
                   <div className='profile-header-username'>{username}</div>
                   <div className ='profile-rating-container'>
                     <div className='profile-header-rating'>
-                      <RatingStars rateNumber={userAverageRating ? userAverageRating.averageRating : 0} />
+                      <RatingStars rateNumber={userAverageRating ? Math.round(userAverageRating.averageRating) : 0} />
                     </div>
                     <div className='profile-header-rated-times'>
                       {
                         !userAverageRating
                           ? <span className='spinner spinner--ratings'></span>
-                          : userAverageRating.ratingCount < 1
+                          : userAverageRating.ratingCount < 1 || userAverageRating.totalArticlesWithRating < 1
                             ? 'No ratings yet'
                             : `rated by ${userAverageRating.ratingCount} user${userAverageRating.ratingCount > 1
                               ? 's'
@@ -65,18 +65,26 @@ export const Profile = (props) => {
                 </div>
                 </div>
                 </div>
-                <div className="profile__stats">
-                  <h1><span>{publishedArticles ? publishedArticles.length : ''}</span><span> Articles</span></h1>
+                <div className='profile__stats'>
+                  <h1><span>{publishedArticles.length}</span><span> Articles</span></h1>
                   <h1><span>{followers ? followers.length : ''}</span><span> Followers</span></h1>
                   <h1><span>{following ? following.length : ''}</span><span> Following</span></h1>
                 </div>
           </div>
         </div>
       </div>
-      <div className="profile__article-section">
+      <div className='profile__article-section'>
         <h1>Your Articles</h1>
         <ul>
-          {publishedArticles && publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))}
+          {
+            publishedArticles[0]
+              ? publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))
+              : <div className='profile__article-section__no-articles'>
+                  <p>
+                    No articles yet.
+                  </p>
+                </div>
+          }
         </ul>
       </div>
     </div>

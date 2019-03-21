@@ -1,4 +1,4 @@
-import { SET_OWN_PROFILE, REMOVE_PROFILE, UPDATE_PROFILE } from '../actions/types';
+import { SET_OWN_PROFILE, REMOVE_OWN_PROFILE, UPDATE_PROFILE } from '../actions/types';
 
 const profileDefaultState = {
 
@@ -12,7 +12,7 @@ export default (state = profileDefaultState, action) => {
     case UPDATE_PROFILE:
       return {...state, ...action.payload};
 
-    case REMOVE_PROFILE:
+    case REMOVE_OWN_PROFILE:
       return {};
 
     default:

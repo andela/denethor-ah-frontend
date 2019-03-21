@@ -1,66 +1,111 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { EditProfile } from '../../../components/profile/editProfile/EditProfile';
+import { Profile } from '../../../components/profile/Profile';
 import profile from '../../mock-data/profile';
 
+jest.mock('../../../utils/socket.js');
 
-const updateProfile = jest.fn();
-const uploadProfilePicture = jest.fn();
+test('Should render component correctly with published articles', () => {
+  const wrapper = shallow(<Profile profile={profile.data} />);
 
-const props = {
-  updateProfile,
-  uploadProfilePicture,
-  history: {}
-}
-const wrapper = shallow(<EditProfile {...props} profile={profile.data} />);
+  expect(wrapper).toMatchSnapshot();
 
-test('Should render component correctly', () => {
-  wrapper.update();
+  expect(wrapper.find('ArticleListItem').length).toBe(profile.data.publishedArticles.length);
+});
+
+test('Should render component correctly without published articles', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      publishedArticles: []
+    }
+  };
+
+  const wrapper = shallow(<Profile {...props} />);
+
+  expect(wrapper).toMatchSnapshot();
+
+  expect(wrapper.find('.profile__article-section__no-articles p').text()).toBe('No articles yet.');
+});
+
+test('Should render nothing if information has not loaded', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      followers: undefined,
+      following: undefined,
+      userAverageRating: {
+        averageRating: 4,
+        ratingCount: 50
+      }
+    }
+  };
+
+  delete props.profile.publishedArticles;
+
+  const wrapper = shallow(<Profile {...props} />);
 
   expect(wrapper).toMatchSnapshot();
 });
 
-test('Shoould update state on input change', () => {
-  wrapper.find('input').at(0).simulate('change', { target: { value: 'Omoefe' } });
-  expect(wrapper.state('firstname')).toBe('Omoefe');
+test('Should indicate if user has not been rated', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      userAverageRating: {
+        averageRating: 0,
+        ratingCount: 0
+      }
+    }
+  };
 
-  wrapper.find('input').at(1).simulate('change', { target: { value: 'Om' } });
-  expect(wrapper.state('lastname')).toBe('Om');
+  const wrapper = shallow(<Profile {...props} />);
 
-  wrapper.find('input').at(2).simulate('change', { target: { value: 'Om' } });
-  expect(wrapper.state('username')).toBe('Om');
-
-  wrapper.find('textarea').simulate('change', { target: { value: 'Omoefe' } });
-  expect(wrapper.state('bio')).toBe('Omoefe');
+  expect(wrapper).toMatchSnapshot();
 });
 
-test('Shoould validate on input blur', () => {
-  wrapper.find('input').at(0).simulate('change', { target: { value: 'Om' } });
-  expect(wrapper.state('firstname')).toBe('Om');
+test('Should use singular if one rater', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      userAverageRating: {
+        averageRating: 4,
+        ratingCount: 1
+      }
+    }
+  };
 
-  wrapper.find('input').at(0).simulate('blur');
-  expect(wrapper.state('firstnameError')).toBe('First name must be at least 3 characters');
+  const wrapper = shallow(<Profile {...props} />);
 
-  wrapper.find('input').at(0).simulate('change', { target: { value: 'Omo efe' } });
-  wrapper.find('input').at(0).simulate('blur');
-  expect(wrapper.state('firstnameError')).toBe('Names cannot contain spaces');
-
-  wrapper.find('input').at(1).simulate('blur');
-  expect(wrapper.state('lastnameError')).toBe('Last name must be at least 3 characters');
-
-  wrapper.find('input').at(1).simulate('change', { target: { value: 'Omo efe' } });
-  wrapper.find('input').at(1).simulate('blur');
-  expect(wrapper.state('lastnameError')).toBe('Names cannot contain spaces');
-
-  wrapper.find('input').at(2).simulate('blur');
-  expect(wrapper.state('usernameError')).toBe('Username must be at least 3 characters');
-
-  wrapper.find('input').at(2).simulate('change', { target: { value: 'Omo efe' } });
-  wrapper.find('input').at(2).simulate('blur');
-  expect(wrapper.state('usernameError')).toBe('Username cannot contain spaces');
-
-  wrapper.find('textarea').simulate('blur');
-  expect(wrapper.state('bioError')).toBe('Bio must be at least 10 characters if present');
+  expect(wrapper).toMatchSnapshot();
 });
 
+test('Should use default imageUrl for empty image', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      publishedArticles: [],
+      imageUrl: undefined
+    }
+  };
 
+  const wrapper = shallow(<Profile {...props} />);
+
+  expect(wrapper.find('RoundedImage').prop('imageSource')).toBe('/assets/img/placeholder-profile-picture.png');
+});
+
+test('Should use empty spaces for non-existent fields', () => {
+  const props = {
+    profile: {
+      ...profile.data,
+      firstname: undefined,
+      lastname: undefined,
+      username: undefined,
+      bio: undefined
+    }
+  };
+
+  const wrapper = shallow(<Profile {...props} />);
+
+  expect(wrapper).toMatchSnapshot();
+});

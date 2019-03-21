@@ -59,7 +59,7 @@ export default {
   plugins: [
     new ExtractTextPlugin({ filename: 'styles.css' }),
     new webpack.EnvironmentPlugin([
-      'API_ROOT_URL'
+      'API_ROOT_URL',
     ])
   ],
   devtool: 'cheap-module-eval-source-map',
