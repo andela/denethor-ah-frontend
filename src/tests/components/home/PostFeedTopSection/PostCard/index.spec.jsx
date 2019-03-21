@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import articles from '../../../../mock-data/articles';
 import categories from '../../../../mock-data/categories';
-import { PostCard } from '../../../../../components/feed/post-card';
+import { PostCard } from '../../../../../components/feed/postCard';
 
 test('Should render postcard', () => {
   const props = {

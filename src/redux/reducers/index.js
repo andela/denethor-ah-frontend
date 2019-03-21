@@ -8,6 +8,7 @@ import profileReducer from './profile';
 import authReducer from './auth';
 import filterReducer from './filters';
 import authorReducer from './authors';
+import elementStatusesReducer from './elementStatuses';
 
 export default combineReducers({
 	articles: articleReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
 	auth: authReducer,
 	profile: profileReducer,
 	filters: filterReducer,
-	authors: authorReducer
+	authors: authorReducer,
+	elementStatuses: elementStatusesReducer,
 });

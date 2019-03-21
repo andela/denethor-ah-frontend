@@ -1,7 +1,6 @@
 @import '../../styles/style';
 
 .profile__banner-section {
-  height: 41rem;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -136,7 +135,11 @@
 
 .profile__article-section {
   margin: 1rem;
-  min-height: 40rem;
+  min-height: 12rem;
+
+  section {
+    margin-top: 4em;
+  }
   ul {
     list-style-type: none;
     li:first-child {
@@ -176,6 +179,9 @@
 
 @media only screen and (min-width: 40em) {
 
+  .profile__article-section {
+    margin-top: 7em;
+  }
   .profile-header-rated-times {
     color: #ddd;
   }
@@ -196,6 +202,7 @@
     justify-content: unset;
     padding: 0;
     height: 100%;
+    padding-top: 0 !important;
   }
   
   .profile__banner-content-title {

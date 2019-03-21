@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import RoundedImage from '../../components/RoundedImage';
 import VerticalMargin from '../../components/VerticalMargin';
 import HorizontalMargin from '../../components/HorizontalMargin';
-import { RatingStars, RatingStarsBox } from '../../components/rating-stars';
-import { HorizontalLine } from '../../components/horizontal-line';
+import { RatingStars, RatingStarsBox } from '../../components/ratingStars';
+import { HorizontalLine } from '../../components/horizontalLine';
 import { CreateComment } from '../comments';
 import { CommentEntries } from '../comments';
 import { addComment } from '../../redux/actions/comments';
@@ -53,7 +53,7 @@ export class SingleArticleView extends Component {
     const { 
       title, 
       featuredImage = '/assets/img/map-typing.jpg', 
-      author: { username = '', imageUrl: userAvatarImage = '' } = {}, 
+      author: { username = '', imageUrl: userAvatarImage } = {}, 
       body,
       averageRating,
       ratingsCount,
@@ -72,7 +72,7 @@ export class SingleArticleView extends Component {
               <div className='banner-content-title'>{title}</div>
               <div className='avatar-text-group'>
                 <div className='user-profile-picture'>
-                  <RoundedImage imageSource={userAvatarImage} alt='profile picture'/>
+                  <RoundedImage imageSource={userAvatarImage || '/assets/img/placeholder-profile-picture.png'} alt='profile picture'/>
                   <VerticalMargin className='hide-for-medium' size={50} />
                 </div>
                 <HorizontalMargin className='show-for-medium' size={10} />

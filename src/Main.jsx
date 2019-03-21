@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import Home from './components/home';
-import Header from './components/header';
+import Header from './components/header/Header';
 import Footer from './components/footer';
 import { ArticlePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';

@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import RoundedImage from '../../components/RoundedImage';
 import HorizontalMargin from '../../components/HorizontalMargin';
 import { RatingStars } from '../../components/ratingStars';
-import ArticleListItem from './ArticleListItem';
-import './styles.scss';
+import ArticleListItem from '../profile/ArticleListItem';
 
 
-export const Profile = (props) => {
-  const { 
+export const DashboardHome = (props) => {
+  const {
     firstname = '',
     followers,
     following,
@@ -18,14 +17,14 @@ export const Profile = (props) => {
     bio = '', 
     imageUrl,
     publishedArticles,
-    userAverageRating
+    userAverageRating,
   } = props.profile;
 
   return (
     <div>
       <div className='profile__banner-section'>
         <div className='profile__banner-image'>
-          <img src={'/assets/img/banner.png'} alt='banner background' />
+          <img src='/assets/img/banner.png' alt='banner background' />
         </div>
         <div className='profile__transparent-overlay' />
         <div className='profile__banner-content'>
@@ -74,20 +73,23 @@ export const Profile = (props) => {
         </div>
       </div>
       <div className="profile__article-section">
-        <h1>Your Articles</h1>
-        <ul>
-          {publishedArticles && publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))}
-        </ul>
+        <section>
+          <h1>Your Articles</h1>
+          <ul>
+            {publishedArticles && publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))}
+          </ul>
+        </section>
       </div>
+
     </div>
   );
 };
 
-Profile.propTypes = {
+DashboardHome.propTypes = {
   profile: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
 };
 
 const mapStateToProps = ({ profile }) => ({ profile });
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(DashboardHome);
