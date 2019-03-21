@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import escapeInputs from './escapeInputs';
+import { escapeInputs } from './escapeInputs';
 
 const api = process.env.API_ROOT_URL;
 

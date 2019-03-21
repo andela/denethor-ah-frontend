@@ -13,9 +13,27 @@
 
 .login-block {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   padding: $m-size 0;
   font-family: Montserrat-Light;
+
+  .break {
+    flex-basis: 100%;
+    width: 0px; 
+    height: 0px; 
+    overflow: hidden;
+  }
+
+  .reset-password {
+    color: $gold;
+    margin-top: 1rem;
+    text-align: center;
+
+    a {
+      color: white;
+    }
+  }
 }
 
 .login-block__form {
@@ -84,6 +102,14 @@
 
   .login-block__form {
     border: none;
+  }
+}
+
+@media (max-width: 40rem ) {
+  .login-block {
+    .break {
+      display: none;
+    }
   }
 }
 
