@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 
 // This component shows the rating stars that
 // can be clicked to make actions
-const RatingStarsBox = ({starClickHandle}) => {
+const RatingStarsBox = ({starClickHandle, ratingNumber}) => {
   const getStars = () => {
     let starNumbers = [5, 4, 3, 2, 1];
     const stars = starNumbers.map(item => {
+      const status = item === ratingNumber ? "selected" : ""
       return (
-        <span key={item} onClick={() => starClickHandle(item)}>☆</span>
+        <span key={item} onClick={() => starClickHandle(item)} className={status}>☆</span>
       )
     });
     return stars;
@@ -25,7 +26,8 @@ const RatingStarsBox = ({starClickHandle}) => {
 }
 
 RatingStarsBox.propTypes = {
-  starClickHandle: PropTypes.func
+  starClickHandle: PropTypes.func,
+  ratingNumber: PropTypes.number,
 }
 
 export default RatingStarsBox;

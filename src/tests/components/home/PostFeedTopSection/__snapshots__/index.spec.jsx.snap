@@ -53,19 +53,31 @@ exports[`Should render post-feed-top-section with stats correctly 1`] = `
           },
           Object {
             "id": 3,
-            "name": "lifestyle",
-          },
-          Object {
-            "id": 4,
             "name": "health",
           },
           Object {
+            "id": 4,
+            "name": "education",
+          },
+          Object {
             "id": 5,
-            "name": "science",
+            "name": "lifestyle",
           },
           Object {
             "id": 6,
+            "name": "wellness",
+          },
+          Object {
+            "id": 7,
             "name": "politics",
+          },
+          Object {
+            "id": 8,
+            "name": "design",
+          },
+          Object {
+            "id": 9,
+            "name": "science",
           },
         ]
       }

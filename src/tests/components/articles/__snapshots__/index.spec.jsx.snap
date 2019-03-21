@@ -220,30 +220,35 @@ exports[`Test for the single article component should call toast error when star
                 className="rating-stars"
               >
                 <span
+                  className=""
                   key="5"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="4"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="3"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="2"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="1"
                   onClick={[Function]}
                 >
@@ -603,30 +608,35 @@ exports[`Test for the single article component should call toast success when st
                 className="rating-stars"
               >
                 <span
+                  className=""
                   key="5"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="4"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="3"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="2"
                   onClick={[Function]}
                 >
                   ☆
                 </span>
                 <span
+                  className=""
                   key="1"
                   onClick={[Function]}
                 >
