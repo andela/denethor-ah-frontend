@@ -150,7 +150,7 @@ export class SingleArticleView extends Component {
     const { 
       title, 
       featuredImage = '/assets/img/map-typing.jpg', 
-      author: { username = '', imageUrl: userAvatarImage = '' } = {}, 
+      author: { username = '', imageUrl: userAvatarImage } = {}, 
       body,
     } = article;
 

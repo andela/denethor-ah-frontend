@@ -9,16 +9,18 @@ import axios from '../../utils/axiosConfig';
 import './styles.scss';
 import { logout } from '../../redux/actions/auth';
 import { removeOwnProfile } from '../../redux/actions/profile';
+import { toggleMobileSideBar } from '../../redux/actions/elements';
+import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
 
 library.add(faBars);
 
-export let Header = ({ history, dispatch, isLoggedIn }) => {
+export let Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
   const handleNavSignup = () => {
-      history.push('/signup');
+    history.push('/signup');
   };
 
   const handleNavLogin = () => {
-      history.push('/login');
+    history.push('/login');
   };
 
   const handleNavLogout = async () => {
@@ -27,27 +29,32 @@ export let Header = ({ history, dispatch, isLoggedIn }) => {
     dispatch(logout());
     dispatch(removeOwnProfile());
     history.push('/');
-};
+  };
 
   const handleLogoClick = () => {
     history.push('/');
   };
 
+  const theme = 'theme__black';
+
+  let fontColors = {
+    theme__black: '#ffffff'
+  };
+
+  const iconColor = fontColors[theme];
+
   return (
-    <div className="header theme__black">
-      <button onClick={handleLogoClick}>
-        <div className="logo-container">
-          <div className="logo-image"> 
-            <img src='/assets/img/ah-logo.svg' alt="Author's haven logo"/>
-          </div>
-          <div className="logo-text">
-            <h3>AUTHOR&apos;S HAVEN</h3>
-          </div>
+    <div className={`header ${theme}`}>
+      <button onClick={handleLogoClick} className='logo-container show-for-large'>
+        <div className="logo-image">
+          <img src='/assets/img/ah-logo.svg' alt="Author's haven logo"/>
+        </div>
+        <div className="logo-text">
+          <h3>AUTHOR&apos;S HAVEN</h3>
         </div>
       </button>
-      <div className="nav-container">
+      <div className="nav-container show-for-large">
         <ul>
-          <li><Link to='/'><img src='/assets/img/search-icon.svg' alt="search icon"/></Link></li>
           {
             isLoggedIn
             ? <li><button onClick={handleNavLogout} className="login-link">Logout</button></li>
@@ -58,13 +65,23 @@ export let Header = ({ history, dispatch, isLoggedIn }) => {
           }
         </ul>
       </div>
-      <div className="mobile-header"> 
-      <FontAwesomeIcon icon="bars" color="#818181" size="2x"/>
+      <div className="mobile-header hide-for-large">
+        <FontAwesomeIcon icon="bars" color={iconColor || '#818181'} size="2x" onClick={toggleMobileSideBar} />
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
         <div className="mobile-header-search-icon"><img src='/assets/img/search-icon.svg' alt="Mobile view search icon"/></div>
+
       </div>
+
+      <MobileSideBar 
+        isLoggedIn={isLoggedIn} 
+        handleNavLogout={handleNavLogout}
+        handleNavSignup={handleNavSignup} 
+        handleNavLogin={handleNavLogin}
+        sideBarActive={sideBarActive}
+        toggleMobileSideBar={toggleMobileSideBar}
+      />
     </div>
   )
 };
@@ -72,11 +89,18 @@ export let Header = ({ history, dispatch, isLoggedIn }) => {
 Header.propTypes={
   dispatch: PropTypes.func,
   history: PropTypes.object,
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  toggleMobileSideBar: PropTypes.func,
+  sideBarActive: PropTypes.bool
 }
 
 Header = withRouter(Header);
 
-const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
+const mapStateToProps = ({ auth: { isLoggedIn = false }, elementStatuses: { sideBarActive = false } }) => 
+  ({ isLoggedIn, sideBarActive });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  toggleMobileSideBar: () => dispatch(toggleMobileSideBar())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

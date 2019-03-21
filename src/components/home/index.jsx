@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from './banner';
-import { PostFeedTopSection } from '../feed/post-feed-top-section';
+import { PostFeedTopSection } from '../feed/postFeedTopSection';
 import FeedBottom from '../feed';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

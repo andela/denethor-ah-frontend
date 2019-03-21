@@ -9,22 +9,12 @@ $gray: #818181;
   display: flex;
   justify-content: space-between;
   padding: 0.8em;
+  align-items: center;
+
   > button {
-    background: inherit;
-    display: block;
+    background: transparent;
     width: 40%;
     border: none;
-  }
-
-  &.theme__black {
-    background: #3F3D3D;
-    
-    button {
-      color: white !important;
-    }
-    .logo-text h3 {
-      color: white !important;      
-    }
   }
 
 }
@@ -49,6 +39,8 @@ $gray: #818181;
   margin-right: 5%;
   display: flex;
   align-items: center;
+  position: absolute;
+  right: 0;
 
   ul {
     display: flex;
@@ -72,32 +64,90 @@ $gray: #818181;
 }
 
 .mobile-header {
-  display: none
+  .mobile-header-search-icon {
+    opacity: 0;
+  }
 }
 
-@media all and (max-width:550px) and (min-width:0px) {
-  .header > button, .nav-container {
-    display: none;
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  > a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .mobile-header-text {
+    font-family: 'SairaCondensed-Regular';
+
+    h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3em;
+      font-family: SairaSemiCondensed-Regular;
+    }
+  }
+}
+
+.theme__black {
+  background: rgba(0, 0, 0, 0.63);
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  .mobile-header .mobile-header-text h3 {
+    color: white;
+  }
+
+  + div {
+    .banner__slogan > div h1 {
+      padding-top: 1em;
+    }
+
+    .profile__banner-content {
+      padding-top: 8em;
+    }
+    .banner-content {
+      padding-top: 9em;
+    }
+
+    &.dashboard-page-wrapper {
+      padding-top: 4em;
+    }
   }
   
-  .mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+
+@media only screen and (min-width: 40em) {
+  .theme__black {
+    background: rgba(0, 0, 0, 0.63);
+    position: absolute;
     width: 100%;
 
-    > a {
-      color: black;
-      text-decoration: none;
-    }
-
-    .mobile-header-text {
-      font-family: 'SairaCondensed-Regular';
-      
-      h3 {
-        margin: 0.5rem 0;
-        font-size: 1.3em;
+    + div {
+      .banner {
+        padding-top: 12em;
+      }
+      &.dashboard-page-wrapper {
+        padding-top: 4.9em;
       }
     }
+    
+    .nav-container button.signup-link, .nav-container button.login-link {
+      color: white;
+    }
+
+    .logo-text h3 {
+      color: white;      
+    }
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .header .logo-container {
+    display: flex;
   }
 }

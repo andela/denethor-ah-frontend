@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from 'react-redux';
 import Home from './components/home';
-import Header from './components/header';
+import Header from './components/header/Header';
 import Footer from './components/footer';
 import { ArticlePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';

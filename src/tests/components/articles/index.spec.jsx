@@ -25,7 +25,6 @@ describe('Test for the single article component', () => {
 			}]
 		}
 	};
-
 	it('should render single article view page', () => {
 		const wrapper = mount(<SingleArticleView {...props} />);
 		expect(wrapper.length).toBe(1);

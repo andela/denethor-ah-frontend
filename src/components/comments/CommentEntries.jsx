@@ -42,7 +42,7 @@ const CommentEntries = ({ comments = [] }) => {
 }
 
 CommentEntries.propTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array.isRequired
 };
 
 export default CommentEntries;

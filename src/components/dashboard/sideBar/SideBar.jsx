@@ -7,7 +7,9 @@ const SideBar = ({ authUserEmail = '' }) => {
   return (
     <div className='sidebar'>
       <div className='sidebar-header'>
-        <div className='sidebar-header__bold-text large-text'>Dashboard</div>
+        <div className='sidebar-header__bold-text large-text'>
+          <NavLink to='/dashboard'>Dashboard</NavLink>
+        </div>
         <div className='sidebar-header__light-text'>Manage your account</div>
         <div className='sidebar-header__bold-text small-text'>{authUserEmail}</div>
       </div>
@@ -18,7 +20,7 @@ const SideBar = ({ authUserEmail = '' }) => {
             <div className='button_background' />
           </li>
           <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/top-reads'>Top Reads</NavLink>
+            <NavLink to='/dashboard/topReads'>Top Reads</NavLink>
             <div className='button_background' />
           </li>
           <li className='sidebar-links__item'>
@@ -48,4 +50,3 @@ SideBar.propTypes = {
 };
 
 export default SideBar;
-
