@@ -1,6 +1,6 @@
 import commentsReducer from '../../../redux/reducers/comments';
 import { comments } from '../../mock-data/comments';
-import {ADD_COMMENT, REMOVE_COMMENT, GET_COMMENT_SUCCESS} from '../../../redux/actions/types';
+import {ADD_COMMENT, REMOVE_COMMENT, ADD_COMMENT_FAILURE, GET_COMMENT_SUCCESS} from '../../../redux/actions/types';
 import { commentReducerDefaultState } from '../../../redux/reducers/comments'
 
 
@@ -13,11 +13,23 @@ it('Should return default state when initialized', () => {
 
 it('Should add comments to store', () => {
   const initialState = {
-    comments: []
+    comments: [],
+    loading: true
   };
   const state = commentsReducer(initialState, {
     type: ADD_COMMENT,
     comments
+  });
+  expect(state).toEqual({...initialState } );
+});
+
+it('Should return new state when add comment fails ', () => {
+  const initialState = {
+    comments: [],
+    loading: false
+  };
+  const state = commentsReducer(initialState, {
+    type: ADD_COMMENT_FAILURE
   });
   expect(state).toEqual({...initialState } );
 });

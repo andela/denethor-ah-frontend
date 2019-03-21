@@ -35,7 +35,14 @@ exports[`Test for the single article component should call toast error when star
   }
   comments={
     Object {
-      "comments": Array [],
+      "comments": Array [
+        Object {
+          "user": Object {
+            "firstname": "Peace",
+            "lastname": "Oyedeji",
+          },
+        },
+      ],
     }
   }
   fetchArticle={
@@ -305,13 +312,67 @@ exports[`Test for the single article component should call toast error when star
                 </div>
               </Comment>
             </div>
+            <Spinner>
+              <div
+                className="spinner-container"
+              />
+            </Spinner>
             <div
               className="section-user-comments"
             >
               <CommentEntries
-                comments={Array []}
+                comments={
+                  Array [
+                    Object {
+                      "user": Object {
+                        "firstname": "Peace",
+                        "lastname": "Oyedeji",
+                      },
+                    },
+                  ]
+                }
               >
-                <div />
+                <div>
+                  <div>
+                    <HorizontalLine>
+                      <div
+                        className="horizontal-line"
+                      />
+                    </HorizontalLine>
+                    Comments
+                  </div>
+                  <div
+                    className="comment-entry"
+                    key="0"
+                  >
+                    <div
+                      className="comment-text"
+                    >
+                      <p />
+                      <div
+                        className="comment-text__info"
+                      >
+                        <p
+                          className="comment-text__user-name"
+                        >
+                          Peace Oyedeji
+                        </p>
+                        <p
+                          className="comment-text__date"
+                        >
+                          Invalid Date
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className="actions"
+                    >
+                      <div
+                        className="likes-count"
+                      />
+                    </div>
+                  </div>
+                </div>
               </CommentEntries>
             </div>
           </div>
@@ -357,7 +418,14 @@ exports[`Test for the single article component should call toast success when st
   }
   comments={
     Object {
-      "comments": Array [],
+      "comments": Array [
+        Object {
+          "user": Object {
+            "firstname": "Peace",
+            "lastname": "Oyedeji",
+          },
+        },
+      ],
     }
   }
   fetchArticle={
@@ -626,13 +694,67 @@ exports[`Test for the single article component should call toast success when st
                 </div>
               </Comment>
             </div>
+            <Spinner>
+              <div
+                className="spinner-container"
+              />
+            </Spinner>
             <div
               className="section-user-comments"
             >
               <CommentEntries
-                comments={Array []}
+                comments={
+                  Array [
+                    Object {
+                      "user": Object {
+                        "firstname": "Peace",
+                        "lastname": "Oyedeji",
+                      },
+                    },
+                  ]
+                }
               >
-                <div />
+                <div>
+                  <div>
+                    <HorizontalLine>
+                      <div
+                        className="horizontal-line"
+                      />
+                    </HorizontalLine>
+                    Comments
+                  </div>
+                  <div
+                    className="comment-entry"
+                    key="0"
+                  >
+                    <div
+                      className="comment-text"
+                    >
+                      <p />
+                      <div
+                        className="comment-text__info"
+                      >
+                        <p
+                          className="comment-text__user-name"
+                        >
+                          Peace Oyedeji
+                        </p>
+                        <p
+                          className="comment-text__date"
+                        >
+                          Invalid Date
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className="actions"
+                    >
+                      <div
+                        className="likes-count"
+                      />
+                    </div>
+                  </div>
+                </div>
               </CommentEntries>
             </div>
           </div>
