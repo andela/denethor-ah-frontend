@@ -1,13 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { CreateComment } from '../../../components/comments';
-import { CommentEntries}  from '../../../components/comments';
-import { comments, commentEntry }  from '../../mock-data/comments';
+import { CommentEntries, CreateComment}  from '../../../components/comments';
+import { comments, commentEntry, count }  from '../../mock-data/comments';
+
+const allCommentsImpressions = [];
 
 describe('Test for the single comment component', () => {
 	const props = {
 		articleId: comments[0].articleId,
 		addComment: jest.fn(),
+		allCommentsImpressions
 	};
 
 	it('should render the comment section', () => {
@@ -21,7 +23,7 @@ describe('Test for the single comment component', () => {
 	});
 
 	it('should render the comment entry section', () => {
-		const wrapper = mount(<CommentEntries comments={commentEntry}/>);
+		const wrapper = mount(<CommentEntries allCommentsImpressions={count} comments={commentEntry}/>);
 		expect(wrapper.length).toBe(1);
 		expect(wrapper.find('.comment-entry').length).toBe(1);
 	});

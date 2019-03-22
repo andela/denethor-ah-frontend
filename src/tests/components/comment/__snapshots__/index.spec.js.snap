@@ -62,6 +62,7 @@ exports[`Test for the single comment component should call toast error when serv
 exports[`Test for the single comment component should render the comment section 1`] = `
 <Comment
   addComment={[MockFunction]}
+  allCommentsImpressions={Array []}
   articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
 >
   <div

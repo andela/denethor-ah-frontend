@@ -60,6 +60,7 @@
     "express": "^4.16.4",
     "firebase": "^5.9.0",
     "i": "^0.3.6",
+    "import": "0.0.6",
     "jest": "^24.1.0",
     "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.5.0",

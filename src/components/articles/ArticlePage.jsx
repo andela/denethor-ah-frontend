@@ -9,7 +9,7 @@ import AuthModal from '../authModal';
 import { RatingStars, RatingStarsBox } from '../ratingStars';
 import { HorizontalLine } from '../horizontalLine';
 import { CreateComment, CommentEntries } from '../comments';
-import { addComment, getArticleComments } from '../../redux/actions/comments';
+import { addComment, getArticleComments, getAllCommentsImpression, likeComment } from '../../redux/actions/comments';
 import { 
   getOneArticle, 
   rateArticle, 
@@ -26,6 +26,7 @@ import { LikeNumberGroup , DisLikeNumberGroup, CommentButtonGroup } from '../lik
 import { BookMarkHeartIcon } from '../impressionIcons'
 
 import './style.scss';
+import Spinner from '../spinner/Spinner';
 
 
 export class SingleArticleView extends Component {
@@ -37,11 +38,13 @@ export class SingleArticleView extends Component {
   }
 
 
-  componentDidMount () {
-    const { fetchArticle, getArticleAvgRating, getArticleLikes, getArticleDislikes, match,  currentUserId, getUserBookmarks } = this.props;
+ async componentDidMount () {
+    const { fetchArticle, getArticleAvgRating, getArticleLikes, getArticleDislikes, getAllCommentsImpression, match,  currentUserId, getUserBookmarks } = this.props;
     let articleId = match.params.articleId;
     
-    fetchArticle(articleId);
+    const { comments } = await fetchArticle(articleId);
+    const commentsIds = comments.map(comment => comment.id);
+    await getAllCommentsImpression(commentsIds);
     getArticleLikes(articleId);
     getArticleDislikes(articleId);
     getArticleAvgRating(articleId);
@@ -135,6 +138,30 @@ export class SingleArticleView extends Component {
     })
   }
 
+  handleOnClickLike = (commentId) => {
+    this.props.likeComment(commentId)
+    .then()
+    .catch(error => {
+      const { response } = error;
+        if (response && response.status === 422){
+          return toast.error(error.response.data.message.details[0].message);
+        }
+        if(response && response.status === 400){
+          return toast.error('You cannot like your own comment');
+        }
+        if(response && response.status === 401){
+          return toast.error('You need to login to like this comment');
+        }
+        if(response && response.status === 500){
+          return toast.error('Server error');
+        }
+        else {
+          return toast.error('unknown error');
+        }
+    });
+    
+}
+
   render() {
     const {
       userLiked, 
@@ -150,7 +177,7 @@ export class SingleArticleView extends Component {
     } = this.props;
 
     const { toggleModalOff, state: { showModal } } = this;
-
+    const { loading } = comments;
     const article = articles.find(item => item.id === articleId) || {};
     const commentsCount = this.props.comments.comments.length
 
@@ -159,6 +186,7 @@ export class SingleArticleView extends Component {
       featuredImage = '/assets/img/map-typing.jpg', 
       author: { username = '', imageUrl: userAvatarImage = '' } = {}, 
       body,
+      comments: articleComments = [],
     } = article;
 
     const totalLikes = impressions.likes.length;
@@ -242,8 +270,13 @@ export class SingleArticleView extends Component {
                     addComment={addComment}
                   />
                 </div>
+                <Spinner loading={loading} />
                 <div className='section-user-comments'>
-                  <CommentEntries comments={comments.comments} />
+                  <CommentEntries 
+                  handleOnClickLike={this.handleOnClickLike} 
+                  allCommentsImpressions={comments.commentsLikes} 
+                  comments={ comments.comments.length ? comments.comments : articleComments } 
+                  />
                 </div>
               </div>
             </div>
@@ -273,14 +306,17 @@ SingleArticleView.propTypes = {
   getArticleDislikes: PropTypes.func,
   id: PropTypes.string,
   currentUserId: PropTypes.string,
-  userLiked: PropTypes.boolean,
-  userDisliked: PropTypes.boolean,
+  userLiked: PropTypes.any,
+  userDisliked: PropTypes.any,
   impressions: PropTypes.object,
   userRating: PropTypes.number,
   averageRating: PropTypes.number,
   ratingsCount: PropTypes.number,
   getUserBookmarks: PropTypes.func,
-  toggleModalOff: PropTypes.func
+  toggleModalOff: PropTypes.func,
+  getAllCommentsImpression: PropTypes.func,
+  likeComment: PropTypes.func,
+  commentId: PropTypes.string
 }
 
 const mapStateToProps = ({
@@ -313,19 +349,21 @@ const mapStateToProps = ({
   })
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchArticle: (id) => dispatch(getOneArticle(id)),
-  rateArticle: (rating, articleId) => dispatch(rateArticle(rating, articleId)),
-  getArticleAvgRating: (articleId) => dispatch(getArticleAvgRating(articleId)),
-  addComment: ({articleId, commentBody}) => dispatch(addComment({articleId, commentBody})),
-  getArticleComments: (articleId) => dispatch(getArticleComments(articleId)),
-  likeArticle: (articleId) => dispatch(likeArticle(articleId)),
-  dislikeArticle: (articleId) => dispatch(dislikeArticle(articleId)),
-  bookmarkArticle: (articleId) => dispatch(bookmarkArticle(articleId)),
-  getArticleLikes: (articleId) => dispatch(getArticleLikes(articleId)),
-  getArticleDislikes: (articleId) => dispatch(getArticleDislikes(articleId)),
-  removeArticleBookmark: (articleId) => dispatch(removeArticleBookmark(articleId)),
-  getUserBookmarks: (userId) => dispatch(getUserBookmarks(userId)),
+const mapDispatchToProps = ({
+  fetchArticle: getOneArticle,
+  rateArticle,
+  getArticleAvgRating,
+  addComment,
+  getArticleComments,
+  likeArticle,
+  dislikeArticle,
+  bookmarkArticle,
+  getArticleLikes,
+  getArticleDislikes,
+  removeArticleBookmark,
+  getUserBookmarks,
+  getAllCommentsImpression,
+  likeComment
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

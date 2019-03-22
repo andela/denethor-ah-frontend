@@ -37,6 +37,7 @@ export default class Comment extends Component {
             commentBody: ''
           });
     }
+
     render() {
         const { commentBody }  = this.state;
         return (

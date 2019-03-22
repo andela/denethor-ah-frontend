@@ -17,3 +17,25 @@ export const commentEntry =  [
           "lastname": "Oyedeji"
       }
   }];
+
+  export const commentsLikes = [
+    {
+      commentId: 'e4853b82-7b75-4d2f-9507-363da4cb30dc',
+      count: 1,
+      liked: true
+    }
+  ];
+  
+  export const  commentImpression = [
+    {
+      commentId: 'e4853b82-7b75-4d2f-9507-363da4cb30dc',
+      count: 1,
+      liked: true
+    }
+  ];
+
+  export const count = [
+    {
+      count: 1,
+    }
+  ]
