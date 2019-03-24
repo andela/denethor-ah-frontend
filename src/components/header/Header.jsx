@@ -4,8 +4,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import NotificationWidget from '../notificationWidget/NotificationWidget';
 import PropTypes from 'prop-types';
+import Widgets from './widgets';
 import axios from '../../utils/axiosConfig';
 import './styles.scss';
 import { logout } from '../../redux/actions/auth';
@@ -15,7 +15,7 @@ import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
 
 library.add(faBars);
 
-export let Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
+export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
   const handleNavSignup = () => {
     history.push('/signup');
   };
@@ -59,9 +59,7 @@ export let Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideB
           {
             isLoggedIn
             ?
-            <React.Fragment>
-              <li><NotificationWidget handleLogout={handleNavLogout} /></li>
-            </React.Fragment>
+              <li><Widgets /></li>
             :
             <React.Fragment>
               <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
@@ -75,8 +73,6 @@ export let Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideB
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
-        {isLoggedIn && <NotificationWidget handleLogout={handleNavLogout} />}
-
       </div>
 
       <MobileSideBar 
@@ -99,8 +95,6 @@ Header.propTypes={
   sideBarActive: PropTypes.bool
 }
 
-Header = withRouter(Header);
-
 const mapStateToProps = ({ auth: { isLoggedIn = false }, elementStatuses: { sideBarActive = false } }) => 
   ({ isLoggedIn, sideBarActive });
 
@@ -109,4 +103,4 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

@@ -1,5 +1,6 @@
 import { SET_LOGIN_STATUS, LOGOUT } from './types';
 import axios from '../../utils/axiosConfig';
+import { removeOwnProfile } from './profile';
 
 const api = process.env.API_ROOT_URL;
 
@@ -31,4 +32,9 @@ export const login = loginDetails => async (dispatch) => {
   }
 };
 
-export const logout = () => ({ type: LOGOUT });
+export const logout = () => async (dispatch) => {
+  await axios.get(`${api}/users/logout`);
+  localStorage.clear();
+  dispatch({ type: LOGOUT });
+  dispatch(removeOwnProfile());
+};

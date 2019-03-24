@@ -6,16 +6,13 @@ import './utils/socket';
 import './styles/style.scss';
 import Main from './Main';
 import storeConfig from './redux/configureStore';
-import Radium from 'radium';
 
 const store = storeConfig();
 
-let Application = () => (
+const app = (
   <Provider store={store}>
     <Main />
   </Provider>
 );
 
-Application = Radium(Application);
-
-ReactDOM.render(<Application />, document.getElementById("app"));
+ReactDOM.render(app, document.getElementById("app"));

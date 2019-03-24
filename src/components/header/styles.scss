@@ -5,13 +5,11 @@ $gray: #818181;
 
 .header{
   background: $white;
-  border-bottom: 0.1em solid $gray;
   display: flex;
   height: 5rem;
   position: relative;
   justify-content: space-between;
   padding: 0.8em;
-  align-items: center;
 
   > button {
     background: transparent;

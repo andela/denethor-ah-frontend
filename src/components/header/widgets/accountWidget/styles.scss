@@ -1,0 +1,20 @@
+.header__account-widget {
+  .header__account-widget__icon {
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      .rounded-image {
+        border: none;
+        height: 3rem;
+        width: 3rem;
+        img {
+          height: 3rem;
+        }
+      }
+    }
+  }
+
+  .header__account-widget__account-options {
+  }
+}

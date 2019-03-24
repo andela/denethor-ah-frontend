@@ -8,7 +8,10 @@ const notificationsReducer = (state = notificationsDefaultState, action) => {
       return action.payload;
 
     case REMOVE_NOTIFICATION:
-      return state.filter(({ articleId }) => articleId !== action.payload);
+      return state.map((notification) => ({
+        ...notification,
+        ...(notification.articleId === action.payload && { read: true })
+      }));
 
     default:
       return state;

@@ -1,10 +1,10 @@
+import uniqueBy from 'unique-by';
 import { 
   ADD_ARTICLE, 
   REMOVE_ARTICLE, 
   GET_ARTICLES_SUCCESS, 
   GET_ONE_ARTICLE_SUCCESS,
 } from '../actions/types'
-import uniqueBy from 'unique-by';
 
 const articleReducerDefaultState = [];
 
