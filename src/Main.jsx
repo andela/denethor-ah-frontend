@@ -64,7 +64,7 @@ class Main extends Component {
             <Route path="/dashboard" component={AuthHOC(Dashboard)} />
             <Route path='/filter' component={FilteredArticles} />
             <Route path="/api/users/:id/verify" component={Redirect} />
-            <Route path="/passwordreset" component={ResetPassword} />
+            <Route exact path="/passwordreset" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
           </Switch>

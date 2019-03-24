@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 const NavTab = () => (
   <div className="nav-tabs">
@@ -10,8 +10,6 @@ const NavTab = () => (
     <NavLink className="nav-tabs__wellness" to="/wellness">WELLNESS</NavLink>
     <NavLink className="nav-tabs__tech" to="/tech">TECH</NavLink>
     <NavLink className="nav-tabs__design" to="/design">DESIGN</NavLink>
-    <Link className="nav-tabs__signup" to="/signup">SIGNUP</Link>
-    <Link className="nav-tabs__login" to="/login">LOGIN</Link>
   </div>
 );
 

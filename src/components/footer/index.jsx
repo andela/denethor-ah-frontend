@@ -1,17 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NavTab from '../navTabs';
-import SearchForm from '../searchForm/SearchForm';
 import './style.scss';
 
-export const Footer = (props) => (
+export const Footer = () => (
   <footer>
     <div className="footer">
       <div className="footer__search-section">
         <div className="footer__search-section__search-text">
           <span>Search Articles</span>
         </div>
-        <SearchForm {...props} className='footer__search-section__search-input' isSearchOnly={true} />
       </div>
       <NavTab />
       <div className="footer__logo-button">

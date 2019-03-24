@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import FeedBottomSmallCard from '../feed/FeedBottomSmallCard';
+import SearchForm from '../searchForm/SearchForm';
 import './styles.scss';
 
 const FilteredArticles = ({ articles }) => (
   <div className='flex filter-form'>
+    <SearchForm />
     {!articles.length && (<h2>No Article was found</h2>)}
     {!!articles.length && (<h2>Search Result</h2>)}
     {articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))}
