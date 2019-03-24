@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { toast } from 'react-toastify';
-import { ResetPassword, mapDispatchToProps } from '../../../components/resetPassword/ResetPassword';
+import { ForgotPassword, mapDispatchToProps } from '../../../components/forgotPassword/ForgotPassword';
 import axios from '../../../utils/axiosConfig';
 import { login } from '../../../redux/actions/auth';
 
@@ -17,16 +17,16 @@ const handleLogin = jest.fn();
 let history = { push: jest.fn() };
 
 beforeAll(() => {
-  
+
   const props = {
     handleLogin,
     isLoggedIn: false
   };
 
-  wrapper = shallow(<ResetPassword  {...props} history={history} />);
+  wrapper = shallow(<ForgotPassword  {...props} history={history} />);
 })
 
-test('Should render ResetPassword correctly', () => {
+test('Should render ForgotPassword correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -74,14 +74,14 @@ test('Should handle submit event', async () => {
   window.history.pushState({}, 'Test Title', '/test.html#token=true');
 
   const handleLogin = jest.fn();
-  const push = jest.fn();  
+  const push = jest.fn();
   const props = {
     history: { push },
     handleLogin,
     isLoggedIn: false
   };
 
-  const wrapper = shallow(<ResetPassword  {...props} handleLogin={handleLogin} />);
+  const wrapper = shallow(<ForgotPassword  {...props} handleLogin={handleLogin} />);
   expect(wrapper.state('token')).toBe('true');
 
   const resetPasswordResponse = {

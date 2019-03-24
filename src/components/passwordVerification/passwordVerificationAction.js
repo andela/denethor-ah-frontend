@@ -3,12 +3,12 @@ import { escapeInputs } from '../../utils/escapeInputs';
 
 const { API_ROOT_URL } = process.env;
 
-const resetPasswordVerification = async (resetDetails) => {
+const forgotPasswordVerification = async (resetDetails) => {
   const error = 'error';
   const escapedResetDetails = escapeInputs(resetDetails);
 
   try {
-    const { data: { data: { message } } } = await axios.post(`${API_ROOT_URL}/users/resetPassword`, escapedResetDetails);
+    const { data: { data: { message } } } = await axios.post(`${API_ROOT_URL}/users/forgotPassword`, escapedResetDetails);
     return ({ status: 'success', message });
   } catch ({ response: { status } }) {
     switch (status) {
@@ -21,4 +21,4 @@ const resetPasswordVerification = async (resetDetails) => {
   }
 };
 
-export default resetPasswordVerification;
+export default forgotPasswordVerification;

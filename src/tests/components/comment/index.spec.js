@@ -54,7 +54,7 @@ describe('Test for the single comment component', () => {
 		expect(addComment).toHaveBeenCalled();
 	});
 
-	it('should show a toast when user is not logged in', () => {
+	it('should show a toast error when user is not logged in', () => {
 		const addComment = jest.fn(() => Promise.reject({ response: {
 			status: 401
 		}}));
