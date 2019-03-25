@@ -9,5 +9,6 @@ export default [{
 }, {
   articleId: '3',
   time: '8675678uygjkhi',
-  message: 'this is the third notification'
+  message: 'this is the third notification',
+  read: true
 }];

@@ -7,7 +7,9 @@ exports[`Should render static component 1`] = `
     replace={false}
     to="/articles/1"
   >
-    <p>
+    <p
+      className="unread"
+    >
       this is the first notification
     </p>
     <span>

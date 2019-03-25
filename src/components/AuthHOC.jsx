@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const authHOC = (AuthencticatedComponent) => {
   class AuthHOC extends Component {
     componentDidUpdate () {
-      if (!this.props.isLoggedIn) {
+      if (this.props.isLoggedIn === false) {
         this.props.history.push('/login')
       }
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Header } from '../../../components/header';
+import { Header } from '../../../components/header/Header';
+
 require('dotenv').config;
 
 jest.mock('../../../utils/socket.js')

@@ -1,4 +1,4 @@
-import { SET_OWN_PROFILE, REMOVE_OWN_PROFILE, UPDATE_PROFILE } from '../actions/types';
+import { SET_OWN_PROFILE, UPDATE_PROFILE, GET_USER_BOOKMARKS_SUCCESS, REMOVE_OWN_PROFILE} from '../actions/types';
 
 const profileDefaultState = {
 
@@ -14,6 +14,9 @@ export default (state = profileDefaultState, action) => {
 
     case REMOVE_OWN_PROFILE:
       return {};
+
+    case GET_USER_BOOKMARKS_SUCCESS:
+      return { ...state, bookmarks: action.payload }
 
     default:
       return state;

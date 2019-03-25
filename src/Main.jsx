@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import "react-toastify/dist/ReactToastify.css";
@@ -20,6 +19,11 @@ import { getOwnProfile, userBookmarks } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
 
 class Main extends Component {
+  state = {
+    newNotifications: 0,
+    toastId: 'notification'
+  }
+  
   async componentDidMount() {
     if (localStorage.token) {
       const { token } = localStorage;
@@ -35,21 +39,44 @@ class Main extends Component {
       if (userId) {
         const error = await this.props.getOwnProfile(userId);
         if(!error) {
-          this.props.getBookmarks(userId);
-          return this.props.setLoggedInState(true);
+          await this.props.getBookmarks(userId);
+          this.props.setLoggedInState(true);
+          this.setState({ isLoggedIn: true });
+          return;
         }
         toast.error('User not found');
         localStorage.clear();
       }
+    } else {
+      this.props.setLoggedInState(false);
+      this.setState({ isLoggedIn: false });
+    }
+  }
+
+  async shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.isLoggedIn === undefined) {
+      return;
+    }
+    const { isLoggedIn } = nextProps;
+    if(!nextState.isLoggedIn && isLoggedIn === true) {
+      const { token } = localStorage;
+      const userId = JSON.parse(window.atob(token.split('.')[1])).id;
+      const error = await this.props.getOwnProfile(userId);
+      if(!error) {
+        this.setState({ isLoggedIn: true });
+        this.props.getBookmarks(userId);
+        this.props.setLoggedInState(true);
+      }
+    } else if (nextState.isLoggedIn && isLoggedIn === false) {
+      this.setState({ isLoggedIn: false });
     }
   }
 
   scrollToTop = () => {
-    window.scrollTo(0, 0);
     return null;
   };
 
-  render() {  
+  render() {
     return (
       <BrowserRouter>
         <div>
@@ -64,7 +91,7 @@ class Main extends Component {
             <Route path="/dashboard" component={AuthHOC(Dashboard)} />
             <Route path='/filter' component={FilteredArticles} />
             <Route path="/api/users/:id/verify" component={Redirect} />
-            <Route path="/passwordreset" component={ResetPassword} />
+            <Route exact path="/passwordreset" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
           </Switch>
@@ -77,8 +104,11 @@ class Main extends Component {
 
 Main.propTypes = {
   getOwnProfile: PropTypes.func,
+  isLoggedIn: PropTypes.bool,
   setLoggedInState: PropTypes.func,
-  getBookmarks: PropTypes.func
+  getBookmarks: PropTypes.func,
+  notifications: PropTypes.array,
+  removeNotifications: PropTypes.func
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -87,4 +117,6 @@ const mapDispatchToProps = (dispatch) => ({
   getBookmarks: id => dispatch(userBookmarks(id))
 });
 
-export default connect(undefined, mapDispatchToProps)(Main);
+const mapStateToProps = ({ auth: { isLoggedIn }, notifications }) => ({ isLoggedIn, notifications });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

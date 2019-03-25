@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
-
 import './styles.scss';
-import { LikeNumberGroup } from '../../components/likeButton';
+import { LikeNumberGroup } from '../../components/likeNumberGroup';
 import { HorizontalLine } from '../../components/horizontalLine';
 
 
@@ -43,7 +42,7 @@ const CommentEntries = ({ comments = [] }) => {
 }
 
 CommentEntries.propTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array.isRequired
 };
 
 export default CommentEntries;

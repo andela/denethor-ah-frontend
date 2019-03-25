@@ -31,23 +31,9 @@ exports[`Should render banner with login correctly 1`] = `
       </button>
     </div>
   </div>
-  <div
-    className="banner__screen banner__screen--login"
-  >
-    <CSSTransitionGroup
-      transitionAppear={true}
-      transitionAppearTimeout={800}
-      transitionEnter={true}
-      transitionEnterTimeout={800}
-      transitionLeave={true}
-      transitionLeaveTimeout={400}
-      transitionName="background"
-    >
-      <Connect(Login)
-        key="Login"
-      />
-    </CSSTransitionGroup>
-  </div>
+  <Screen
+    content="Login"
+  />
 </div>
 `;
 
@@ -82,23 +68,9 @@ exports[`Should render banner with signup correctly 1`] = `
       </button>
     </div>
   </div>
-  <div
-    className="banner__screen banner__screen--signup"
-  >
-    <CSSTransitionGroup
-      transitionAppear={true}
-      transitionAppearTimeout={800}
-      transitionEnter={true}
-      transitionEnterTimeout={800}
-      transitionLeave={true}
-      transitionLeaveTimeout={400}
-      transitionName="background"
-    >
-      <Connect(Signup)
-        key="Signup"
-      />
-    </CSSTransitionGroup>
-  </div>
+  <Screen
+    content="Signup"
+  />
 </div>
 `;
 
@@ -133,22 +105,8 @@ exports[`Should render banner with stats correctly 1`] = `
       </button>
     </div>
   </div>
-  <div
-    className="banner__screen banner__screen--stats"
-  >
-    <CSSTransitionGroup
-      transitionAppear={true}
-      transitionAppearTimeout={800}
-      transitionEnter={true}
-      transitionEnterTimeout={800}
-      transitionLeave={true}
-      transitionLeaveTimeout={400}
-      transitionName="background"
-    >
-      <Connect(Stats)
-        key="Stats"
-      />
-    </CSSTransitionGroup>
-  </div>
+  <Screen
+    content="Stats"
+  />
 </div>
 `;

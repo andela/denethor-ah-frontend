@@ -14,7 +14,7 @@ const RatingStars = ({ rateNumber }) => {
   let coloredStars = addStars(coloredStarsCount, 'checked');
   let uncoloredStars = addStars(uncoloredStarsCount, 'unchecked');
 
-  return <span>
+  return <span className="active">
     {coloredStars}
     {uncoloredStars}
   </span>

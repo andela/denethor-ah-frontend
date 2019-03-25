@@ -9,11 +9,12 @@ import { toast } from 'react-toastify';
 class  FeedBottom extends React.Component {
 
   state = {
-    selectedCategoryId: 0
+    selectedCategoryId: 0,
+    toastId: 'articleErrorToast'
   }
 
   filterArticle = (categoryName) => {
-
+    
     const { categories } = this.props;
     const selectedCategory = categories.find(category => category.name === categoryName) || {};
 
@@ -24,11 +25,23 @@ class  FeedBottom extends React.Component {
 
   componentDidMount() {
     const { categories } = this.props;
-    categories.forEach(category => {
-      this.props.getArticles(category.name)
-        .then()
-        .catch(function errorHandler() { toast.error('An error occurred while trying to get articles') })
-    })
+    let error;
+    categories.forEach((category, index, { length }) => {
+      return this.props.getArticles(category.name).then()
+        .catch(() => {
+          if (!error) {
+            error = 'Error fetching article';
+          }
+          if (error && index === length - 1) {
+            toast.error(error, {
+              closeButton: false,
+              hideProgressBar: true,
+              toastId: this.state.toastId,
+              className: 'toast-custom-style'
+            });
+          }
+        });
+    });
   }
 
   render() {

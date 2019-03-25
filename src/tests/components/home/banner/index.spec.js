@@ -2,6 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Banner } from '../../../../components/home/banner';
 
+
+jest.mock('../../../../utils/socket.js');
+
 test('Should render banner with stats correctly', () => {
   const wrapper = shallow(<Banner bannerScreen={'Stats'} />);
   expect(wrapper).toMatchSnapshot();

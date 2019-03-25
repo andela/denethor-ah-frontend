@@ -17,10 +17,10 @@ test('Should remove notifications', () => {
     notification(1), notification(2)
   ], {
     type: REMOVE_NOTIFICATION,
-    payload: 2
+    payload: 1
   });
 
-  expect(state).toEqual([notification(1)]);
+  expect(state).toEqual([{ articleId: 1, read: true }, { articleId: 2 }]);
 });
 
 test('Should return default state', () => {

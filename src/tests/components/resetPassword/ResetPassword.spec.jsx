@@ -5,6 +5,8 @@ import { ResetPassword, mapDispatchToProps } from '../../../components/resetPass
 import axios from '../../../utils/axiosConfig';
 import { login } from '../../../redux/actions/auth';
 
+jest.mock('../../../utils/socket.js');
+
 
 jest.mock('../../../utils/axiosConfig');
 jest.mock('react-toastify');

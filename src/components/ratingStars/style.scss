@@ -15,11 +15,13 @@
   width: 1.1em;
 }
 .rating-stars > span:hover,
-.rating-stars > span:hover ~ span {
+.rating-stars > span:hover ~ span,
+.rating-stars > span.active {
   color: transparent;
 }
 .rating-stars > span:hover:before,
-.rating-stars > span:hover ~ span:before {
+.rating-stars > span:hover ~ span:before,
+.rating-stars > span.active:before {
    content: "\2605";
    position: absolute;
    left: 0;

@@ -1,22 +1,12 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import Stats from './stats/Stats';
-import Signup from './signup/Signup';
-import Login from './login/Login';
+import Screen from './screen';
 import './styles.scss';
 
-const sides = {
-  Stats,
-  Signup,
-  Login
-};
 
-export const Banner = ({ bannerScreen: side, history, isLoggedIn }) => {
-  const Side = sides[side];
+export const Banner = ({ bannerScreen: content, history, isLoggedIn }) => {
   return (
     <div className="banner">
       <div className={"banner__slogan"}>
@@ -30,17 +20,7 @@ export const Banner = ({ bannerScreen: side, history, isLoggedIn }) => {
           }
         </div>
       </div>
-      <div className={`banner__screen banner__screen--${side.toLowerCase()}`}>
-        <ReactCSSTransitionGroup
-          transitionName="background"
-          transitionAppear={true}
-          transitionAppearTimeout={800}
-          transitionEnterTimeout={800}
-          transitionLeaveTimeout={400}
-        >
-          <Side key={side}/>
-        </ReactCSSTransitionGroup>
-      </div>
+      <Screen content={content} />
     </div>
   );
 }

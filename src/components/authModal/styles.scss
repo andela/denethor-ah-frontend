@@ -1,0 +1,50 @@
+.auth-modal__background {
+  align-items: center;
+  animation: fade 0.5s;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+  .auth-modal__modal {
+    .banner__screen {
+      background: white;
+      color: black;
+    }
+    .social-login-block > p {
+      color: black;
+    }
+    .login-block .reset-password a {
+      color: black;
+    }
+    .login-block__form {
+      border-left: 1px solid #ece8e8;
+    }
+    input {
+      border: 1px solid #cacaca;
+      color: black;
+    }
+    .modal {
+      .register-block {
+        padding: 2rem 0;
+      }
+      .login-block .reset-password {
+        font-weight: bold;
+      }
+      .register-block__form {
+        border-left: 1px solid #e8e8e8;
+      }
+      .login-block {
+        padding: 2rem 0;
+        width: 35em;
+      }
+      .logo-container {
+        display: none;
+      }
+    }
+  }
+}
