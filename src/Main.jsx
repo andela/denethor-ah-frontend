@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import Home from './components/home';
 import Header from './components/header/Header';
 import Footer from './components/footer';
-import { ArticlePage } from './components/articles';
+import { ArticlePage, ArticleCreatePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';
 import ResetPassword from './components/resetPassword/ResetPassword';
 import { Dashboard } from './components/dashboard';
@@ -94,6 +94,7 @@ class Main extends Component {
             <Route exact path="/passwordreset" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
+            <Route path="/create-article" component={ArticleCreatePage} />
           </Switch>
           <Footer />
         </div>

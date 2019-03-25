@@ -33,9 +33,11 @@ const CommentEntries = ({ comments = [] }) => {
     );
   });
 
+  const entriesExist = entries.length ? true : false;
+
   return (
     <div>
-      {!!entries.length && <div><HorizontalLine />Comments</div>}
+      {entriesExist && <div><HorizontalLine />Comments</div>}
       {entries}
     </div>
   );

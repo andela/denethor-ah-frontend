@@ -63,7 +63,7 @@
     text-align: left
   }
   
-  &:hover {
+  &:hover, &.active {
   
     .button_background {
       width: 100%;

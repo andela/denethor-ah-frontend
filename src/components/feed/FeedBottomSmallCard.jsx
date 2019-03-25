@@ -25,8 +25,8 @@ const FeedBottomSmallCard = ({
         <p className="feed-bottom-container__small_image__info-published-date">{author.username}</p>
         <p className="feed-bottom-container__small_image__info-minutes-read">
           {dateCreated} &nbsp;&nbsp;&nbsp;
-          <FontAwesomeIcon icon="clock" color="#818181" size="1x"/>    
-          {` ${readTime}`}
+          {readTime && <FontAwesomeIcon icon="clock" color="#818181" size="1x"/>}
+          {readTime && ` ${readTime}`}
         </p>
       </div>
     </div>

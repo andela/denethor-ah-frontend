@@ -21,6 +21,12 @@ export const login = loginDetails => async (dispatch) => {
     switch (status) {
       case 401:
         return 'Incorrect username or password.';
+      
+      case 403:
+        return 'Please verify your email and try again';
+
+      case 422:
+        return 'Please provide the correct email and password';
 
       case 500:
       case 502:
