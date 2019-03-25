@@ -1,8 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { PostFeedTopSection } from '../../feed/postFeedTopSection';
 import FeedBottom from '../../feed';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import SearchForm from '../../searchForm/SearchForm';
 
 class TopReads extends React.Component {

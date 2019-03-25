@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SideBar } from './sideBar';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { ContentArea } from './contentArea';
 import { Switch, Route } from 'react-router-dom';
+import { SideBar } from './sideBar';
 import { setLoggedInState } from '../../redux/actions/auth';
+import { ContentArea } from './contentArea';
 import { getOwnProfile } from '../../redux/actions/profile';
 import { getArticles } from '../../redux/actions/articles';
 import { TopReads } from '../articles/topReads';

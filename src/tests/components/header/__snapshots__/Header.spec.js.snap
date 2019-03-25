@@ -29,14 +29,20 @@ exports[`it renders correctly as a static component 1`] = `
   >
     <ul>
       <li>
-        <withRouter(AuthButton)
-          type="Signup"
-        />
+        <button
+          className="signup-link"
+          onClick={[Function]}
+        >
+          Signup
+        </button>
       </li>
       <li>
-        <withRouter(AuthButton)
-          type="Login"
-        />
+        <button
+          className="login-link"
+          onClick={[Function]}
+        >
+          Login
+        </button>
       </li>
     </ul>
   </div>

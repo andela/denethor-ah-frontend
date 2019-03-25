@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import AuthButton from './authButton';
 import Widgets from './widgets';
 import axios from '../../utils/axiosConfig';
 import './styles.scss';
@@ -21,7 +22,10 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
   };
 
   const handleNavLogin = () => {
-    history.push('/login');
+    if(history.location.pathname === '/') {
+      history.push('/login');
+    }
+
   };
 
   const handleNavLogout = async () => {
@@ -62,8 +66,8 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
               <li><Widgets /></li>
             :
             <React.Fragment>
-              <li><button onClick={handleNavSignup} className="signup-link">Signup</button></li>
-              <li><button onClick={handleNavLogin} className="login-link">Login</button></li>
+              <li><AuthButton type="Signup" /></li>
+              <li><AuthButton type="Login" /></li>
             </React.Fragment>
           }
         </ul>
