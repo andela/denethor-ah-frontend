@@ -167,7 +167,7 @@ export class SingleArticleView extends Component {
     return (
       <div>
         {showModal && <AuthModal toggleOff={toggleModalOff} content={'Login'} />}
-        <div className='banner-section'>
+        <div className='banner-section  article-view'>
           <div className='banner-image'>
             <img src={featuredImage} alt='banner background' />
           </div>

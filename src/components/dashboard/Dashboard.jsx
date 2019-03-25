@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SideBar } from './sideBar';
-import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { ContentArea } from './contentArea';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
+import { SideBar } from './sideBar';
+import { ContentArea } from './contentArea';
 import { setLoggedInState } from '../../redux/actions/auth';
 import { getOwnProfile } from '../../redux/actions/profile';
 import { getArticles } from '../../redux/actions/articles';
 import { TopReads } from '../articles/topReads';
 import Profile from '../profile/Profile';
+import UserPublications from '../articles/UserPublications';
 import EditProfile from '../profile/editProfile/EditProfile';
 import UserBookmarks  from '../userBookmarks/userBookmarks';
 import ResetPasswordVerification  from '../resetPasswordVerification/ResetPasswordVerification';
@@ -48,16 +49,17 @@ export class Dashboard extends Component {
   render() {
     return (
       <div className={`dashboard-page-wrapper`}>
-        <SideBar />
+        <SideBar history={this.props.history}/>
         <ContentArea>
           <Switch>
-            <Route exact path='/dashboard' render={() => <Profile /> }/>
+            <Route exact path='/dashboard' render={({ history }) => { history.replace('/dashboard/my-publications'); return null; } } />
             <Route path='/dashboard/topReads' component={TopReads} />
             <Route path='/dashboard/my-profile' component={Profile} />
             <Route path='/dashboard/edit-profile' component={EditProfile} />
             <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
             <Route path='/dashboard/reset-password' component={ResetPasswordVerification} />
             <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
+            <Route path='/dashboard/my-publications' component={UserPublications} />
           </Switch>
         </ContentArea>
       </div>
@@ -72,13 +74,20 @@ Dashboard.propTypes = {
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool
 }
-const mapStateToProps = ({ auth: { isLoggedIn }, profile }) => ({ 
-  isLoggedIn,
-  profile
-});
-const mapDispatchToProps = (dispatch) => ({
-  getOwnProfile: id => dispatch(getOwnProfile(id)),
-  getArticles: () => dispatch(getArticles()),
-  setLoggedInState: () => dispatch(setLoggedInState)
-});
+
+function mapStateToProps ({ auth: { isLoggedIn }, profile }) { 
+  return {
+    isLoggedIn,
+    profile,
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    getOwnProfile: id => dispatch(getOwnProfile(id)),
+    getArticles: () => dispatch(getArticles()),
+    setLoggedInState: () => dispatch(setLoggedInState)
+  }
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
