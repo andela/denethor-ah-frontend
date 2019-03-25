@@ -1,7 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it renders correctly as a static component 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<div
+  className="header theme__black"
+>
+  <button
+    className="logo-container show-for-large"
+    onClick={[Function]}
+  >
+    <div
+      className="logo-image"
+    >
+      <img
+        alt="Author's haven logo"
+        src="/assets/img/ah-logo.svg"
+      />
+    </div>
+    <div
+      className="logo-text"
+    >
+      <h3>
+        AUTHOR'S HAVEN
+      </h3>
+    </div>
+  </button>
+  <div
+    className="nav-container show-for-large"
+  >
+    <ul>
+      <li>
+        <button
+          className="signup-link"
+          onClick={[Function]}
+        >
+          Signup
+        </button>
+      </li>
+      <li>
+        <button
+          className="login-link"
+          onClick={[Function]}
+        >
+          Login
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="mobile-header hide-for-large"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      color="#ffffff"
+      fixedWidth={false}
+      flip={null}
+      icon="bars"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size="2x"
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+    <Link
+      replace={false}
+      to="/"
+    >
+      <div
+        className="mobile-header-text"
+      >
+        <h3>
+          AUTHOR'S HAVEN
+        </h3>
+      </div>
+    </Link>
+  </div>
+  <MobileSideBar
+    handleNavLogin={[Function]}
+    handleNavLogout={[Function]}
+    handleNavSignup={[Function]}
+  />
+</div>
 `;

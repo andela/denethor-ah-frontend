@@ -7,7 +7,7 @@ it('Should return default state', () => {
   });
 
   expect(state).toEqual({
-    isLoggedIn: false
+    isLoggedIn: undefined
   });
 });
 

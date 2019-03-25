@@ -40,28 +40,28 @@ test('Shoould validate on input blur', () => {
   expect(wrapper.state('firstname')).toBe('Om');
 
   wrapper.find('input').at(0).simulate('blur');
-  expect(wrapper.state('firstnameError')).toBe('First name must be at least 3 characters');
+  expect(wrapper.state('firstnameError')).toBe('must be at least 3 characters');
 
   wrapper.find('input').at(0).simulate('change', { target: { value: 'Omo efe' } });
   wrapper.find('input').at(0).simulate('blur');
-  expect(wrapper.state('firstnameError')).toBe('Names cannot contain spaces');
+  expect(wrapper.state('firstnameError')).toBe('cannot contain spaces');
 
   wrapper.find('input').at(1).simulate('blur');
-  expect(wrapper.state('lastnameError')).toBe('Last name must be at least 3 characters');
+  expect(wrapper.state('lastnameError')).toBe('must be at least 3 characters');
 
   wrapper.find('input').at(1).simulate('change', { target: { value: 'Omo efe' } });
   wrapper.find('input').at(1).simulate('blur');
-  expect(wrapper.state('lastnameError')).toBe('Names cannot contain spaces');
+  expect(wrapper.state('lastnameError')).toBe('cannot contain spaces');
 
   wrapper.find('input').at(2).simulate('blur');
-  expect(wrapper.state('usernameError')).toBe('Username must be at least 3 characters');
+  expect(wrapper.state('usernameError')).toBe('must be at least 3 characters');
 
   wrapper.find('input').at(2).simulate('change', { target: { value: 'Omo efe' } });
   wrapper.find('input').at(2).simulate('blur');
-  expect(wrapper.state('usernameError')).toBe('Username cannot contain spaces');
+  expect(wrapper.state('usernameError')).toBe('cannot contain spaces');
 
   wrapper.find('textarea').simulate('blur');
-  expect(wrapper.state('bioError')).toBe('Bio must be at least 10 characters if present');
+  expect(wrapper.state('bioError')).toBe('must be at least 10 characters if present');
 });
 
 

@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import NavTab from '../../../components/nav-tabs'
+import NavTab from '../../../components/navTabs'
 
 describe ('Test for the navTab in the footer Component',() => {
   it ('should contain ', () => {

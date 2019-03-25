@@ -20,7 +20,7 @@ test('Should remove notifications', () => {
     payload: 2
   });
 
-  expect(state).toEqual([notification(1)]);
+  expect(state).toEqual([notification(1), { ...notification(2), read: true }]);
 });
 
 test('Should return default state', () => {
@@ -28,5 +28,5 @@ test('Should return default state', () => {
     type: '@@INIT',
   });
 
-  expect(state).toEqual([]);
+  expect(state).toEqual([...state,]);
 });

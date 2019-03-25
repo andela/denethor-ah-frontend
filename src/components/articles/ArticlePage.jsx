@@ -1,11 +1,13 @@
+/* eslint-disable import/no-duplicates */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import RoundedImage from '../../components/RoundedImage';
-import VerticalMargin from '../../components/VerticalMargin';
-import HorizontalMargin from '../../components/HorizontalMargin';
-import { RatingStars, RatingStarsBox } from '../../components/ratingStars';
-import { HorizontalLine } from '../../components/horizontalLine';
+import { toast } from 'react-toastify';
+import RoundedImage from "../RoundedImage";
+import VerticalMargin from "../VerticalMargin";
+import HorizontalMargin from "../HorizontalMargin";
+import { RatingStars, RatingStarsBox } from "../ratingStars";
+import { HorizontalLine } from "../horizontalLine";
 import { CreateComment } from '../comments';
 import { CommentEntries } from '../comments';
 import { addComment } from '../../redux/actions/comments';
@@ -22,7 +24,6 @@ import {
   getUserBookmarks,
 } from '../../redux/actions/articles';
 import { getArticleComments } from '../../redux/actions/comments'
-import { toast } from 'react-toastify';
 import { LikeNumberGroup , DisLikeNumberGroup, CommentButtonGroup } from '../likeNumberGroup';
 import { BookMarkHeartIcon } from '../impressionIcons'
 

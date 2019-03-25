@@ -2,23 +2,25 @@
 
 exports[`Should render component correctly 1`] = `
 <div
-  className="profile body-section"
+  className="edit-profile body-section"
 >
   <div
-    className="wide-padding"
+    className="section-edit-profile-info"
   >
     <div
-      className="section-profile-info"
+      className="edit-profile__firstname"
     >
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
       <div>
         <span>
-          First Name: 
+          First Name:
         </span>
+        <small
+          className="update-profile-error-message"
+        >
+           
+        </small>
+      </div>
+      <div>
         <input
           className=""
           onBlur={[Function]}
@@ -26,15 +28,21 @@ exports[`Should render component correctly 1`] = `
           value="Omoefe"
         />
       </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
+    </div>
+    <div
+      className="edit-profile__lastname"
+    >
       <div>
         <span>
           Last Name: 
         </span>
+        <span
+          className="update-profile-error-message"
+        >
+           
+        </span>
+      </div>
+      <div>
         <input
           className=""
           onBlur={[Function]}
@@ -42,15 +50,21 @@ exports[`Should render component correctly 1`] = `
           value="Dukuye"
         />
       </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
+    </div>
+    <div
+      className="edit-profile__username"
+    >
       <div>
         <span>
           Username: 
         </span>
+        <span
+          className="update-profile-error-message"
+        >
+           
+        </span>
+      </div>
+      <div>
         <input
           className=""
           onBlur={[Function]}
@@ -58,51 +72,44 @@ exports[`Should render component correctly 1`] = `
           value="Omoefe94460"
         />
       </div>
-      <small
-        className="update-profile-error-message"
-      >
-         
-      </small>
-      <div
-        className="profile__bio"
-      >
+    </div>
+    <div
+      className="profile__bio"
+    >
+      <div>
         <span>
           Bio: 
         </span>
-        <div>
-          <textarea
-            onBlur={[Function]}
-            onChange={[Function]}
-            value=""
-          />
-        </div>
+        <span
+          className="update-profile-error-message"
+        >
+           
+        </span>
       </div>
       <div>
-        <span>
-          Profile Picture: 
-        </span>
-        <input
+        <textarea
+          onBlur={[Function]}
           onChange={[Function]}
-          type="file"
+          value=""
         />
       </div>
-      <button
-        className="button button--primary"
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="button__text--login undefined"
-        >
-          Update
-        </span>
-        <span />
-      </button>
-      <VerticalMargin
-        className="show-for-medium"
-        size={10}
-      />
     </div>
+    <button
+      className="button button--primary"
+      disabled={false}
+      onClick={[Function]}
+    >
+      <span
+        className="button__text--login undefined"
+      >
+        Update
+      </span>
+      <span />
+    </button>
+    <VerticalMargin
+      className="show-for-medium"
+      size={10}
+    />
   </div>
 </div>
 `;

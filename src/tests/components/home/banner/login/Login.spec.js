@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Login } from '../../../../../components/home/banner/login/Login';
 
+jest.mock('../../../../../utils/socket.js');
+
 test('Should render login form', () => {
   const wrapper = shallow(<Login />);
 

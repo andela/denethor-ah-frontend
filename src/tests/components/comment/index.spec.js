@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { CreateComment } from '../../../components/comments';
-import { CommentEntries}  from '../../../components/comments';
+import { CreateComment, CommentEntries } from '../../../components/comments';
 import { comments, commentEntry }  from '../../mock-data/comments';
 
 describe('Test for the single comment component', () => {
