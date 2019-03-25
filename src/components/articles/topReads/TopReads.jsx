@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { PostFeedTopSection } from '../../feed/postFeedTopSection';
 import FeedBottom from '../../feed';
 

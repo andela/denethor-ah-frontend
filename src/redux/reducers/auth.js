@@ -1,4 +1,4 @@
-import { LOGOUT, SET_LOGIN_STATUS } from '../actions/types';
+import { LOGOUT, SET_LOGIN_STATUS, LOGIN_MODAL } from '../actions/types';
 
 const authDefaultState = {
   isLoggedIn: undefined
@@ -9,6 +9,11 @@ export default (state = authDefaultState, action) => {
     case SET_LOGIN_STATUS:
       return {
         isLoggedIn: action.payload,
+      };
+
+    case LOGIN_MODAL:
+      return {
+        loginModal: action.payload,
       };
 
     case LOGOUT:

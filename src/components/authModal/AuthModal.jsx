@@ -4,6 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Screen from '../home/banner/screen';
 import './styles.scss';
+import { showLoginModal } from '../../redux/actions/auth';
 
 class AuthModal extends Component {
   componentDidMount () {
@@ -17,7 +18,7 @@ class AuthModal extends Component {
   handleToggle = ({ target }) => {
     if (this.modal.contains(target)) return;
 
-    this.props.toggleOff();
+    this.props.dispatch(showLoginModal(false));
   };
 
   render() { 
@@ -25,7 +26,7 @@ class AuthModal extends Component {
       return <Redirect to={this.props.history.location.pathname}/>
     }
 
-    const { content } = this.props;
+    const { content = 'Login' } = this.props;
 
     return (
       <div className="auth-modal__background">
@@ -41,7 +42,7 @@ AuthModal.propTypes = {
   content: PropTypes.string,
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool,
-  toggleOff: PropTypes.func
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });

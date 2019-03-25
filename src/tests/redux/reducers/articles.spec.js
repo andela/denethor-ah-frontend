@@ -46,5 +46,3 @@ it('Should handle GET_ARTICLES_SUCCESS ', () => {
   });
   expect(state.length).toEqual(articles.length);
 });
-
-

@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import RoundedImage from '../RoundedImage';
 import VerticalMargin from '../VerticalMargin';
 import HorizontalMargin from '../HorizontalMargin';
-import AuthModal from '../authModal';
 import { RatingStars, RatingStarsBox } from '../ratingStars';
 import { HorizontalLine } from '../horizontalLine';
 import { CreateComment, CommentEntries } from '../comments';
@@ -22,6 +21,7 @@ import {
   removeArticleBookmark,
   getUserBookmarks,
 } from '../../redux/actions/articles';
+import { showLoginModal } from '../../redux/actions/auth';
 import { LikeNumberGroup , DisLikeNumberGroup, CommentButtonGroup } from '../likeNumberGroup';
 import { BookMarkHeartIcon } from '../impressionIcons'
 
@@ -33,8 +33,7 @@ export class SingleArticleView extends Component {
   state = {
     likeBtnColor: '#822E2E',
     BookMarkBtnColor: '#ffffff',
-    currentUserRating: 0,
-    showModal: false
+    currentUserRating: 0
   }
 
 
@@ -56,11 +55,11 @@ export class SingleArticleView extends Component {
 
   }
 
-  toggleModalOff = () => {
-    this.setState({ showModal: false });
-  }
-
   starClickHandle = (item) => {
+    if(!this.props.isLoggedIn) {
+      this.props.showLoginModal('Login');
+      return toast.error('You need to login to rate an article');
+    }
     let articleId = this.props.match.params.articleId;
     return this.props.rateArticle(item, articleId )
     .then(() => {
@@ -71,8 +70,7 @@ export class SingleArticleView extends Component {
       if (error.response.data.message === 'You already rated this article'){
         return toast.error('You have already rated this article');
       } else if(error.response.data === 'Unauthorized'){
-         toast.error('You need to login to rate an article');
-        return  this.setState({ showModal: true });
+         return toast.error('You need to login to rate an article');
       }else if (error.response.data.message === "Sorry! You can't rate your article"){
         return toast.error('Sorry! You can\'t rate your article');
       }
@@ -81,6 +79,10 @@ export class SingleArticleView extends Component {
   }
 
   likeHandle = () => {
+    if(!this.props.isLoggedIn) {
+      this.props.showLoginModal('Login');
+      return toast.error('You need to login to like an article');
+    }
     let articleId = this.props.match.params.articleId;
     return this.props.likeArticle(articleId)
       .then((response) => {
@@ -92,7 +94,7 @@ export class SingleArticleView extends Component {
           toast.error('You need to login to like an article',{
             className: 'toast-custom-style'
           });
-          return  this.setState({ showModal: true });
+          return this.props.showLoginModal('Login');
         }
         toast.error(`An error occurred when trying to like this article`, {
           className: 'toast-custom-style'
@@ -101,6 +103,10 @@ export class SingleArticleView extends Component {
   }
 
   dislikeHandle = () => {
+    if(!this.props.isLoggedIn) {
+      this.props.showLoginModal('Login');
+      return toast.error('You need to login to dislike an article');
+    }
     let articleId = this.props.match.params.articleId;
     return this.props.dislikeArticle(articleId)
       .then((response) => {
@@ -112,7 +118,7 @@ export class SingleArticleView extends Component {
           toast.error('You need to login to dislike an article', {
             className: 'toast-custom-style'
           });
-          return  this.setState({ showModal: true });
+          return this.props.showLoginModal('Login');
       }
         return toast.error('An error occurred while trying to dislike the article', {
           className: 'toast-custom-style'
@@ -122,13 +128,17 @@ export class SingleArticleView extends Component {
   }
 
   bookmarkHandle = () => {
+    if(!this.props.isLoggedIn) {
+      this.props.showLoginModal('Login');
+      return toast.error('You need to login to bookmark an article');
+    }
     let articleId = this.props.match.params.articleId;
     this.props.bookmarkArticle(articleId).then(() => { this.setState({BookMarkBtnColor: '#ffff00'}) })
    
     .catch(error => {
       if(error.response.status === 401){
         toast.error('You need to login to bookmark an article',{className: 'toast-custom-style'});
-        return  this.setState({ showModal: true });    
+        return this.props.showLoginModal('Login');    
      } else if(error.response.status === 409){
         return this.props.removeArticleBookmark(articleId).then(() => { this.setState({BookMarkBtnColor: '#fff'}) })
      }
@@ -139,6 +149,10 @@ export class SingleArticleView extends Component {
   }
 
   handleOnClickLike = (commentId) => {
+    if(!this.props.isLoggedIn) {
+      this.props.showLoginModal('Login');
+      return toast.error('You need to login to like this comment');
+    }
     this.props.likeComment(commentId)
     .then()
     .catch(error => {
@@ -150,7 +164,8 @@ export class SingleArticleView extends Component {
           return toast.error('You cannot like your own comment');
         }
         if(response && response.status === 401){
-          return toast.error('You need to login to like this comment');
+          toast.error('You need to login to like this comment');
+          return this.props.showLoginModal('Login');
         }
         if(response && response.status === 500){
           return toast.error('Server error');
@@ -175,8 +190,6 @@ export class SingleArticleView extends Component {
       comments,
       addComment,
     } = this.props;
-
-    const { toggleModalOff, state: { showModal } } = this;
     const { loading } = comments;
     const article = articles.find(item => item.id === articleId) || {};
     const commentsCount = this.props.comments.comments.length
@@ -194,7 +207,6 @@ export class SingleArticleView extends Component {
 
     return (
       <div>
-        {showModal && <AuthModal toggleOff={toggleModalOff} content={'Login'} />}
         <div className='banner-section'>
           <div className='banner-image'>
             <img src={featuredImage} alt='banner background' />
@@ -316,10 +328,13 @@ SingleArticleView.propTypes = {
   toggleModalOff: PropTypes.func,
   getAllCommentsImpression: PropTypes.func,
   likeComment: PropTypes.func,
-  commentId: PropTypes.string
+  commentId: PropTypes.string,
+  showLoginModal: PropTypes.func,
+  isLoggedIn: PropTypes.bool
 }
 
 const mapStateToProps = ({
+  auth: { isLoggedIn },
   articles,
   comments,
   impressions = {},
@@ -346,6 +361,7 @@ const mapStateToProps = ({
     impressions,
     averageRating,
     ratingsCount,
+    isLoggedIn
   })
 };
 
@@ -363,7 +379,8 @@ const mapDispatchToProps = ({
   removeArticleBookmark,
   getUserBookmarks,
   getAllCommentsImpression,
-  likeComment
+  likeComment,
+  showLoginModal
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticleView);

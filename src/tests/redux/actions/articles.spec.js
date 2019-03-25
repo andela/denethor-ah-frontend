@@ -111,4 +111,4 @@ describe('Article actions', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-})
+});

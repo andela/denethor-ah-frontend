@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import AuthModal from '../../authModal';
+import { showLoginModal } from '../../../redux/actions/auth';
 
 class AuthButton extends Component {
-  state = {
-    showModal: false
-  }
-
   handleClick = () => {
     const { history, history: { location: { pathname } }, type } = this.props;
 
     if(/^\/((login)?(signup)?)?$/.test(pathname)) {
       return history.push(`/${type.toLowerCase()}`);
     }
-    this.setState({ showModal: true });
+    this.props.dispatch(showLoginModal(type));
   }
 
   toggleModalOff = () => {
-    this.setState({ showModal: false });
+    this.props.dispatch(showLoginModal(false));
   }
 
   render() {
     const {
-      state: { showModal },
       props: { type },
-      handleClick, toggleModalOff
+      handleClick
     } = this;
     return (
       <div>
@@ -35,16 +31,18 @@ class AuthButton extends Component {
         >
           {type}
         </button>
-
-        {showModal && <AuthModal toggleOff={toggleModalOff} content={type} />}
       </div>
     );
   }
 }
 
 AuthButton.propTypes = {
+  dispatch: PropTypes.func,
   history: PropTypes.object,
-  type: PropTypes.string
+  type: PropTypes.string,
+  showLoginModal: PropTypes.bool
 }
 
-export default withRouter(AuthButton);
+const mapStateToProps = ({ auth: { showLoginModal }}) => ({ showLoginModal });
+
+export default connect(mapStateToProps)(withRouter(AuthButton));

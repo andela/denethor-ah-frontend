@@ -1,4 +1,5 @@
-import { SET_LOGIN_STATUS, LOGOUT } from './types';
+import { toast } from 'react-toastify';
+import { SET_LOGIN_STATUS, LOGOUT, LOGIN_MODAL } from './types';
 import axios from '../../utils/axiosConfig';
 import { removeOwnProfile } from './profile';
 
@@ -16,6 +17,7 @@ export const login = loginDetails => async (dispatch) => {
     localStorage.setItem('token', token);
 
     dispatch(setLoggedInState(true));
+    toast.dismiss();
     return;
   } catch ({ response: { status } }) {
     switch (status) {
@@ -31,6 +33,11 @@ export const login = loginDetails => async (dispatch) => {
     }
   }
 };
+
+export const showLoginModal = (payload) => ({
+  type: LOGIN_MODAL,
+  payload
+});
 
 export const logout = () => async (dispatch) => {
   await axios.get(`${api}/users/logout`);

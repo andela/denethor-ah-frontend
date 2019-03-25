@@ -1,7 +1,6 @@
 .filter-form {
   min-height: 70vh;
-  width: 95%;
-  margin-left: 5%;
+  width: 100%;
   padding: 10rem 2rem 3rem;
   justify-content: flex-start;
 
@@ -11,8 +10,8 @@
     margin: 1rem 0;
   }
 
-  .feed-bottom-container-small {
-    width: 30%;
+  .paginator .paginator__content-area .feed-bottom-container-small {
+    width: 47%;
     padding: 0;
     margin: 1rem 3% 1rem 0;
   }
@@ -30,7 +29,7 @@
 
 @media (max-width: 60rem) {
   .filter-form { 
-    .feed-bottom-container-small {
+    .paginator .paginator__content-area .feed-bottom-container-small {
       width: 45%;
     }
   }
@@ -38,7 +37,7 @@
 
 @media (max-width: 40rem) {
   .filter-form { 
-    .feed-bottom-container-small {
+    .paginator .paginator__content-area .feed-bottom-container-small {
       width: 90%;
     }
   }
