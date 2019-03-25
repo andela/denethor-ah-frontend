@@ -97,7 +97,7 @@ DislikeButton.propTypes = {
 
 BookMarkHeartIcon.propTypes = {
   onClick: PropTypes.func,
-  btnColor: PropTypes.string,
+  btnColor: PropTypes.any,
 }
 
 CommentImpressionButton.propTypes = {

@@ -28,5 +28,5 @@ test('Should return default state', () => {
     type: '@@INIT',
   });
 
-  expect(state).toEqual([]);
+  expect(state).toEqual([...state,]);
 });

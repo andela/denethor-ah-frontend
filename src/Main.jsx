@@ -17,6 +17,7 @@ import ResetPasswordVerification from './components/resetPasswordVerification/Re
 import { setLoggedInState } from './redux/actions/auth';
 import { getOwnProfile, userBookmarks } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
+import CategoriesPage from './components/articles/categories/CategoriesPage';
 
 class Main extends Component {
   state = {
@@ -94,6 +95,7 @@ class Main extends Component {
             <Route exact path="/passwordreset" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
+            <Route path="/articles" component = {CategoriesPage}/>
           </Switch>
           <Footer />
         </div>
