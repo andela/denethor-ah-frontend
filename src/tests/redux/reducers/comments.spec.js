@@ -1,6 +1,14 @@
 import commentsReducer from '../../../redux/reducers/comments';
-import { comments } from '../../mock-data/comments';
-import {ADD_COMMENT, REMOVE_COMMENT, ADD_COMMENT_FAILURE, GET_COMMENT_SUCCESS} from '../../../redux/actions/types';
+import { comments, commentsLikes, commentImpression } from '../../mock-data/comments';
+import {
+  ADD_COMMENT, 
+  REMOVE_COMMENT, 
+  ADD_COMMENT_FAILURE, 
+  GET_COMMENT_SUCCESS, 
+  LIKE_COMMENT_REQUEST, 
+  COMMENT_IMPRESSION_SUCCESS,
+  GET_COMMENT_LIKES_COUNT_SUCCESS
+} from '../../../redux/actions/types';
 import { commentReducerDefaultState } from '../../../redux/reducers/comments'
 
 
@@ -14,7 +22,8 @@ it('Should return default state when initialized', () => {
 it('Should add comments to store', () => {
   const initialState = {
     comments: [],
-    loading: true
+    loading: true,
+    commentLikes: []
   };
   const state = commentsReducer(initialState, {
     type: ADD_COMMENT,
@@ -26,7 +35,8 @@ it('Should add comments to store', () => {
 it('Should return new state when add comment fails ', () => {
   const initialState = {
     comments: [],
-    loading: false
+    loading: false,
+    commentLikes: []
   };
   const state = commentsReducer(initialState, {
     type: ADD_COMMENT_FAILURE
@@ -36,7 +46,8 @@ it('Should return new state when add comment fails ', () => {
 
 it('Should get comments from store', () => {
   const initialState = {
-    comments: []
+    comments: [],
+    commentLikes: []
   };
   const state = commentsReducer(initialState, {
     type: GET_COMMENT_SUCCESS,
@@ -53,4 +64,41 @@ it('Should remove comments from store', () => {
     id: comments[0].id
   });
   expect(state.length).toEqual(initialLength - 1);
+});
+
+it('Should add comment likes to store', () => {
+  const initialState = {
+    comments: [],
+    loading: true,
+    commentLikes: []
+  };
+  const state = commentsReducer(initialState, {
+    type: LIKE_COMMENT_REQUEST
+  });
+  expect(state).toEqual({...initialState } );
+});
+it('Should add comment likes to store and return new state', () => {
+  const initialState = {
+    comments: [],
+    loading: true,
+    commentsLikes
+  };
+  const state = commentsReducer(initialState, {
+    type: COMMENT_IMPRESSION_SUCCESS,
+    commentImpression
+  });
+  expect(state.commentsLikes.length).toEqual(commentsLikes.length + 1);
+});
+
+it('Should get number of likes from store and return new state', () => {
+  const initialState = {
+    comments: [],
+    loading: true,
+    commentsLikes: []
+  };
+  const state = commentsReducer(initialState, {
+    type: GET_COMMENT_LIKES_COUNT_SUCCESS,
+    commentsLikes: commentsLikes
+  });
+  expect(state.commentsLikes.length).toEqual(commentsLikes.length);
 });

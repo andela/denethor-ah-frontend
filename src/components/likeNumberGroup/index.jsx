@@ -1,12 +1,14 @@
 import React from 'react';
-import { InactiveLikeButton, DislikeButton, BookMarkHeartIcon, CommentButton } from '../impressionIcons';
 import PropTypes from 'prop-types';
+
+import { InactiveLikeButton, DislikeButton, BookMarkHeartIcon, CommentButton } from '../impressionIcons';
+
 import './style.scss';
- 
+
 const LikeNumberGroup = ({ btnColor, onClick, likeCount }) => {
   return (
     <span className='likes-number-group'>
-      <InactiveLikeButton btnColor={btnColor} onClick={onClick}/>&nbsp;
+      <InactiveLikeButton btnColor={btnColor} onClick={onClick} />&nbsp;
         <span className='like-count'>{likeCount}</span>
     </span>
   )
@@ -15,22 +17,22 @@ const LikeNumberGroup = ({ btnColor, onClick, likeCount }) => {
 const DisLikeNumberGroup = ({ btnColor, onClick, dislikeCount }) => {
   return (
     <span className='likes-number-group '>
-      <DislikeButton onClick={onClick} btnColor={btnColor}/>&nbsp;
+      <DislikeButton onClick={onClick} btnColor={btnColor} />&nbsp;
         <span className='like-count dislike-count'>{dislikeCount}</span>
     </span>
   )
 }
 
-const BookMarkNumberGroup = ({btnColor,  onClick}) => {
+const BookMarkNumberGroup = ({ btnColor, onClick }) => {
   return (
     <span className='likes-number-group'>
-      <BookMarkHeartIcon onClick={onClick} btnColor={btnColor}/> 
+      <BookMarkHeartIcon onClick={onClick} btnColor={btnColor} />
       <span className='like-count'> </span>
     </span>
   )
 }
 
-const CommentButtonGroup = ({commentsCount}) => {
+const CommentButtonGroup = ({ commentsCount }) => {
   return (
     <span className='likes-number-group'>
       <CommentButton /> <span className='like-count'>{commentsCount}</span>
@@ -39,7 +41,7 @@ const CommentButtonGroup = ({commentsCount}) => {
 }
 
 LikeNumberGroup.propTypes = {
-  btnColor: PropTypes.bool,
+  btnColor: PropTypes.any,
   likeCount: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired
 };
@@ -47,11 +49,11 @@ LikeNumberGroup.propTypes = {
 DisLikeNumberGroup.propTypes = {
   dislikeCount: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
-  btnColor: PropTypes.bool,
+  btnColor: PropTypes.any,
 }
 
 BookMarkNumberGroup.propTypes = {
-  btnColor: PropTypes.bool,
+  btnColor: PropTypes.any,
   onClick: PropTypes.func.isRequired,
 }
 
@@ -59,4 +61,4 @@ CommentButtonGroup.propTypes = {
   commentsCount: PropTypes.number
 }
 
-export  { LikeNumberGroup, DisLikeNumberGroup , BookMarkNumberGroup, CommentButtonGroup };
+export { LikeNumberGroup, DisLikeNumberGroup, BookMarkNumberGroup, CommentButtonGroup };

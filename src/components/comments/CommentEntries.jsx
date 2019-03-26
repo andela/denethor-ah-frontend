@@ -2,23 +2,32 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import './styles.scss';
-import { LikeNumberGroup } from '../../components/likeNumberGroup';
-import { HorizontalLine } from '../../components/horizontalLine';
+import { CommentImpressionButton } from "../impressionIcons";
+import { HorizontalLine } from "../horizontalLine";
 
 
-const CommentEntries = ({ comments = [] }) => {
-  const entries = comments.map((item, index) => {
-    const { user: { firstname, lastname } } = item;
+const CommentEntries = ({ comments = [], allCommentsImpressions, handleOnClickLike }) => {
+  const commentEntries = comments.map((item, index) => {
+    const { user: { firstname, lastname }, id } = item;
     const username = `${firstname} ${lastname}`
     const date = format(
       new Date(item.updatedAt),
       'MMM D YYYY, hh:mm a'
     );
 
+    const impression = allCommentsImpressions.length
+      ? allCommentsImpressions.find(commentImpression => commentImpression.commentId === id)
+      : {};
+    const impressionCount = impression
+    ? impression.count
+    : 0;
+  
+    const { liked } = impression || {};
+
     return (
       <div key={index} className='comment-entry'>
         <div className='comment-text'>
-            <p>{item.commentBody}</p>
+          <p>{item.commentBody}</p>
           <div className='comment-text__info'>
             <p className='comment-text__user-name'>{username}</p>
             <p className='comment-text__date'>{date}</p>
@@ -26,7 +35,7 @@ const CommentEntries = ({ comments = [] }) => {
         </div>
         <div className='actions'>
           <div className='likes-count'>
-            {item.likesCount && <LikeNumberGroup likeCount={25} />}
+            <CommentImpressionButton likeImpression={liked} onClick={() => handleOnClickLike(id)} likeCount={impressionCount} />
           </div>
         </div>
       </div>
@@ -35,14 +44,17 @@ const CommentEntries = ({ comments = [] }) => {
 
   return (
     <div>
-      {!!entries.length && <div><HorizontalLine />Comments</div>}
-      {entries}
+      {!!commentEntries.length && <div><HorizontalLine />Comments</div>}
+      {commentEntries}
     </div>
   );
 }
 
 CommentEntries.propTypes = {
-  comments: PropTypes.array.isRequired
+  comments: PropTypes.array,
+  allCommentsImpressions: PropTypes.array,
+  handleOnClickLike: PropTypes.func,
+  likeImpression: PropTypes.bool
 };
 
 export default CommentEntries;

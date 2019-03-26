@@ -63,6 +63,7 @@ export const getOneArticle = (id) => (dispatch) => {
       type: GET_ONE_ARTICLE_SUCCESS,
       payload: article
     });
+    return article;
   })
   .catch(error => {
     throw error;
