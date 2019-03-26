@@ -109,7 +109,7 @@ exports[`Should render login form 1`] = `
       Forgot Password? 
       <Link
         replace={false}
-        to="/passwordreset/verify"
+        to="/forgotPassword/verify"
       >
         Click here
       </Link>

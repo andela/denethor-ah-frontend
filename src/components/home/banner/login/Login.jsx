@@ -189,7 +189,7 @@ export class Login extends Component {
           <SocialLoginIcons />
           <div className='break'></div>
           <div className='reset-password'>
-            Forgot Password? <Link to='/passwordreset/verify'>Click here</Link>
+            Forgot Password? <Link to='/forgotPassword/verify'>Click here</Link>
           </div>
         </div>
       </div>

@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import resetPasswordVerification from './axiosCall';
+import forgotPasswordVerification from './passwordVerificationAction';
 import { logout } from '../../redux/actions/auth';
 import './styles.scss';
 
-export class ResetPasswordVerification extends Component {
+export class ForgotPasswordVerification extends Component {
   state = {
     buttonDisabled: false,
     displaySpinner: false,
@@ -35,14 +35,14 @@ export class ResetPasswordVerification extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { state : { email, toastOptions }, props: { dispatch } } = this;
+    const { state: { email, toastOptions }, props: { dispatch } } = this;
 
     if (!email) {
       return this.setState({ emailError: 'Please enter a valid email address', buttonDisabled: true });
     }
 
     this.setState({ buttonDisabled: true, displaySpinner: true });
-    const { error, message } = await resetPasswordVerification({ email });
+    const { error, message } = await forgotPasswordVerification({ email });
 
     if (error) {
       this.setState(() => ({ displaySpinner: false }))
@@ -58,9 +58,9 @@ export class ResetPasswordVerification extends Component {
   }
 
   render() {
-    const { 
-      state: { buttonDisabled, email, emailError, displaySpinner }, 
-      onEmailChange, onEmailBlur 
+    const {
+      state: { buttonDisabled, email, emailError, displaySpinner },
+      onEmailChange, onEmailBlur
     } = this;
 
     return (
@@ -106,8 +106,8 @@ export class ResetPasswordVerification extends Component {
   }
 }
 
-ResetPasswordVerification.propTypes = {
+ForgotPasswordVerification.propTypes = {
   dispatch: PropTypes.func
 }
 
-export default connect()(ResetPasswordVerification);
+export default connect()(ForgotPasswordVerification);

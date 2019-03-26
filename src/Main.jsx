@@ -9,11 +9,12 @@ import Header from './components/header/Header';
 import Footer from './components/footer';
 import { ArticlePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';
-import ResetPassword from './components/resetPassword/ResetPassword';
+import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import ResetPassword from './components/resetPassword'
 import { Dashboard } from './components/dashboard';
 import FilteredArticles from './components/filteredArticles/FilteredArticles';
 import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
-import ResetPasswordVerification from './components/resetPasswordVerification/ResetPasswordVerification';
+import ForgotPasswordVerification from './components/passwordVerification/PasswordVerification';
 import { setLoggedInState } from './redux/actions/auth';
 import { getOwnProfile, userBookmarks } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
@@ -81,7 +82,7 @@ class Main extends Component {
     return (
       <BrowserRouter>
         <div>
-        <ToastContainer />
+          <ToastContainer />
           <Route component={this.scrollToTop} />
           <Header />
           <Switch>
@@ -92,9 +93,10 @@ class Main extends Component {
             <Route path="/dashboard" component={AuthHOC(Dashboard)} />
             <Route path='/filter' component={FilteredArticles} />
             <Route path="/api/users/:id/verify" component={Redirect} />
-            <Route exact path="/passwordreset" component={ResetPassword} />
+            <Route exact path="/forgotPassword" component={ForgotPassword} />
+            <Route exact path="/resetPassword" component={ResetPassword} />
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
-            <Route path="/passwordreset/verify" component={ResetPasswordVerification} />
+            <Route path="/forgotPassword/verify" component={ForgotPasswordVerification} />
             <Route path="/articles" component = {CategoriesPage}/>
           </Switch>
           <Footer />

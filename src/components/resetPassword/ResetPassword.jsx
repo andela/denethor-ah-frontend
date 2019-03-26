@@ -1,159 +1,166 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { isEmail, isAlphanumeric } from 'validator';
+import { isAlphanumeric } from 'validator';
+import PropTypes from 'prop-types';
 import '@babel/polyfill';
 import { toast } from 'react-toastify';
-import PropTypes from 'prop-types';
-import { login } from '../../redux/actions/auth';
-import resetPassword from './axiosCall';
 import './styles.scss';
+import resetPassword from './resetPasswordAction';
 
 export class ResetPassword extends Component {
   state = {
     buttonDisabled: false,
-    confirmPassword: '',
-    password: '',
-    passordErrorMessage: '',
-    confirmPasswordErrorMessage: '',
-    toastId: 'toast',
-    token: ''
+    newPassword: '',
+    oldPassword: '',
+    newPasswordErrorMessage: '',
+    oldPasswordErrorMessage: '',
+    toastId: 'toast'
   }
 
-  componentDidMount() {
-    if (document.location.hash.includes('token')) {
-      const token = document.location.hash.slice(7);
-      this.setState({ token })
-      history.pushState('', document.title, window.location.pathname + window.location.search);
-    }
-  }
 
-  onPasswordChange = ({ target: { value: password } }) => {
+  onOldPasswordChange = ({ target: { value: oldPassword } }) => {
     this.setState({
-      password,
-      passwordErrorMessage: ''
+      oldPassword,
+      oldPasswordErrorMessage: ''
     });
   }
 
-  onConfirmPasswordChange = ({ target: { value: confirmPassword } }) => {
+  onNewPasswordChange = ({ target: { value: newPassword } }) => {
     this.setState({
-      confirmPassword,
-      confirmPasswordErrorMessage: '',
+      newPassword,
+      newPasswordErrorMessage: '',
     });
   }
 
-  onPasswordBlur = () => {
-    const { password } = this.state
-    if (!password) {
-      return this.setState({ passwordErrorMessage: 'Please enter your password.' })
-    }
-
-    if (!isAlphanumeric(password)) {
-      return this.setState({ passwordErrorMessage: 'Use numbers and letters for password.' })
-    }
-
-    if (password.length < 8) {
-      return this.setState({ passwordErrorMessage: 'Password must be 8 or more characters.' })
-    }
-  }
-  onConfirmPasswordBlur = () => {
-    const { confirmPassword, password } = this.state;
-    if (password !== confirmPassword) {
-      return this.setState({ confirmPasswordErrorMessage: 'Passwords do not match.' })
+  onOldPasswordBlur = () => {
+    const { oldPassword } = this.state
+    if (!oldPassword) {
+      return this.setState({ oldPasswordErrorMessage: 'Please enter your Old password.' })
     }
   }
 
-  handleSubmit = async (e) => {
+  onNewPasswordBlur = () => {
+  const { newPassword, oldPassword } = this.state
+
+  if (!newPassword) {
+    return this.setState({ newPasswordErrorMessage: 'Please enter your New password.' })
+  }
+
+  if (!isAlphanumeric(newPassword)) {
+    return this.setState({ newPasswordErrorMessage: 'Use numbers and letters for password.' })
+  }
+
+  if (newPassword.length < 8) {
+    return this.setState({ newPasswordErrorMessage: 'Password must be 8 or more characters.' })
+  }
+
+  if (oldPassword === newPassword) {
+    return  this.setState({newPasswordErrorMessage: 'New password must be different.'})
+  }
+}
+
+  handleSubmit = (e) => {
     e.preventDefault();
-    const { toastId, password, token } = this.state;
-    if (!password) {
-      return this.setState({ passwordErrorMessage: 'Please enter your password.' });
+    const { toastId, oldPassword, newPassword } = this.state;
+    if (!oldPassword) {
+      return this.setState({ oldPasswordErrorMessage: 'Please enter your Old password.' });
+    }
+    if (!newPassword) {
+      return this.setState({ newPasswordErrorMessage: 'Please enter your New password.' });
     }
 
-    localStorage.clear();
     this.setState({ buttonDisabled: true });
 
-    const res = await resetPassword(password, token);
-
-    this.setState({ buttonDisabled: false });
-
-    if (!isEmail(res)) {
-      return toast.error(res, {
-        hideProgressBar: true,
-        toastId,
-        className: 'toast-custom-style toast-reset-password'
-      });
-    }
-
-    toast.success('Password set successfully', {
+    this.props.resetPassword(oldPassword, newPassword)
+     .then(() => 
+     toast.success('Password set successfully', {
       autoClose: true,
       hideProgressBar: true,
-      toastId,
-      className: 'toast-custom-style toast-reset-password'
-    });
-
-    const serverErrorMessage = await this.props.handleLogin({
-      email: res, password
-    });
-
-    if (!this.props.isLoggedIn) {
-      toast.error(serverErrorMessage, {
+      toastId
+    })
+    )
+     .catch(error => {
+       const { response } = error;
+       if (response && response.status === 422){
+        return toast.error(response.data.data.input, {
+          hideProgressBar: true,
+          autoClose: true,
+          toastId
+        });
+      }
+      if(response && response.status === 403){
+        return toast.error(response.data.message, {
+          hideProgressBar: true,
+          autoClose: true,
+          toastId
+        });
+      }
+      if (response && response.status === 500){
+        return toast.error('Server error', {
         hideProgressBar: true,
-        toastId,
-        className: 'toast-custom-style toast-reset-password'
+        autoClose: true,
+        toastId
       });
-    }
-    this.props.history.push('/dashboard');
+      }
+      else{toast.error('unKnown error', {
+        hideProgressBar: true,
+        autoClose: true,
+        toastId
+      });
+      }
+      })
+    this.setState({ buttonDisabled: false });
+
   }
 
   render() {
     const {
       buttonDisabled,
-      confirmPassword,
-      confirmPasswordErrorMessage,
-      password,
-      passwordErrorMessage,
+      newPassword,
+      oldPasswordErrorMessage,
+      oldPassword,
+      newPasswordErrorMessage,
     } = this.state;
 
-    const disableButton = buttonDisabled || confirmPasswordErrorMessage|| passwordErrorMessage;
+    const disableButton = buttonDisabled || oldPasswordErrorMessage || newPasswordErrorMessage;
 
     return (
       <div className='flex modal-wrapper'>
         <div className='modal-form-container'>
           <div className='modal-header'>
             <div className="logo-container">
-                <h3>Enter Password</h3>
+              <h3>Enter Password</h3>
             </div>
           </div>
           <div className='reset-password-form__container'>
             <form className='reset-password-form__form'>
               <div>
                 <small className='password-error-message'>
-                  &nbsp;{passwordErrorMessage}
+                  &nbsp;{oldPasswordErrorMessage}
                 </small>
                 <input
-                  className={passwordErrorMessage && 'red-bg'}
+                  className={oldPasswordErrorMessage && 'red-bg'}
                   type='password'
                   name='password'
-                  placeholder='password'
-                  value={password}
-                  onChange={this.onPasswordChange}
-                  onBlur={this.onPasswordBlur}
+                  placeholder='Old Password'
+                  value={oldPassword}
+                  onChange={this.onOldPasswordChange}
+                  onBlur={this.onOldPasswordBlur}
                   required
                 />
               </div>
 
               <div>
                 <small className='password-error-message'>
-                  &nbsp;{confirmPasswordErrorMessage}
+                  &nbsp;{newPasswordErrorMessage}
                 </small>
                 <input
-                  className={confirmPasswordErrorMessage && 'red-bg'}
+                  className={newPasswordErrorMessage && 'red-bg'}
                   type='password'
                   name='confirm-password'
-                  onBlur={this.onConfirmPasswordBlur}
-                  placeholder='confirm password'
-                  value={confirmPassword}
-                  onChange={this.onConfirmPasswordChange}
+                  onBlur={this.onNewPasswordBlur}
+                  placeholder='New Password'
+                  value={newPassword}
+                  onChange={this.onNewPasswordChange}
                   required
                 />
               </div>
@@ -161,6 +168,7 @@ export class ResetPassword extends Component {
                 disabled={disableButton}
                 className='button button--primary'
                 onClick={this.handleSubmit}
+                name ='submit'
               >
                 <span className={`button__text--login ${buttonDisabled ? 'hidden' : undefined}`}>
                   Submit
@@ -174,17 +182,10 @@ export class ResetPassword extends Component {
     );
   }
 }
-
-const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
-
-export const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (payload) => dispatch(login(payload))
-});
-
-ResetPassword.propTypes = {
-  handleLogin: PropTypes.func,
-  history: PropTypes.object,
-  isLoggedIn: PropTypes.bool
+ResetPassword.propTypes = { 
+  resetPassword: PropTypes.func
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword);
+ResetPassword.defaultProps = {
+  resetPassword
+}
+export default (ResetPassword);

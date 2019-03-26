@@ -102,7 +102,7 @@ exports[`Test for the single comment component should render the comment section
 </Comment>
 `;
 
-exports[`Test for the single comment component should show a toast when a validation error occurs 1`] = `
+exports[`Test for the single comment component should show a toast error when user is not logged in 1`] = `
 <Comment
   addComment={
     [MockFunction] {
@@ -161,7 +161,7 @@ exports[`Test for the single comment component should show a toast when a valida
 </Comment>
 `;
 
-exports[`Test for the single comment component should show a toast when user is not logged in 1`] = `
+exports[`Test for the single comment component should show a toast when a validation error occurs 1`] = `
 <Comment
   addComment={
     [MockFunction] {
