@@ -39,3 +39,15 @@
    left: 0;
    color: gold;
 }
+
+.rating-stars > span.selected,
+.rating-stars > span.selected ~ span {
+  color: transparent;
+}
+.rating-stars > span.selected:before,
+.rating-stars > span.selected ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
+}

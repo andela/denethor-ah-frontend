@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Avatar from 'react-avatar-edit';
-import { RatingStars } from '../../components/ratingStars';
+import { toast } from 'react-toastify';
+import { RatingStars } from "../ratingStars";
 import ArticleListItem from './ArticleListItem';
 import './styles.scss';
 import RoundedImage from '../RoundedImage';
-import { toast } from 'react-toastify';
 import { uploadProfilePicture } from '../../redux/actions/profile';
 
 

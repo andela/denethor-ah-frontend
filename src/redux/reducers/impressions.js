@@ -34,7 +34,7 @@ const impressionReducer = (state = impressionReducerDefaultState, action) => {
       if (!payload.impression) return state;
 
       if (payload.impression.likeImpression) {
-        dislikes = [...state.dislikes.filter(like => like.userId !== payload.impression.userId)]
+        dislikes = [...state.dislikes.filter(like => like.userId !== payload.impression.userId)];
         return {...state, dislikes, likes: [...state.likes, payload.impression]}
       }
       

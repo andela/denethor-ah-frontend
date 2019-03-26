@@ -7,18 +7,17 @@
   position: absolute;
   }
   .nav-tabs a {
+    color: #FFFFFF;
     margin-right:3%;
     text-decoration: none;
   }
-  .nav-tabs a:not(.nav-tabs__signup):not(.nav-tabs__login) {
-    color: #FFFFFF;
-  }
-  .nav-tabs__signup,.nav-tabs__login {
-    color: #FBE15D;
-  }
+
+  .nav-tabs a:hover {
+    color: #FBE15D ;
+  } 
 
   @media all and (max-width: 480px) {
-    .nav-tabs { ; }
+    
   }
   @media all and (min-width: 480px) and ( max-width: 1024px) {
     .nav-tabs {

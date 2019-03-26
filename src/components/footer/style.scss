@@ -55,7 +55,7 @@ footer {
 .nav-tabs {
   display: block;
   margin: auto;
-  width: 60%;
+  width: inherit;
 }
 
 .nav-tabs a {
@@ -67,15 +67,6 @@ footer {
   text-decoration: none;
   margin-right: 1rem;
   line-height: 2em;
-}
-
-.nav-tabs a:not(.nav-tabs__signup):not(.nav-tabs__login) {
-  color: #FFFFFF;
-}
-
-.nav-tabs__signup,
-.nav-tabs__login {
-  color: #FBE15D;
 }
 
 .footer__logo-button {
@@ -288,9 +279,6 @@ footer {
   .nav-tabs {
     font-weight: 800;
     font-size: 100%;
-    width: 79%;
-    margin-bottom: 1em;
-    margin-top: 3em;
   }
 
   .nav-tabs a {

@@ -1,10 +1,10 @@
 import React from 'react';
-import FeedBottomLargeCard from './FeedBottomLargeCard';
-import FeedBottomSmallCard from './FeedBottomSmallCard';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getArticles } from '../../redux/actions/articles';
 import { toast } from 'react-toastify';
+import FeedBottomLargeCard from './FeedBottomLargeCard';
+import FeedBottomSmallCard from './FeedBottomSmallCard';
+import { getArticles } from '../../redux/actions/articles';
 
 class  FeedBottom extends React.Component {
 
