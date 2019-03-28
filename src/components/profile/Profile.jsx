@@ -53,7 +53,7 @@ export class Profile extends Component {
       username = '',
       bio = '',
       publishedArticles = [],
-      userAverageRating
+      ratingInfo
     } = this.props.profile;
   
     return (
@@ -102,15 +102,15 @@ export class Profile extends Component {
                         <div className='profile-header-username'>{username}</div>
                         <div className ='profile-rating-container'>
                           <div className='profile-header-rating'>
-                            <RatingStars rateNumber={userAverageRating ? Math.round(userAverageRating.averageRating) : 0} />
+                            <RatingStars rateNumber={ratingInfo ? ratingInfo.averageRating : 0} />
                           </div>
                           <div className='profile-header-rated-times'>
                             {
-                              !userAverageRating
+                              !ratingInfo
                                 ? <span className='spinner spinner--ratings'></span>
-                                : userAverageRating.ratingCount < 1 || userAverageRating.totalArticlesWithRating < 1
+                                : ratingInfo.ratingCount < 1 || ratingInfo.totalArticlesWithRating < 1
                                   ? 'No ratings yet'
-                                  : `rated by ${userAverageRating.ratingCount} user${userAverageRating.ratingCount > 1
+                                  : `rated by ${ratingInfo.ratingCount} user${ratingInfo.ratingCount > 1
                                     ? 's'
                                     : ''}`
                             }

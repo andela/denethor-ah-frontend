@@ -39,7 +39,7 @@ export const getArticleComments = (articleId) => async (dispatch) => {
     data: {
       articleComments
     }
-  } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
+  } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);console.log(articleComments);
   dispatch(getCommentSuccess(articleComments));
 };
 
@@ -50,6 +50,23 @@ export const addComment = ({
   try {
     dispatch(addCommentRequest());
     await axios.post(`${BASE_URL}/articles/${articleId}/comments`, {
+      commentBody
+    });
+    dispatch(getArticleComments(articleId));
+  } catch (error) {
+    dispatch(addCommentFailure())
+    throw error;
+  }
+};
+
+export const editComment = (
+  articleId,
+  commentId,
+  commentBody
+) => async (dispatch) => {
+  try {
+    dispatch(addCommentRequest());
+    await axios.patch(`${BASE_URL}/articles/${articleId}/comments/${commentId}`, {
       commentBody
     });
     dispatch(getArticleComments(articleId));

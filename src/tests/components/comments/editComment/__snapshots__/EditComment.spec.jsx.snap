@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render static component 1`] = `
+<div
+  className="comment__edit-comment"
+>
+  <Modal
+    ariaHideApp={false}
+    bodyOpenClassName="ReactModal__Body--open"
+    closeTimeoutMS={0}
+    contentLabel="Example Modal"
+    isOpen={false}
+    onRequestClose={[Function]}
+    parentSelector={[Function]}
+    portalClassName="ReactModalPortal"
+    role="dialog"
+    shouldCloseOnEsc={true}
+    shouldCloseOnOverlayClick={true}
+    shouldFocusAfterRender={true}
+    shouldReturnFocusAfterClose={true}
+    style={
+      Object {
+        "content": Object {
+          "bottom": "auto",
+          "left": "50%",
+          "marginRight": "-50%",
+          "right": "auto",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+        },
+      }
+    }
+  >
+    <CommentEntries
+      comments={Array []}
+    />
+  </Modal>
+  <p />
+  <FontAwesomeIcon
+    border={false}
+    className=""
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          512,
+          512,
+          Array [],
+          "f141",
+          "M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z",
+        ],
+        "iconName": "ellipsis-h",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
+    onClick={[Function]}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+</div>
+`;

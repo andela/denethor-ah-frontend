@@ -100,7 +100,7 @@ Header.propTypes = {
   dispatch: PropTypes.func,
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool,
-  loginModal: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
+  loginModal: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   toggleMobileSideBar: PropTypes.func,
   sideBarActive: PropTypes.bool
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import uuid from 'uuid/v1';
 import { Provider } from 'react-redux';
 import storeConfig from '../../../redux/configureStore';
 import { SingleArticleView } from '../../../components/articles/ArticlePage';
@@ -8,7 +9,10 @@ import articles from '../../mock-data/articles';
 const store = storeConfig();
 const commentsLikes = [];
 
+jest.mock('uuid/v1');
 jest.mock('../../../utils/socket.js');
+
+uuid.mockReturnValue('string');
 
 describe('Test for the single article component', () => {
 	const props = {

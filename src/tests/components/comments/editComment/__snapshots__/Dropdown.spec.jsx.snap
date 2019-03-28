@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render static component 1`] = `
+<div
+  className="comment__edit-comment__drop-down"
+>
+  <ul>
+    <li>
+      <button
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </li>
+    <li>
+      <button
+        onClick={[Function]}
+      >
+        View History
+      </button>
+    </li>
+  </ul>
+</div>
+`;
