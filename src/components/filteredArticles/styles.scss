@@ -1,9 +1,11 @@
 .filter-form {
-  min-height: 70vh;
-  width: 95%;
-  margin-left: 5%;
-  padding: 10rem 2rem 3rem;
+  // width: 95%;
+  padding: 2rem 0;
   justify-content: flex-start;
+  display: flex;
+  min-height: 38em;
+  padding-left: 5%;
+  padding-bottom: 6em;
 
   >h2 {
     width: 100%;

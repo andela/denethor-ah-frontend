@@ -42,9 +42,11 @@ const CommentEntries = ({ comments = [], allCommentsImpressions, handleOnClickLi
     );
   });
 
+  const entriesExist = commentEntries.length ? true : false;
+
   return (
     <div>
-      {!!commentEntries.length && <div><HorizontalLine />Comments</div>}
+      {entriesExist && <div><HorizontalLine />Comments</div>}
       {commentEntries}
     </div>
   );

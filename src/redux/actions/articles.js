@@ -12,6 +12,7 @@ import {
   GET_ARTICLE_DISLIKES_SUCCESS,
   REMOVE_ARTICLE_BOOKMARK_SUCCESS,
   GET_USER_BOOKMARKS_SUCCESS,
+  ARTICLE_CREATE_SUCCESS
 } from './types';
 import axios from '../../utils/axiosConfig';
 import { extractImageFromBody } from '../../utils/imageExtractor';
@@ -200,5 +201,20 @@ export const getArticleDislikes = (articleId) => (dispatch) => {
   })
   .catch((error) => {
     throw error
+  })
+}
+
+export const createArticle = (data) => (dispatch) => {
+  return axios
+  .post(`${API_ROOT_URL}/articles`, data)
+  .then(response => {
+    dispatch({
+      type: ARTICLE_CREATE_SUCCESS,
+      payload: response.data.data
+    });
+    return response;
+  })
+  .catch((error) => {
+    throw error;
   })
 }

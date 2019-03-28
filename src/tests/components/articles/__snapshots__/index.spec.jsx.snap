@@ -94,7 +94,7 @@ exports[`Test for the single article component should call toast error when star
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"
@@ -780,7 +780,7 @@ exports[`Test for the single article component should call toast success when st
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"
@@ -1471,7 +1471,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"
@@ -2162,7 +2162,7 @@ exports[`Test for the single article component should fail to dislike an article
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"
@@ -2853,7 +2853,7 @@ exports[`Test for the single article component should fail to like an article 1`
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"
@@ -3544,7 +3544,7 @@ exports[`Test for the single article component should like an article 1`] = `
 >
   <div>
     <div
-      className="banner-section"
+      className="banner-section  article-view"
     >
       <div
         className="banner-image"

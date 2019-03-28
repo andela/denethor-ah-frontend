@@ -29,6 +29,7 @@ export default class Comment extends Component {
           }
           if(response && response.status === 401){
             toast.error('You need to login to comment on this article');
+            this.props.activateModal();
           }
           else{toast.error('You appear to be offline. Please check your Internet Connection');
         }
@@ -42,7 +43,7 @@ export default class Comment extends Component {
         const { commentBody }  = this.state;
         return (
             <div className='comment-create-field'>
-            < TextAreaInput
+            <TextAreaInput
                 className='article-comment-field' 
                 placeHolder='Your message'
                 value={commentBody}
@@ -63,4 +64,5 @@ Comment.propTypes = {
     articleId: PropTypes.string.isRequired,
     addComment: PropTypes.func,
     value: PropTypes.string,
+    activateModal: PropTypes.func
 };

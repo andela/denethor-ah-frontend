@@ -11,6 +11,10 @@
   width: 100vw;
   z-index: 5;
   .auth-modal__modal {
+    width: 100%;
+    padding-left: 15em;
+    padding-right: 15em;
+
     .banner__screen {
       background: white;
       color: black;
@@ -18,11 +22,11 @@
     .social-login-block > p {
       color: black;
     }
-    .login-block .reset-password a {
-      color: black;
-    }
+    // .login-block .reset-password a {
+    //   color: black;
+    // }
     .login-block__form {
-      border-left: 1px solid #ece8e8;
+      border-left: none;
     }
     input {
       border: 1px solid #cacaca;
@@ -36,7 +40,7 @@
         font-weight: bold;
       }
       .register-block__form {
-        border-left: 1px solid #e8e8e8;
+        // border-left: 1px solid #e8e8e8;
       }
       .login-block {
         padding: 2rem 0;
@@ -45,6 +49,49 @@
       .logo-container {
         display: none;
       }
+    }
+  }
+}
+
+.social-login-block-mobile__caption {
+  a, button {
+    color: inherit;
+    text-decoration: none;
+    font-family: inherit;
+    outline: none;
+    border: none;
+    background: none;
+  }
+}
+
+
+@media only screen and (min-width: 40em) {
+  .auth-modal__modal .social-login-block-mobile__caption {
+    font-size: 1rem;
+    color: black;
+  }
+   
+  .auth-modal__modal {
+    .social-login-block > p {
+      color: black;
+    }
+    .login-block .reset-password a {
+      color: black;
+    }
+    .login-block__form {
+      border-left: none;
+    }
+    input {
+      border: 1px solid #cacaca;
+      color: black;
+    }
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .auth-modal__background {
+    .auth-modal__modal {
+      width: unset;
     }
   }
 }

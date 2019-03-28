@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import AuthButton from './authButton';
 import Widgets from './widgets';
@@ -16,6 +16,7 @@ import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
 import SearchWidget from './widgets/searchWidget/SearchWidget';
 
 library.add(faBars);
+library.add(faSearch);
 
 export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
   const handleNavSignup = () => {

@@ -1,7 +1,11 @@
 import { LOGOUT, SET_LOGIN_STATUS } from '../actions/types';
 
+const token = localStorage.getItem('token');
+
+const isLoggedIn = token !== null ? true : false;
+
 const authDefaultState = {
-  isLoggedIn: undefined
+  isLoggedIn
 }
 
 export default (state = authDefaultState, action) => {

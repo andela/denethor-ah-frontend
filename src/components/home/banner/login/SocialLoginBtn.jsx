@@ -1,6 +1,6 @@
 import React from 'react';
-
 import './styles.scss';
+
 const backend = process.env.API_ROOT_URL;
 const SocialLoginBtn = () => (
   <div className='social-login-block'>

@@ -21,6 +21,7 @@ const FilteredArticles = ({ articles }) => (
       </div>
     )}
     {!!articles.length && (<h2>Search Result</h2>)}
+    {!!articles.length && (<h2 className='list-section-header'>Published Articles</h2>)}
     {articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))}
   </div>
 )
