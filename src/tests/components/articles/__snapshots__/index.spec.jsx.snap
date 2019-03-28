@@ -57,21 +57,7 @@ exports[`Test for the single article component should call toast error when star
         "commentsLikes": Array [],
       }
     }
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     impressions={
       Object {
@@ -104,7 +90,9 @@ exports[`Test for the single article component should call toast error when star
       }
     }
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -376,18 +364,6 @@ exports[`Test for the single article component should call toast error when star
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -572,27 +548,25 @@ exports[`Test for the single article component should call toast error when star
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     addComment={[MockFunction]}
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      addComment={[MockFunction]}
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -616,7 +590,7 @@ exports[`Test for the single article component should call toast error when star
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -737,6 +711,13 @@ exports[`Test for the single article component should call toast error when star
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
@@ -804,21 +785,7 @@ exports[`Test for the single article component should call toast success when st
         "commentsLikes": Array [],
       }
     }
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     impressions={
       Object {
@@ -851,7 +818,9 @@ exports[`Test for the single article component should call toast success when st
       }
     }
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -1123,18 +1092,6 @@ exports[`Test for the single article component should call toast success when st
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -1319,25 +1276,24 @@ exports[`Test for the single article component should call toast success when st
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -1361,7 +1317,7 @@ exports[`Test for the single article component should call toast success when st
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -1482,6 +1438,13 @@ exports[`Test for the single article component should call toast success when st
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
@@ -1565,21 +1528,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
         ],
       }
     }
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     getArticleDislikes={[MockFunction]}
     getArticleLikes={[MockFunction]}
@@ -1602,7 +1551,9 @@ exports[`Test for the single article component should dislike an article 1`] = `
     }
     rateArticle={[MockFunction]}
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -1874,18 +1825,6 @@ exports[`Test for the single article component should dislike an article 1`] = `
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -2070,25 +2009,24 @@ exports[`Test for the single article component should dislike an article 1`] = `
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -2112,7 +2050,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -2233,6 +2171,13 @@ exports[`Test for the single article component should dislike an article 1`] = `
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
@@ -2316,21 +2261,7 @@ exports[`Test for the single article component should fail to dislike an article
         ],
       }
     }
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     getArticleDislikes={[MockFunction]}
     getArticleLikes={[MockFunction]}
@@ -2353,7 +2284,9 @@ exports[`Test for the single article component should fail to dislike an article
     }
     rateArticle={[MockFunction]}
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -2625,18 +2558,6 @@ exports[`Test for the single article component should fail to dislike an article
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -2821,25 +2742,24 @@ exports[`Test for the single article component should fail to dislike an article
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -2863,7 +2783,7 @@ exports[`Test for the single article component should fail to dislike an article
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -2984,6 +2904,13 @@ exports[`Test for the single article component should fail to dislike an article
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
@@ -3053,21 +2980,7 @@ exports[`Test for the single article component should fail to like an article 1`
       }
     }
     dislikeArticle={[MockFunction]}
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     getArticleDislikes={[MockFunction]}
     getArticleLikes={[MockFunction]}
@@ -3104,7 +3017,9 @@ exports[`Test for the single article component should fail to like an article 1`
     }
     rateArticle={[MockFunction]}
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -3376,18 +3291,6 @@ exports[`Test for the single article component should fail to like an article 1`
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -3572,25 +3475,24 @@ exports[`Test for the single article component should fail to like an article 1`
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -3614,7 +3516,7 @@ exports[`Test for the single article component should fail to like an article 1`
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -3735,6 +3637,13 @@ exports[`Test for the single article component should fail to like an article 1`
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
@@ -3804,21 +3713,7 @@ exports[`Test for the single article component should like an article 1`] = `
       }
     }
     dislikeArticle={[MockFunction]}
-    fetchArticle={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    fetchArticle={[MockFunction]}
     getArticleAvgRating={[MockFunction]}
     getArticleDislikes={[MockFunction]}
     getArticleLikes={[MockFunction]}
@@ -3855,7 +3750,9 @@ exports[`Test for the single article component should like an article 1`] = `
     }
     rateArticle={[MockFunction]}
   >
-    <div>
+    <div
+      id="single-page"
+    >
       <div
         className="banner-section"
       >
@@ -4127,18 +4024,6 @@ exports[`Test for the single article component should like an article 1`] = `
               />
             </div>
           </div>
-          <TagEntries
-            className="article-tags"
-            tagEntries={Array []}
-          >
-            <div
-              className="tags__section"
-            >
-              <ul
-                className="tags__section--tags"
-              />
-            </div>
-          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -4323,25 +4208,24 @@ exports[`Test for the single article component should like an article 1`] = `
                   <div>
                     Leave comments
                   </div>
-                  <Connect(Comment)
+                  <CreateComment
                     articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
                   >
                     <Comment
-                      articleId="8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a"
-                      dispatch={[Function]}
+                      handleOnClick={[Function]}
                     >
                       <div
                         className="comment-create-field"
                       >
                         <TextAreaInput
-                          className="article-comment-field"
+                          className="article-comment-field undefined"
                           onChange={[Function]}
                           placeHolder="Your message"
                           placeholder="Your message"
                           value=""
                         >
                           <textarea
-                            className="textarea-input article-comment-field"
+                            className="textarea-input article-comment-field undefined"
                             onChange={[Function]}
                             placeholder="Your message"
                             value=""
@@ -4365,7 +4249,7 @@ exports[`Test for the single article component should like an article 1`] = `
                         </Button>
                       </div>
                     </Comment>
-                  </Connect(Comment)>
+                  </CreateComment>
                 </div>
                 <Spinner>
                   <div
@@ -4486,6 +4370,13 @@ exports[`Test for the single article component should like an article 1`] = `
                     </div>
                   </CommentEntries>
                 </div>
+              </div>
+              <div
+                className="section-user-comments"
+              >
+                <HighlightEntries>
+                  <div />
+                </HighlightEntries>
               </div>
             </div>
           </div>
