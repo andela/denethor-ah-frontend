@@ -19,8 +19,9 @@ const FeedBottomLargeCard = ({
 }) => {
   return (
     <div className="feed-bottom-large-card-container">   
-        <div>
-          <img alt="feed" src={ featuredImage } className="feed-bottom-large-card-container-image"/>
+        <div className="feed-bottom-large-card-container-image">
+          <img alt="feed" src={ featuredImage } />
+          <div className='feed-bottom-large-card-container-overlay' />
         </div>
         <div>
           <div className="feed-bottom-container__large_image_info-container">

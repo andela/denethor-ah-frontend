@@ -20,10 +20,12 @@ export const UserPublications = (props) => {
     return article;
   });
 
+  const articlesExist = articles.length ? true : false;
+
   const articlesList = (
     <div className='flex filter-form'>
       {!articles.length && notFoundContainer}
-      {!!articles.length && (<h2 className='list-section-header'>Published Articles</h2>)}
+      {articlesExist && (<h2 className='list-section-header'>Published Articles</h2>)}
       {articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))}
     </div>
   );

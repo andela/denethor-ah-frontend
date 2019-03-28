@@ -1,4 +1,10 @@
-import { SET_LOGIN_STATUS, LOGOUT } from './types';
+import { 
+  SET_LOGIN_STATUS, 
+  LOGOUT, 
+  CHANGE_MOBILE_AUTH_ACTION, 
+  DEACTIVATE_MOBILE_AUTH_ACTION, 
+  ACTIVATE_MOBILE_AUTH_ACTION 
+} from './types';
 import axios from '../../utils/axiosConfig';
 import { removeOwnProfile } from './profile';
 
@@ -44,3 +50,23 @@ export const logout = () => async (dispatch) => {
   dispatch({ type: LOGOUT });
   dispatch(removeOwnProfile());
 };
+
+
+export const switchQuickAuthAction = (link) => dispatch => {
+  dispatch({
+    type: CHANGE_MOBILE_AUTH_ACTION,
+    payload: link
+  });
+}
+
+export const activateQuickAuthAction = () => dispatch => {
+  dispatch({
+    type: ACTIVATE_MOBILE_AUTH_ACTION
+  });
+}
+
+export const deactivateQuickAuthAction = () => dispatch => {
+  dispatch({
+    type: DEACTIVATE_MOBILE_AUTH_ACTION
+  });
+}

@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import AuthButton from './authButton';
 import Widgets from './widgets';
@@ -15,6 +15,7 @@ import { toggleMobileSideBar } from '../../redux/actions/elements';
 import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
 
 library.add(faBars);
+library.add(faSearch);
 
 export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
   const handleNavSignup = () => {
@@ -77,6 +78,7 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
         <Link to='/'>
           <div className="mobile-header-text"><h3>AUTHOR&apos;S HAVEN</h3></div>
         </Link>
+        <FontAwesomeIcon icon="search" color={iconColor || '#818181'} size="2x" />
       </div>
 
       <MobileSideBar 

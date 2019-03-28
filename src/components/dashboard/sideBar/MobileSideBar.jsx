@@ -91,10 +91,6 @@ const MobileSideBar = ({
               <div className='button_background' />
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
-              <NavLink to='/dashboard/topReads'>Top Reads</NavLink>
-              <div className='button_background' />
-            </li>
-            <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
               <NavLink to='/dashboard/my-followers'>My Followers</NavLink>
               <div className='button_background' />
             </li>

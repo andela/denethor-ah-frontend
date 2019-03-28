@@ -6,10 +6,11 @@ $gray: #818181;
 .header{
   background: $white;
   display: flex;
-  height: 5rem;
+  height: 4rem;
   position: relative;
   justify-content: space-between;
   padding: 0.8em;
+  align-items: center;
 
   > button {
     background: transparent;
@@ -148,7 +149,7 @@ $gray: #818181;
         padding-top: 12em;
       }
       &.dashboard-page-wrapper {
-        padding-top: 4.9em;
+        padding-top: 3.9em;
       }
     }
     
