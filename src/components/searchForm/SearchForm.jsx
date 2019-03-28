@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import Select from 'react-select';
 
-import { getFilteredArticles } from '../../redux/actions/filters';
+import getFilteredArticles from '../../redux/actions/filters';
 import { getTags } from '../../redux/actions/tags';
-import { getAuthors } from '../../redux/actions/authors';
+import getAuthors from '../../redux/actions/authors';
 import './styles.scss'
 
 export class SearchForm extends Component { 
@@ -16,6 +16,7 @@ export class SearchForm extends Component {
     selectedAuthor: '',
     authorOptions: [],
     tagOptions: [],
+    disableButton: false,
     toastOptions: {
       hideProgressBar: true,
       closeButton: false,
@@ -24,10 +25,11 @@ export class SearchForm extends Component {
     }
   }
 
-  async componentDidMount() {
-    const { props: { isSearchOnly, handleGetAuthors, handleGetTags } } = this;
+  async componentDidUpdate(prevProps) {
+    const { props: { isLoggedIn, handleGetAuthors, handleGetTags } } = this;
 
-    if (!isSearchOnly) {
+    if (isLoggedIn !== prevProps.isLoggedIn) {
+      
       await handleGetAuthors();
       await handleGetTags()
 
@@ -54,37 +56,44 @@ export class SearchForm extends Component {
       return toast.error('No filter parameter was entered', toastOptions);
     }
 
+    this.setState({ disableButton: true });
     await handleFilter(searchString, selectedTag.value, selectedAuthor.value);
-    
+    this.setState({ disableButton: false });
     history.push('/filter');
   }
 
   render() {
     const { 
-      props: { isSearchOnly, className }, 
-      state: { searchString, selectedAuthor, selectedTag, authorOptions, tagOptions },
+      props: { isLoggedIn, location: { pathname }, profile: { username = '' } =  {} }, 
+      state: { searchString, selectedAuthor, selectedTag, authorOptions, tagOptions, disableButton },
       onSearchChange, onAuthorChange, onTagChange, onSubmit 
     } = this;
 
     return (
       <form onSubmit={onSubmit}>
-        <input
-          className={className}
-          type='text'
-          placeholder='Search for articles...'
-          value={searchString}
-          onChange={onSearchChange}
-        />
+        <div className={`search-bar ${!isLoggedIn ? 'w-100' : ''}`}>
+          <input
+            type='text'
+            placeholder={
+              pathname.includes("/dashboard") ?
+              'You can only filter dashboard publications by Tags' :
+              'Search for articles...'
+            }
+            value={searchString}
+            onChange={onSearchChange}
+            disabled={pathname.includes("/dashboard")}
+          />
+        </div>
         {
-          !isSearchOnly &&
+          isLoggedIn &&
           <div className='flex filter-section'>
-            <span>Filter</span>
             <Select
               placeholder='Authors'
-              value={selectedAuthor}
+              value={pathname.includes("/dashboard") ? { value: username, label: username } : selectedAuthor}
               options={authorOptions}
               onChange={onAuthorChange}
               isClearable={true}
+              isDisabled={pathname.includes("/dashboard")}
             ></Select>
             <Select
               placeholder='Tags'
@@ -93,7 +102,13 @@ export class SearchForm extends Component {
               onChange={onTagChange}
               isClearable={true}
             ></Select>
-            <button className='button button--search'>Search</button>
+            <button 
+              className='button button--search' 
+              disabled={disableButton}
+            >
+              <span className={disableButton ? 'hidden' : undefined}>Search</span>
+              <span className={disableButton ? 'spinner spinner--button' : undefined} />
+            </button>
           </div>
         }
       </form>
@@ -103,16 +118,18 @@ export class SearchForm extends Component {
 
 SearchForm.propTypes = {
   handleFilter: PropTypes.func,
-  isSearchOnly: PropTypes.bool,
   authors: PropTypes.array,
   tags: PropTypes.array,
   history: PropTypes.object,
   handleGetAuthors: PropTypes.func,
   handleGetTags: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  isLoggedIn: PropTypes.bool,
+  location: PropTypes.object,
+  profile: PropTypes.object
 };
 
-const mapStateToProps = ({ authors, tags }) => ({ authors, tags });
+const mapStateToProps = ({ authors, tags, profile }) => ({ authors, tags, profile });
 
 const mapDispatchToProps = (dispatch) => ({
   handleFilter: (search, tag, author) => dispatch(getFilteredArticles(search, tag, author)),

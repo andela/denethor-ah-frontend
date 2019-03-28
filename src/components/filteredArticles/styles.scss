@@ -1,8 +1,9 @@
 .filter-form {
-    width: 95%;
-    margin-left: 5%;
-    padding: 2rem 0;
-    justify-content: flex-start;
+  min-height: 70vh;
+  width: 95%;
+  margin-left: 5%;
+  padding: 10rem 2rem 3rem;
+  justify-content: flex-start;
 
   >h2 {
     width: 100%;
@@ -19,6 +20,12 @@
   .feed-bottom-container__small_image_info-container {
     height: auto;
   }
+}
+
+.search-error {
+  height: 80px;
+  width: 90%;
+  justify-content: center;
 }
 
 @media (max-width: 60rem) {

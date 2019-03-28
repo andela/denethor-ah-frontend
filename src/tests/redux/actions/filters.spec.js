@@ -1,8 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from '../../../utils/axiosConfig';
 import MockAdapter from 'axios-mock-adapter';
-import { getFilteredArticles } from '../../../redux/actions/filters';
+
+import axios from '../../../utils/axiosConfig';
+import getFilteredArticles from '../../../redux/actions/filters';
 import { GET_FILTERED_ARTICLES } from '../../../redux/actions/types';
 import articles from '../../mock-data/articles';
 import { extractImageFromBody } from '../../../utils/imageExtractor';

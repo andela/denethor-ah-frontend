@@ -29,6 +29,9 @@ exports[`it renders correctly as a static component 1`] = `
   >
     <ul>
       <li>
+        <Connect(withRouter(SearchWidget)) />
+      </li>
+      <li>
         <withRouter(AuthButton)
           type="Signup"
         />
@@ -74,6 +77,7 @@ exports[`it renders correctly as a static component 1`] = `
         </h3>
       </div>
     </Link>
+    <Connect(withRouter(SearchWidget)) />
   </div>
   <MobileSideBar
     handleNavLogin={[Function]}

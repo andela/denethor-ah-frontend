@@ -8,7 +8,7 @@ const api = process.env.API_ROOT_URL;
 export const getOwnProfile = id => async (dispatch) => {
   try {
     const { data: { data } } = await axios.get(`${api}/users/${id}/profile`);
- 
+
     dispatch({
       type: SET_OWN_PROFILE,
       payload: data
@@ -28,7 +28,7 @@ export const getOwnProfile = id => async (dispatch) => {
 
       const { data: { data, data: { length: count } } } = await axios.get(`${api}/articles/${article.id}/ratings`);
 
-      const averageRating = data.reduce((average, { rating }) => average + rating/(count > 0 ? count : 1), 0);
+      const averageRating = data.reduce((average, { rating }) => average + rating / (count > 0 ? count : 1), 0);
 
       const articleHasRating = count > 0 ? 1 : 0;
       const articlesWithRating = totalArticlesWithRating + articleHasRating;
@@ -37,7 +37,7 @@ export const getOwnProfile = id => async (dispatch) => {
 
       return {
         ...((index === length - 1 && articlesWithRating > 0)
-          && { averageRating: currentRating/articlesWithRating }),
+          && { averageRating: currentRating / articlesWithRating }),
         totalArticlesWithRating: articlesWithRating,
         totalRating: currentRating,
         ratingCount: currentCount
@@ -63,7 +63,7 @@ export const getOwnProfile = id => async (dispatch) => {
 
       case 500:
       case 502:
-        return  'Server error.';
+        return 'Server error.';
 
       default:
         return 'Unknown error.';
@@ -75,10 +75,10 @@ export const updateProfile = (id, updates) => async (dispatch) => {
   try {
     await axios.patch(`${api}/users/${id}/profile`, updates);
 
-  dispatch({
-    type: UPDATE_PROFILE,
-    payload: updates
-  });
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: updates
+    });
   } catch ({ response: { status } }) {
     switch (status) {
       case 404:
@@ -86,7 +86,7 @@ export const updateProfile = (id, updates) => async (dispatch) => {
 
       case 500:
       case 502:
-        return  'Server error.';
+        return 'Server error.';
 
       default:
         return 'Unknown error.';
@@ -105,10 +105,10 @@ export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) 
       data
     });
 
-  dispatch({
-    type: UPDATE_PROFILE,
-    payload: { imageUrl }
-  });
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: { imageUrl }
+    });
   } catch ({ response: { status } }) {
     switch (status) {
       case 404:
@@ -116,7 +116,7 @@ export const uploadProfilePicture = (id, newProfilePicture) => async (dispatch) 
 
       case 500:
       case 502:
-        return  'Server error.';
+        return 'Server error.';
 
       default:
         return 'Unknown error.';
