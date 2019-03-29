@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import Avatar from 'react-avatar-edit';
 import { toast } from 'react-toastify';
 import { RatingStars } from "../ratingStars";
-import ArticleListItem from './ArticleListItem';
+import FeedBottomSmallCard from '../feed/FeedBottomSmallCard';
+import './styles.scss';
 import RoundedImage from '../RoundedImage';
 import { uploadProfilePicture } from '../../redux/actions/profile';
-import './styles.scss';
+import { extractImageFromBody } from '../../utils/imageExtractor';
+import { toTimeFromNow } from '../../utils/dateTime';
 
 
 
@@ -53,8 +55,19 @@ export class Profile extends Component {
       username = '',
       bio = '',
       publishedArticles = [],
-      ratingInfo
+      userAverageRating,
     } = this.props.profile;
+
+    const articles = publishedArticles.map(article => {
+      article.featuredImage = extractImageFromBody(article.body);
+      article.dateCreated =  toTimeFromNow(article.createdAt);
+      // article.readTime = '1 minute';
+      return article;
+    });
+
+    const { sideBarActive } = this.props;
+    const articlesExist = articles.length ? true : false;
+
   
     return (
       <div>
@@ -87,7 +100,7 @@ export class Profile extends Component {
                         }}
                         label=''
                         labelStyle={{
-                          background: 'url(/assets/img/camera-icon.png)',
+                          background: 'url(/assets/img/camera-icon-gray.png)',
                           bottom: '45%',
                           display: 'block',
                           height: '48px',
@@ -95,22 +108,23 @@ export class Profile extends Component {
                           cursor: 'pointer',
                           position: 'absolute',
                           width: '48px',
-                          zIndex: '45'
+                          zIndex: '45',
+                          opacity: sideBarActive ? '0' : '1'
                         }}
                       />
                       <div className='profile-username-rate-group'>
                         <div className='profile-header-username'>{username}</div>
                         <div className ='profile-rating-container'>
                           <div className='profile-header-rating'>
-                            <RatingStars rateNumber={ratingInfo ? ratingInfo.averageRating : 0} />
+                            <RatingStars rateNumber={userAverageRating ? Math.round(userAverageRating.averageRating) : 0} />
                           </div>
                           <div className='profile-header-rated-times'>
                             {
-                              !ratingInfo
+                              !userAverageRating
                                 ? <span className='spinner spinner--ratings'></span>
-                                : ratingInfo.ratingCount < 1 || ratingInfo.totalArticlesWithRating < 1
+                                : userAverageRating.ratingCount < 1 || userAverageRating.totalArticlesWithRating < 1
                                   ? 'No ratings yet'
-                                  : `rated by ${ratingInfo.ratingCount} user${ratingInfo.ratingCount > 1
+                                  : `rated by ${userAverageRating.ratingCount} user${userAverageRating.ratingCount > 1
                                     ? 's'
                                     : ''}`
                             }
@@ -134,18 +148,18 @@ export class Profile extends Component {
           </div>
         </div>
         <div className='profile__article-section'>
-          <h1>Your Articles</h1>
-          <ul>
+          <div className='flex filter-form'>
+            {articlesExist && (<h2 className='list-section-header'>Published Articles</h2>)}
             {
               publishedArticles[0]
-                ? publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))
+                ? articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))
                 : <div className='profile__article-section__no-articles'>
                     <p>
                       No articles yet.
                     </p>
                   </div>
             }
-          </ul>
+          </div>
         </div>
       </div>
     );
@@ -155,10 +169,13 @@ export class Profile extends Component {
 Profile.propTypes = {
   profile: PropTypes.object,
   history: PropTypes.object,
-  uploadProfilePicture: PropTypes.func
+  uploadProfilePicture: PropTypes.func,
+  sideBarActive: PropTypes.bool
 };
 
-const mapStateToProps = ({ profile }) => ({ profile });
+const mapStateToProps = ({ profile, elementStatuses: { sideBarActive } }) => (
+  { profile, sideBarActive }
+);
 
 const mapDispatchToProps = (dispatch) => ({
   uploadProfilePicture: (id, newProfilePicture) => dispatch(uploadProfilePicture(id, newProfilePicture))

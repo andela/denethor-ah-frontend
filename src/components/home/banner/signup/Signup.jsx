@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { isEmail, isAlphanumeric } from 'validator';
 import '@babel/polyfill';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-
 import SocialLoginBtn from '../login/SocialLoginBtn';
 import SocialLoginIcons from '../login/SocialLoginIcons';
 import signUp from '../../../../utils/signUp';
 import './styles.scss';
+import { switchQuickAuthAction } from '../../../../redux/actions/auth';
 
 export class Signup extends Component {
   state = {
@@ -280,7 +279,10 @@ export class Signup extends Component {
               />
             </button>
           </form>
-          <SocialLoginIcons />
+          <SocialLoginIcons 
+            quickAuthAction={this.props.quickAuthAction}
+            switchQuickAuthAction={(link) => this.props.switchQuickAuthAction(link)}
+          />
         </div>
       </div>
     );
@@ -293,9 +295,24 @@ Signup.propTypes = {
   errorMessage: PropTypes.bool,
   buttonDisabled: PropTypes.bool,
   history: PropTypes.object,
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  quickAuthAction: PropTypes.object,
+  switchQuickAuthAction: PropTypes.func
 };
 
-const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
+function mapStateToProps ({ 
+  auth: { isLoggedIn },
+  elementStatuses: { quickAuthAction },
+}) {
+  return { 
+    isLoggedIn,
+    quickAuthAction,
+  }
+}
 
-export default connect(mapStateToProps)(Signup);
+const mapDispatchToProps = ({
+  switchQuickAuthAction
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

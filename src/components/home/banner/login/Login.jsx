@@ -7,11 +7,11 @@ import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
-
-import { login } from '../../../../redux/actions/auth';
+import { login, switchQuickAuthAction } from '../../../../redux/actions/auth';
 import SocialLoginBtn from './SocialLoginBtn';
 import SocialLoginIcons from './SocialLoginIcons';
 import './styles.scss';
+
 
 export class Login extends Component {
   state = {
@@ -186,7 +186,10 @@ export class Login extends Component {
               <span className={buttonDisabled ? 'spinner spinner--button' : undefined}></span>
             </button>
           </form>
-          <SocialLoginIcons />
+          <SocialLoginIcons 
+            quickAuthAction={this.props.quickAuthAction}
+            switchQuickAuthAction={(link) => this.props.switchQuickAuthAction(link)}
+          />
           <div className='break'></div>
           <div className='reset-password'>
             Forgot Password? <Link to='/forgotPassword/verify'>Click here</Link>
@@ -197,16 +200,29 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = ({ auth: { isLoggedIn } }) => ({ isLoggedIn });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (payload) => dispatch(login(payload)),
+function mapStateToProps ({ 
+  auth: { isLoggedIn },
+  elementStatuses: { quickAuthAction },
+}) {
+  return { 
+    isLoggedIn,
+    quickAuthAction,
+  }
+}
+
+const mapDispatchToProps = ({
+  handleLogin: login,
+  switchQuickAuthAction,
 });
+
 
 Login.propTypes = {
   handleLogin: PropTypes.func,
   history: PropTypes.object,
-  isLoggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool,
+  quickAuthAction: PropTypes.object,
+  switchQuickAuthAction: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

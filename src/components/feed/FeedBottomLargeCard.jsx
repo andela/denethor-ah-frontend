@@ -5,6 +5,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
+import validator from 'validator';
 
 library.add(faClock);
 
@@ -17,10 +18,12 @@ const FeedBottomLargeCard = ({
   featuredImage,
   readTime
 }) => {
+  title = validator.unescape(title);
   return (
     <div className="feed-bottom-large-card-container">   
-        <div>
-          <img alt="feed" src={ featuredImage } className="feed-bottom-large-card-container-image"/>
+        <div className="feed-bottom-large-card-container-image">
+          <img alt="feed" src={ featuredImage } />
+          <div className='feed-bottom-large-card-container-overlay' />
         </div>
         <div>
           <div className="feed-bottom-container__large_image_info-container">

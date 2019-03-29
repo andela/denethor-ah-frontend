@@ -20,12 +20,9 @@ const CommentEntries = ({ comments = [], handleOnClickLike, allCommentsImpressio
     </div>
   );
 }
-
 CommentEntries.propTypes = {
   comments: PropTypes.array,
   allCommentsImpressions: PropTypes.array,
   handleOnClickLike: PropTypes.func,
 };
-
 export default CommentEntries;
-

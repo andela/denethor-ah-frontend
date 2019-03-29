@@ -318,7 +318,7 @@ exports[`Test for the single article component should call toast error when star
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -354,7 +354,7 @@ exports[`Test for the single article component should call toast error when star
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -494,7 +494,7 @@ exports[`Test for the single article component should call toast error when star
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -530,7 +530,7 @@ exports[`Test for the single article component should call toast error when star
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -1053,7 +1053,7 @@ exports[`Test for the single article component should call toast success when st
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -1089,7 +1089,7 @@ exports[`Test for the single article component should call toast success when st
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -1229,7 +1229,7 @@ exports[`Test for the single article component should call toast success when st
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -1265,7 +1265,7 @@ exports[`Test for the single article component should call toast success when st
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -1792,7 +1792,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -1828,7 +1828,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -1968,7 +1968,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -2004,7 +2004,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -2531,7 +2531,7 @@ exports[`Test for the single article component should fail to dislike an article
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -2567,7 +2567,7 @@ exports[`Test for the single article component should fail to dislike an article
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -2707,7 +2707,7 @@ exports[`Test for the single article component should fail to dislike an article
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -2743,7 +2743,7 @@ exports[`Test for the single article component should fail to dislike an article
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -3270,7 +3270,7 @@ exports[`Test for the single article component should fail to like an article 1`
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -3306,7 +3306,7 @@ exports[`Test for the single article component should fail to like an article 1`
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -3446,7 +3446,7 @@ exports[`Test for the single article component should fail to like an article 1`
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -3482,7 +3482,7 @@ exports[`Test for the single article component should fail to like an article 1`
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -4009,7 +4009,7 @@ exports[`Test for the single article component should like an article 1`] = `
                         />
                       </svg>
                     </InactiveLikeButton>
-                     
+                     
                     <span
                       className="like-count"
                     >
@@ -4045,7 +4045,7 @@ exports[`Test for the single article component should like an article 1`] = `
                         />
                       </svg>
                     </DislikeButton>
-                     
+                     
                     <span
                       className="like-count dislike-count"
                     >
@@ -4185,7 +4185,7 @@ exports[`Test for the single article component should like an article 1`] = `
                           />
                         </svg>
                       </InactiveLikeButton>
-                       
+                       
                       <span
                         className="like-count"
                       >
@@ -4221,7 +4221,7 @@ exports[`Test for the single article component should like an article 1`] = `
                           />
                         </svg>
                       </DislikeButton>
-                       
+                       
                       <span
                         className="like-count dislike-count"
                       >
@@ -4422,4 +4422,3 @@ exports[`Test for the single article component should like an article 1`] = `
     </div>
   </SingleArticleView>
 </Provider>
-`;
