@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render static component 1`] = `
+<div
+  className="comment-create-field"
+>
+  <TextAreaInput
+    autoFocus={true}
+    className="article-comment-field"
+    onChange={[Function]}
+    placeHolder="Enter comment"
+    placeholder="Your message"
+    value="this is comment body"
+  />
+  <div
+    className="comment-edit-actions"
+  >
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="submit"
+      value="submit"
+    />
+    <Button
+      className="article-comment-field__button"
+      isRequestSent={false}
+      onClick={[Function]}
+      type="button"
+      value="cancel"
+    />
+  </div>
+</div>
+`;

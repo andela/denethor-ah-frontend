@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import { getOwnProfile, updateProfile, uploadProfilePicture } from '../../../redux/actions/profile';
-import { UPDATE_PROFILE } from '../../../redux/actions/types';
+import { SET_OWN_PROFILE, UPDATE_PROFILE } from '../../../redux/actions/types';
 import profile from '../../mock-data/profile';
 import axios from '../../../utils/axiosConfig';
 
@@ -14,34 +14,16 @@ jest.mock('../../../utils/dataURLtoFile.js');
 
 test('Should get profile and rating', async () => {
   const store = createMockStore({});
-  const rate = {
-    "status": "success",
-    "data": [{
-      rating: 4,
-    }, {
-      rating: 4
-    }]
-  };
-
 
 
   mock.onGet(`${api}/users/id/profile`)
     .reply(200, profile);
 
-  profile.data.publishedArticles.forEach(({ id }) => mock.onGet(`${api}/articles/${id}/ratings`).reply(200, rate));
-
   await store.dispatch(getOwnProfile('id'));
 
-  expect(store.getActions()[1]).toEqual({
-    type: UPDATE_PROFILE,
-    payload: {
-      userAverageRating: {
-        averageRating: 4,
-        ratingCount: 6,
-        totalArticlesWithRating: 3,
-        totalRating: 12,
-      }
-    }
+  expect(store.getActions()[0]).toEqual({
+    type: SET_OWN_PROFILE,
+    payload: profile.data
   });
 });
 

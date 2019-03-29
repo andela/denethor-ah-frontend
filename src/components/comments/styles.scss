@@ -3,6 +3,14 @@
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   border-radius: 0.2em;
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    .comment__edit-comment__wrapper {
+      position: relative;
+      width: 5rem;
+    }
+  }
 }
 
 .comment-text {
@@ -22,6 +30,10 @@
     width: fit-content;
     margin-right: 0px;
     margin-left: auto;
+
+    p {
+      font-size: smaller;
+    }
 
     >.comment-text__date {
       width: fit-content;

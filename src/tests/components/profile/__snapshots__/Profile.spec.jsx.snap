@@ -99,7 +99,9 @@ exports[`Should indicate if user has not been rated 1`] = `
                     <div
                       className="profile-header-rated-times"
                     >
-                      No ratings yet
+                      <span
+                        className="spinner spinner--ratings"
+                      />
                     </div>
                   </div>
                 </div>
@@ -695,13 +697,15 @@ exports[`Should render nothing if information has not loaded 1`] = `
                       className="profile-header-rating"
                     >
                       <RatingStars
-                        rateNumber={4}
+                        rateNumber={0}
                       />
                     </div>
                     <div
                       className="profile-header-rated-times"
                     >
-                      rated by 50 users
+                      <span
+                        className="spinner spinner--ratings"
+                      />
                     </div>
                   </div>
                 </div>
@@ -1071,13 +1075,15 @@ exports[`Should use singular if one rater 1`] = `
                       className="profile-header-rating"
                     >
                       <RatingStars
-                        rateNumber={4}
+                        rateNumber={0}
                       />
                     </div>
                     <div
                       className="profile-header-rated-times"
                     >
-                      rated by 1 user
+                      <span
+                        className="spinner spinner--ratings"
+                      />
                     </div>
                   </div>
                 </div>
