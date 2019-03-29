@@ -7,10 +7,10 @@ const tagReducer = (state = tagReducerDefaultState, action) => {
 
   switch (type) {
     case ADD_TAG:
-      return [...state, action.tag];
+      return [...state, payload];
 
     case REMOVE_TAG:
-      return state.filter((tag) => tag !== action.tag );
+      return state.filter((tag) => tag !== payload );
 
     case GET_TAGS:
       return [...payload]

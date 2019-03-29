@@ -22,7 +22,7 @@ button:disabled {
 input {
   margin: 0.5rem auto;
   padding: 0.5rem;
-  padding: 0.9em 0.5rem;
+  // padding: 0.9em 0.5rem;
   border: 1px solid whitesmoke;
   border-radius: 0.25rem;
   font-weight: 300;
@@ -83,6 +83,12 @@ input {
 .spinner {
   border-radius: 50%;
   animation: spin 2s linear infinite;
+}
+
+.ellipses {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes spin {

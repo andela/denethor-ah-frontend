@@ -15,9 +15,10 @@ const SideBar = ({ authUserEmail = '', history }) => {
   const links = {
     '/create-article': 'Create Article',
     '/dashboard/bookmarked-articles': 'Bookmarked Articles',
-    '/dashboard/my-followers': 'My Followers',
+    // '/dashboard/my-followers': 'My Followers',
     '/dashboard/my-publications': 'My Publications',
     '/dashboard/my-profile': 'My Profile',
+    '/resetPassword': 'Reset Password',
     '/dashboard/edit-profile': 'Edit Profile',
   };
 

@@ -12,6 +12,7 @@ import impressionReducer from './impressions'
 import elementStatusesReducer from './elementStatuses';
 import notificationsReducer from './notifications';
 import inputDataReducer from './inputData';
+import highlightReducer from './highlights';
 
 export default combineReducers({
 	articles: articleReducer,
@@ -27,4 +28,5 @@ export default combineReducers({
 	elementStatuses: elementStatusesReducer,
 	notifications: notificationsReducer,
 	inputData: inputDataReducer,
+  highlights: highlightReducer
 });

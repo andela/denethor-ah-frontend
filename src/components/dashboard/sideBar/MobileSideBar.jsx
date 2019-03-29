@@ -86,10 +86,10 @@ const MobileSideBar = ({
               <NavLink to='/dashboard/bookmarked-articles'>Bookmarked Articles</NavLink>
               <div className='button_background' />
             </li>
-            <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
+            {/* <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
               <NavLink to='/dashboard/my-followers'>My Followers</NavLink>
               <div className='button_background' />
-            </li>
+            </li> */}
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
               <NavLink to='/dashboard/my-publications'>My Publications</NavLink>
               <div className='button_background' />
@@ -100,6 +100,10 @@ const MobileSideBar = ({
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
               <NavLink to='/dashboard/edit-profile'>Edit Profile</NavLink>
+              <div className='button_background' />
+            </li>
+            <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
+              <NavLink to='/dashboard/resetPassword'>Reset Password</NavLink>
               <div className='button_background' />
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>

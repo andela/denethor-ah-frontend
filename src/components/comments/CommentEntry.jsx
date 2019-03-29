@@ -61,7 +61,7 @@ export class CommentEntry extends Component {
         {firstname && (
           <div className='actions'>
             <div className='likes-count'>
-              <CommentImpressionButton likeImpression={liked} onClick={() => handleOnClickLike(id)} likeCount={impressionCount} />
+              <CommentImpressionButton likeImpression={liked} onClick={() => console.log('a')} likeCount={impressionCount} />
             </div>
             <div className='comment__edit-comment__wrapper'>
               {isLoggedIn && <EditComment comment={comment} toggleMode={this.toggleMode} />}
