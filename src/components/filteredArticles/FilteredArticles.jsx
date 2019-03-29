@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-
-import FeedBottomSmallCard from '../feed/FeedBottomSmallCard';
+import Paginator from '../paginator/Paginator';
 import './styles.scss';
 
 const FilteredArticles = ({ articles }) => (
@@ -21,7 +20,7 @@ const FilteredArticles = ({ articles }) => (
       </div>
     )}
     {!!articles.length && (<h2>Search Result</h2>)}
-    {articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))}
+    <Paginator items={articles} />
   </div>
 )
 

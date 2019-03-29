@@ -32,12 +32,12 @@ exports[`it renders correctly as a static component 1`] = `
         <Connect(withRouter(SearchWidget)) />
       </li>
       <li>
-        <withRouter(AuthButton)
+        <Connect(withRouter(AuthButton))
           type="Signup"
         />
       </li>
       <li>
-        <withRouter(AuthButton)
+        <Connect(withRouter(AuthButton))
           type="Login"
         />
       </li>

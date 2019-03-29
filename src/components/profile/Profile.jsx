@@ -5,9 +5,9 @@ import Avatar from 'react-avatar-edit';
 import { toast } from 'react-toastify';
 import { RatingStars } from "../ratingStars";
 import ArticleListItem from './ArticleListItem';
-import './styles.scss';
 import RoundedImage from '../RoundedImage';
 import { uploadProfilePicture } from '../../redux/actions/profile';
+import './styles.scss';
 
 
 

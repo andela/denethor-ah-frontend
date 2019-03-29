@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { InactiveLikeButton, DislikeButton, BookMarkHeartIcon, CommentButton } from '../impressionIcons';
-
 import './style.scss';
 
 const LikeNumberGroup = ({ btnColor, onClick, likeCount }) => {

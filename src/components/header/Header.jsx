@@ -14,10 +14,11 @@ import { removeOwnProfile } from '../../redux/actions/profile';
 import { toggleMobileSideBar } from '../../redux/actions/elements';
 import MobileSideBar from '../dashboard/sideBar/MobileSideBar';
 import SearchWidget from './widgets/searchWidget/SearchWidget';
+import AuthModal from '../authModal';
 
 library.add(faBars);
 
-export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive }) => {
+export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sideBarActive, loginModal }) => {
   const handleNavSignup = () => {
     history.push('/signup');
   };
@@ -74,6 +75,7 @@ export const Header = ({ history, dispatch, isLoggedIn, toggleMobileSideBar, sid
           }
         </ul>
       </div>
+      {loginModal && <AuthModal content={loginModal} />}
       <div className="mobile-header hide-for-large">
         <FontAwesomeIcon icon="bars" color={iconColor || '#818181'} size="2x" onClick={toggleMobileSideBar} />
         <Link to='/'>
@@ -98,12 +100,13 @@ Header.propTypes = {
   dispatch: PropTypes.func,
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool,
+  loginModal: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
   toggleMobileSideBar: PropTypes.func,
   sideBarActive: PropTypes.bool
 }
 
-const mapStateToProps = ({ auth: { isLoggedIn = false }, elementStatuses: { sideBarActive = false } }) => 
-  ({ isLoggedIn, sideBarActive });
+const mapStateToProps = ({ auth: { isLoggedIn = false, loginModal }, elementStatuses: { sideBarActive = false } }) => 
+  ({ isLoggedIn, sideBarActive, loginModal });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleMobileSideBar: () => dispatch(toggleMobileSideBar()),
