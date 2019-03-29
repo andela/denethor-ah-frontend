@@ -45,6 +45,7 @@ exports[`Should render Search Widget Component 1`] = `
   >
     <Connect(SearchForm)
       isLoggedIn={true}
+      toggleSearchDisplay={[Function]}
     />
   </div>
 </div>

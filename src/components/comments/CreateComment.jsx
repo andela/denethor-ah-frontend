@@ -48,17 +48,17 @@ export class Comment extends Component {
         const { commentBody }  = this.state;
         return (
             <div className='comment-create-field'>
-            < TextAreaInput
+            <TextAreaInput
                 className='article-comment-field' 
                 placeHolder='Your message'
                 value={commentBody}
                 onChange={this.handleOnChangeComment}
             />
             <Button
-            className='article-comment-field__button' 
-            type='submit' 
-            value='submit'
-            onClick={this.handleOnClick}
+                className='article-comment-field__button' 
+                type='submit' 
+                value='submit'
+                onClick={this.handleOnClick}
             />
             </div>
         );

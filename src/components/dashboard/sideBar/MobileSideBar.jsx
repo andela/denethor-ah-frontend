@@ -44,8 +44,8 @@ const MobileSideBar = ({
         </div>
         <div className=''>
           <ul>
-            <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
-              <NavLink to='/articles'>Search Articles</NavLink>
+            <li className='sidebar-links__item'>
+              <NavLink to='/articles/create'>Create Article</NavLink>
               <div className='button_background' />
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
@@ -79,11 +79,11 @@ const MobileSideBar = ({
         <div className='sidebar-links'>
           <ul>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
-              <NavLink to='/dashboard/bookmarked-articles'>Bookmarked Articles</NavLink>
+              <NavLink to='/create-article'>Create Article</NavLink>
               <div className='button_background' />
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>
-              <NavLink to='/dashboard/topReads'>Top Reads</NavLink>
+              <NavLink to='/dashboard/bookmarked-articles'>Bookmarked Articles</NavLink>
               <div className='button_background' />
             </li>
             <li className='sidebar-links__item' onClick={toggleMobileSideBar}>

@@ -1,6 +1,6 @@
 import React from "react";
-import { PostCard } from '../postCard';
 import PropTypes from 'prop-types';
+import { PostCard } from '../postCard';
 import './style.scss';
 
 const PostStreamTopSection = ({ articles, categories }) => {

@@ -53,12 +53,13 @@ exports[`Should indicate if user has not been rated 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -99,9 +100,7 @@ exports[`Should indicate if user has not been rated 1`] = `
                     <div
                       className="profile-header-rated-times"
                     >
-                      <span
-                        className="spinner spinner--ratings"
-                      />
+                      No ratings yet
                     </div>
                   </div>
                 </div>
@@ -148,74 +147,78 @@ exports[`Should indicate if user has not been rated 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:43:19.726Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:43:19.726Z",
-          }
-        }
+    <div
+      className="flex filter-form"
+    >
+      <h2
+        className="list-section-header"
+      >
+        Published Articles
+      </h2>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:43:19.726Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
         key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.118Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:46:24.118Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:43:19.726Z"
+      />
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.118Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
         key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.615Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "10-taboos-about-you-should-never-share-on-twitter",
-            "title": "10 Taboos About You Should Never Share On Twitter",
-            "updatedAt": "2019-03-15T08:46:24.615Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
-        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:46:24.118Z"
       />
-    </ul>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.615Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
+        }
+        slug="10-taboos-about-you-should-never-share-on-twitter"
+        title="10 Taboos About You Should Never Share On Twitter"
+        updatedAt="2019-03-15T08:46:24.615Z"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -273,12 +276,13 @@ exports[`Should render component correctly with published articles 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -368,74 +372,78 @@ exports[`Should render component correctly with published articles 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:43:19.726Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:43:19.726Z",
-          }
-        }
+    <div
+      className="flex filter-form"
+    >
+      <h2
+        className="list-section-header"
+      >
+        Published Articles
+      </h2>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:43:19.726Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
         key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.118Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:46:24.118Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:43:19.726Z"
+      />
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.118Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
         key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.615Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "10-taboos-about-you-should-never-share-on-twitter",
-            "title": "10 Taboos About You Should Never Share On Twitter",
-            "updatedAt": "2019-03-15T08:46:24.615Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
-        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:46:24.118Z"
       />
-    </ul>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.615Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
+        }
+        slug="10-taboos-about-you-should-never-share-on-twitter"
+        title="10 Taboos About You Should Never Share On Twitter"
+        updatedAt="2019-03-15T08:46:24.615Z"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -493,12 +501,13 @@ exports[`Should render component correctly without published articles 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -588,10 +597,9 @@ exports[`Should render component correctly without published articles 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
+    <div
+      className="flex filter-form"
+    >
       <div
         className="profile__article-section__no-articles"
       >
@@ -599,7 +607,7 @@ exports[`Should render component correctly without published articles 1`] = `
           No articles yet.
         </p>
       </div>
-    </ul>
+    </div>
   </div>
 </div>
 `;
@@ -657,12 +665,13 @@ exports[`Should render nothing if information has not loaded 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -697,15 +706,13 @@ exports[`Should render nothing if information has not loaded 1`] = `
                       className="profile-header-rating"
                     >
                       <RatingStars
-                        rateNumber={0}
+                        rateNumber={4}
                       />
                     </div>
                     <div
                       className="profile-header-rated-times"
                     >
-                      <span
-                        className="spinner spinner--ratings"
-                      />
+                      rated by 50 users
                     </div>
                   </div>
                 </div>
@@ -748,10 +755,9 @@ exports[`Should render nothing if information has not loaded 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
+    <div
+      className="flex filter-form"
+    >
       <div
         className="profile__article-section__no-articles"
       >
@@ -759,7 +765,7 @@ exports[`Should render nothing if information has not loaded 1`] = `
           No articles yet.
         </p>
       </div>
-    </ul>
+    </div>
   </div>
 </div>
 `;
@@ -817,12 +823,13 @@ exports[`Should use empty spaces for non-existent fields 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -910,74 +917,78 @@ exports[`Should use empty spaces for non-existent fields 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:43:19.726Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:43:19.726Z",
-          }
-        }
+    <div
+      className="flex filter-form"
+    >
+      <h2
+        className="list-section-header"
+      >
+        Published Articles
+      </h2>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:43:19.726Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
         key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.118Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:46:24.118Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:43:19.726Z"
+      />
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.118Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
         key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.615Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "10-taboos-about-you-should-never-share-on-twitter",
-            "title": "10 Taboos About You Should Never Share On Twitter",
-            "updatedAt": "2019-03-15T08:46:24.615Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
-        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:46:24.118Z"
       />
-    </ul>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.615Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
+        }
+        slug="10-taboos-about-you-should-never-share-on-twitter"
+        title="10 Taboos About You Should Never Share On Twitter"
+        updatedAt="2019-03-15T08:46:24.615Z"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -1035,12 +1046,13 @@ exports[`Should use singular if one rater 1`] = `
                   label=""
                   labelStyle={
                     Object {
-                      "background": "url(/assets/img/camera-icon.png)",
+                      "background": "url(/assets/img/camera-icon-gray.png)",
                       "bottom": "45%",
                       "cursor": "pointer",
                       "display": "block",
                       "height": "48px",
                       "left": "55%",
+                      "opacity": "1",
                       "position": "absolute",
                       "width": "48px",
                       "zIndex": "45",
@@ -1075,15 +1087,13 @@ exports[`Should use singular if one rater 1`] = `
                       className="profile-header-rating"
                     >
                       <RatingStars
-                        rateNumber={0}
+                        rateNumber={4}
                       />
                     </div>
                     <div
                       className="profile-header-rated-times"
                     >
-                      <span
-                        className="spinner spinner--ratings"
-                      />
+                      rated by 1 user
                     </div>
                   </div>
                 </div>
@@ -1130,74 +1140,78 @@ exports[`Should use singular if one rater 1`] = `
   <div
     className="profile__article-section"
   >
-    <h1>
-      Your Articles
-    </h1>
-    <ul>
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:43:19.726Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "7e379cf3-b23b-4ce7-bac9-b8db087a8ebd",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:43:19.726Z",
-          }
-        }
+    <div
+      className="flex filter-form"
+    >
+      <h2
+        className="list-section-header"
+      >
+        Published Articles
+      </h2>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:43:19.726Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
         key="7e379cf3-b23b-4ce7-bac9-b8db087a8ebd"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.118Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "dc5cb0dc-750a-4b85-bcbb-a8314faa524f",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "how-to-speak-so-that-people-want-to-listen-everytime",
-            "title": "How to speak so that people want to listen everytime",
-            "updatedAt": "2019-03-15T08:46:24.118Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:43:19.726Z"
+      />
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.118Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
         key="dc5cb0dc-750a-4b85-bcbb-a8314faa524f"
-      />
-      <ArticleListItem
-        article={
-          Object {
-            "authorId": "2c17e943-df50-485c-870a-1cf3bc59d015",
-            "body": "body",
-            "categoryId": 1,
-            "createdAt": "2019-03-15T08:46:24.615Z",
-            "description": "How to speak so that people want to listen everytime",
-            "id": "c5c7c34c-c3c8-49fa-abc0-3ebeb9512418",
-            "references": Array [
-              "reference1.site",
-              "reference2.site",
-              "reference3.site",
-            ],
-            "slug": "10-taboos-about-you-should-never-share-on-twitter",
-            "title": "10 Taboos About You Should Never Share On Twitter",
-            "updatedAt": "2019-03-15T08:46:24.615Z",
-          }
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
         }
-        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        slug="how-to-speak-so-that-people-want-to-listen-everytime"
+        title="How to speak so that people want to listen everytime"
+        updatedAt="2019-03-15T08:46:24.118Z"
       />
-    </ul>
+      <FeedBottomSmallCard
+        authorId="2c17e943-df50-485c-870a-1cf3bc59d015"
+        body="body"
+        categoryId={1}
+        createdAt="2019-03-15T08:46:24.615Z"
+        dateCreated="17 days ago"
+        description="How to speak so that people want to listen everytime"
+        featuredImage=""
+        id="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        key="c5c7c34c-c3c8-49fa-abc0-3ebeb9512418"
+        references={
+          Array [
+            "reference1.site",
+            "reference2.site",
+            "reference3.site",
+          ]
+        }
+        slug="10-taboos-about-you-should-never-share-on-twitter"
+        title="10 Taboos About You Should Never Share On Twitter"
+        updatedAt="2019-03-15T08:46:24.615Z"
+      />
+    </div>
   </div>
 </div>
 `;

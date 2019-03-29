@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Profile } from '../../../components/profile/Profile';
+import ArticleListItem from '../../../components/profile/ArticleListItem';
+
 import profile from '../../mock-data/profile';
+
 
 jest.mock('../../../utils/socket.js');
 
@@ -10,7 +13,7 @@ test('Should render component correctly with published articles', () => {
 
   expect(wrapper).toMatchSnapshot();
 
-  expect(wrapper.find('ArticleListItem').length).toBe(profile.data.publishedArticles.length);
+  expect(wrapper.find(ArticleListItem).length).toBe(profile.data.publishedArticles.length);
 });
 
 test('Should render component correctly without published articles', () => {

@@ -73,7 +73,7 @@ test('Should dispatch correct error when 500 error is thrown', async () => {
   expect(error).toBe('Server error.');
 });
 
-test('Should dispatch correct error when unknown error is thrown', async () => {
+test('Should dispatch invalid input error from the server', async () => {
   const store = createMockStore({});
   const loginDetails = { email: 'lorem@ipsum.com' };
 
@@ -83,5 +83,18 @@ test('Should dispatch correct error when unknown error is thrown', async () => {
   
   const error = await store.dispatch(login(loginDetails));
 
-  expect(error).toBe('Unknown error.');
+  expect(error).toBe('Please provide the correct email and password');
+});
+
+test('Should dispatch error for on un-verified user', async () => {
+  const store = createMockStore({});
+  const loginDetails = { email: 'lorem@ipsum.com' };
+
+  const response = { response: { status: 403 }};
+
+  axios.post.mockRejectedValue(response);
+  
+  const error = await store.dispatch(login(loginDetails));
+
+  expect(error).toBe('Please verify your email and try again');
 });

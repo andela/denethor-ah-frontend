@@ -1,6 +1,6 @@
 footer {
-  position: absolute;
-  margin-bottom: -350px;
+  // position: absolute;
+  // margin-bottom: -350px;
   text-align: center;
   width: 100%;
   left: 0rem;
@@ -12,7 +12,7 @@ footer {
 
 .footer {
   flex-wrap: wrap;
-  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .2)), url('/assets/img/map-typing.jpg') center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.76)), url('/assets/img/map-typing.jpg') center center;
   background-size: cover;
   background-position: 10% 90%;
   border-bottom: 0.4rem solid #FBE15D;
@@ -81,7 +81,7 @@ footer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 2rem 0;
+    margin: 3rem 0 0 0;
     background: #C4C4C4;
     border-radius: 3.125rem;
     padding: 0 10px;

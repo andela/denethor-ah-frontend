@@ -13,6 +13,7 @@ import Profile from '../profile/Profile';
 import EditProfile from '../profile/editProfile/EditProfile';
 import UserBookmarks  from '../userBookmarks/userBookmarks';
 import ResetPassword from '../resetPassword';
+import UserPublications from '../articles/UserPublications';
 import './style.scss';
 
 export class Dashboard extends Component {
@@ -48,16 +49,17 @@ export class Dashboard extends Component {
   render() {
     return (
       <div className={`dashboard-page-wrapper`}>
-        <SideBar />
+        <SideBar history={this.props.history}/>
         <ContentArea>
           <Switch>
-            <Route exact path='/dashboard' render={() => <Profile /> }/>
+            <Route exact path='/dashboard' render={({ history }) => { history.replace('/dashboard/my-publications'); return null; } } />
             <Route path='/dashboard/topReads' component={TopReads} />
             <Route path='/dashboard/my-profile' component={Profile} />
             <Route path='/dashboard/edit-profile' component={EditProfile} />
             <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
             <Route path='/dashboard/reset-password' component={ResetPassword} />
             <Route path='/dashboard/bookmarked-articles' component={UserBookmarks} />
+            <Route path='/dashboard/my-publications' component={UserPublications} />
           </Switch>
         </ContentArea>
       </div>
@@ -72,13 +74,20 @@ Dashboard.propTypes = {
   history: PropTypes.object,
   isLoggedIn: PropTypes.bool
 }
-const mapStateToProps = ({ auth: { isLoggedIn }, profile }) => ({ 
-  isLoggedIn,
-  profile
-});
-const mapDispatchToProps = (dispatch) => ({
-  getOwnProfile: id => dispatch(getOwnProfile(id)),
-  getArticles: () => dispatch(getArticles()),
-  setLoggedInState: () => dispatch(setLoggedInState)
-});
+
+function mapStateToProps ({ auth: { isLoggedIn }, profile }) { 
+  return {
+    isLoggedIn,
+    profile,
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    getOwnProfile: id => dispatch(getOwnProfile(id)),
+    getArticles: () => dispatch(getArticles()),
+    setLoggedInState: () => dispatch(setLoggedInState)
+  }
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
