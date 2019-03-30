@@ -10,7 +10,7 @@
   top: 3rem;
   right: 1.5rem;
 
-  > .Toastify__toast-body {
+  >.Toastify__toast-body {
     font-size: 0.8rem;
   }
 }
@@ -118,8 +118,6 @@
 }
 
 .section-article-info {
-  padding-right: 20%;
-  padding-left: 20%;
   margin-right: auto;
   margin-left: auto;
   padding-top: 1em;
@@ -133,9 +131,11 @@
 .section-user-comments {
   margin-top: 3em;
 }
-.article-comment-field{
+
+.article-comment-field {
   border: none !important;
 }
+
 .comment-create-field {
   background-color: #f6f6f6;
   border-radius: 0.2em;
@@ -146,7 +146,7 @@
   color: rgb(189, 184, 184);
 }
 
-button.article-comment-field__button{
+button.article-comment-field__button {
   border-radius: 6px;
   padding: 0.25rem 0.625rem;
   margin-left: auto;
@@ -159,23 +159,23 @@ button.article-comment-field__button{
   -webkit-appearance: unset;
 }
 
-.impressions-container{
+.impressions-container {
   display: none;
 }
 
-.impressions-container-mobile { 
+.impressions-container-mobile {
   display: flex;
   width: 55%;
   border-radius: 0.4em;
 }
 
-.auto-container-body{
+.auto-container-body {
   display: flex;
 }
 
 .rate-impression {
   display: flex;
-  
+
   p {
     margin-right: 1em;
   }
@@ -183,10 +183,11 @@ button.article-comment-field__button{
 
 .impression {
   width: 31%;
-   p{
-     font-size: 0.9em;
-     font-family: Montserrat-Medium;
-   }
+
+  p {
+    font-size: 0.9em;
+    font-family: Montserrat-Medium;
+  }
 }
 
 .bookmark-button {
@@ -195,6 +196,7 @@ button.article-comment-field__button{
   top: 75%;
   cursor: pointer;
 }
+
 @media only screen and (min-width: 40em) {
 
   .article-header-rated-times {
@@ -210,7 +212,7 @@ button.article-comment-field__button{
     text-align: left;
     overflow: unset;
   }
-  
+
   .banner-content {
     display: block;
     flex-direction: row;
@@ -219,19 +221,19 @@ button.article-comment-field__button{
     padding-top: 3em;
     height: 100%;
   }
-  
+
   .banner-content-title {
     font-size: 2.4em;
     margin-bottom: 3.5em;
     line-height: 1.2em;
   }
-  
+
   .article-header-username {
     font-family: Montserrat-Bold;
     font-size: 1.2em;
     color: white;
   }
-  
+
   .avatar-text-group {
     display: flex;
     flex-direction: unset;
@@ -250,14 +252,15 @@ button.article-comment-field__button{
       display: inline-block;
       margin-top: -3.5em;
     }
+
     .impressions-container {
       display: none;
     }
-  
+
     .body-section {
       margin-top: 6em;
     }
-  
+
     .article-body {
       font-size: 1.2em;
       text-align: justify;
@@ -280,13 +283,17 @@ button.article-comment-field__button{
     text-align: justify;
   }
 
-  .impressions-container-mobile{
+  .impressions-container-mobile {
     width: 36%;
   }
 
   .bookmark-button {
     left: 92%;
     top: 85%;
+  }
+
+  .section-article-info {
+    padding: 1rem 20%;
   }
 }
 
@@ -325,20 +332,22 @@ button.article-comment-field__button{
     border-radius: 1em;
     justify-content: space-between;
     border: 1px solid #e8e5e5;
-    
-      p {
-        display: none;
-      }
-      .impression {
-        margin-left: 1em;
-        margin-bottom: 1em;
-      }
-      svg {
-        cursor: pointer;
-      }
+
+    p {
+      display: none;
+    }
+
+    .impression {
+      margin-left: 1em;
+      margin-bottom: 1em;
+    }
+
+    svg {
+      cursor: pointer;
+    }
   }
 
-  .impressions-container-mobile { 
+  .impressions-container-mobile {
     display: none;
   }
 

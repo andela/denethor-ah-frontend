@@ -4,10 +4,21 @@ import uuid from 'uuid/v1';
 import { Provider } from 'react-redux';
 import storeConfig from '../../../redux/configureStore';
 import { SingleArticleView } from '../../../components/articles/ArticlePage';
+import TagEntries from '../../../components/articles/tags/TagEntries';
 import articles from '../../mock-data/articles';
 	
 const store = storeConfig();
 const commentsLikes = [];
+const tags = [
+	{
+		"id": "e1e0af51-977b-4c52-8015-061cb953d10a",
+		"tagText": "andela",
+		"TagArticle": {
+			"articleId": "0ce57cb7-c380-4bc0-857e-2a76073c9ab2",
+			"tagId": "e1e0af51-977b-4c52-8015-061cb953d10a"
+		}
+	},
+];
 
 jest.mock('uuid/v1');
 jest.mock('../../../utils/socket.js');
@@ -49,6 +60,12 @@ describe('Test for the single article component', () => {
 		expect(wrapper.find('.user-profile-picture').length).toBe(1);
 		expect(wrapper.find('.article-header-username').length).toBe(1);
 		expect(wrapper.find('.article-body').length).toBe(1);
+	});
+
+	it('should render the comment entry section', () => {
+		const wrapper = mount(<TagEntries tagEntries =  { tags } />);
+		expect(wrapper.length).toBe(1);
+		expect(wrapper.find('.tags__section').length).toBe(1);
 	});
 
 	it('should call toast success when starclickhandle is called', () => {

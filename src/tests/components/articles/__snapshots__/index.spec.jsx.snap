@@ -376,6 +376,18 @@ exports[`Test for the single article component should call toast error when star
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -1111,6 +1123,18 @@ exports[`Test for the single article component should call toast success when st
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -1850,6 +1874,18 @@ exports[`Test for the single article component should dislike an article 1`] = `
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -2589,6 +2625,18 @@ exports[`Test for the single article component should fail to dislike an article
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -3328,6 +3376,18 @@ exports[`Test for the single article component should fail to like an article 1`
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >
@@ -4067,6 +4127,18 @@ exports[`Test for the single article component should like an article 1`] = `
               />
             </div>
           </div>
+          <TagEntries
+            className="article-tags"
+            tagEntries={Array []}
+          >
+            <div
+              className="tags__section"
+            >
+              <ul
+                className="tags__section--tags"
+              />
+            </div>
+          </TagEntries>
           <div
             className="body-section-info-section"
           >

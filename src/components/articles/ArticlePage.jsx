@@ -24,6 +24,7 @@ import {
 import { showLoginModal } from '../../redux/actions/auth';
 import { LikeNumberGroup , DisLikeNumberGroup, CommentButtonGroup } from '../likeNumberGroup';
 import { BookMarkHeartIcon } from '../impressionIcons'
+import Tags from './tags/TagEntries';
 
 import './style.scss';
 import Spinner from '../spinner/Spinner';
@@ -192,7 +193,7 @@ export class SingleArticleView extends Component {
     } = this.props;
     const { loading } = comments;
     const article = articles.find(item => item.id === articleId) || {};
-    const commentsCount = this.props.comments.comments.length
+    const commentsCount = this.props.comments.comments.length;
 
     const { 
       title, 
@@ -200,6 +201,7 @@ export class SingleArticleView extends Component {
       author: { username = '', imageUrl: userAvatarImage = '' } = {}, 
       body,
       comments: articleComments = [],
+      tags= []
     } = article;
 
     const totalLikes = impressions.likes.length;
@@ -258,6 +260,7 @@ export class SingleArticleView extends Component {
               <div dangerouslySetInnerHTML={{ __html: body }} />
             </div>
             </div>
+            <Tags className='article-tags' tagEntries =  { (tags) } />
             <div className="body-section-info-section">
             <HorizontalLine />
             <div className='section-article-info'>  
@@ -285,7 +288,7 @@ export class SingleArticleView extends Component {
                 <Spinner loading={loading} />
                 <div className='section-user-comments'>
                   <CommentEntries 
-                  handleOnClickLike={this.handleOnClickLike} 
+                  handleOnClickLike={(id) => this.handleOnClickLike(id)} 
                   allCommentsImpressions={comments.commentsLikes} 
                   comments={ comments.comments.length ? comments.comments : articleComments } 
                   />
