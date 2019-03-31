@@ -13,7 +13,7 @@ it('Should return default state when initialized', () => {
 it('Should add tags to store', () => {
   const state = tagsReducer(tags, {
     type: ADD_TAG,
-    tag: tags[0]
+    payload: tags[0]
   });
   expect(state).toEqual([...tags, tags[0]]);
 });
@@ -22,7 +22,7 @@ it('Should remove tags from store', () => {
   const initialLength = tags.length;
   const state = tagsReducer(tags, {
     type: REMOVE_TAG,
-    tag: tags[0]
+    payload: tags[0]
   });
   expect(state.length).toEqual(initialLength - 1);
 });

@@ -7,14 +7,14 @@ const { API_ROOT_URL } = process.env;
 export const addTag = tag => (dispatch) => {
   dispatch({
     type: ADD_TAG,
-    tag
+    payload: tag
   });
 };
 
 export const removeTag = tag => (dispatch) => {
   dispatch({
     type: REMOVE_TAG,
-    tag
+    payload: tag
   });
 };
 

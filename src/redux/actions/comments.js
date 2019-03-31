@@ -39,7 +39,7 @@ export const getArticleComments = (articleId) => async (dispatch) => {
     data: {
       articleComments
     }
-  } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);console.log(articleComments);
+  } = await axios.get(`${BASE_URL}/articles/${articleId}/comments`);
   dispatch(getCommentSuccess(articleComments));
 };
 

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for Highlights and Highlight Entries should call toast error when server error occurs 1`] = `
+<CreateHighlight
+  addHighlight={[MockFunction]}
+  articleId="sample-article"
+  display={true}
+  highlightText="sample highlight"
+  id="sample-id"
+  isLoggedIn={true}
+  readerId="sample-user"
+>
+  <div
+    className="highlight-comment-textarea active"
+  >
+    <div
+      className="ellipses"
+    >
+      sample highlight
+    </div>
+    <Comment
+      handleOnClick={[Function]}
+      id="sample-id"
+    >
+      <div
+        className="comment-create-field"
+      >
+        <TextAreaInput
+          className="article-comment-field sample-id"
+          onChange={[Function]}
+          placeHolder="Your message"
+          placeholder="Your message"
+          value=""
+        >
+          <textarea
+            className="textarea-input article-comment-field sample-id"
+            onChange={[Function]}
+            placeholder="Your message"
+            value=""
+          />
+        </TextAreaInput>
+        <Button
+          className="article-comment-field__button"
+          isRequestSent={false}
+          onClick={[Function]}
+          type="submit"
+          value="submit"
+        >
+          <button
+            className="article-comment-field__button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            submit
+          </button>
+        </Button>
+      </div>
+    </Comment>
+  </div>
+</CreateHighlight>
+`;

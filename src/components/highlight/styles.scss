@@ -1,0 +1,58 @@
+.highlight-comment-textarea {
+  position: fixed;
+  display: none;
+  width: 250px;
+  top: 10rem;
+  right: 2rem;
+  -webkit-animation: slideIn .5s;
+  animation: slideIn .5s;
+
+  .ellipses {
+    background: #FBE15D;
+    margin: 0.25rem auto;
+    border-radius: 0.25rem;
+    padding: 0 0.25rem;
+  }
+}
+
+::selection{
+  background: #FBE15D;
+  color: black;
+}
+
+@keyframes slideIn{
+  from{
+    top: 8rem; opacity: 0; height: 40px;
+  }
+  to{
+    top: 10rem; opacity: 1; height: 80px;
+  }
+}	
+
+.highlight-comment-textarea.active {
+  display: block;
+}
+
+.highlight-entry,
+.highlight-text,
+.highlight-comment {
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-radius: 0.2em;
+}
+
+.highlight-comment {
+  background-color: #F6F6F6;
+  padding-left: 1em;
+  border: 1px solid #E5E5E5;
+  padding-right: 1em;
+}
+
+.highlight-text {
+  background: #fbe15dbf;
+  color: black;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border: 1px solid #FBE15D;
+}

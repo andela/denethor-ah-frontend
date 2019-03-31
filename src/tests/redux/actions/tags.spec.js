@@ -17,7 +17,7 @@ describe('Tags actions', () => {
     const [action] = store.getActions();
     expect(action).toEqual({
       type: 'ADD_TAG',
-      tag: tags[0]
+      payload: tags[0]
     });
   });
 
@@ -27,7 +27,7 @@ describe('Tags actions', () => {
     const [action] = store.getActions();
     expect(action).toEqual({
       type: 'REMOVE_TAG',
-      tag: tags[0]
+      payload: tags[0]
     });
   });
 
