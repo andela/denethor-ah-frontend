@@ -3,7 +3,37 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './style.scss';
 
-const SideBar = ({ authUserEmail = '' }) => {
+const SideBar = ({ authUserEmail = '', history }) => {
+  const linkItemIsActive = (linkItem) => {
+    const { location: { pathname } } = history;
+    if(pathname.indexOf(linkItem) !== -1) {
+      return true;
+    }
+    return false;
+  }
+
+  const links = {
+    '/create-article': 'Create Article',
+    '/dashboard/bookmarked-articles': 'Bookmarked Articles',
+    '/dashboard/my-followers': 'My Followers',
+    '/dashboard/my-publications': 'My Publications',
+    '/dashboard/my-profile': 'My Profile',
+    '/dashboard/edit-profile': 'Edit Profile',
+  };
+
+  const navLinks = Object.keys(links).map((linkKey) => {
+    const linkText = links[linkKey];
+    const linkFocusStatus = linkItemIsActive(linkKey) ? ' active' : ' inactive';
+
+    return (
+      <li key={linkKey} className={`sidebar-links__item${linkFocusStatus}`}>
+        <NavLink to={linkKey}>{linkText}</NavLink>
+        <div className='button_background' />
+      </li>
+    );
+  })
+
+
   return (
     <div className='sidebar'>
       <div className='sidebar-header'>
@@ -15,34 +45,7 @@ const SideBar = ({ authUserEmail = '' }) => {
       </div>
       <div className='sidebar-links'>
         <ul>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/bookmarked-articles'>Bookmarked Articles</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/topReads'>Top Reads</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/my-followers'>My Followers</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/my-publications'>My Publications</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/my-profile'>My Profile</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/edit-profile'>Edit Profile</NavLink>
-            <div className='button_background' />
-          </li>
-          <li className='sidebar-links__item'>
-            <NavLink to='/dashboard/reset-password'>Reset Password</NavLink>
-            <div className='button_background' />
-          </li>
+          {navLinks}
         </ul>
       </div>
     </div>
@@ -50,7 +53,8 @@ const SideBar = ({ authUserEmail = '' }) => {
 };
 
 SideBar.propTypes = {
-  authUserEmail: PropTypes.string
+  authUserEmail: PropTypes.string,
+  history: PropTypes.object,
 };
 
 export default SideBar;

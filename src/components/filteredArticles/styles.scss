@@ -1,8 +1,14 @@
 .filter-form {
-  min-height: 70vh;
+  // min-height: 70vh;
   width: 100%;
-  padding: 10rem 2rem 3rem;
+  // padding: 10rem 2rem 3rem;
+  width: 95%;
+  padding: 2rem 0;
   justify-content: flex-start;
+  display: flex;
+  min-height: 38em;
+  padding-left: 5%;
+  padding-bottom: 6em;
 
   >h2 {
     width: 100%;
@@ -40,5 +46,12 @@
     .paginator .paginator__content-area .feed-bottom-container-small {
       width: 90%;
     }
+  }
+}
+
+
+@media (min-width: 40rem) {
+  .feed-bottom-container-small {
+    width: 50%;
   }
 }

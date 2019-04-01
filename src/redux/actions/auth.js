@@ -1,5 +1,12 @@
 import { toast } from 'react-toastify';
-import { SET_LOGIN_STATUS, LOGOUT, LOGIN_MODAL } from './types';
+import { 
+  SET_LOGIN_STATUS, 
+  LOGOUT,
+  LOGIN_MODAL,
+  CHANGE_MOBILE_AUTH_ACTION, 
+  DEACTIVATE_MOBILE_AUTH_ACTION, 
+  ACTIVATE_MOBILE_AUTH_ACTION 
+} from './types';
 import axios from '../../utils/axiosConfig';
 import { removeOwnProfile } from './profile';
 
@@ -23,6 +30,12 @@ export const login = loginDetails => async (dispatch) => {
     switch (status) {
       case 401:
         return 'Incorrect username or password.';
+      
+      case 403:
+        return 'Please verify your email and try again';
+
+      case 422:
+        return 'Please provide the correct email and password';
 
       case 500:
       case 502:
@@ -45,3 +58,23 @@ export const logout = () => async (dispatch) => {
   dispatch({ type: LOGOUT });
   dispatch(removeOwnProfile());
 };
+
+
+export const switchQuickAuthAction = (link) => dispatch => {
+  dispatch({
+    type: CHANGE_MOBILE_AUTH_ACTION,
+    payload: link
+  });
+}
+
+export const activateQuickAuthAction = () => dispatch => {
+  dispatch({
+    type: ACTIVATE_MOBILE_AUTH_ACTION
+  });
+}
+
+export const deactivateQuickAuthAction = () => dispatch => {
+  dispatch({
+    type: DEACTIVATE_MOBILE_AUTH_ACTION
+  });
+}

@@ -49,7 +49,7 @@ export class SearchForm extends Component {
     e.preventDefault();
     const { 
       state: { searchString, selectedTag, selectedAuthor, toastOptions },
-      props: { handleFilter, history } 
+      props: { handleFilter, history, toggleSearchDisplay } 
     } = this;
 
     if (!searchString && !selectedTag && !selectedAuthor) {
@@ -59,6 +59,7 @@ export class SearchForm extends Component {
     this.setState({ disableButton: true });
     await handleFilter(searchString, selectedTag.value, selectedAuthor.value);
     this.setState({ disableButton: false });
+    toggleSearchDisplay();
     history.push('/filter');
   }
 
@@ -126,7 +127,8 @@ SearchForm.propTypes = {
   className: PropTypes.string,
   isLoggedIn: PropTypes.bool,
   location: PropTypes.object,
-  profile: PropTypes.object
+  profile: PropTypes.object,
+  toggleSearchDisplay: PropTypes.func
 };
 
 const mapStateToProps = ({ authors, tags, profile }) => ({ authors, tags, profile });

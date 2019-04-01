@@ -37,7 +37,7 @@ export class SearchWidget extends Component {
           {display && (<FontAwesomeIcon icon={faTimes} color="#818181" size="2x" />)}
         </button>
         <div className={`search-form ${display ? 'active' : ''}`}>
-          <SearchForm {...props} />
+          <SearchForm {...props} toggleSearchDisplay={this.handleDisplay} />
         </div>
       </div>
     )

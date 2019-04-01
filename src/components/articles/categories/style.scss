@@ -4,11 +4,12 @@
 
 .search-error {
   height: 80px;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   margin-top: 20%;
   margin-bottom: 15%;
   h2 {
     color: #aaa;
   }
- }
+  min-height: 20em;
+}

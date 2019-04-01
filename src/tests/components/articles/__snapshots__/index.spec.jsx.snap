@@ -13,6 +13,7 @@ exports[`Test for the single article component should call toast error when star
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addComment={[MockFunction]}
     articles={
       Array [
@@ -71,6 +72,12 @@ exports[`Test for the single article component should call toast error when star
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={
@@ -355,13 +362,14 @@ exports[`Test for the single article component should call toast error when star
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
@@ -741,6 +749,7 @@ exports[`Test for the single article component should call toast success when st
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addcommment={[MockFunction]}
     articles={
       Array [
@@ -799,6 +808,12 @@ exports[`Test for the single article component should call toast success when st
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={
@@ -1083,13 +1098,14 @@ exports[`Test for the single article component should call toast success when st
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
@@ -1468,6 +1484,7 @@ exports[`Test for the single article component should dislike an article 1`] = `
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addcommment={[MockFunction]}
     articles={
       Array [
@@ -1547,6 +1564,12 @@ exports[`Test for the single article component should dislike an article 1`] = `
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={[MockFunction]}
@@ -1816,13 +1839,14 @@ exports[`Test for the single article component should dislike an article 1`] = `
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
@@ -2201,6 +2225,7 @@ exports[`Test for the single article component should fail to dislike an article
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addcommment={[MockFunction]}
     articles={
       Array [
@@ -2280,6 +2305,12 @@ exports[`Test for the single article component should fail to dislike an article
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={[MockFunction]}
@@ -2549,13 +2580,14 @@ exports[`Test for the single article component should fail to dislike an article
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
@@ -2934,6 +2966,7 @@ exports[`Test for the single article component should fail to like an article 1`
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addcommment={[MockFunction]}
     articles={
       Array [
@@ -3013,6 +3046,12 @@ exports[`Test for the single article component should fail to like an article 1`
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={[MockFunction]}
@@ -3282,13 +3321,14 @@ exports[`Test for the single article component should fail to like an article 1`
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
@@ -3667,6 +3707,7 @@ exports[`Test for the single article component should like an article 1`] = `
   }
 >
   <SingleArticleView
+    activateQuickAuthAction={[MockFunction]}
     addcommment={[MockFunction]}
     articles={
       Array [
@@ -3746,6 +3787,12 @@ exports[`Test for the single article component should like an article 1`] = `
         "params": Object {
           "articleId": "8ee5e8ed-ecdf-41c1-9b94-6c6bb712a77a",
         },
+      }
+    }
+    quickAuthAction={
+      Object {
+        "active": false,
+        "currentAction": "login",
       }
     }
     rateArticle={[MockFunction]}
@@ -4015,13 +4062,14 @@ exports[`Test for the single article component should like an article 1`] = `
             <div
               className="article-body"
             >
-              <div
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. <img src='site.com/image.jpg' /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-                  }
-                }
-              />
+              <div>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                <img
+                  key="1"
+                  src="site.com/image.jpg"
+                />
+                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              </div>
             </div>
           </div>
           <div
