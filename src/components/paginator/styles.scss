@@ -13,13 +13,18 @@
     display: flex;
     list-style-type: none;
     justify-content: center;
-    margin: 4rem 2rem;
+    // margin: 4rem 2rem;
+    margin-top: 2em;
 
     li {
       border: 1px solid #444;
       border-left: none;
       cursor: pointer;
-      width: 2.5rem;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &:first-child {
         border-left: 1px solid #444;
         border-top-left-radius: 3px;
@@ -32,7 +37,7 @@
       }
 
       &.previous, &.next {
-        width: 5rem;
+        width: 4rem;
       }
       
       &.active {

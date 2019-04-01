@@ -1,13 +1,17 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import { Signup } from '../../../../../components/home/banner/signup/Signup';
+
 jest.mock('axios');
+
+jest.mock('../../../../../utils/socket.js');
 
 test('Should render Sign-up form', () => {
   const wrapper = shallow(<Signup />);
 
   expect(wrapper).toMatchSnapshot();
 });
+
 
 it('Should set firstname state on input change', () => {
   const value = 'foobar';

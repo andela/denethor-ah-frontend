@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import Home from './components/home';
 import Header from './components/header/Header';
 import Footer from './components/footer';
-import { ArticlePage } from './components/articles';
+import { ArticlePage, ArticleCreatePage } from './components/articles';
 import Redirect from './components/redirect/Redirect';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ResetPassword from './components/resetPassword'
@@ -15,7 +15,7 @@ import { Dashboard } from './components/dashboard';
 import FilteredArticles from './components/filteredArticles/FilteredArticles';
 import UnsubscribeNotification from './components/notifications/UnsubscribeNotification'
 import ForgotPasswordVerification from './components/passwordVerification/PasswordVerification';
-import { setLoggedInState } from './redux/actions/auth';
+import { setLoggedInState, deactivateQuickAuthAction } from './redux/actions/auth';
 import { getOwnProfile, userBookmarks } from './redux/actions/profile';
 import AuthHOC from './components/AuthHOC';
 import CategoriesPage from './components/articles/categories/CategoriesPage';
@@ -72,6 +72,7 @@ class Main extends Component {
     } else if (nextState.isLoggedIn && isLoggedIn === false) {
       this.setState({ isLoggedIn: false });
     }
+    this.props.deactivateQuickAuthAction();
   }
 
   scrollToTop = () => {
@@ -98,6 +99,7 @@ class Main extends Component {
             <Route path="/api/users/:id/unsubscribe" component={UnsubscribeNotification} />
             <Route path="/forgotPassword/verify" component={ForgotPasswordVerification} />
             <Route path="/articles" component = {CategoriesPage}/>
+            <Route path="/create-article" component={ArticleCreatePage} />
           </Switch>
           <Footer />
         </div>
@@ -112,13 +114,15 @@ Main.propTypes = {
   setLoggedInState: PropTypes.func,
   getBookmarks: PropTypes.func,
   notifications: PropTypes.array,
-  removeNotifications: PropTypes.func
+  removeNotifications: PropTypes.func,
+  deactivateQuickAuthAction: PropTypes.func
 }
 
 const mapDispatchToProps = (dispatch) => ({
   getOwnProfile: id => dispatch(getOwnProfile(id)),
   setLoggedInState: loggedInState => dispatch(setLoggedInState(loggedInState)),
-  getBookmarks: id => dispatch(userBookmarks(id))
+  getBookmarks: id => dispatch(userBookmarks(id)),
+  deactivateQuickAuthAction: () => dispatch(deactivateQuickAuthAction())
 });
 
 const mapStateToProps = ({ auth: { isLoggedIn }, notifications }) => ({ isLoggedIn, notifications });

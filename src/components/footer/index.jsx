@@ -7,11 +7,6 @@ import './style.scss';
 export const Footer = () => (
   <footer>
     <div className="footer">
-      <div className="footer__search-section">
-        <div className="footer__search-section__search-text">
-          <span>Search Articles</span>
-        </div>
-      </div>
       <NavTab />
       <div className="footer__logo-button">
         <button className="footer__logo-button__button">

@@ -15,7 +15,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  width: 40%;
+  width: 100%;
+  max-width: 24em;
+
   .update-profile-error-message {
     color: #F1D230;
   }
@@ -23,7 +25,8 @@
     color: white;
     input, textarea {
       border-color: #999;
-      margin: 0 1rem;
+      // margin: 0 1rem;
+      width: 100%;
     }
     div {
       text-align: left;
@@ -32,7 +35,7 @@
         height: 5rem;
         margin-bottom: 2rem;
         padding: 0.5rem;
-        width: 13rem;
+        // width: 13rem;
       }
       &:last-child {
         text-align: center;
@@ -41,14 +44,20 @@
   }
 }
 
-@media(max-width: 40rem) {
+@media only screen and (min-width: 40em) {
   .section-edit-profile-info {
-    width: 90%;
+    max-width: 24em;
   }
 }
 
-@media(max-width: 64rem) {
-  .section-edit-profile-info {
-    width: 60%;
-  }
-}
+// @media(max-width: 40rem) {
+//   .section-edit-profile-info {
+//     width: 90%;
+//   }
+// }
+
+// @media(max-width: 64rem) {
+//   .section-edit-profile-info {
+//     width: 60%;
+//   }
+// }
