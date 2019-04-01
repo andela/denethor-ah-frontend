@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import validator from 'validator';
 import './style.scss';
 
 const PostCard = ({ size, article, categories = [] }) => {
@@ -8,7 +9,9 @@ const PostCard = ({ size, article, categories = [] }) => {
 
   const category = categories.find(item => item.id === article.categoryId) || {};
 
-  const { id, title, featuredImage, author = {}, dateCreated, readTime } = article;
+  let { id, title, featuredImage, author = {}, dateCreated, readTime } = article;
+  
+  title = validator.unescape(title);
 
   return (
     <div className={`post-card ${size}`}>

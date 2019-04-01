@@ -9,6 +9,8 @@
   position: relative;
   top: 3rem;
   right: 1.5rem;
+  left: 0;
+  margin: 1em;
 
   >.Toastify__toast-body {
     font-size: 0.8rem;
@@ -147,6 +149,17 @@
 }
 
 button.article-comment-field__button {
+  .filter-form > h2 {
+    &.list-section-header {
+      text-align: left;
+      padding-bottom: 0.6em;
+      border-bottom: 1px solid #cccccc;
+      font-family: Montserrat-SemiBold;
+    }
+  }
+}
+
+button.article-comment-field__button{
   border-radius: 6px;
   padding: 0.25rem 0.625rem;
   margin-left: auto;
@@ -220,6 +233,9 @@ button.article-comment-field__button {
     padding: 0;
     padding-top: 3em;
     height: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .banner-content-title {
@@ -306,8 +322,9 @@ button.article-comment-field__button {
     margin-right: auto;
 
     &.wide-padding {
-      padding-left: 7em;
-      padding-right: 10em;
+      padding-left: 25%;
+      padding-left: 19%;
+      padding-right: 25%;
     }
   }
 

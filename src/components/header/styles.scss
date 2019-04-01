@@ -6,11 +6,12 @@ $gray: #818181;
 .header{
   background: $white;
   display: flex;
-  height: 5rem;
+  height: 4rem;
   position: relative;
   justify-content: space-between;
   align-items: center;
   padding: 0.8em;
+  align-items: center;
 
   > button {
     background: transparent;
@@ -129,9 +130,18 @@ $gray: #818181;
     .banner-content {
       padding-top: 9em;
     }
-
+    
     &.dashboard-page-wrapper {
       padding-top: 4em;
+    }
+    
+    &.post-content {
+      padding-top: 4em;
+      margin-top: 8em;
+    }
+
+    &.filter-form {
+      margin-top: 4em;
     }
   }
   
@@ -149,7 +159,7 @@ $gray: #818181;
         padding-top: 12em;
       }
       &.dashboard-page-wrapper {
-        padding-top: 4.9em;
+        padding-top: 3.9em;
       }
     }
     

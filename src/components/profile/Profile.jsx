@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import Avatar from 'react-avatar-edit';
 import { toast } from 'react-toastify';
 import { RatingStars } from "../ratingStars";
-import ArticleListItem from './ArticleListItem';
+import FeedBottomSmallCard from '../feed/FeedBottomSmallCard';
 import RoundedImage from '../RoundedImage';
 import { uploadProfilePicture } from '../../redux/actions/profile';
+import { extractImageFromBody } from '../../utils/imageExtractor';
+import { toTimeFromNow } from '../../utils/dateTime';
 import './styles.scss';
 
 
@@ -55,6 +57,16 @@ export class Profile extends Component {
       publishedArticles = [],
       ratingInfo
     } = this.props.profile;
+
+    const articles = publishedArticles.map(article => {
+      article.featuredImage = extractImageFromBody(article.body);
+      article.dateCreated =  toTimeFromNow(article.createdAt);
+      // article.readTime = '1 minute';
+      return article;
+    });
+
+    const { sideBarActive } = this.props;
+    const articlesExist = articles.length ? true : false;
   
     return (
       <div>
@@ -95,7 +107,8 @@ export class Profile extends Component {
                           cursor: 'pointer',
                           position: 'absolute',
                           width: '48px',
-                          zIndex: '45'
+                          zIndex: '45',
+                          opacity: sideBarActive ? '0' : '1'
                         }}
                       />
                       <div className='profile-username-rate-group'>
@@ -134,18 +147,18 @@ export class Profile extends Component {
           </div>
         </div>
         <div className='profile__article-section'>
-          <h1>Your Articles</h1>
-          <ul>
+          <div className='flex filter-form'>
+            {articlesExist && (<h2 className='list-section-header'>Published Articles</h2>)}
             {
               publishedArticles[0]
-                ? publishedArticles.map(article => (<ArticleListItem key={article.id} article={article}/>))
+                ? articles.map((article) => (<FeedBottomSmallCard key={article.id} {...article} />))
                 : <div className='profile__article-section__no-articles'>
                     <p>
                       No articles yet.
                     </p>
                   </div>
             }
-          </ul>
+          </div>
         </div>
       </div>
     );
@@ -155,13 +168,17 @@ export class Profile extends Component {
 Profile.propTypes = {
   profile: PropTypes.object,
   history: PropTypes.object,
-  uploadProfilePicture: PropTypes.func
+  uploadProfilePicture: PropTypes.func,
+  sideBarActive: PropTypes.bool
 };
 
-const mapStateToProps = ({ profile }) => ({ profile });
+const mapStateToProps = ({ profile, elementStatuses: { sideBarActive } }) => (
+  { profile, sideBarActive }
+);
 
 const mapDispatchToProps = (dispatch) => ({
   uploadProfilePicture: (id, newProfilePicture) => dispatch(uploadProfilePicture(id, newProfilePicture))
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

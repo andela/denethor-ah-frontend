@@ -50,7 +50,12 @@ describe('Test for the single article component', () => {
 		impressions:{
 			likes:[],
 			dislikes:[]
-		} 
+		},
+		quickAuthAction: {
+			active: false,
+			currentAction: 'login'
+		},
+		activateQuickAuthAction: jest.fn()
 	};
 	it('should render single article view page', () => {
 		const wrapper = mount(<Provider store={store}><SingleArticleView {...props} /></Provider>);
@@ -95,7 +100,12 @@ describe('Test for the single article component', () => {
 			impressions:{
 				likes:[],
 				dislikes:[]
-			} 
+			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount(<Provider store={store}><SingleArticleView {...props} /></Provider>);
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
@@ -130,7 +140,12 @@ describe('Test for the single article component', () => {
 			impressions:{
 				likes:[],
 				dislikes:[]
-			} 
+			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount(<Provider store={store}><SingleArticleView {...props} /></Provider>);
 		wrapper.find('.rating-stars span').at(0).simulate('click', 5);
@@ -173,6 +188,11 @@ describe('Test for the single article component', () => {
 				ratings: [],
 				userBookmarks: [],
 			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount( <Provider store={store}><SingleArticleView {...props} /></Provider> );
 		wrapper.find('.like-icon').at(0).simulate('click');
@@ -215,6 +235,11 @@ describe('Test for the single article component', () => {
 				ratings: [],
 				userBookmarks: [],
 			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount( <Provider store={store}><SingleArticleView {...props} /></Provider> );
 		wrapper.find('.like-icon').at(0).simulate('click');
@@ -257,6 +282,11 @@ describe('Test for the single article component', () => {
 				ratings: [],
 				userBookmarks: [],
 			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount( <Provider store={store}><SingleArticleView {...props} /></Provider> );
 		wrapper.find('.dislike-icon').at(0).simulate('click');
@@ -299,6 +329,11 @@ describe('Test for the single article component', () => {
 				ratings: [],
 				userBookmarks: [],
 			},
+			quickAuthAction: {
+				active: false,
+				currentAction: 'login'
+			},
+			activateQuickAuthAction: jest.fn()
 		};
 		const wrapper = mount( <Provider store={store}><SingleArticleView {...props} /></Provider> );
 		wrapper.find('.dislike-icon').at(0).simulate('click');

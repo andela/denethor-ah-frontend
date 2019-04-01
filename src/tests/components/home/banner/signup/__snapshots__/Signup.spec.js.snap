@@ -115,7 +115,9 @@ exports[`Should render Sign-up form 1`] = `
         <span />
       </button>
     </form>
-    <SocialLoginIcons />
+    <withRouter(SocialLoginIcons)
+      switchQuickAuthAction={[Function]}
+    />
   </div>
 </div>
 `;

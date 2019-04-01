@@ -152,7 +152,7 @@ export class EditProfile extends Component {
         <div className='section-edit-profile-info'>  
           <div className='edit-profile__firstname'>
             <div>
-              <span>First Name:</span>
+              <span>First Name</span>
               <small className='update-profile-error-message'>
                 &nbsp;{firstnameError}
               </small>
@@ -169,7 +169,7 @@ export class EditProfile extends Component {
 
           <div className='edit-profile__lastname'>
             <div>
-              <span>Last Name: </span>
+              <span>Last Name </span>
               <span className='update-profile-error-message'>
                 &nbsp;{lastnameError}
               </span>
@@ -186,7 +186,7 @@ export class EditProfile extends Component {
 
           <div className='edit-profile__username'>
             <div>
-              <span>Username: </span>
+              <span>Username </span>
               <span className='update-profile-error-message'>
                 &nbsp;{usernameError}
               </span>
@@ -203,7 +203,7 @@ export class EditProfile extends Component {
 
             <div className="profile__bio">
               <div>
-                <span>Bio: </span>
+                <span>Bio </span>
                 <span className='update-profile-error-message'>
                   &nbsp;{bioError}
                 </span>
